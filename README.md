@@ -106,14 +106,34 @@ fig.add_trace(go.Scatter(x=x, y=y, name='Data'))  # Pure native syntax - colors 
 
 Huez comes with a rich collection of **professional color schemes** and supports **easy customization**:
 
+
+
 ### ✨ Custom Schemes
 ```python
-# Easy custom scheme creation
-hz.create_scheme("my_scheme", colors=["#FF6B6B", "#4ECDC4", "#45B7D1"])
-hz.use("my_scheme")
+# Switch between built-in schemes
+hz.use("lancet")  # Academic journal style
+hz.use("scheme-2")  # Alternative color palette
 
-# Or load from file
-hz.load_scheme("path/to/my_colors.yaml")
+# Load custom configuration file
+hz.load_config("my_custom_config.yaml")
+hz.use("my_custom_scheme")
+```
+
+**Create custom config file (my_custom_config.yaml):**
+```yaml
+version: 1
+default_scheme: my_custom_scheme
+schemes:
+  my_custom_scheme:
+    title: "My Custom Style"
+    fonts: { family: "DejaVu Sans", size: 10 }
+    palettes:
+      discrete: "npg"
+      sequential: "viridis"
+      diverging: "coolwarm"
+      cyclic: "twilight"
+    figure: { size: [8, 6], dpi: 150 }
+    style: { grid: "y", legend_loc: "best", spine_top_right_off: true }
 ```
 
 ## 📄 License
