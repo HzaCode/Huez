@@ -1,1 +1,2 @@
 
+To the best of our knowledge, within the Python visualization ecosystem, no published tool provides a single-call, cross-backend theming layer that harmonizes discrete and continuous color scales, category-to-color mappings, typography, and baseline layout across mainstream plotting libraries, while also offering optional accessibility linting with empirically evaluated cross-backend consistency guarantees.
