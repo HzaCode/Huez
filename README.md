@@ -132,7 +132,7 @@ schemes:
       sequential: "viridis"
       diverging: "coolwarm"
       cyclic: "twilight"
-    figure: { size: [8, 6], dpi: 150 }
+    figure: { dpi: 300 } # Set project-wide DPI, size is controlled in code
     style: { grid: "y", legend_loc: "best", spine_top_right_off: true }
 ```
 
