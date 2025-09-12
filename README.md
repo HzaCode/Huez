@@ -135,6 +135,14 @@ schemes:
     figure: { dpi: 300 } # Set project-wide DPI, size is controlled in code
     style: { grid: "y", legend_loc: "best", spine_top_right_off: true }
 ```
+## 🔧 How Huez Works
+
+**Huez takes over color management for your visualizations.** To use Huez effectively:
+
+- **Remove explicit color parameters** from your plotting code (e.g., `color='red'`, `palette=['blue', 'green']`)
+- **Let Huez handle colors automatically** through its unified schemes
+- **Switch between different journal styles** without changing your code logic
+- **Huez only affects global defaults** - it doesn't interfere with explicit local color settings when you need them
 
 ## 📄 License
 
