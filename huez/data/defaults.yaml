@@ -1,0 +1,57 @@
+version: 1
+default_scheme: scheme-1
+schemes:
+  scheme-1:
+    title: "Nature Journal Style"
+    fonts: { family: "DejaVu Sans", size: 9 }
+    palettes:
+      discrete: "npg"
+      sequential: "viridis"
+      diverging:  "vik"
+      cyclic:     "twilight"
+    figure: { size: [3.5, 2.5], dpi: 300 }
+    style:  { grid: "y", legend_loc: "best", spine_top_right_off: true }
+
+  scheme-2:
+    title: "Science Journal Style"
+    fonts: { family: "DejaVu Sans", size: 9 }
+    palettes:
+      discrete: "aaas"
+      sequential: "plasma"
+      diverging: "coolwarm"
+      cyclic: "twilight"
+    figure: { size: [3.5, 2.5], dpi: 300 }
+    style:  { grid: "both", legend_loc: "upper right", spine_top_right_off: true }
+
+  scheme-3:
+    title: "NEJM Style"
+    fonts: { family: "DejaVu Sans", size: 9 }
+    palettes:
+      discrete: "nejm"
+      sequential: "cividis"
+      diverging: "RdBu"
+      cyclic: "twilight"
+    figure: { size: [3.5, 2.5], dpi: 300 }
+    style:  { grid: "y", legend_loc: "best", spine_top_right_off: false }
+
+  scheme-4:
+    title: "Lancet Style"
+    fonts: { family: "DejaVu Sans", size: 9 }
+    palettes:
+      discrete: "lancet"
+      sequential: "viridis"
+      diverging: "RdYlBu"
+      cyclic: "twilight"
+    figure: { size: [3.5, 2.5], dpi: 300 }
+    style:  { grid: "y", legend_loc: "best", spine_top_right_off: true }
+
+  scheme-5:
+    title: "JAMA Style"
+    fonts: { family: "DejaVu Sans", size: 9 }
+    palettes:
+      discrete: "jama"
+      sequential: "plasma"
+      diverging: "Spectral"
+      cyclic: "twilight"
+    figure: { size: [3.5, 2.5], dpi: 300 }
+    style:  { grid: "y", legend_loc: "best", spine_top_right_off: true }

@@ -1,0 +1,222 @@
+# huez Adapters Registry
+# Comprehensive visualization library support matrix
+# Version: 0.2.0
+
+adapters:
+  # Core Python plotting libraries (v0.1)
+  matplotlib:
+    status: supported
+    priority: high
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - rcParams
+      - .mplstyle files
+    docs: "https://matplotlib.org/stable/users/explain/customizing.html"
+    description: "Fundamental plotting library with comprehensive styling support"
+
+  seaborn:
+    status: supported
+    priority: high
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: false
+      diverging_colormaps: false
+    entry_points:
+      - sns.set_palette()
+      - sns.set_theme()
+    docs: "https://seaborn.pydata.org/generated/seaborn.set_palette.html"
+    description: "Statistical data visualization built on matplotlib"
+
+  plotnine:
+    status: supported
+    priority: high
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - theme_set()
+      - gg_scales() helper
+      - options.figure_size/dpi
+    docs: "https://plotnine.readthedocs.io/en/stable/api.html#themes"
+    description: "Grammar of graphics implementation for Python"
+
+  altair:
+    status: supported
+    priority: high
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - alt.themes.register/enable
+      - range.category/heatmap/diverging
+    docs: "https://altair-viz.github.io/user_guide/customization.html#themes"
+    description: "Declarative statistical visualization library"
+
+  plotly:
+    status: supported
+    priority: high
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - pio.templates
+      - layout.colorway
+      - colorscale.sequential/diverging
+    docs: "https://plotly.com/python/templates/"
+    description: "Interactive plotting library for Python"
+
+  # HoloViz ecosystem (v0.2)
+  bokeh:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - curdoc().theme
+      - bokeh.palettes
+      - theme JSON/YAML files
+    docs: "https://docs.bokeh.org/en/latest/docs/user_guide/styling/themes.html"
+    description: "Interactive visualization library for modern web browsers"
+
+  holoviews:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: false
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - default_cycles
+      - cmap settings
+      - hv.config
+    docs: "https://holoviews.org/reference_manual/holoviews.plotting.html"
+    description: "Composable data structures for building flexible visualizations"
+
+  hvplot:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: false
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - color parameter
+      - colormap parameter
+      - hvplot.defaults
+    docs: "https://hvplot.holoviz.org/en/docs/latest/ref/plotting_options/color_colormap.html"
+    description: "High-level plotting API for pandas, dask, xarray"
+
+  # Scientific visualization (v0.2)
+  pyvista:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: true
+      discrete_colors: false
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - pyvista.set_plot_theme()
+      - global/local themes
+      - default cmap
+    docs: "https://docs.pyvista.org/api/plotting/_autosummary/pyvista.set_plot_theme.html"
+    description: "3D plotting and mesh analysis through VTK"
+
+  # Geographic visualization (v0.2)
+  geopandas:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: false
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - inherits matplotlib rcParams
+      - plot(..., cmap=...)
+      - geographic colormaps
+    docs: "https://geopandas.org/en/stable/docs/user_guide/mapping.html"
+    description: "Geospatial data manipulation and visualization"
+
+  # Web/JavaScript integration (v0.2)
+  pyecharts:
+    status: beta
+    priority: medium
+    capabilities:
+      theme: true
+      discrete_colors: true
+      sequential_colormaps: true
+      diverging_colormaps: true
+    entry_points:
+      - ECharts theme JSON
+      - registerTheme()
+      - InitOpts(theme='...')
+    docs: "https://github.com/pyecharts/echarts-themes-pypkg"
+    description: "Python wrapper for Apache ECharts"
+
+# Color palette sources and licenses
+palette_sources:
+  tol:
+    license: BSD-3
+    url: "https://personal.sron.nl/~pault/#sec:qualitative"
+    description: "Paul Tol's color schemes for scientific visualization"
+
+  crameri:
+    license: CC BY 4.0
+    url: "https://www.fabiocrameri.ch/colourmaps/"
+    description: "Scientific colour maps by Fabio Crameri"
+
+  colorcet:
+    license: CC BY
+    url: "https://colorcet.holoviz.org/"
+    description: "Collection of perceptually uniform colormaps"
+
+  cmocean:
+    license: MIT
+    url: "https://matplotlib.org/cmocean/"
+    description: "Oceanographic colormaps"
+
+  okabe_ito:
+    license: MIT
+    url: "https://jfly.uni-koeln.de/color/"
+    description: "Colorblind-friendly palette by Okabe and Ito"
+
+# Export formats for tokens
+export_formats:
+  css: "CSS custom properties for web integration"
+  json: "JSON format for JavaScript libraries"
+  js: "JavaScript module format"
+  echarts: "Apache ECharts theme format"
+  plotly_js: "Plotly.js template format"
+
+# Quality checks configuration
+quality_checks:
+  colorblind:
+    types: ["protanopia", "deuteranopia", "tritanopia"]
+    threshold: 0.05
+  contrast:
+    min_ratio: 4.5
+    algorithm: "WCAG_AA"
+  lint_rules:
+    - rainbow_colormaps
+    - red_green_combinations
+    - low_contrast_text
+    - unembedded_fonts
+
+

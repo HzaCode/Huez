@@ -1,0 +1,55 @@
+# Test configuration file
+version: 1
+default_scheme: "test-scheme"
+
+schemes:
+  test-scheme:
+    title: "Test Color Scheme"
+    fonts:
+      family: "Arial"
+      size: 10
+    palettes:
+      discrete: "okabe-ito"
+      sequential: "viridis"
+      diverging: "coolwarm"
+      cyclic: "twilight"
+    figure:
+      dpi: 150
+    style:
+      grid: "y"
+      legend_loc: "best"
+      spine_top_right_off: true
+
+  test-scheme-2:
+    title: "Alternative Test Scheme"
+    fonts:
+      family: "DejaVu Sans"
+      size: 12
+    palettes:
+      discrete: "npg"
+      sequential: "plasma"
+      diverging: "vik"
+      cyclic: "hsv"
+    figure:
+      dpi: 300
+    style:
+      grid: "both"
+      legend_loc: "upper right"
+      spine_top_right_off: false
+
+  minimal-scheme:
+    title: "Minimal Test Scheme"
+    fonts:
+      family: "sans-serif"
+      size: 8
+    palettes:
+      discrete: "tableau-10"
+      sequential: "cividis"
+      diverging: "RdBu"
+      cyclic: "twilight_shifted"
+    figure:
+      dpi: 100
+    style:
+      grid: "none"
+      legend_loc: "center"
+      spine_top_right_off: true
