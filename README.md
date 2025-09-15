@@ -40,6 +40,50 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
+## 🎯 Before & After Comparison
+
+See the dramatic improvement Huez brings to your visualizations:
+
+### Default vs Huez Enhanced
+
+<div align="center">
+
+| Before (Default Colors) | After (Huez Enhanced) |
+|:------------------------:|:---------------------:|
+| ![Before](images/before_default.png) | ![After](images/after_huez.png) |
+| *Bland default colors* | *Professional publication-ready* |
+
+</div>
+
+### Multiple Library Consistency
+
+<div align="center">
+
+| Library | Before | After |
+|:-------:|:------:|:-----:|
+| **Matplotlib** | ![MPL Before](images/mpl_before.png) | ![MPL After](images/mpl_after.png) |
+| **Seaborn** | ![SNS Before](images/sns_before.png) | ![SNS After](images/sns_after.png) |
+| **Plotnine** | ![P9 Before](images/p9_before.png) | ![P9 After](images/p9_after.png) |
+
+*All libraries now share the same beautiful, consistent color scheme*
+
+</div>
+
+### 🎨 Color Scheme Gallery
+
+<div align="center">
+
+| Scheme | Preview | Best For |
+|:------:|:-------:|:--------:|
+| **scheme-1** | ![Scheme 1](images/scheme1_preview.png) | General purpose, presentations |
+| **lancet** | ![Lancet](images/lancet_preview.png) | Medical publications |
+| **nature** | ![Nature](images/nature_preview.png) | Scientific journals |
+| **nejm** | ![NEJM](images/nejm_preview.png) | Clinical research |
+
+</div>
+
+> 📸 **Note**: To see these comparison images, please generate sample plots using the provided examples below. The images directory structure is ready for your visualization outputs.
+
 ## 🚀 Quick Start
 
 ### Installation
