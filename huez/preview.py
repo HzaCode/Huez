@@ -3,9 +3,6 @@ Preview gallery generation for huez schemes.
 """
 
 import os
-import json
-from pathlib import Path
-from typing import List
 from .config import Scheme
 from .registry.palettes import get_palette
 
@@ -174,7 +171,7 @@ def _generate_html_gallery(scheme: Scheme, output_dir: str) -> None:
                 html_content += f'<p>Error loading palette: {e}</p>'
         else:
             # For colormaps, we'll show the name and let the plots demonstrate
-            html_content += f'<div class="gradient-bar" style="background: linear-gradient(to right, blue, red);"></div>'
+            html_content += '<div class="gradient-bar" style="background: linear-gradient(to right, blue, red);"></div>'
             html_content += '<p>Colormap preview in plots below</p>'
 
         html_content += "</div>"
@@ -309,7 +306,6 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
     """Generate colorblind simulation previews."""
     try:
         import matplotlib.pyplot as plt
-        import numpy as np
         from .quality.checks import _simulate_colorblindness, _convert_to_grayscale, _hex_to_rgb, _rgb_to_hex
 
         # Apply the scheme
