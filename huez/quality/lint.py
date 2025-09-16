@@ -110,6 +110,7 @@ def _lint_raster_image(file_path: Path, report_path: Optional[str]) -> Dict[str,
 
     if report_path:
         _save_report(result, report_path)
+        result["report_path"] = report_path
 
     return result
 
@@ -174,6 +175,7 @@ def _lint_vector_image(file_path: Path, report_path: Optional[str]) -> Dict[str,
 
     if report_path:
         _save_report(result, report_path)
+        result["report_path"] = report_path
 
     return result
 

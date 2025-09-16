@@ -7,14 +7,7 @@ from abc import ABC, abstractmethod
 from typing import List, Any, Dict
 from ..config import Scheme
 
-# All available adapter classes
-ALL_ADAPTERS = [
-    "MatplotlibAdapter",
-    "SeabornAdapter", 
-    "PlotnineAdapter",
-    "AltairAdapter",
-    "PlotlyAdapter"
-]
+# ALL_ADAPTERS will be defined in get_available_adapters function to avoid circular imports
 
 
 class Adapter(ABC):
@@ -115,3 +108,29 @@ def get_adapter_status() -> Dict[str, bool]:
         status[name] = name in available_names
 
     return status
+
+
+def get_all_adapter_classes() -> List[type]:
+    """
+    Get all adapter classes (for testing and registry purposes).
+    
+    Returns:
+        List of all adapter classes
+    """
+    from .mpl import MatplotlibAdapter
+    from .seaborn import SeabornAdapter
+    from .plotnine import PlotnineAdapter
+    from .altair import AltairAdapter
+    from .plotly import PlotlyAdapter
+
+    return [
+        MatplotlibAdapter,
+        SeabornAdapter,
+        PlotnineAdapter,
+        AltairAdapter,
+        PlotlyAdapter,
+    ]
+
+
+# Define ALL_ADAPTERS for backward compatibility
+ALL_ADAPTERS = get_all_adapter_classes()

@@ -31,21 +31,21 @@ class MatplotlibAdapter(Adapter):
         # Get the discrete palette
         try:
             discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
-            plt.rcParams['axes.prop_cycle'] = plt.cycler(color=discrete_colors)
+            mpl.rcParams['axes.prop_cycle'] = plt.cycler(color=discrete_colors)
         except Exception as e:
             warnings.warn(f"Failed to set discrete palette: {e}")
 
         # Set font properties
-        plt.rcParams['font.family'] = scheme.fonts.family
-        plt.rcParams['font.size'] = scheme.fonts.size
+        mpl.rcParams['font.family'] = scheme.fonts.family
+        mpl.rcParams['font.size'] = scheme.fonts.size
 
         # Set figure properties
-        plt.rcParams['figure.figsize'] = scheme.figure.size
-        plt.rcParams['figure.dpi'] = scheme.figure.dpi
-        plt.rcParams['savefig.dpi'] = scheme.figure.dpi
+        mpl.rcParams['figure.figsize'] = scheme.figure.size
+        mpl.rcParams['figure.dpi'] = scheme.figure.dpi
+        mpl.rcParams['savefig.dpi'] = scheme.figure.dpi
 
         # Set PDF font embedding
-        plt.rcParams['pdf.fonttype'] = 42  # Use TrueType fonts
+        mpl.rcParams['pdf.fonttype'] = 42  # Use TrueType fonts
 
         # Enable constrained layout
         plt.rcParams['figure.constrained_layout.use'] = True
