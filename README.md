@@ -17,7 +17,7 @@
   <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
   <img src="https://img.shields.io/badge/status-pre--alpha-red.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/code%20style-ruff-000000.svg" alt="Ruff"/>
+  <img src="https://img.shields.io/badge/⚡%20linted%20with-ruff-000000.svg" alt="Ruff"/>
 </p>
 
 <p align="center">
