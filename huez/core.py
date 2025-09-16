@@ -1,5 +1,9 @@
 """
 Core API for huez - scheme management and library adapters.
+
+This module provides the main API for managing color schemes and applying them
+across different visualization libraries. It handles configuration loading,
+scheme switching, and adapter management.
 """
 
 import os
