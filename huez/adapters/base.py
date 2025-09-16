@@ -7,6 +7,15 @@ from abc import ABC, abstractmethod
 from typing import List, Any, Dict
 from ..config import Scheme
 
+# All available adapter classes
+ALL_ADAPTERS = [
+    "MatplotlibAdapter",
+    "SeabornAdapter", 
+    "PlotnineAdapter",
+    "AltairAdapter",
+    "PlotlyAdapter"
+]
+
 
 class Adapter(ABC):
     """Base class for library adapters."""
