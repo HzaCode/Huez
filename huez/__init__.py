@@ -10,6 +10,7 @@ publication-ready with just one line of code.
 __version__ = "0.0.3"
 __author__ = "Ang"
 __email__ = "ang@hezhiang.com"
+__license__ = "MIT"
 
 from .core import (
     load_config,
