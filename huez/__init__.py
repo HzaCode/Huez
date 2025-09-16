@@ -7,7 +7,7 @@ Seaborn, plotnine, Altair, and Plotly. Transform your charts from amateur to
 publication-ready with just one line of code.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.0.3"
 __author__ = "Ang"
 __email__ = "ang@hezhiang.com"
 
