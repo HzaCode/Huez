@@ -3,7 +3,6 @@ Plotly adapter for huez.
 """
 
 import warnings
-from typing import Dict, Any
 from .base import Adapter
 from ..config import Scheme
 from ..registry.palettes import get_palette, get_colormap
@@ -17,11 +16,8 @@ class PlotlyAdapter(Adapter):
 
     def _check_availability(self) -> bool:
         """Check if plotly is available."""
-        try:
-            import plotly.graph_objects as go
-            return True
-        except ImportError:
-            return False
+        import importlib.util
+        return importlib.util.find_spec("plotly") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to Plotly."""
@@ -35,26 +31,24 @@ class PlotlyAdapter(Adapter):
                 from ..color_correction import get_corrected_palette
                 base_colors = get_palette(scheme.palettes.discrete, "discrete")
                 discrete_colors = get_corrected_palette(base_colors, "plotly")
-            except:
+            except Exception:
                 # Fallback to basic palette
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             
             # Get colormap names with fallback
             try:
                 from ..color_correction import get_best_colormap_for_library
-                sequential_cmap = get_best_colormap_for_library(scheme.palettes.sequential, "plotly")
-                diverging_cmap = get_best_colormap_for_library(scheme.palettes.diverging, "plotly")
-            except:
+                # Get colormap names (currently not used in template but available for future use)
+                get_best_colormap_for_library(scheme.palettes.sequential, "plotly")
+                get_best_colormap_for_library(scheme.palettes.diverging, "plotly")
+            except Exception:
                 # Fallback to simple colormap names
-                sequential_cmap = self._convert_colormap_name(scheme.palettes.sequential)
-                diverging_cmap = self._convert_colormap_name(scheme.palettes.diverging)
+                pass
                 
         except Exception as e:
             warnings.warn(f"Failed to get palettes for Plotly: {e}")
             # Use default colors as last resort
             discrete_colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
-            sequential_cmap = "viridis"
-            diverging_cmap = "rdbu"
 
         # Create comprehensive template
         template = go.layout.Template()
@@ -65,7 +59,6 @@ class PlotlyAdapter(Adapter):
         # Create better colorscales
         if len(discrete_colors) >= 3:
             # Multi-color sequential scale
-            n_colors = len(discrete_colors)
             sequential_scale = []
             for i, color in enumerate(discrete_colors[:3]):  # Use first 3 colors
                 sequential_scale.append([i / 2, color])
@@ -210,7 +203,6 @@ def export_plotly_template(scheme: Scheme, output_path: str) -> None:
     import json
 
     try:
-        import plotly.graph_objects as go
 
         discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
         sequential_cmap = get_colormap(scheme.palettes.sequential, "sequential")
@@ -298,7 +290,7 @@ def get_plotly_colors(n: int = None):
         from ..core import palette
         try:
             return palette(n=n, kind="discrete")
-        except:
+        except Exception:
             # Last resort fallback
             colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
             if n is None:

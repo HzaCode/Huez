@@ -3,7 +3,6 @@ Altair adapter for huez.
 """
 
 import warnings
-from typing import Dict, Any
 from .base import Adapter
 from ..config import Scheme
 from ..registry.palettes import get_palette, get_colormap
@@ -17,11 +16,8 @@ class AltairAdapter(Adapter):
 
     def _check_availability(self) -> bool:
         """Check if altair is available."""
-        try:
-            import altair as alt
-            return True
-        except ImportError:
-            return False
+        import importlib.util
+        return importlib.util.find_spec("altair") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to Altair."""
@@ -34,7 +30,7 @@ class AltairAdapter(Adapter):
                 from ..color_correction import get_corrected_palette
                 base_colors = get_palette(scheme.palettes.discrete, "discrete")
                 discrete_colors = get_corrected_palette(base_colors, "altair")
-            except:
+            except Exception:
                 # Fallback to basic palette
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             
@@ -43,7 +39,7 @@ class AltairAdapter(Adapter):
                 from ..color_correction import get_best_colormap_for_library
                 sequential_cmap = get_best_colormap_for_library(scheme.palettes.sequential, "altair")
                 diverging_cmap = get_best_colormap_for_library(scheme.palettes.diverging, "altair")
-            except:
+            except Exception:
                 # Fallback to simple colormap names
                 sequential_cmap = self._convert_colormap_name(scheme.palettes.sequential)
                 diverging_cmap = self._convert_colormap_name(scheme.palettes.diverging)
@@ -251,7 +247,7 @@ def get_altair_colors(n: int = None):
         from ..core import palette
         try:
             return palette(n=n, kind="discrete")
-        except:
+        except Exception:
             # Last resort fallback
             colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
             if n is None:

@@ -6,7 +6,7 @@ import warnings
 from typing import Any
 from .base import Adapter
 from ..config import Scheme
-from ..registry.palettes import get_palette, get_colormap
+from ..registry.palettes import get_palette
 
 
 class PlotnineAdapter(Adapter):
@@ -17,11 +17,8 @@ class PlotnineAdapter(Adapter):
 
     def _check_availability(self) -> bool:
         """Check if plotnine is available."""
-        try:
-            import plotnine as p9
-            return True
-        except ImportError:
-            return False
+        import importlib.util
+        return importlib.util.find_spec("plotnine") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to plotnine."""
@@ -32,13 +29,10 @@ class PlotnineAdapter(Adapter):
         try:
             discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             # Get colormap for heatmaps, using intelligent selection
-            from ..color_correction import get_best_colormap_for_library
-            sequential_cmap = get_best_colormap_for_library(scheme.palettes.sequential, "plotnine")
-            diverging_cmap = get_best_colormap_for_library(scheme.palettes.diverging, "plotnine")
+            pass
         except Exception as e:
             warnings.warn(f"Failed to get palettes for plotnine: {e}")
             discrete_colors = None
-            sequential_cmap = diverging_cmap = None
 
         # Set default theme
         theme = p9.theme_minimal()
@@ -142,9 +136,6 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
 
                 # Get palettes
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
-                from ..color_correction import get_best_colormap_for_library
-                sequential_cmap = get_best_colormap_for_library(scheme.palettes.sequential, "plotnine")
-                diverging_cmap = get_best_colormap_for_library(scheme.palettes.diverging, "plotnine")
 
                 # Create scales list based on requested type
                 scales = []
@@ -217,7 +208,7 @@ def get_plotnine_colors(n: int = None):
         from ..core import palette
         try:
             return palette(n=n, kind="discrete")
-        except:
+        except Exception:
             # Last resort fallback
             colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
             if n is None:
