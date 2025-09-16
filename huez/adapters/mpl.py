@@ -3,7 +3,6 @@ Matplotlib adapter for huez.
 """
 
 import warnings
-from typing import List
 from .base import Adapter
 from ..config import Scheme
 from ..registry.palettes import get_palette, get_colormap
@@ -17,11 +16,8 @@ class MatplotlibAdapter(Adapter):
 
     def _check_availability(self) -> bool:
         """Check if matplotlib is available."""
-        try:
-            import matplotlib.pyplot as plt
-            return True
-        except ImportError:
-            return False
+        import importlib.util
+        return importlib.util.find_spec("matplotlib") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to matplotlib."""

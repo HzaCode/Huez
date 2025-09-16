@@ -16,11 +16,8 @@ class SeabornAdapter(Adapter):
 
     def _check_availability(self) -> bool:
         """Check if seaborn is available."""
-        try:
-            import seaborn as sns
-            return True
-        except ImportError:
-            return False
+        import importlib.util
+        return importlib.util.find_spec("seaborn") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to seaborn."""
