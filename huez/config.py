@@ -1,5 +1,8 @@
 """
-Configuration management for huez.
+Configuration Management for Huez
+
+This module handles all configuration-related functionality including
+scheme definitions, validation, and default settings.
 """
 
 from dataclasses import dataclass, field
@@ -10,12 +13,9 @@ from pathlib import Path
 
 @dataclass
 class FontConfig:
-    """Font configuration.
-    
-    字体配置类，用于设置图表中的字体样式。
-    """
-    family: str = "DejaVu Sans"  # 字体族
-    size: int = 11  # 字体大小
+    """Font configuration."""
+    family: str = "DejaVu Sans"
+    size: int = 11
 
 
 @dataclass
