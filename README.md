@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="logo.png" alt="Huez Logo" width="200"/>
 </p>
@@ -24,11 +23,7 @@
   <em>"Good visualizations should not be ruined by bad color schemes."</em>
 </p>
 
-
-
-**Huez** is a unified Python visualization color scheme solution that instantly upgrades your charts from amateur to professional publication-quality. 
-
-
+**Huez** 是一个统一的Python可视化配色方案解决方案，能够将您的图表从业余水平瞬间提升到专业出版质量。
 
 </div>
 
@@ -40,49 +35,14 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
-## 🎯 Before & After Comparison
+## 🎯 Key Benefits
 
-See the dramatic improvement Huez brings to your visualizations:
+Huez provides dramatic improvements to your visualizations:
 
-### Default vs Huez Enhanced
-
-<div align="center">
-
-| Before (Default Colors) | After (Huez Enhanced) |
-|:------------------------:|:---------------------:|
-| ![Before](images/before_default.png) | ![After](images/after_huez.png) |
-| *Bland default colors* | *Professional publication-ready* |
-
-</div>
-
-### Multiple Library Consistency
-
-<div align="center">
-
-| Library | Before | After |
-|:-------:|:------:|:-----:|
-| **Matplotlib** | ![MPL Before](images/mpl_before.png) | ![MPL After](images/mpl_after.png) |
-| **Seaborn** | ![SNS Before](images/sns_before.png) | ![SNS After](images/sns_after.png) |
-| **Plotnine** | ![P9 Before](images/p9_before.png) | ![P9 After](images/p9_after.png) |
-
-*All libraries now share the same beautiful, consistent color scheme*
-
-</div>
-
-### 🎨 Color Scheme Gallery
-
-<div align="center">
-
-| Scheme | Preview | Best For |
-|:------:|:-------:|:--------:|
-| **scheme-1** | ![Scheme 1](images/scheme1_preview.png) | General purpose, presentations |
-| **lancet** | ![Lancet](images/lancet_preview.png) | Medical publications |
-| **nature** | ![Nature](images/nature_preview.png) | Scientific journals |
-| **nejm** | ![NEJM](images/nejm_preview.png) | Clinical research |
-
-</div>
-
-> 📸 **Note**: To see these comparison images, please generate sample plots using the provided examples below. The images directory structure is ready for your visualization outputs.
+- **Professional Color Schemes**: Automatically apply publication-quality colors
+- **Cross-Library Consistency**: Same beautiful colors across all Python visualization libraries
+- **Zero Learning Curve**: Use native syntax of each library
+- **Easy Customization**: Switch between different journal styles with one line of code
 
 ## 🚀 Quick Start
 
@@ -150,9 +110,8 @@ fig.add_trace(go.Scatter(x=x, y=y, name='Data'))  # Pure native syntax - colors 
 
 Huez comes with a rich collection of **professional color schemes** and supports **easy customization**:
 
-
-
 ### ✨ Custom Schemes
+
 ```python
 # Switch between built-in schemes
 hz.use("lancet")  # Academic journal style
@@ -164,6 +123,7 @@ hz.use("my_custom_scheme")
 ```
 
 **Create custom config file (my_custom_config.yaml):**
+
 ```yaml
 version: 1
 default_scheme: my_custom_scheme
@@ -179,6 +139,7 @@ schemes:
     figure: { dpi: 300 } # Set project-wide DPI, size is controlled in code
     style: { grid: "y", legend_loc: "best", spine_top_right_off: true }
 ```
+
 ## 🔧 How Huez Works
 
 **Huez takes over color management for your visualizations.** To use Huez effectively:
@@ -196,12 +157,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-
-
 ⭐ **If this project helps you, please give us a star!** ⭐
 
 </div>
-
-
-
-
