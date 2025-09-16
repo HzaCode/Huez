@@ -1,4 +1,5 @@
-# Test configuration file
+# Huez Test Configuration
+# This file contains test schemes for unit testing
 version: 1
 default_scheme: "test-scheme"
 
