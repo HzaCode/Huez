@@ -4,6 +4,12 @@ huez - Your all-in-one color solution in Python
 A unified color solution that provides consistent color schemes and themes
 across multiple visualization libraries including Matplotlib, Seaborn, plotnine,
 Altair, and Plotly.
+
+Features:
+- Automatic color application across all major Python visualization libraries
+- Professional color schemes inspired by academic journals
+- Easy customization and theme switching
+- Zero learning curve - use native library syntax
 """
 
 __version__ = "0.0.3"
