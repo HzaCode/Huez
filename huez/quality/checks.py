@@ -39,7 +39,33 @@ def check_palette_quality(scheme: Scheme,
         except Exception as e:
             results[kind] = {"error": str(e)}
 
+    # Add summary
+    results["summary"] = _generate_quality_summary(results)
+
     return results
+
+
+def _generate_quality_summary(results: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Generate a summary of quality check results.
+    
+    Args:
+        results: Quality check results
+        
+    Returns:
+        Summary dictionary
+    """
+    summary = {
+        "total_palettes": len([k for k in results.keys() if k != "summary"]),
+        "successful_checks": len([k for k, v in results.items() if k != "summary" and "error" not in v]),
+        "failed_checks": len([k for k, v in results.items() if k != "summary" and "error" in v]),
+        "overall_score": 0.0
+    }
+    
+    if summary["total_palettes"] > 0:
+        summary["overall_score"] = summary["successful_checks"] / summary["total_palettes"]
+    
+    return summary
 
 
 def _check_single_palette(colors: List[str], kind: str) -> Dict[str, Any]:
