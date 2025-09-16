@@ -6,11 +6,9 @@ across different Python visualization libraries. It handles configuration loadin
 scheme switching, and adapter management.
 """
 
-import os
 import contextlib
 import yaml
-from typing import Optional, Dict, Any, List, Union, ContextManager
-from pathlib import Path
+from typing import Optional, Dict, Any, List, ContextManager
 
 from .config import Config, validate_config
 from .adapters import get_available_adapters, apply_scheme_to_adapters

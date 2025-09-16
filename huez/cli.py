@@ -2,9 +2,7 @@
 Command-line interface for huez.
 """
 
-import os
 import sys
-from pathlib import Path
 from typing import Optional
 import click
 
@@ -12,14 +10,12 @@ from .core import (
     load_config,
     use,
     current_scheme,
-    palette,
-    cmap,
     preview_gallery,
     check_palette,
     lint_figure,
     _current_config
 )
-from .config import save_config_to_file, Config
+from .config import save_config_to_file
 from .data.defaults import get_default_config
 
 

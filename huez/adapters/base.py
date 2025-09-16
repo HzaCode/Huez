@@ -4,7 +4,7 @@ Base adapter classes for huez.
 
 import warnings
 from abc import ABC, abstractmethod
-from typing import List, Any, Dict
+from typing import List, Dict
 from ..config import Scheme
 
 # ALL_ADAPTERS will be defined in get_available_adapters function to avoid circular imports
