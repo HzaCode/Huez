@@ -1,8 +1,8 @@
 """
-Core API for huez - scheme management and library adapters.
+Core API for Huez - Color Scheme Management and Library Adapters
 
 This module provides the main API for managing color schemes and applying them
-across different visualization libraries. It handles configuration loading,
+across different Python visualization libraries. It handles configuration loading,
 scheme switching, and adapter management.
 """
 
