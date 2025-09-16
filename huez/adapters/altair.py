@@ -137,11 +137,16 @@ class AltairAdapter(Adapter):
             }
         }
 
-        # Register the theme
-        alt.themes.register('huez', lambda: theme_config)
-
-        # Enable the theme
-        alt.themes.enable('huez')
+        # Register and enable the theme (using new API if available)
+        try:
+            # Try new theme API (Altair 5.5+)
+            @alt.theme.register('huez', enable=True)
+            def huez_theme():
+                return alt.theme.ThemeConfig(theme_config)
+        except AttributeError:
+            # Fallback to old API
+            alt.themes.register('huez', lambda: theme_config)
+            alt.themes.enable('huez')
         
         # Store colors globally for helper functions
         global _altair_colors
