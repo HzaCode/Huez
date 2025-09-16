@@ -248,7 +248,7 @@ def _lint_pdf_content(content: str) -> List[Dict[str, Any]]:
     return issues
 
 
-def _analyze_colors(img_array: 'np.ndarray') -> List[Dict[str, Any]]:
+def _analyze_colors(img_array) -> List[Dict[str, Any]]:
     """Analyze colors in an image array."""
     issues = []
 

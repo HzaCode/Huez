@@ -2,7 +2,6 @@
 Quality checks for color palettes - colorblind simulation and contrast analysis.
 """
 
-import warnings
 from typing import List, Dict, Any, Optional
 from ..config import Scheme
 from ..registry.palettes import get_palette
@@ -107,19 +106,9 @@ def _check_single_palette(colors: List[str], kind: str) -> Dict[str, Any]:
 
 def _has_colorblind_simulation() -> bool:
     """Check if colorblind simulation libraries are available."""
-    try:
-        import colorspacious
-        return True
-    except ImportError:
-        pass
-
-    try:
-        import cv2
-        return True
-    except ImportError:
-        pass
-
-    return False
+    import importlib.util
+    return (importlib.util.find_spec("colorspacious") is not None or 
+            importlib.util.find_spec("cv2") is not None)
 
 
 def _check_colorblind_safety(colors: List[str]) -> Dict[str, Any]:
@@ -179,9 +168,8 @@ def _simulate_colorblindness(colors: List[tuple], cb_type: str) -> List[tuple]:
     Returns:
         List of transformed RGB tuples
     """
-    try:
-        import colorspacious
-
+    import importlib.util
+    if importlib.util.find_spec("colorspacious") is not None:
         # Colorblind transformation matrices
         matrices = {
             "protanopia": [
@@ -225,8 +213,7 @@ def _simulate_colorblindness(colors: List[tuple], cb_type: str) -> List[tuple]:
             transformed.append(transformed_rgb)
 
         return transformed
-
-    except ImportError:
+    else:
         # Fallback to simple desaturation
         return _simple_colorblind_simulation(colors, cb_type)
 
