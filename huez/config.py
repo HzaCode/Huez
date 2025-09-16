@@ -10,9 +10,12 @@ from pathlib import Path
 
 @dataclass
 class FontConfig:
-    """Font configuration."""
-    family: str = "DejaVu Sans"
-    size: int = 11
+    """Font configuration.
+    
+    字体配置类，用于设置图表中的字体样式。
+    """
+    family: str = "DejaVu Sans"  # 字体族
+    size: int = 11  # 字体大小
 
 
 @dataclass

@@ -23,7 +23,9 @@
   <em>"Good visualizations should not be ruined by bad color schemes."</em>
 </p>
 
-**Huez** 是一个统一的Python可视化配色方案解决方案，能够将您的图表从业余水平瞬间提升到专业出版质量。
+**Huez** is a unified Python visualization color scheme solution that instantly upgrades your charts from amateur to professional publication-quality.
+
+**Huez** 是一个统一的Python可视化配色方案解决方案，可以瞬间将您的图表从业余水平提升到专业出版质量。
 
 </div>
 
@@ -34,6 +36,14 @@
 - 🎨 **Rich Built-in & Custom Schemes**: Professional academic palettes plus easy custom scheme creation and loading
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
+
+## ✨ 功能特性
+
+- 🚀 **真正的自动配色**: 所有主要库都支持原生语法自动配色，无需手动指定颜色
+- 🎯 **完美的跨库一致性**: Matplotlib、Seaborn、plotnine、Altair、Plotly完全统一的配色体验
+- 🎨 **丰富的内置和自定义方案**: 专业学术调色板，加上简单的自定义方案创建和加载
+- ⚡ **零学习成本**: 使用每个库的原生语法，无需学习额外的API
+- 🔧 **一行代码搞定一切**: 只需`hz.use("scheme-1")`即可为所有库启用自动配色
 
 ## 🎯 Key Benefits
 
@@ -61,6 +71,12 @@ import huez as hz
 hz.use("scheme-1")
 
 # ✨ Now all libraries automatically color using native syntax!
+
+# 中文注释示例
+# 🎨 一行代码，全局配色
+hz.use("scheme-1")
+
+# ✨ 现在所有库都使用原生语法自动配色！
 ```
 
 ## 📚 Supported Visualization Libraries
