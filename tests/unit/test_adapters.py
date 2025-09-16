@@ -3,8 +3,7 @@ Test adapter module
 """
 
 import pytest
-from unittest.mock import patch, MagicMock, Mock
-import sys
+from unittest.mock import patch, Mock
 
 from huez.adapters.base import Adapter, get_adapter_status, get_available_adapters, apply_scheme_to_adapters
 from huez.config import Scheme, FontConfig, PalettesConfig, FigureConfig, StyleConfig
@@ -107,10 +106,10 @@ class TestMatplotlibAdapter:
         adapter = MatplotlibAdapter()
 
         # If matplotlib is available, adapter should be available
-        try:
-            import matplotlib
+        import importlib.util
+        if importlib.util.find_spec("matplotlib") is not None:
             assert adapter.is_available() is True
-        except ImportError:
+        else:
             assert adapter.is_available() is False
         
         assert adapter.get_name() == "matplotlib"
@@ -157,10 +156,10 @@ class TestSeabornAdapter:
         adapter = SeabornAdapter()
 
         # If seaborn is available, adapter should be available
-        try:
-            import seaborn
+        import importlib.util
+        if importlib.util.find_spec("seaborn") is not None:
             assert adapter.is_available() is True
-        except ImportError:
+        else:
             assert adapter.is_available() is False
         
         assert adapter.get_name() == "seaborn"
@@ -199,10 +198,10 @@ class TestPlotlyAdapter:
         adapter = PlotlyAdapter()
 
         # If plotly is available, adapter should be available
-        try:
-            import plotly
+        import importlib.util
+        if importlib.util.find_spec("plotly") is not None:
             assert adapter.is_available() is True
-        except ImportError:
+        else:
             assert adapter.is_available() is False
         
         assert adapter.get_name() == "plotly"
@@ -240,10 +239,10 @@ class TestAltairAdapter:
         adapter = AltairAdapter()
 
         # If altair is available, adapter should be available
-        try:
-            import altair
+        import importlib.util
+        if importlib.util.find_spec("altair") is not None:
             assert adapter.is_available() is True
-        except ImportError:
+        else:
             assert adapter.is_available() is False
         
         assert adapter.get_name() == "altair"
@@ -279,10 +278,10 @@ class TestPlotnineAdapter:
         adapter = PlotnineAdapter()
 
         # If plotnine is available, adapter should be available
-        try:
-            import plotnine
+        import importlib.util
+        if importlib.util.find_spec("plotnine") is not None:
             assert adapter.is_available() is True
-        except ImportError:
+        else:
             assert adapter.is_available() is False
         
         assert adapter.get_name() == "plotnine"

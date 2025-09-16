@@ -2,9 +2,7 @@
 Test quality check module
 """
 
-import pytest
-from unittest.mock import patch, MagicMock, mock_open, Mock
-from pathlib import Path
+from unittest.mock import patch, mock_open, Mock
 
 from huez.config import Scheme, PalettesConfig
 from huez.quality.checks import check_palette_quality
@@ -308,25 +306,17 @@ class TestQualityReporting:
     @patch('builtins.open', new_callable=mock_open)
     def test_save_quality_report(self, mock_file):
         """Test saving quality report"""
-        report_data = {
-            "scheme": "test-scheme",
-            "timestamp": "2023-01-01T00:00:00",
-            "results": {
-                "discrete": {
-                    "colors": ['#FF0000', '#00FF00', '#0000FF'],
-                    "n_colors": 3
-                }
-            }
-        }
+        # This test is a placeholder for future implementation
+        # of a save_quality_report function
         
-        # Mock saving report
-        report_path = "quality_report.json"
-
-        # Here you can call the actual save function
+        # Here you can call the actual save function when implemented
         # save_quality_report(report_data, report_path)
 
         # Verify file operations
         # mock_file.assert_called_with(report_path, 'w', encoding='utf-8')
+        
+        # For now, just verify mock_file is available
+        assert mock_file is not None
 
 
 class TestQualityIntegration:
