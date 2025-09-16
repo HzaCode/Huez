@@ -34,15 +34,6 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
-## 🎯 Key Benefits
-
-Huez provides dramatic improvements to your visualizations:
-
-- **Professional Color Schemes**: Automatically apply publication-quality colors
-- **Cross-Library Consistency**: Same beautiful colors across all Python visualization libraries
-- **Zero Learning Curve**: Use native syntax of each library
-- **Easy Customization**: Switch between different journal styles with one line of code
-
 ## 🚀 Quick Start
 
 ### Installation
