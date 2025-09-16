@@ -20,24 +20,24 @@ def rgb_to_hex(rgb: Tuple[int, int, int]) -> str:
 def adjust_brightness(hex_color: str, factor: float) -> str:
     """Adjust color brightness"""
     r, g, b = hex_to_rgb(hex_color)
-    h, l, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
+    h, lightness, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
 
     # Adjust brightness
-    l = max(0, min(1, l * factor))
-    
-    r, g, b = colorsys.hls_to_rgb(h, l, s)
+    lightness = max(0, min(1, lightness * factor))
+
+    r, g, b = colorsys.hls_to_rgb(h, lightness, s)
     return rgb_to_hex((int(r*255), int(g*255), int(b*255)))
 
 
 def adjust_saturation(hex_color: str, factor: float) -> str:
     """Adjust color saturation"""
     r, g, b = hex_to_rgb(hex_color)
-    h, l, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
+    h, lightness, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
 
     # Adjust saturation
     s = max(0, min(1, s * factor))
     
-    r, g, b = colorsys.hls_to_rgb(h, l, s)
+    r, g, b = colorsys.hls_to_rgb(h, lightness, s)
     return rgb_to_hex((int(r*255), int(g*255), int(b*255)))
 
 
