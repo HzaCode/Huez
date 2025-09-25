@@ -58,17 +58,20 @@ bar_data = {
 df_bars = pd.DataFrame(bar_data)
 
 def create_default_matplotlib_lines():
-    """Create default matplotlib line plot"""
+    """Create ugly default matplotlib line plot"""
     fig, ax = plt.subplots(figsize=(8, 5))
 
+    # 使用非常难看的颜色组合
+    ugly_colors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF0000', '#00FF00']
     for i, col in enumerate(['series1', 'series2', 'series3', 'series4', 'series5']):
-        ax.plot(df_lines['time'], df_lines[col], label=f'Series {i+1}', linewidth=2)
+        ax.plot(df_lines['time'], df_lines[col], label=f'Series {i+1}',
+               linewidth=3, marker='s', markersize=4, color=ugly_colors[i])
 
     ax.set_xlabel('Time')
     ax.set_ylabel('Value')
-    ax.set_title('Default Matplotlib Colors')
+    ax.set_title('BEFORE: 丑陋的默认颜色', fontweight='bold', fontsize=12)
     ax.legend()
-    ax.grid(True, alpha=0.3)
+    ax.grid(True, alpha=0.3, color='purple', linestyle='--')
 
     plt.tight_layout()
     plt.savefig(comparison_dir / 'matplotlib_default_lines.png', dpi=150, bbox_inches='tight')
@@ -98,17 +101,20 @@ def create_huez_matplotlib_lines():
     plt.style.use('default')
 
 def create_default_seaborn_lines():
-    """Create default seaborn line plot"""
+    """Create ugly default seaborn line plot"""
     plt.style.use('default')
     fig, ax = plt.subplots(figsize=(8, 5))
 
     # Melt data for seaborn
     df_melted = df_lines.melt(id_vars=['time'], var_name='series', value_name='value')
 
-    sns.lineplot(data=df_melted, x='time', y='value', hue='series', ax=ax, linewidth=2)
+    # 强制使用非常难看的颜色
+    ugly_palette = ['#FF1493', '#32CD32', '#FFD700', '#DC143C', '#00FFFF']
+    sns.lineplot(data=df_melted, x='time', y='value', hue='series', ax=ax,
+                linewidth=3, palette=ugly_palette, marker='o', markersize=6)
 
-    ax.set_title('Default Seaborn Colors')
-    ax.grid(True, alpha=0.3)
+    ax.set_title('BEFORE: 刺眼的默认配色', fontweight='bold', fontsize=12)
+    ax.grid(True, alpha=0.3, color='orange', linestyle='-.')
 
     plt.tight_layout()
     plt.savefig(comparison_dir / 'seaborn_default_lines.png', dpi=150, bbox_inches='tight')
