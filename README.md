@@ -13,6 +13,14 @@
   <a href="#schemes">🎨 Schemes</a>
 </p>
 
+<!-- Key Metric: Downloads (This is the new section) -->
+<p align="center">
+  <a href="https://pepy.tech/project/huez"> <!-- Ensure 'huez' is the correct package name on PyPI -->
+    <img src="https://img.shields.io/pepy/dt/huez?style=for-the-badge&color=306998&label=Downloads&logo=python" alt="Total Downloads"/>
+  </a>
+</p>
+
+<!-- Static Project Info -->
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
