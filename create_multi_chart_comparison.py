@@ -185,9 +185,12 @@ def create_consistent_after():
     # Panel 1: Time series with Huez automatic colors
     ax1 = fig.add_subplot(gs[0, :2])
     for i, col in enumerate(['Group A', 'Group B', 'Group C', 'Group D']):
+        # 🎨 HUEZ MAGIC: No need to specify color! Huez automatically assigns professional colors
+        # Before: color=npg_colors[i] or color='#E64B35' 
+        # Now: Huez handles it automatically!
         ax1.plot(line_data['time'], line_data[col], label=col, linewidth=3,
                 marker='o', markersize=6, alpha=0.9)
-        # Add confidence bands
+        # Add confidence bands - also automatically colored by Huez
         error = np.random.uniform(0.08, 0.18, len(line_data))
         ax1.fill_between(line_data['time'], line_data[col] - error, line_data[col] + error,
                         alpha=0.3)
@@ -205,9 +208,12 @@ def create_consistent_after():
     ax2 = fig.add_subplot(gs[0, 2:])
     for i, category in enumerate(['A', 'B', 'C', 'D']):
         subset = scatter_data[scatter_data['category'] == category]
+        # 🎨 HUEZ MAGIC: No color specification needed! Huez auto-assigns consistent colors
+        # Before: color=npg_colors[i] or color='#4DBBD5'
+        # Now: Huez automatically uses the same color scheme across all plots!
         ax2.scatter(subset['x'], subset['y'], label=f'Cluster {category}',
                    alpha=0.9, s=80, edgecolors='white', linewidth=1.5)
-        # Add regression lines
+        # Add regression lines - also automatically colored by Huez
         if len(subset) > 2:
             z = np.polyfit(subset['x'], subset['y'], 1)
             p = np.poly1d(z)
@@ -224,6 +230,9 @@ def create_consistent_after():
 
     # Panel 3: Statistical bars with Huez automatic colors
     ax3 = fig.add_subplot(gs[1, :2])
+    # 🎨 HUEZ MAGIC: Bar colors automatically assigned! No manual color specification needed
+    # Before: color=npg_colors or color=['#E64B35', '#4DBBD5', '#00A087', '#3C5488']
+    # Now: Huez automatically applies consistent colors to all bars!
     bars = ax3.bar(bar_data['category'], bar_data['value'],
                   alpha=0.9, width=0.7,
                   edgecolor='white', linewidth=2)
@@ -249,6 +258,9 @@ def create_consistent_after():
     ax4 = fig.add_subplot(gs[1, 2])
     for i, category in enumerate(['A', 'B', 'C', 'D']):
         subset = scatter_data[scatter_data['category'] == category]
+        # 🎨 HUEZ MAGIC: Histogram colors automatically assigned! 
+        # Before: color=ugly_colors_4[i] or color='#FF6347'
+        # Now: Huez ensures consistent colors across all distribution plots!
         ax4.hist(subset['x'], bins=8, alpha=0.8, label=f'Dist {category}',
                 edgecolor='white', linewidth=1.5)
 
@@ -274,6 +286,9 @@ def create_consistent_after():
     ax6 = fig.add_subplot(gs[2, :])
     metrics = ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'AUC', 'Specificity']
     values = [0.85, 0.82, 0.88, 0.87, 0.90, 0.78]
+    # 🎨 HUEZ MAGIC: All performance metric bars automatically colored!
+    # Before: color=ugly_colors_6 or color=['#8B4513', '#FF6347', '#9370DB', '#20B2AA', '#FFD700', '#32CD32']
+    # Now: Huez automatically applies consistent professional colors to all metrics!
     bars = ax6.bar(metrics, values, alpha=0.9, width=0.7,
                   edgecolor='white', linewidth=2)
     
