@@ -46,19 +46,9 @@
 
 | Default Colors | Huez Enhanced |
 |---|---|
-| ![Before](./assets/comparison/matplotlib_default_lines.png) | ![After](./assets/comparison/matplotlib_huez_lines.png) |
+| ![Before](./assets/comparison/plotly_default_scatter.png) | ![After](./assets/comparison/plotly_huez_scatter.png) |
 
 **One line transforms amateur plots into professional graphics**
-
-## 🖼️ Try It Yourself
-
-Run our demo script to see the transformation:
-
-```bash
-python demo_comparison.py
-```
-
-This generates comparison images showing Huez's impact on your visualizations.
 
 ## 🚀 Quick Start
 
