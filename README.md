@@ -46,9 +46,9 @@
 
 | Default Colors | Huez Enhanced |
 |---|---|
-| ![Before](./assets/comparison/clean_before.png) | ![After](./assets/comparison/clean_after.png) |
+| ![Before](./assets/comparison/inconsistent_before.png) | ![After](./assets/comparison/consistent_after.png) |
 
-**One line transforms amateur plots into professional graphics**
+**One line creates consistent, professional colors across all your charts**
 
 ## 🚀 Quick Start
 
