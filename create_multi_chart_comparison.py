@@ -1,193 +1,301 @@
-#!/usr/bin/env python3
-"""
-Create multi-chart comparison showing inconsistent vs consistent colors.
-"""
-
-import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 import pandas as pd
+from matplotlib.patches import Rectangle
+import warnings
+warnings.filterwarnings('ignore')
 
-# Generate sample data
+# Set random seed for reproducibility
 np.random.seed(42)
-time = np.linspace(0, 8, 80)
 
-# Create datasets
-line_data = pd.DataFrame({
-    'time': time,
-    'Group A': 2 + np.sin(time * 0.8),
-    'Group B': 1.5 + np.cos(time * 0.6),
-    'Group C': 2.5 + np.sin(time * 1.2),
-    'Group D': 1 + np.cos(time * 0.9),
-})
-
-scatter_data = pd.DataFrame({
-    'x': np.random.normal(0, 1, 100),
-    'y': np.random.normal(0, 1, 100),
-    'category': np.random.choice(['A', 'B', 'C', 'D'], 100)
-})
-
-bar_data = pd.DataFrame({
-    'category': ['A', 'B', 'C', 'D'],
-    'value': [23, 45, 56, 32]
-})
+# Generate complex data for all charts
+def generate_data():
+    """Generate comprehensive dataset for complex dashboard"""
+    # Time series data
+    time = np.linspace(0, 8, 50)
+    line_data = pd.DataFrame({
+        'time': time,
+        'Group A': 2 + 0.5 * np.sin(time) + 0.3 * np.random.normal(0, 0.1, len(time)),
+        'Group B': 1.5 + 0.8 * np.cos(time * 0.7) + 0.2 * np.random.normal(0, 0.1, len(time)),
+        'Group C': 1 + 1.2 * np.sin(time * 1.2) + 0.4 * np.random.normal(0, 0.1, len(time)),
+        'Group D': 2.5 + 0.6 * np.cos(time * 0.5) + 0.25 * np.random.normal(0, 0.1, len(time))
+    })
+    
+    # Scatter plot data
+    n_points = 200
+    scatter_data = pd.DataFrame({
+        'x': np.random.normal(0, 1, n_points),
+        'y': np.random.normal(0, 1, n_points),
+        'category': np.random.choice(['A', 'B', 'C', 'D'], n_points),
+        'size': np.random.uniform(20, 100, n_points)
+    })
+    
+    # Bar chart data
+    bar_data = pd.DataFrame({
+        'category': ['A', 'B', 'C', 'D'],
+        'value': [23, 45, 56, 32]
+    })
+    
+    return line_data, scatter_data, bar_data
 
 def create_inconsistent_before():
-    """Create BEFORE: Inconsistent colors across different chart types - Vertical layout"""
-    fig, axes = plt.subplots(3, 1, figsize=(10, 15))
-    fig.suptitle('BEFORE: Inconsistent Colors Across Libraries', fontsize=18, fontweight='bold', y=0.95)
+    """Create BEFORE: Complex multi-panel inconsistent colors - Dashboard style"""
+    fig = plt.figure(figsize=(16, 10))
+    fig.suptitle('BEFORE: Inconsistent Colors Across Complex Research Dashboard', fontsize=20, fontweight='bold', y=0.98)
 
-    # Chart 1: Complex Matplotlib line plot with ugly colors
-    ugly_mpl_colors = ['#8B4513', '#FF6347', '#9370DB', '#20B2AA', '#FFD700']  # Brown, coral, purple, teal, gold
+    gs = fig.add_gridspec(3, 4, hspace=0.4, wspace=0.3, top=0.9, bottom=0.1, left=0.1, right=0.9)
+
+    # Generate data
+    line_data, scatter_data, bar_data = generate_data()
+
+    # Panel 1: Time series with multiple lines and annotations
+    ax1 = fig.add_subplot(gs[0, :2])
+    ugly_colors_1 = ['#8B4513', '#FF6347', '#9370DB', '#20B2AA'] # Brown, coral, purple, teal
     for i, col in enumerate(['Group A', 'Group B', 'Group C', 'Group D']):
-        axes[0].plot(line_data['time'], line_data[col], label=col, linewidth=3,
-                    marker='o', markersize=5, color=ugly_mpl_colors[i])
-        # Add error bars for complexity
-        error = np.random.uniform(0.05, 0.15, len(line_data))
-        axes[0].fill_between(line_data['time'],
-                           line_data[col] - error,
-                           line_data[col] + error,
-                           alpha=0.2, color=ugly_mpl_colors[i])
+        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=3,
+                marker='o', markersize=6, color=ugly_colors_1[i])
+        # Add confidence bands
+        error = np.random.uniform(0.08, 0.18, len(line_data))
+        ax1.fill_between(line_data['time'], line_data[col] - error, line_data[col] + error,
+                        alpha=0.3, color=ugly_colors_1[i])
 
-    axes[0].set_title('Matplotlib Line Plot\n(Ugly Brown/Coral/Purple)', fontsize=14, fontweight='bold')
-    axes[0].set_xlabel('Time (seconds)')
-    axes[0].set_ylabel('Measurement Value')
-    axes[0].legend(frameon=True, fancybox=True, shadow=True)
-    axes[0].grid(True, alpha=0.3, linestyle='--')
-    axes[0].axhline(y=2.5, color='red', linestyle=':', alpha=0.7, label='Threshold')
-    axes[0].text(6, 3.2, 'Critical Zone', fontsize=10, color='red')
+    ax1.axhline(y=2.5, color='red', linestyle='--', alpha=0.8, linewidth=2)
+    ax1.axvspan(2, 4, alpha=0.2, color='yellow', label='Critical Period')
+    ax1.axvspan(4.5, 6, alpha=0.2, color='yellow', label='Intervention')
+    ax1.set_title('Time Series Analysis\n(Brown/Coral/Purple/Teal)', fontsize=12, fontweight='bold')
+    ax1.set_xlabel('Time (days)')
+    ax1.set_ylabel('Response Variable')
+    ax1.legend(frameon=True, fancybox=True, shadow=True, loc='upper left')
+    ax1.grid(True, alpha=0.3)
 
-    # Chart 2: Complex Seaborn scatter with trend lines and different ugly colors
-    ugly_sns_colors = ['#FFD700', '#32CD32', '#FF1493', '#00FFFF', '#FF6347']  # Gold, lime, pink, cyan, coral
+    # Panel 2: Complex scatter plot with multiple groups and regression
+    ax2 = fig.add_subplot(gs[0, 2:])
+    ugly_colors_2 = ['#FFD700', '#32CD32', '#FF1493', '#00FFFF'] # Gold, lime, pink, cyan
     for i, category in enumerate(['A', 'B', 'C', 'D']):
         subset = scatter_data[scatter_data['category'] == category]
-        axes[1].scatter(subset['x'], subset['y'], label=f'Category {category}',
-                       alpha=0.8, s=60, color=ugly_sns_colors[i], edgecolors='black', linewidth=0.5)
+        ax2.scatter(subset['x'], subset['y'], label=f'Cluster {category}',
+                   alpha=0.9, s=80, color=ugly_colors_2[i], edgecolors='black', linewidth=1.5)
+        # Add regression lines
+        if len(subset) > 2:
+            z = np.polyfit(subset['x'], subset['y'], 1)
+            p = np.poly1d(z)
+            x_range = np.linspace(subset['x'].min(), subset['x'].max(), 20)
+            ax2.plot(x_range, p(x_range), '--', color=ugly_colors_2[i], linewidth=3, alpha=0.8)
 
-    # Add trend line
-    z = np.polyfit(scatter_data['x'], scatter_data['y'], 1)
-    p = np.poly1d(z)
-    axes[1].plot(scatter_data['x'], p(scatter_data['x']), "r--", alpha=0.8, linewidth=2, label='Trend Line')
+    ax2.axhline(y=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
+    ax2.axvline(x=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
+    ax2.set_title('Multi-Cluster Analysis\n(Gold/Lime/Pink/Cyan)', fontsize=12, fontweight='bold')
+    ax2.set_xlabel('Feature X')
+    ax2.set_ylabel('Feature Y')
+    ax2.legend(frameon=True, fancybox=True, shadow=True, loc='upper right')
+    ax2.grid(True, alpha=0.3)
 
-    axes[1].set_title('Seaborn Scatter Plot with Trend\n(Ugly Gold/Lime/Pink)', fontsize=14, fontweight='bold')
-    axes[1].set_xlabel('Independent Variable')
-    axes[1].set_ylabel('Dependent Variable')
-    axes[1].legend(frameon=True, fancybox=True, shadow=True)
-    axes[1].grid(True, alpha=0.3)
-    axes[1].axvline(x=0, color='gray', linestyle='-', alpha=0.5)
-    axes[1].axhline(y=0, color='gray', linestyle='-', alpha=0.5)
+    # Panel 3: Statistical comparison bars
+    ax3 = fig.add_subplot(gs[1, :2])
+    ugly_colors_3 = ['#DC143C', '#8A2BE2', '#FF4500', '#228B22'] # Crimson, blueviolet, orangered, forestgreen
+    bars = ax3.bar(bar_data['category'], bar_data['value'],
+                  color=ugly_colors_3, alpha=0.9, width=0.7,
+                  edgecolor='white', linewidth=2)
 
-    # Chart 3: Complex Matplotlib bar chart with patterns and different ugly colors
-    ugly_bar_colors = ['#DC143C', '#8A2BE2', '#FF4500', '#228B22', '#FF6347']  # Crimson, blueviolet, orangered, forestgreen, coral
-    bars = axes[2].bar(bar_data['category'], bar_data['value'],
-                      color=ugly_bar_colors, alpha=0.8, width=0.6,
-                      edgecolor='black', linewidth=1)
-
-    # Add value labels on bars
+    # Add detailed annotations
     for bar, value in zip(bars, bar_data['value']):
-        axes[2].text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
-                    f'{value}', ha='center', va='bottom', fontweight='bold')
+        ax3.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 2,
+                f'{value}±{value*0.15:.1f}', ha='center', va='bottom',
+                fontweight='bold', fontsize=10)
 
+    # Add significance indicators
+    ax3.text(0.5, 55, '***', ha='center', fontsize=16, color='red', fontweight='bold')
+    ax3.text(1.5, 52, '**', ha='center', fontsize=16, color='red', fontweight='bold')
+    ax3.text(2.5, 58, '*', ha='center', fontsize=16, color='red', fontweight='bold')
+
+    ax3.set_title('Statistical Comparisons\n(Crimson/Violet/Orange/Green)', fontsize=12, fontweight='bold')
+    ax3.set_xlabel('Treatment Conditions')
+    ax3.set_ylabel('Mean Response (±SEM)')
+    ax3.set_ylim(0, 70)
+    ax3.grid(True, alpha=0.3, axis='y')
+
+    # Panel 4: Distribution analysis
+    ax4 = fig.add_subplot(gs[1, 2])
+    ugly_colors_4 = ['#FF6347', '#9370DB', '#20B2AA', '#FFD700']
+    for i, category in enumerate(['A', 'B', 'C', 'D']):
+        subset = scatter_data[scatter_data['category'] == category]
+        ax4.hist(subset['x'], bins=8, alpha=0.8, label=f'Dist {category}',
+                color=ugly_colors_4[i], edgecolor='white', linewidth=1.5)
+
+    ax4.set_title('Distribution\nAnalysis', fontsize=11, fontweight='bold')
+    ax4.set_xlabel('Values')
+    ax4.set_ylabel('Frequency')
+    ax4.legend(frameon=True, fancybox=True, shadow=True)
+    ax4.grid(True, alpha=0.3, axis='y')
+
+    # Panel 5: Correlation matrix heatmap
+    ax5 = fig.add_subplot(gs[1, 3])
+    corr_data = np.random.uniform(-0.8, 0.9, (4, 4))
+    np.fill_diagonal(corr_data, 1.0)
+    im = ax5.imshow(corr_data, cmap='RdYlBu_r', vmin=-1, vmax=1)
+    ax5.set_xticks(range(4))
+    ax5.set_yticks(range(4))
+    ax5.set_xticklabels(['A', 'B', 'C', 'D'])
+    ax5.set_yticklabels(['A', 'B', 'C', 'D'])
+    ax5.set_title('Correlation\nMatrix', fontsize=11, fontweight='bold')
+    plt.colorbar(im, ax=ax5, shrink=0.8)
+
+    # Panel 6: Summary statistics
+    ax6 = fig.add_subplot(gs[2, :])
+    metrics = ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'AUC', 'Specificity']
+    values = [0.85, 0.82, 0.88, 0.87, 0.90, 0.78]
+    ugly_colors_6 = ['#8B4513', '#FF6347', '#9370DB', '#20B2AA', '#FFD700', '#32CD32']
+    bars = ax6.bar(metrics, values, color=ugly_colors_6, alpha=0.9, width=0.7,
+                  edgecolor='white', linewidth=2)
+    
     # Add error bars
-    error_values = [2, 3, 4, 3]
-    axes[2].errorbar(bar_data['category'], bar_data['value'], yerr=error_values,
-                    fmt='none', ecolor='black', capsize=5, capthick=2, elinewidth=2)
+    errors = [0.02, 0.03, 0.025, 0.02, 0.015, 0.03]
+    ax6.errorbar(metrics, values, yerr=errors, fmt='none', color='black', capsize=5, capthick=2)
+    
+    ax6.set_title('Model Performance Metrics\n(Mixed Color Schemes)', fontsize=14, fontweight='bold')
+    ax6.set_ylabel('Performance Score')
+    ax6.set_ylim(0, 1.0)
+    ax6.grid(True, alpha=0.3, axis='y')
 
-    axes[2].set_title('Matplotlib Bar Chart with Errors\n(Ugly Crimson/Violet/Orange)', fontsize=14, fontweight='bold')
-    axes[2].set_xlabel('Experimental Groups')
-    axes[2].set_ylabel('Performance Score')
-    axes[2].grid(True, alpha=0.3, axis='y')
-    axes[2].set_ylim(0, 70)
+    # Add performance labels
+    for bar, val in zip(bars, values):
+        ax6.text(bar.get_x() + bar.get_width()/2, val + 0.02,
+                f'{val:.3f}', ha='center', va='bottom', fontweight='bold')
 
-    plt.tight_layout()
-    plt.savefig('assets/comparison/inconsistent_before.png', dpi=150, bbox_inches='tight')
+    plt.savefig('inconsistent_before.png', dpi=150, bbox_inches='tight')
     plt.close()
 
 def create_consistent_after():
-    """Create AFTER: Consistent professional colors across all charts - Vertical layout"""
-    fig, axes = plt.subplots(3, 1, figsize=(10, 15))
-    fig.suptitle('AFTER: Consistent Professional Colors with Huez', fontsize=18, fontweight='bold', y=0.95)
+    """Create AFTER: Consistent professional colors with Huez - ONE LINE DOES IT ALL!"""
+    # Apply Huez color scheme - this is the magic line!
+    import huez as hz
+    hz.use("scheme-1")  # One line changes ALL colors!
+    
+    fig = plt.figure(figsize=(16, 10))
+    fig.suptitle('AFTER: Consistent Professional Colors with Huez', fontsize=20, fontweight='bold', y=0.98)
 
-    # Professional NPG colors - consistent across all charts
-    npg_colors = ['#E64B35', '#4DBBD5', '#00A087', '#3C5488']
+    # Create the same complex dashboard layout
+    gs = fig.add_gridspec(3, 4, hspace=0.4, wspace=0.3,
+                         top=0.9, bottom=0.1, left=0.1, right=0.9)
 
-    # Chart 1: Professional Matplotlib line plot with NPG colors
+    # Generate data
+    line_data, scatter_data, bar_data = generate_data()
+
+    # Panel 1: Time series with Huez automatic colors
+    ax1 = fig.add_subplot(gs[0, :2])
     for i, col in enumerate(['Group A', 'Group B', 'Group C', 'Group D']):
-        axes[0].plot(line_data['time'], line_data[col], label=col, linewidth=3,
-                    marker='o', markersize=5, color=npg_colors[i], alpha=0.9)
-        # Add confidence intervals for scientific look
-        error = np.random.uniform(0.03, 0.08, len(line_data))
-        axes[0].fill_between(line_data['time'],
-                           line_data[col] - error,
-                           line_data[col] + error,
-                           alpha=0.2, color=npg_colors[i])
+        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=3,
+                marker='o', markersize=6, alpha=0.9)
+        # Add confidence bands
+        error = np.random.uniform(0.08, 0.18, len(line_data))
+        ax1.fill_between(line_data['time'], line_data[col] - error, line_data[col] + error,
+                        alpha=0.3)
 
-    axes[0].set_title('Matplotlib Line Plot\n(Professional NPG Colors)', fontsize=14, fontweight='bold')
-    axes[0].set_xlabel('Time (seconds)')
-    axes[0].set_ylabel('Measurement Value')
-    axes[0].legend(frameon=True, fancybox=True, shadow=True)
-    axes[0].grid(True, alpha=0.3, linestyle='--')
-    axes[0].axhline(y=2.5, color=npg_colors[0], linestyle=':', alpha=0.7, linewidth=2)
-    axes[0].text(6.5, 2.6, 'Reference Level', fontsize=10, color=npg_colors[0], fontweight='bold')
+    ax1.axhline(y=2.5, color='red', linestyle='--', alpha=0.8, linewidth=2)
+    ax1.axvspan(2, 6, alpha=0.2, color='lightblue', label='Critical Period')
+    ax1.axvspan(3, 4, alpha=0.3, color='lightblue', label='Experimental Intervention')
+    ax1.set_title('Time Series Analysis\n(Consistent NPG Colors)', fontsize=12, fontweight='bold')
+    ax1.set_xlabel('Time (days)')
+    ax1.set_ylabel('Response Variable')
+    ax1.legend(frameon=True, fancybox=True, shadow=True, loc='upper left')
+    ax1.grid(True, alpha=0.3)
 
-    # Chart 2: Professional Seaborn scatter with trend and NPG colors
+    # Panel 2: Scatter plot with Huez automatic colors
+    ax2 = fig.add_subplot(gs[0, 2:])
     for i, category in enumerate(['A', 'B', 'C', 'D']):
         subset = scatter_data[scatter_data['category'] == category]
-        axes[1].scatter(subset['x'], subset['y'], label=f'Category {category}',
-                       alpha=0.9, s=70, color=npg_colors[i],
-                       edgecolors='white', linewidth=1.5)
+        ax2.scatter(subset['x'], subset['y'], label=f'Cluster {category}',
+                   alpha=0.9, s=80, edgecolors='white', linewidth=1.5)
+        # Add regression lines
+        if len(subset) > 2:
+            z = np.polyfit(subset['x'], subset['y'], 1)
+            p = np.poly1d(z)
+            x_range = np.linspace(subset['x'].min(), subset['x'].max(), 20)
+            ax2.plot(x_range, p(x_range), '--', linewidth=3, alpha=0.8)
 
-    # Add professional trend line with confidence band
-    z = np.polyfit(scatter_data['x'], scatter_data['y'], 1)
-    p = np.poly1d(z)
-    x_trend = np.linspace(scatter_data['x'].min(), scatter_data['x'].max(), 100)
-    y_trend = p(x_trend)
+    ax2.axhline(y=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
+    ax2.axvline(x=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
+    ax2.set_title('Multi-Cluster Analysis\n(Consistent NPG Colors)', fontsize=12, fontweight='bold')
+    ax2.set_xlabel('Feature X')
+    ax2.set_ylabel('Feature Y')
+    ax2.legend(frameon=True, fancybox=True, shadow=True, loc='upper right')
+    ax2.grid(True, alpha=0.3)
 
-    # Add confidence band
-    y_err = np.std(scatter_data['y']) * 0.1
-    axes[1].fill_between(x_trend, y_trend - y_err, y_trend + y_err,
-                        alpha=0.2, color='#666666', label='95% CI')
-    axes[1].plot(x_trend, y_trend, color='#333333', linewidth=3, alpha=0.8, label='Trend Line')
+    # Panel 3: Statistical bars with Huez automatic colors
+    ax3 = fig.add_subplot(gs[1, :2])
+    bars = ax3.bar(bar_data['category'], bar_data['value'],
+                  alpha=0.9, width=0.7,
+                  edgecolor='white', linewidth=2)
 
-    axes[1].set_title('Seaborn Scatter Plot with Statistical Analysis\n(Consistent NPG Colors)', fontsize=14, fontweight='bold')
-    axes[1].set_xlabel('Independent Variable')
-    axes[1].set_ylabel('Dependent Variable')
-    axes[1].legend(frameon=True, fancybox=True, shadow=True)
-    axes[1].grid(True, alpha=0.3)
-    axes[1].axvline(x=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
-    axes[1].axhline(y=0, color='#666666', linestyle='-', alpha=0.5, linewidth=1)
-
-    # Chart 3: Professional Matplotlib bar chart with NPG colors
-    bars = axes[2].bar(bar_data['category'], bar_data['value'],
-                      color=npg_colors, alpha=0.9, width=0.7,
-                      edgecolor='white', linewidth=2)
-
-    # Add professional value labels
+    # Add detailed annotations
     for bar, value in zip(bars, bar_data['value']):
-        axes[2].text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5,
-                    f'{value}', ha='center', va='bottom',
-                    fontweight='bold', fontsize=11, color=npg_colors[list(bar_data['category']).index(bar_data['category'][list(bars).index(bar)])])
+        ax3.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 2,
+                f'{value}±{value*0.15:.1f}', ha='center', va='bottom',
+                fontweight='bold', fontsize=10)
 
-    # Add error bars with professional styling
-    error_values = [2.1, 3.2, 4.1, 2.8]
-    axes[2].errorbar(bar_data['category'], bar_data['value'], yerr=error_values,
-                    fmt='none', ecolor='#333333', capsize=6, capthick=2, elinewidth=2, alpha=0.8)
+    # Add significance indicators
+    ax3.text(0.5, 55, '***', ha='center', fontsize=16, color='red', fontweight='bold')
+    ax3.text(1.5, 52, '**', ha='center', fontsize=16, color='red', fontweight='bold')
+    ax3.text(2.5, 58, '*', ha='center', fontsize=16, color='red', fontweight='bold')
 
-    axes[2].set_title('Matplotlib Bar Chart with Statistical Significance\n(Consistent NPG Colors)', fontsize=14, fontweight='bold')
-    axes[2].set_xlabel('Experimental Groups')
-    axes[2].set_ylabel('Performance Score')
-    axes[2].grid(True, alpha=0.3, axis='y')
-    axes[2].set_ylim(0, 70)
+    ax3.set_title('Statistical Comparisons\n(Consistent NPG Colors)', fontsize=12, fontweight='bold')
+    ax3.set_xlabel('Treatment Conditions')
+    ax3.set_ylabel('Mean Response (±SEM)')
+    ax3.set_ylim(0, 70)
+    ax3.grid(True, alpha=0.3, axis='y')
 
-    # Add significance markers
-    axes[2].text(0.5, 65, '* p < 0.05', ha='center', fontsize=12, fontweight='bold')
-    axes[2].text(1.5, 62, '** p < 0.01', ha='center', fontsize=12, fontweight='bold')
-    axes[2].text(2.5, 68, '*** p < 0.001', ha='center', fontsize=12, fontweight='bold')
+    # Panel 4: Distribution analysis with Huez automatic colors
+    ax4 = fig.add_subplot(gs[1, 2])
+    for i, category in enumerate(['A', 'B', 'C', 'D']):
+        subset = scatter_data[scatter_data['category'] == category]
+        ax4.hist(subset['x'], bins=8, alpha=0.8, label=f'Dist {category}',
+                edgecolor='white', linewidth=1.5)
 
-    plt.tight_layout()
-    plt.savefig('assets/comparison/consistent_after.png', dpi=150, bbox_inches='tight')
+    ax4.set_title('Distribution\nAnalysis', fontsize=11, fontweight='bold')
+    ax4.set_xlabel('Values')
+    ax4.set_ylabel('Frequency')
+    ax4.legend(frameon=True, fancybox=True, shadow=True)
+    ax4.grid(True, alpha=0.3, axis='y')
+
+    # Panel 5: Correlation matrix with consistent styling
+    ax5 = fig.add_subplot(gs[1, 3])
+    corr_data = np.random.uniform(-0.8, 0.9, (4, 4))
+    np.fill_diagonal(corr_data, 1.0)
+    im = ax5.imshow(corr_data, cmap='RdBu_r', vmin=-1, vmax=1)
+    ax5.set_xticks(range(4))
+    ax5.set_yticks(range(4))
+    ax5.set_xticklabels(['A', 'B', 'C', 'D'])
+    ax5.set_yticklabels(['A', 'B', 'C', 'D'])
+    ax5.set_title('Correlation\nMatrix', fontsize=11, fontweight='bold')
+    plt.colorbar(im, ax=ax5, shrink=0.8)
+
+    # Panel 6: Performance metrics with Huez automatic colors
+    ax6 = fig.add_subplot(gs[2, :])
+    metrics = ['Accuracy', 'Precision', 'Recall', 'F1-Score', 'AUC', 'Specificity']
+    values = [0.85, 0.82, 0.88, 0.87, 0.90, 0.78]
+    bars = ax6.bar(metrics, values, alpha=0.9, width=0.7,
+                  edgecolor='white', linewidth=2)
+    
+    # Add error bars
+    errors = [0.02, 0.03, 0.025, 0.02, 0.015, 0.03]
+    ax6.errorbar(metrics, values, yerr=errors, fmt='none', color='black', capsize=5, capthick=2)
+    
+    ax6.set_title('Model Performance Metrics\n(Consistent NPG Colors)', fontsize=14, fontweight='bold')
+    ax6.set_ylabel('Performance Score')
+    ax6.set_ylim(0, 1.0)
+    ax6.grid(True, alpha=0.3, axis='y')
+
+    # Add performance labels
+    for bar, val in zip(bars, values):
+        ax6.text(bar.get_x() + bar.get_width()/2, val + 0.02,
+                f'{val:.3f}', ha='center', va='bottom', fontweight='bold')
+
+    plt.savefig('consistent_after.png', dpi=150, bbox_inches='tight')
     plt.close()
 
 if __name__ == "__main__":
+    print("Creating complex multi-chart comparison...")
     create_inconsistent_before()
     create_consistent_after()
     print("✓ Multi-chart comparison images created!")
