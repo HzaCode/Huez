@@ -42,6 +42,16 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
+## 🚀 See the Magic in Action
+
+### **Matplotlib - Default vs Huez Enhanced**
+
+| BEFORE: Ugly Default Colors | AFTER: Huez Professional Style |
+|---|---|
+| ![BEFORE: Ugly Colors](./before_huez_demo.png) | ![AFTER: Huez Enhanced](./after_huez_demo.png) |
+
+**The transformation is SHOCKING!** From amateur-looking hot pink, cyan, and yellow to professional publication-quality colors in just one line of code.
+
 ## 🎨 Before & After Visual Comparisons
 
 **⚠️ WARNING: The "BEFORE" images below intentionally use extremely ugly colors to demonstrate the dramatic transformation!**
