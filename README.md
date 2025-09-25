@@ -42,102 +42,17 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
-## 🚀 See the Magic in Action
+## 🎨 Matplotlib - Default vs Huez Enhanced
 
-### **Matplotlib - Default vs Huez Enhanced**
+**⚠️ WARNING: The "BEFORE" image intentionally uses extremely ugly colors to demonstrate the dramatic transformation!**
 
-| BEFORE: Ugly Default Colors | AFTER: Huez Professional Style |
+| BEFORE: 丑陋的默认颜色 | AFTER: Huez专业期刊配色 |
 |---|---|
-| ![BEFORE: Ugly Colors](./before_huez_demo.png) | ![AFTER: Huez Enhanced](./after_huez_demo.png) |
+| ![Ugly Default Colors](./assets/comparison/matplotlib_default_lines.png) | ![Huez Professional Colors](./assets/comparison/matplotlib_huez_lines.png) |
 
-**The transformation is SHOCKING!** From amateur-looking hot pink, cyan, and yellow to professional publication-quality colors in just one line of code.
+**See the SHOCKING transformation!** Just one line of code turns amateur-looking plots into publication-quality graphics.
 
-## 🎨 Before & After Visual Comparisons
-
-**⚠️ WARNING: The "BEFORE" images below intentionally use extremely ugly colors to demonstrate the dramatic transformation!**
-
-See the **SHOCKING** difference Huez makes to your visualizations! Each section shows the same data plotted with **deliberately ugly default colors** (left) vs. **professional Huez color schemes** (right). The contrast is intentionally dramatic to show how Huez can transform even the worst-looking plots into publication-quality graphics.
-
-### 📊 Multi-Series Line Plots
-
-**Matplotlib - Default vs Huez Enhanced**
-
-| Default Colors | Huez "Nature Journal Style" (scheme-1) |
-|---|---|
-| ![Default Matplotlib](././assets/comparison/matplotlib_default_lines.png) | ![Huez Matplotlib](././assets/comparison/matplotlib_huez_lines.png) |
-
-**Seaborn - Default vs Huez Enhanced**
-
-| Default Colors | Huez "Science Journal Style" (scheme-2) |
-|---|---|
-| ![Default Seaborn](./assets/comparison/seaborn_default_lines.png) | ![Huez Seaborn](./assets/comparison/seaborn_huez_lines.png) |
-
-### 📈 Scatter Plots with Categories
-
-**Plotly - Default vs Huez Enhanced**
-
-| Default Colors | Huez "NEJM Style" (scheme-3) |
-|---|---|
-| ![Default Plotly](./assets/comparison/plotly_default_scatter.png) | ![Huez Plotly](./assets/comparison/plotly_huez_scatter.png) |
-
-### 📊 Bar Charts
-
-**Altair - Default vs Huez Enhanced**
-
-| Default Colors | Huez "Lancet Style" (scheme-4) |
-|---|---|
-| ![Default Altair](./assets/comparison/altair_default_bars.png) | ![Huez Altair](./assets/comparison/altair_huez_bars.png) |
-
-**plotnine - Default vs Huez Enhanced**
-
-| Default Colors | Huez "JAMA Style" (scheme-5) |
-|---|---|
-| ![Default plotnine](./assets/comparison/plotnine_default_bars.png) | ![Huez plotnine](./assets/comparison/plotnine_huez_bars.png) |
-
-### 🌈 Sequential & Diverging Color Schemes
-
-**Heatmaps with Sequential Scales**
-
-| Default | Huez Viridis | Huez Plasma | Huez Cividis |
-|---|---|---|---|
-| ![Default Sequential](./assets/comparison/heatmap_default_seq.png) | ![Huez Viridis](./assets/comparison/heatmap_huez_viridis.png) | ![Huez Plasma](./assets/comparison/heatmap_huez_plasma.png) | ![Huez Cividis](./assets/comparison/heatmap_huez_cividis.png) |
-
-**Diverging Heatmaps**
-
-| Default RdBu | Huez Vik | Huez Roma | Huez Coolwarm |
-|---|---|---|---|
-| ![Default Diverging](./assets/comparison/heatmap_default_div.png) | ![Huez Vik](./assets/comparison/heatmap_huez_vik.png) | ![Huez Roma](./assets/comparison/heatmap_huez_roma.png) | ![Huez Coolwarm](./assets/comparison/heatmap_huez_coolwarm.png) |
-
-### 🎨 Journal-Style Color Palettes
-
-**Nature Publishing Group (NPG)** - Perfect for scientific publications
-![NPG Colors](./assets/palettes/npg_palette.png)
-
-**American Association for the Advancement of Science (AAAS/Science)**
-![AAAS Colors](./assets/palettes/aaas_palette.png)
-
-**New England Journal of Medicine (NEJM)**
-![NEJM Colors](./assets/palettes/nejm_palette.png)
-
-**The Lancet**
-![Lancet Colors](./assets/palettes/lancet_palette.png)
-
-**Journal of the American Medical Association (JAMA)**
-![JAMA Colors](./assets/palettes/jama_palette.png)
-
-**British Medical Journal (BMJ)**
-![BMJ Colors](./assets/palettes/bmj_palette.png)
-
-### 🎯 Colorblind-Friendly Options
-
-**Okabe-Ito Colors** - Optimized for colorblind accessibility
-![Okabe-Ito](./assets/palettes/okabe_ito_palette.png)
-
-**Paul Tol Bright** - High contrast, colorblind-friendly
-![Paul Tol Bright](./assets/palettes/paul_tol_bright.png)
-
-**Paul Tol Vibrant** - Maximum accessibility
-![Paul Tol Vibrant](./assets/palettes/paul_tol_vibrant.png)
+## 📚 Supported Visualization Libraries
 
 ## 🖼️ Generate Your Own Comparisons
 
