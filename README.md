@@ -42,83 +42,23 @@
 - ⚡ **Zero Learning Cost**: Use native syntax of each library, no need to learn additional APIs
 - 🔧 **One Line Does It All**: Just `hz.use("scheme-1")` to enable automatic coloring for all libraries
 
-## 🎨 Matplotlib - Default vs Huez Enhanced
+## 🎨 Before vs After
 
-**⚠️ WARNING: The "BEFORE" image intentionally uses extremely ugly colors to demonstrate the dramatic transformation!**
-
-| BEFORE: 丑陋的默认颜色 | AFTER: Huez专业期刊配色 |
+| Default Colors | Huez Enhanced |
 |---|---|
-| ![Ugly Default Colors](./assets/comparison/matplotlib_default_lines.png) | ![Huez Professional Colors](./assets/comparison/matplotlib_huez_lines.png) |
+| ![Before](./assets/comparison/matplotlib_default_lines.png) | ![After](./assets/comparison/matplotlib_huez_lines.png) |
 
-**See the SHOCKING transformation!** Just one line of code turns amateur-looking plots into publication-quality graphics.
+**One line transforms amateur plots into professional graphics**
 
-## 📚 Supported Visualization Libraries
+## 🖼️ Try It Yourself
 
-## 🖼️ Generate Your Own Comparisons
-
-Want to see the difference Huez makes with your own data? Use our demo scripts!
-
-### Quick Demo Script
-
-Run this simple script to instantly see before/after comparisons:
+Run our demo script to see the transformation:
 
 ```bash
 python demo_comparison.py
 ```
 
-This creates three comparison images:
-- `before_huez_demo.png` - Default library colors
-- `after_huez_demo.png` - Huez-enhanced colors
-- `huez_schemes_comparison.png` - All 5 built-in schemes side-by-side
-
-### Advanced Comparison Generator
-
-For comprehensive visual comparisons across all libraries and schemes:
-
-```bash
-python generate_comparison_images.py
-```
-
-This generates all the comparison images shown above in the `./assets/` directory.
-
-### Manual Color Comparison
-
-Can't run the scripts? Here's a quick manual comparison:
-
-```python
-import matplotlib.pyplot as plt
-import numpy as np
-
-# Sample data
-x = np.linspace(0, 10, 100)
-y1 = np.sin(x)
-y2 = np.cos(x)
-y3 = np.sin(x*2)
-
-# BEFORE: Default colors
-plt.figure(figsize=(10, 4))
-
-plt.subplot(1, 2, 1)
-plt.plot(x, y1, label='Series 1')
-plt.plot(x, y2, label='Series 2')
-plt.plot(x, y3, label='Series 3')
-plt.title('BEFORE: Default Colors')
-plt.legend()
-
-# AFTER: Huez enhanced
-import huez as hz
-hz.use("scheme-1")  # Nature Journal Style
-
-plt.subplot(1, 2, 2)
-plt.plot(x, y1, label='Series 1')
-plt.plot(x, y2, label='Series 2')
-plt.plot(x, y3, label='Series 3')
-plt.title('AFTER: Huez Enhanced')
-plt.legend()
-
-plt.tight_layout()
-plt.show()
-```
+This generates comparison images showing Huez's impact on your visualizations.
 
 ## 🚀 Quick Start
 
