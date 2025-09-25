@@ -46,7 +46,7 @@
 
 | Default Colors | Huez Enhanced |
 |---|---|
-| ![Before](./assets/comparison/inconsistent_before.png) | ![After](./assets/comparison/consistent_after.png) |
+| ![Before](inconsistent_before.png) | ![After](consistent_after.png) |
 
 **One line creates consistent, professional colors across all your charts**
 
