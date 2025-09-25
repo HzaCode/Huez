@@ -46,7 +46,7 @@
 
 | Default Colors | Huez Enhanced |
 |---|---|
-| ![Before](./assets/comparison/plotly_default_scatter.png) | ![After](./assets/comparison/plotly_huez_scatter.png) |
+| ![Before](./assets/comparison/clean_before.png) | ![After](./assets/comparison/clean_after.png) |
 
 **One line transforms amateur plots into professional graphics**
 
