@@ -44,7 +44,9 @@
 
 ## 🎨 Before & After Visual Comparisons
 
-See the dramatic difference Huez makes to your visualizations! Each section shows the same data plotted with default library colors (left) vs. professional Huez color schemes (right).
+**⚠️ WARNING: The "BEFORE" images below intentionally use extremely ugly colors to demonstrate the dramatic transformation!**
+
+See the **SHOCKING** difference Huez makes to your visualizations! Each section shows the same data plotted with **deliberately ugly default colors** (left) vs. **professional Huez color schemes** (right). The contrast is intentionally dramatic to show how Huez can transform even the worst-looking plots into publication-quality graphics.
 
 ### 📊 Multi-Series Line Plots
 
