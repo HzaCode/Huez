@@ -44,9 +44,8 @@
 
 ## 🎨 Before vs After
 
-| Default Colors | Huez Enhanced |
-|---|---|
-| ![Before](inconsistent_before.png) | ![After](consistent_after.png) |
+| ![Before](inconsistent_before.png) |
+| ![After](consistent_after.png) |
 
 **One line creates consistent, professional colors across all your charts**
 
