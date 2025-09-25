@@ -44,9 +44,9 @@
 
 ## 🎨 Before vs After
 
-| BEFORE: Inconsistent Colors | AFTER: Consistent Professional Colors |
+| Default Colors | Huez Enhanced |
 |---|---|
-| ![BEFORE: Different ugly colors per chart](./assets/comparison/inconsistent_before.png) | ![AFTER: Same professional colors across all charts](./assets/comparison/consistent_after.png) |
+| ![Before](./assets/comparison/inconsistent_before.png) | ![After](./assets/comparison/consistent_after.png) |
 
 **One line creates consistent, professional colors across all your charts**
 

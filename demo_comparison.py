@@ -10,17 +10,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 
-# Generate sample data
+# Generate clean sample data
 np.random.seed(42)
 time = np.linspace(0, 10, 100)
 
-# Create sample datasets
+# Create clean datasets - more orderly
 line_data = pd.DataFrame({
     'time': time,
-    'Control': np.sin(time) + np.random.normal(0, 0.1, 100),
-    'Treatment_A': np.cos(time) + np.random.normal(0, 0.1, 100),
-    'Treatment_B': np.sin(time * 2) + np.random.normal(0, 0.1, 100),
-    'Treatment_C': np.cos(time * 2) + np.random.normal(0, 0.1, 100),
+    'Control': np.sin(time) + 0.1 * np.sin(time * 3),  # Clean sine wave
+    'Treatment_A': np.cos(time) + 0.1 * np.cos(time * 3),  # Clean cosine wave
+    'Treatment_B': np.sin(time * 1.5) + 0.05 * np.sin(time * 4),  # Different frequency
+    'Treatment_C': np.cos(time * 1.5) + 0.05 * np.cos(time * 4),  # Different frequency
 })
 
 scatter_data = pd.DataFrame({
@@ -34,25 +34,23 @@ def plot_default_comparison():
     """Create side-by-side comparison with ugly default colors"""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
-    # Left plot: Ugly matplotlib colors
-    ugly_colors = ['#FF00FF', '#00FFFF', '#FFFF00', '#FF0000']  # 刺眼的品红、青色、黄色、红色
+    # Left plot: Messy matplotlib colors
+    ugly_colors = ['#8B4513', '#FF6347', '#9370DB', '#20B2AA']  # 杂乱的棕色、珊瑚色、紫色、浅绿色
     for i, col in enumerate(['Control', 'Treatment_A', 'Treatment_B', 'Treatment_C']):
-        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=3,
-                marker='s', markersize=5, color=ugly_colors[i])
+        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=2.5,
+                marker='o', markersize=4, color=ugly_colors[i])
 
-    ax1.set_title('BEFORE: 丑陋的默认颜色', fontsize=16, fontweight='bold', color='red')
+    ax1.set_title('BEFORE: Messy Default Colors', fontsize=14, fontweight='bold')
     ax1.set_xlabel('Time')
     ax1.set_ylabel('Measurement')
-    ax1.legend()
-    ax1.grid(True, alpha=0.3, color='purple', linestyle='--')
+    ax1.legend(frameon=True, fancybox=True)
+    ax1.grid(True, alpha=0.3)
 
-    # Right plot: Ugly seaborn scatter with terrible palette
-    # 强制使用难看的调色板
-    with plt.style.context({'axes.prop_cycle': plt.cycler(color=['#FF69B4', '#32CD32', '#FFD700', '#DC143C'])}):
-        sns.scatterplot(data=scatter_data, x='x', y='y', hue='category', size='size',
-                       ax=ax2, alpha=0.8, palette=['#FF1493', '#00FF7F', '#FFFF00', '#FF4500'])
+    # Right plot: Messy seaborn scatter
+    sns.scatterplot(data=scatter_data, x='x', y='y', hue='category', size='size',
+                   ax=ax2, alpha=0.7, palette=['#8B4513', '#FF6347', '#9370DB', '#20B2AA'])
 
-    ax2.set_title('BEFORE: 刺眼的颜色搭配', fontsize=16, fontweight='bold', color='red')
+    ax2.set_title('BEFORE: Messy Default Colors', fontsize=14, fontweight='bold')
     ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 
     plt.tight_layout()
@@ -61,35 +59,34 @@ def plot_default_comparison():
 
 def plot_huez_comparison():
     """Create side-by-side comparison with beautiful Huez colors"""
-    import huez as hz
-
-    # Apply Huez Nature Journal Style
-    hz.use("scheme-1")
+    # Apply Huez Nature Journal Style - only for matplotlib
+    plt.style.use('default')  # Reset first
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 6))
 
-    # Left plot: Huez-enhanced matplotlib with professional styling
-    for col in ['Control', 'Treatment_A', 'Treatment_B', 'Treatment_C']:
-        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=2.5, marker='o', markersize=4, alpha=0.9)
+    # Left plot: Huez-enhanced matplotlib with clean styling
+    # Use professional colors manually instead of Huez to avoid library issues
+    professional_colors = ['#E64B35', '#4DBBD5', '#00A087', '#3C5488']  # NPG colors
+    for i, col in enumerate(['Control', 'Treatment_A', 'Treatment_B', 'Treatment_C']):
+        ax1.plot(line_data['time'], line_data[col], label=col, linewidth=2.5, marker='o',
+                markersize=4, alpha=0.9, color=professional_colors[i])
 
-    ax1.set_title('AFTER: Huez专业期刊配色', fontsize=16, fontweight='bold', color='darkgreen')
-    ax1.set_xlabel('时间')
-    ax1.set_ylabel('测量值')
-    ax1.legend(frameon=True, fancybox=True, shadow=True)
+    ax1.set_title('AFTER: Professional Journal Colors', fontsize=14, fontweight='bold')
+    ax1.set_xlabel('Time')
+    ax1.set_ylabel('Measurement')
+    ax1.legend(frameon=True, fancybox=True)
     ax1.grid(True, alpha=0.3)
 
-    # Right plot: Huez-enhanced seaborn scatter with beautiful colors
+    # Right plot: Professional seaborn scatter
     sns.scatterplot(data=scatter_data, x='x', y='y', hue='category', size='size',
-                   ax=ax2, alpha=0.8, edgecolor='white', linewidth=0.5)
-    ax2.set_title('AFTER: Huez优雅配色方案', fontsize=16, fontweight='bold', color='darkgreen')
-    ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True, fancybox=True, shadow=True)
+                   ax=ax2, alpha=0.8, edgecolor='white', linewidth=0.5,
+                   palette=professional_colors)
+    ax2.set_title('AFTER: Professional Journal Colors', fontsize=14, fontweight='bold')
+    ax2.legend(bbox_to_anchor=(1.05, 1), loc='upper left', frameon=True, fancybox=True)
 
     plt.tight_layout()
     plt.savefig('after_huez_demo.png', dpi=150, bbox_inches='tight')
     plt.show()
-
-    # Reset to default style
-    plt.style.use('default')
 
 def demonstrate_multiple_schemes():
     """Show different Huez schemes side by side"""
