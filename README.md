@@ -346,7 +346,6 @@ with hz.using("lancet"):
 | **Intelligent color expansion** | ✅ LAB space    | ❌ None     | ❌ Simple cycle | ❌ Simple cycle | ❌ None     |
 | **Smart colormap detection**    | ✅ Auto-detect  | ❌ Manual   | ❌ Manual       | ❌ Manual       | ❌ Manual   |
 | **Colorblind safety check**     | ✅ 3 CVD types  | ❌ None     | ❌ None         | ❌ None         | ❌ None     |
-| **Chart complexity adaptation** | ✅ Auto-suggest | ❌ None     | ❌ None         | ❌ None         | ❌ None     |
 | **One-line setup**              | ✅`hz.use()`  | ❌ Per-plot | 🟡 Partial      | 🟡 Partial      | ❌ Per-plot |
 | **Academic journal styles**     | ✅ 6+ journals  | 🟡 Some     | ❌ None         | ❌ None         | ❌ None     |
 
