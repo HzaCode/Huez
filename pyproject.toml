@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "huez"
-version = "0.0.3"
+version = "0.0.5"
 description = "A unified color scheme solution for Python visualization"
 readme = "README.md"
 license = {text = "MIT"}
@@ -74,6 +74,7 @@ zip-safe = false
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["huez*"]
+exclude = ["tests*", "*.tests*", "test_*"]
 
 [tool.setuptools.package-data]
-huez = ["*.txt", "*.md"]
+huez = ["*.yaml", "*.yml", "data/*.yaml"]

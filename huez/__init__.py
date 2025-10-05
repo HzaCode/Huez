@@ -7,7 +7,7 @@ Seaborn, plotnine, Altair, and Plotly. Transform your charts from amateur to
 publication-ready with just one line of code.
 """
 
-__version__ = "0.0.3"
+__version__ = "0.0.5"
 __author__ = "Ang"
 __email__ = "ang@hezhiang.com"
 __license__ = "MIT"
@@ -33,6 +33,14 @@ from .core import (
     help_usage,
     get_colors,  # Alias
     setup,       # Alias
+    # Intelligence features
+    check_accessibility,
+    expand_colors,
+    detect_colormap,
+    smart_cmap,
+    # Preview and utility
+    preview,
+    list_schemes,
 )
 
 __all__ = [
@@ -56,6 +64,14 @@ __all__ = [
     "help_usage",
     "get_colors",  # Alias
     "setup",       # Alias
+    # Intelligence features
+    "check_accessibility",
+    "expand_colors",
+    "detect_colormap",
+    "smart_cmap",
+    # Preview and utility
+    "preview",
+    "list_schemes",
 ]
 
 
