@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="Huez Logo" width="200"/>
+  <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/logo.png" alt="Huez Logo" width="200"/>
 </p>
 
 <h1 align="center">Huez</h1>
@@ -81,7 +81,7 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
 ### 1️⃣ Intelligent Color Expansion (5 → 15 colors)
 
 <p align="center">
-  <img src="comparison_color_expansion.png" alt="Color Expansion" width="85%"/>
+  <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_color_expansion.png" alt="Color Expansion" width="85%"/>
 </p>
 
 **Problem**: Default palettes have 5-10 colors → colors repeat when plotting 15+ categories
@@ -94,7 +94,7 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
 ### 2️⃣ Smart Colormap Detection (Correlation Heatmap)
 
 <p align="center">
-  <img src="comparison_colormap_detection.png" alt="Colormap Detection" width="85%"/>
+  <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_colormap_detection.png" alt="Colormap Detection" width="85%"/>
 </p>
 
 **Problem (Left)**: Sequential colormap (viridis) on diverging data → center value (0) not highlighted  
@@ -107,7 +107,7 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
 ### 3️⃣ Colorblind Accessibility (8% of Population)
 
 <p align="center">
-  <img src="comparison_colorblind_safety.png" alt="Colorblind Safety" width="85%"/>
+  <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_colorblind_safety.png" alt="Colorblind Safety" width="85%"/>
 </p>
 
 **Simulated in Deuteranopia (red-green colorblindness):**
@@ -122,7 +122,7 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
 ### 4️⃣ Print Mode: Grayscale Optimization
 
 <p align="center">
-  <img src="comparison_print_mode.png" alt="Print Mode" width="85%"/>
+  <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_print_mode.png" alt="Print Mode" width="85%"/>
 </p>
 
 **When printed in black & white:**
