@@ -21,6 +21,9 @@
 <!-- Static Project Info -->
 
 <p align="center">
+  <a href="https://pypi.org/project/huez/">
+    <img src="https://img.shields.io/pypi/v/huez?color=blue" alt="PyPI Version"/>
+  </a>
   <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
   <img src="https://img.shields.io/badge/status-pre--alpha-red.svg" alt="Status"/>
@@ -299,24 +302,27 @@ sns.scatterplot(data=df, x='x', y='y', hue='category', ax=axes[1])
 plt.show()
 ```
 
-### Example 2: Intelligent Features
+### Example 2: Automatic Intelligence Features
 
 ```python
 import numpy as np
+import matplotlib.pyplot as plt
 import seaborn as sns
 import huez as hz
 
-# Enable intelligent coloring with accessibility check
+# One line setup - auto_expand and smart_cmap are enabled by default
 hz.use("scheme-1", ensure_accessible=True)
 
-# Auto-expand colors for many categories
+# ✅ Auto-expand: Plot 15 categories, Huez auto-generates 15 distinct colors
 x = np.linspace(0, 10, 100)
-colors = hz.expand_colors(hz.colors()[:5], 12)
+for i in range(15):
+    plt.plot(x, np.sin(x + i * 0.5), label=f'Series {i+1}')
+plt.legend()
+plt.show()
 
-# Smart colormap for heatmap
-correlation_data = np.random.randn(10, 10)
-sns.heatmap(correlation_data, cmap=hz.smart_cmap(correlation_data))
-
+# ✅ Smart colormap: Correlation matrix auto-detects diverging colormap
+correlation_data = np.corrcoef(np.random.randn(10, 100))
+sns.heatmap(correlation_data)  # Automatically uses diverging colormap
 plt.show()
 ```
 
