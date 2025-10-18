@@ -66,7 +66,7 @@ def get_default_config() -> Config:
     )
 
     # Scheme 5: JAMA Style
-    scheme5 = Scheme(
+    jama = Scheme(
         title="JAMA Style",
         fonts=FontConfig(family="DejaVu Sans", size=9),
         palettes=PalettesConfig(
@@ -79,12 +79,33 @@ def get_default_config() -> Config:
         style=StyleConfig(grid="y", legend_loc="best", spine_top_right_off=True)
     )
 
+    # Scheme 6: BMJ Style
+    bmj = Scheme(
+        title="BMJ Style",
+        fonts=FontConfig(family="DejaVu Sans", size=9),
+        palettes=PalettesConfig(
+            discrete="bmj",
+            sequential="viridis",
+            diverging="RdBu",
+            cyclic="twilight"
+        ),
+        figure=FigureConfig(size=[3.5, 2.5], dpi=300),
+        style=StyleConfig(grid="y", legend_loc="best", spine_top_right_off=True)
+    )
+
     config.schemes = {
+        # Numbered schemes
         "scheme-1": scheme1,
         "scheme-2": scheme2,
         "scheme-3": scheme3,
+        "scheme-5": jama,
+        # Journal name aliases
+        "npg": scheme1,
+        "aaas": scheme2,
+        "nejm": scheme3,
         "lancet": lancet,
-        "scheme-5": scheme5
+        "jama": jama,
+        "bmj": bmj
     }
 
     return config
