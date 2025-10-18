@@ -24,9 +24,12 @@ class MatplotlibAdapter(Adapter):
         import matplotlib.pyplot as plt
         import matplotlib as mpl
 
-        # Get the discrete palette
+        # Get the discrete palette (check for display mode override)
         try:
-            discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
+            if hasattr(scheme, '_display_mode_colors'):
+                discrete_colors = scheme._display_mode_colors
+            else:
+                discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             mpl.rcParams['axes.prop_cycle'] = plt.cycler(color=discrete_colors)
         except Exception as e:
             warnings.warn(f"Failed to set discrete palette: {e}")

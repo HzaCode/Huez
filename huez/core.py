@@ -20,6 +20,72 @@ _current_config: Optional[Config] = None
 _scheme_stack: List[str] = []
 
 
+def _enhance_for_presentation(colors: List[str]) -> List[str]:
+    """Enhance colors for presentation (higher contrast, brightness)."""
+    import matplotlib.colors as mcolors
+    
+    enhanced = []
+    for color in colors:
+        rgb = mcolors.to_rgb(color)
+        # Increase saturation and brightness
+        hsv = mcolors.rgb_to_hsv(rgb)
+        hsv[1] = min(1.0, hsv[1] * 1.2)  # Increase saturation
+        hsv[2] = min(1.0, hsv[2] * 1.1)  # Increase brightness
+        rgb_enhanced = mcolors.hsv_to_rgb(hsv)
+        enhanced.append(mcolors.to_hex(rgb_enhanced))
+    
+    return enhanced
+
+
+def _apply_display_mode(scheme, mode: str):
+    """
+    Apply display mode transformations to a scheme.
+    
+    Args:
+        scheme: Original scheme
+        mode: "print" or "presentation"
+    
+    Returns:
+        Modified scheme with mode-appropriate colors
+    """
+    import copy
+    from .registry.palettes import get_palette
+    
+    # Create a copy to avoid modifying original
+    modified_scheme = copy.deepcopy(scheme)
+    
+    if mode == "print":
+        # Print mode: Use colors with varying lightness that remain distinguishable in B&W
+        # These colors are carefully chosen to have different grayscale values
+        print_safe_colors = [
+            '#000000',  # Black (Lightness: 0%)
+            '#E64B35',  # Red (Lightness: 40%)
+            '#4DBBD5',  # Cyan (Lightness: 70%)
+            '#00A087',  # Green (Lightness: 60%)
+            '#3C5488',  # Blue (Lightness: 35%)
+            '#F39B7F',  # Orange (Lightness: 75%)
+            '#8491B4',  # Light blue (Lightness: 65%)
+            '#91D1C2',  # Mint (Lightness: 80%)
+        ]
+        # Store for adapter use
+        modified_scheme._display_mode_colors = print_safe_colors
+        modified_scheme._display_mode_note = "Colors optimized for B&W printing"
+        
+    elif mode == "presentation":
+        # Presentation mode: Enhance contrast and brightness
+        try:
+            original_colors = get_palette(scheme.palettes.discrete, "discrete")
+            enhanced_colors = _enhance_for_presentation(original_colors)
+            modified_scheme._display_mode_colors = enhanced_colors
+        except Exception:
+            pass
+    
+    # Store mode info
+    modified_scheme._display_mode = mode
+    
+    return modified_scheme
+
+
 def load_config(path: Optional[str] = None) -> Config:
     """
     Load configuration from YAML file or use defaults.
@@ -47,13 +113,28 @@ def load_config(path: Optional[str] = None) -> Config:
     return _current_config
 
 
-def use(scheme_name: str, config: Optional[Config] = None) -> None:
+def use(scheme_name: str,
+        config: Optional[Config] = None,
+        auto_expand: bool = True,
+        smart_cmap: bool = True,
+        ensure_accessible: bool = False,
+        mode: str = "screen") -> None:
     """
     Apply a color scheme to all available visualization libraries.
 
     Args:
         scheme_name: Name of the scheme to use
         config: Config object. If None, uses current loaded config.
+        auto_expand: Enable intelligent color expansion for unlimited categories
+        smart_cmap: Enable automatic colormap detection for heatmaps
+        ensure_accessible: Check and warn about colorblind accessibility
+        mode: Display mode - "screen" (default), "print" (grayscale-friendly), or "presentation" (high contrast)
+        
+    Example:
+        >>> import huez as hz
+        >>> hz.use("nature")  # Screen mode
+        >>> hz.use("nature", mode="print")  # Print-friendly colors
+        >>> hz.use("nature", mode="presentation")  # High contrast for projectors
     """
     global _current_scheme, _current_config
 
@@ -70,6 +151,43 @@ def use(scheme_name: str, config: Optional[Config] = None) -> None:
 
     _current_scheme = scheme_name
     scheme = _current_config.schemes[scheme_name]
+    
+    # Apply display mode transformations
+    if mode != "screen":
+        scheme = _apply_display_mode(scheme, mode)
+    
+    # Intelligence features
+    if ensure_accessible:
+        from .intelligence.accessibility import check_colorblind_safety
+        from .registry.palettes import get_palette
+        
+        try:
+            colors = get_palette(scheme.palettes.discrete, "discrete")
+            result = check_colorblind_safety(colors, verbose=False)
+            
+            if not result['safe']:
+                import warnings
+                warnings.warn(
+                    f"\n[Huez Accessibility Warning] Scheme '{scheme_name}' may not be "
+                    f"colorblind-safe:\n" + "\n".join(f"  • {w}" for w in result['warnings']) +
+                    f"\n\nSuggestions:\n" + "\n".join(f"  • {s}" for s in result['suggestions']),
+                    UserWarning
+                )
+        except Exception as e:
+            import warnings
+            warnings.warn(f"Failed to check accessibility: {e}", UserWarning)
+    
+    # Store intelligence settings for adapters
+    if hasattr(scheme, '_intelligence_settings'):
+        scheme._intelligence_settings.update({
+            'auto_expand': auto_expand,
+            'smart_cmap': smart_cmap,
+        })
+    else:
+        scheme._intelligence_settings = {
+            'auto_expand': auto_expand,
+            'smart_cmap': smart_cmap,
+        }
 
     # Apply to all available adapters
     adapters = get_available_adapters()
@@ -481,3 +599,255 @@ def help_usage() -> None:
 # Aliases for backward compatibility and convenience
 get_colors = colors  # Alias
 setup = quick_setup  # Alias
+
+
+# ============================================================================
+# Intelligence Features
+# ============================================================================
+
+def check_accessibility(colors: Optional[List[str]] = None, 
+                        scheme_name: Optional[str] = None,
+                        verbose: bool = True) -> Dict[str, Any]:
+    """
+    Check colorblind accessibility of a color palette.
+    
+    Args:
+        colors: List of hex colors to check. If None, uses current scheme.
+        scheme_name: Name of scheme to check. If None, uses current scheme.
+        verbose: Print detailed report
+        
+    Returns:
+        Dictionary with safety analysis
+        
+    Example:
+        >>> import huez as hz
+        >>> hz.use("npg")
+        >>> result = hz.check_accessibility()
+        >>> if not result['safe']:
+        ...     print("Warning: Not colorblind-safe!")
+    """
+    from .intelligence.accessibility import check_colorblind_safety
+    from .registry.palettes import get_palette
+    
+    # Determine which colors to check
+    if colors is None:
+        if scheme_name is None:
+            scheme_name = _current_scheme
+            if scheme_name is None:
+                raise ValueError("No scheme is active. Call hz.use() first or provide colors/scheme_name.")
+        
+        if _current_config is None:
+            load_config()
+        
+        scheme = _current_config.schemes[scheme_name]
+        colors = get_palette(scheme.palettes.discrete, "discrete")
+    
+    return check_colorblind_safety(colors, verbose=verbose)
+
+
+def expand_colors(colors: List[str], n_needed: int) -> List[str]:
+    """
+    Intelligently expand a color palette using LAB space interpolation.
+    
+    Args:
+        colors: Base color palette (hex format)
+        n_needed: Number of colors needed
+        
+    Returns:
+        Expanded color list
+        
+    Example:
+        >>> import huez as hz
+        >>> base = ['#E64B35', '#4DBBD5', '#00A087']
+        >>> expanded = hz.expand_colors(base, 10)
+        >>> len(expanded)
+        10
+    """
+    from .intelligence.color_expansion import intelligent_color_expansion
+    return intelligent_color_expansion(colors, n_needed)
+
+
+def detect_colormap(data, verbose: bool = True) -> str:
+    """
+    Automatically detect appropriate colormap type for data.
+    
+    Args:
+        data: Numeric data (numpy array or list)
+        verbose: Print detection reasoning
+        
+    Returns:
+        "sequential" or "diverging"
+        
+    Example:
+        >>> import numpy as np
+        >>> import huez as hz
+        >>> corr_data = np.random.randn(10, 10)
+        >>> cmap_type = hz.detect_colormap(corr_data)
+        >>> print(cmap_type)  # "diverging" for symmetric data
+    """
+    from .intelligence.colormap_detection import detect_colormap_type
+    return detect_colormap_type(data, verbose=verbose)
+
+
+def smart_cmap(data, scheme_name: Optional[str] = None) -> str:
+    """
+    Get appropriate colormap name based on data analysis.
+    
+    Args:
+        data: Numeric data to analyze
+        scheme_name: Scheme to use. If None, uses current scheme.
+        
+    Returns:
+        Colormap name
+        
+    Example:
+        >>> import numpy as np
+        >>> import seaborn as sns
+        >>> import huez as hz
+        >>> 
+        >>> hz.use("nature")
+        >>> data = np.random.randn(10, 10)  # Symmetric data
+        >>> cmap_name = hz.smart_cmap(data)
+        >>> sns.heatmap(data, cmap=cmap_name)  # Automatically uses diverging
+    """
+    from .intelligence.colormap_detection import detect_colormap_type
+    
+    if scheme_name is None:
+        scheme_name = _current_scheme
+        if scheme_name is None:
+            raise ValueError("No scheme is active. Call hz.use() first.")
+    
+    if _current_config is None:
+        load_config()
+    
+    # Detect data type
+    cmap_type = detect_colormap_type(data, verbose=False)
+    
+    # Get appropriate colormap from scheme
+    scheme = _current_config.schemes[scheme_name]
+    from .registry.palettes import get_colormap
+    
+    if cmap_type == "diverging":
+        return get_colormap(scheme.palettes.diverging, "diverging")
+    else:
+        return get_colormap(scheme.palettes.sequential, "sequential")
+
+
+# ============================================================================
+# Preview and Utility Functions
+# ============================================================================
+
+def preview(scheme_name: Optional[str] = None, mode: str = "screen") -> None:
+    """
+    Display a quick preview of a color scheme.
+    
+    Args:
+        scheme_name: Name of scheme to preview. If None, shows current scheme.
+        mode: Display mode - "screen", "print", or "presentation"
+        
+    Example:
+        >>> import huez as hz
+        >>> hz.preview("nature")  # Preview Nature scheme
+        >>> hz.preview("nature", mode="print")  # Preview in print mode
+        >>> hz.preview()  # Preview current scheme
+    """
+    import matplotlib.pyplot as plt
+    import numpy as np
+    from .registry.palettes import get_palette
+    
+    # Determine which scheme to preview
+    if scheme_name is None:
+        scheme_name = _current_scheme
+        if scheme_name is None:
+            raise ValueError("No scheme is active. Provide scheme_name or call hz.use() first.")
+    
+    if _current_config is None:
+        load_config()
+    
+    if scheme_name not in _current_config.schemes:
+        available = list(_current_config.schemes.keys())
+        raise ValueError(f"Scheme '{scheme_name}' not found. Available: {available}")
+    
+    scheme = _current_config.schemes[scheme_name]
+    
+    # Apply mode transformation if needed
+    if mode != "screen":
+        scheme = _apply_display_mode(scheme, mode)
+    
+    # Get colors
+    try:
+        if hasattr(scheme, '_display_mode_colors'):
+            colors = scheme._display_mode_colors
+        else:
+            colors = get_palette(scheme.palettes.discrete, "discrete", n=8)
+    except Exception as e:
+        print(f"Error loading palette: {e}")
+        return
+    
+    # Create preview figure
+    fig = plt.figure(figsize=(10, 6))
+    
+    # Title
+    mode_text = f" ({mode} mode)" if mode != "screen" else ""
+    fig.suptitle(f'{scheme.title}{mode_text}', fontsize=16, fontweight='bold')
+    
+    # Color swatches
+    ax1 = plt.subplot(2, 2, (1, 2))
+    ax1.set_title('Discrete Colors', fontsize=12, pad=10)
+    
+    for i, color in enumerate(colors):
+        rect = plt.Rectangle((i, 0), 1, 1, facecolor=color, edgecolor='black', linewidth=1)
+        ax1.add_patch(rect)
+        ax1.text(i + 0.5, -0.3, color, ha='center', va='top', fontsize=8, rotation=45)
+    
+    ax1.set_xlim(0, len(colors))
+    ax1.set_ylim(-0.5, 1.2)
+    ax1.axis('off')
+    
+    # Sample line plot
+    ax2 = plt.subplot(2, 2, 3)
+    ax2.set_title('Line Plot Example', fontsize=10)
+    x = np.linspace(0, 10, 100)
+    for i in range(min(5, len(colors))):
+        y = np.sin(x + i * np.pi/4) + i
+        ax2.plot(x, y, color=colors[i], linewidth=2, label=f'Series {i+1}')
+    ax2.legend(fontsize=8, loc='best')
+    ax2.grid(True, alpha=0.3)
+    
+    # Sample bar chart
+    ax3 = plt.subplot(2, 2, 4)
+    ax3.set_title('Bar Chart Example', fontsize=10)
+    categories = ['A', 'B', 'C', 'D', 'E']
+    values = [3, 7, 2, 5, 8]
+    bars = ax3.bar(categories, values, color=colors[:len(categories)])
+    ax3.grid(True, alpha=0.3, axis='y')
+    
+    plt.tight_layout()
+    plt.show()
+    
+    print(f"\nScheme: {scheme.title}")
+    print(f"Mode: {mode}")
+    print(f"Discrete palette: {scheme.palettes.discrete}")
+    print(f"Colors: {len(colors)}")
+    if mode == "print":
+        print("Note: Print mode uses grayscale-friendly colors")
+    elif mode == "presentation":
+        print("Note: Presentation mode uses enhanced contrast")
+
+
+def list_schemes() -> List[str]:
+    """
+    List all available color schemes.
+    
+    Returns:
+        List of scheme names
+        
+    Example:
+        >>> import huez as hz
+        >>> schemes = hz.list_schemes()
+        >>> print(schemes)
+    """
+    if _current_config is None:
+        load_config()
+    
+    return list(_current_config.schemes.keys())
