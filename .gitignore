@@ -18,5 +18,17 @@ htmlcov/
 .DS_Store
 thumbs.db
 
-# Manuscript files
+# Backup files
+*.backup
+
+# Temporary files
+.issue*.txt
+
+# Manuscript and demo files (not part of package)
 manuscript/
+CITATION.cff
+INTELLIGENCE_FEATURES_SUMMARY.md
+MANIFEST.in
+awesome_python_pr_template.md
+create_*.py
+image/
