@@ -1,3 +1,5 @@
+
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/logo.png" alt="Huez Logo" width="200"/>
 </p>
@@ -5,89 +7,94 @@
 <h1 align="center">Huez</h1>
 
 <p align="center">
-  <em>The First Intelligent Color Management System for Python Visualization</em>
+  <strong>An Intelligent Color Management System for Python Visualization</strong>
   <br />
-  <strong>Automatic • Consistent • Accessible • Smart</strong>
+  <em>Automatic • Consistent • Accessible • Smart</em>
 </p>
 
-<!-- Key Metric: Downloads -->
-
 <p align="center">
-  <a href="https://pepy.tech/project/huez">
-    <img src="https://img.shields.io/pepy/dt/huez?style=for-the-badge&color=306998&label=Downloads&logo=python" alt="Total Downloads"/>
-  </a>
-</p>
-
-<!-- Static Project Info -->
-
-<p align="center">
+  <!-- PyOpenSci/JOSS-specific badges should be added after acceptance -->
   <a href="https://pypi.org/project/huez/">
     <img src="https://img.shields.io/pypi/v/huez?color=blue" alt="PyPI Version"/>
+  </a>
+  <a href="https://pepy.tech/project/huez">
+    <img src="https://img.shields.io/pepy/dt/huez?style=flat-square&color=306998&label=Downloads" alt="Total Downloads"/>
   </a>
   <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
   <img src="https://img.shields.io/badge/status-pre--alpha-red.svg" alt="Status"/>
-  <img src="https://img.shields.io/badge/⚡%20linted%20with-ruff-000000.svg" alt="Ruff"/>
+  <img src="https://img.shields.io/badge/linted%20with-ruff-000000.svg" alt="Ruff"/>
 </p>
 
 ---
 
-## 💡 The Problem
+## Statement of Need
 
-**Good science shouldn't be ruined by bad colors.**
+In scientific research, high-quality visualizations are crucial for clearly communicating findings. However, **poor color management can often undermine the story the data is telling**. Python users creating publication-quality figures commonly face several challenges:
 
-Yet creating publication-quality visualizations in Python is still tedious:
+- ❌ **Inconsistent Colors**: Maintaining a unified visual style is difficult when switching between libraries like `matplotlib`, `seaborn`, and `plotly`.
+- ❌ **Manual Tweaking**: Each plot requires tedious manual color specification, a process that is both time-consuming and hard to reproduce.
+- ❌ **Lack of Intelligent Tools**: There is a shortage of tools that automatically select appropriate colormaps (e.g., distinguishing between sequential and diverging data) or simulate for color vision deficiencies.
+- ❌ **Accessibility Issues**: Approximately 8% of men have some form of color vision deficiency. Improper color choices can render plots uninterpretable to a significant portion of the audience.
 
-- ❌ **Inconsistent colors** across matplotlib, seaborn, plotly...
-- ❌ **Manual tweaking** for every single plot
-- ❌ **No intelligent tools** - colormaps, accessibility checks all manual
-- ❌ **8% of readers** (colorblind) may misinterpret your results
+## Huez: The Intelligent Solution
 
-## ✨ The Solution
+Huez addresses these problems through a simple API that automates the best practices of color management.
 
 ```bash
 pip install huez
 ```
 
+With a single line of code, you can establish a unified, intelligent, and adaptive color system for your entire visualization workflow.
+
 ```python
 import huez as hz
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 
-# 🎨 One line for screen, print, and presentation
-hz.use("scheme-1")  # Optimized colors for screen
-hz.use("scheme-1", mode="print")  # Grayscale-friendly for printing
-hz.use("scheme-1", mode="presentation")  # High contrast for projectors
+# 🎨 Apply a theme with one line, automatically configuring multiple libraries
+hz.use("scheme-1")
 
-# ✨ Huez automatically handles:
-#   • Intelligent color expansion (LAB interpolation)
-#   • Smart colormap detection (sequential/diverging)
-#   • Cross-library consistency (matplotlib, seaborn, plotly, altair, plotnine)
+# --- Matplotlib & Seaborn automatically use consistent colors ---
+
+# 1. Automatic color handling for scatter and line plots
+# Huez intelligently expands the color palette when categories exceed the default
+categories = [f'Type {i+1}' for i in range(15)]
+for cat in categories:
+    plt.plot(np.random.rand(10), label=cat)
+plt.title("Huez Automatically Expands Discrete Colors")
+plt.show()
+
+# 2. Smart detection and application of the best colormap
+# Data ranges from -1 to 1 (diverging)
+correlation_data = np.random.rand(10, 10) * 2 - 1
+sns.heatmap(correlation_data) # Huez auto-detects diverging data and applies "coolwarm"
+plt.title("Huez Intelligently Detects a Diverging Colormap")
+plt.show()
 ```
 
-## ✨ What Makes Huez Different?
+The core strengths of Huez are **automation** and **intelligence**, allowing it to handle the heavy lifting behind the scenes:
 
-**Huez is the only tool that combines:**
-
-- 🧠 **Intelligence** - Smart colormap detection, LAB color interpolation, colorblind safety
-- 🚀 **Automation** - One-line setup, automatic heatmap colormap injection
-- 🎯 **Unification** - 5 libraries (matplotlib, seaborn, plotly, altair, plotnine) consistent
-- 🖨️ **Multi-Mode** - Screen, print (grayscale-friendly), and presentation (high-contrast)
-- ♿ **Accessibility** - Built-in colorblind simulation for 8% of population
-- 🎨 **Professional** - Academic journal styles (Nature, Lancet, Science, JAMA, etc.)
+-   **Intelligent Color Expansion**: When the number of categories exceeds the palette's default color count, Huez interpolates in the perceptually uniform LAB color space to generate a new set of visually distinct colors.
+-   **Smart Colormap Detection**: Automatically analyzes the data passed to `seaborn.heatmap` or `plt.imshow` to select the most appropriate colormap type (sequential, diverging, or cyclic).
+-   **Cross-Library Consistency**: Ensures that `matplotlib`, `seaborn`, `plotly`, `altair`, and `plotnine` all share the same color and style configuration.
+-   **Multi-Mode Output**: Provides color schemes optimized for **screen**, **print** (grayscale-friendly), and **presentation** (high-contrast).
+-   **Built-in Accessibility**: All default schemes are designed to be friendly to viewers with common color vision deficiencies, ensuring your research is accessible to a wider audience.
+-   **Academic Journal Styles**: Includes built-in color and style themes from top-tier journals (e.g., *Nature*, *Lancet*, *Science*), simplifying the publication process.
 
 ---
 
-## 🎨 Visual Demonstrations
+## 🎨 Core Features & Demonstrations
 
-### 1️⃣ Intelligent Color Expansion (5 → 15 colors)
+### 1️⃣ Intelligent Color Expansion (5 → 15 Colors)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_color_expansion.png" alt="Color Expansion" width="85%"/>
 </p>
 
-**Problem**: Default palettes have 5-10 colors → colors repeat when plotting 15+ categories
-**Solution**: Huez uses LAB space interpolation → generates 15 unique, perceptually distinct colors
-
-*Smooth color gradation with maximum distinguishability.*
+**Problem**: Default palettes typically offer 5-10 colors. When plotting more categories, colors are recycled, causing confusion.
+**Huez Solution**: Uses perceptually uniform interpolation in LAB space to generate a larger set of unique, easily distinguishable colors.
 
 ---
 
@@ -97,25 +104,21 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
   <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_colormap_detection.png" alt="Colormap Detection" width="85%"/>
 </p>
 
-**Problem (Left)**: Sequential colormap (viridis) on diverging data → center value (0) not highlighted  
-**Solution (Right)**: Auto-detected diverging colormap (coolwarm) → center at 0, symmetric red-blue colors
-
-*Critical for correlation matrices, gene expression, and any data centered at zero.*
+**Problem (Left)**: A sequential colormap (viridis) is used for a correlation matrix, which contains both positive and negative values. The visual center of the colormap does not align with the meaningful data center (0).
+**Huez Solution (Right)**: Automatically detects that the data is diverging and applies a diverging colormap (coolwarm), which is centered at 0 and uses symmetric colors.
 
 ---
 
-### 3️⃣ Colorblind Accessibility (8% of Population)
+### 3️⃣ Color Vision Deficiency Accessibility (Designing for 8% of the population)
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_colorblind_safety.png" alt="Colorblind Safety" width="85%"/>
 </p>
 
-**Simulated in Deuteranopia (red-green colorblindness):**
+**Simulated under Deuteranopia (red-green color blindness):**
 
-- **Before (Left)**: Default colors → red/green bars become indistinguishable 
-- **After (Right)**: Huez colorblind-safe palette → all 8 cell types remain distinct
-
-*8% of males have red-green colorblindness. Huez ensures your research is accessible to all.*
+-   **Before (Left)**: The default red and green colors become nearly indistinguishable.
+-   **After (Right)**: Huez's colorblind-safe palette ensures all 8 categories remain distinct and clearly interpretable.
 
 ---
 
@@ -125,124 +128,57 @@ hz.use("scheme-1", mode="presentation")  # High contrast for projectors
   <img src="https://raw.githubusercontent.com/HzaCode/Huez/main/comparison_print_mode.png" alt="Print Mode" width="85%"/>
 </p>
 
-**When printed in black & white:**
+**When the plot is printed in black and white:**
 
-- **Before (Left)**: Screen colors → similar gray values (0.33-0.70) → lines merge together
-- **After (Right)**: `mode="print"` → optimized gray values (0.00-0.62) → clear separation
-
-*Perfect for journal submissions and B&W printing. Starting with pure black (0.00) ensures maximum contrast.*
+-   **Before (Left)**: Colors designed for screens may convert to very similar grayscale luminance values, making lines merge together.
+-   **After (Right)**: `mode="print"` selects colors that are well-separated in their grayscale equivalents, ensuring clarity in print.
 
 ---
 
-## 🔧 Usage Guide
+## 🔍 Usage Guide
 
-### ✅ Correct Usage (Fully Automatic)
+### Preview & Quality Checks
+
+Before applying a scheme, you can preview its colors and check its properties.
 
 ```python
 import huez as hz
-import matplotlib.pyplot as plt
-import seaborn as sns
 
-hz.use("scheme-1")  # One line setup
+# Interactively preview a color scheme
+hz.preview("scheme-1")
 
-# ✅ Line plots - automatic colors
-plt.plot(x, y1, label='Series 1')  
-plt.plot(x, y2, label='Series 2')
+# Preview the scheme's appearance in print mode
+hz.preview("scheme-1", mode="print")
 
-# ✅ Heatmaps - automatic colormap detection
-sns.heatmap(correlation_data)  # Diverging colormap (has negatives)
-sns.heatmap(temperature_data)  # Sequential colormap (all positive)
-```
-
-### ❌ Incorrect Usage (Manual Override)
-
-```python
-# ❌ WRONG: Explicit parameters override Huez
-plt.plot(x, y1, color='red')       # Bypasses Huez
-sns.heatmap(data, cmap='viridis')  # Bypasses auto-detection
-```
-
-**Key Principle**: Let Huez handle colors automatically for optimal results.
-
-**Why this works**: Huez intelligently adapts to your data—detecting data types, expanding colors when needed, and ensuring accessibility—all without any manual intervention.
-
----
-
-## 🔍 Preview & Quality Checks
-
-```python
-# Preview any scheme before using
-hz.preview("scheme-1")  # Interactive color preview
-hz.preview("scheme-1", mode="print")  # Preview in print mode
-
-# List all available schemes
+# List all available built-in schemes
 schemes = hz.list_schemes()
-print(schemes)  # ['scheme-1', 'scheme-2', 'scheme-3', 'lancet', 'nejm', ...]
+print(schemes)
+# Output: ['scheme-1', 'scheme-2', 'lancet', 'nejm', ...]
 
-# Optional: Ensure colorblind accessibility
+# Enforce color vision deficiency safety
+# This will raise an error if the selected scheme is not accessible
 hz.use("scheme-1", ensure_accessible=True)
 ```
 
----
-
 <details>
-<summary>📚 <b>Supported Libraries (Click to expand)</b></summary>
+<summary>📚 <b>Supported Libraries</b></summary>
 
-### Matplotlib
+Huez seamlessly integrates with the following major Python visualization libraries:
 
-```python
-import matplotlib.pyplot as plt
-plt.plot(x, y1, label='Data 1')  # Auto-colored
-plt.plot(x, y2, label='Data 2')  # Auto-colored
-```
-
-### Seaborn
-
-```python
-import seaborn as sns
-sns.scatterplot(data=df, x='x', y='y', hue='category')  # Auto-colored
-```
-
-### plotnine (ggplot2 for Python)
-
-```python
-from plotnine import *
-(ggplot(df, aes('x', 'y', color='category')) + geom_point())  # Auto-colored
-```
-
-### Altair
-
-```python
-import altair as alt
-alt.Chart(df).mark_circle().encode(
-    x='x:Q', y='y:Q', color='category:N'  # Auto-colored
-)
-```
-
-### Plotly
-
-```python
-import plotly.graph_objects as go
-fig = go.Figure()
-fig.add_trace(go.Scatter(x=x, y=y, name='Data'))  # Auto-colored
-```
+-   **Matplotlib**: `plt.plot()`, `plt.scatter()`, etc.
+-   **Seaborn**: `sns.scatterplot()`, `sns.heatmap()`, etc.
+-   **plotnine**: `(ggplot(...) + geom_point())`, etc.
+-   **Altair**: `alt.Chart(...).encode(color=...)`, etc.
+-   **Plotly**: `go.Figure()` and `plotly.express`, etc.
 
 </details>
 
 <details>
-<summary>🎨 <b>Custom Schemes (Click to expand)</b></summary>
+<summary>🎨 <b>Custom Schemes</b></summary>
 
-### Switch Between Built-in Schemes
+You can create or override schemes using a simple YAML configuration file.
 
-```python
-hz.use("lancet")     # Lancet journal style
-hz.use("scheme-1")   # Default scheme 1
-hz.use("scheme-2")   # Default scheme 2
-```
-
-### Create Custom Configuration
-
-**Create `my_config.yaml`:**
+**1. Create `my_config.yaml`:**
 
 ```yaml
 version: 1
@@ -250,112 +186,38 @@ default_scheme: my_custom_scheme
 schemes:
   my_custom_scheme:
     title: "My Custom Style"
-    fonts: { family: "DejaVu Sans", size: 10 }
+    fonts: { family: "Arial", size: 10 }
     palettes:
-      discrete: "npg"
+      discrete: "okabe-ito"  # Use a built-in colorblind-safe palette
       sequential: "viridis"
       diverging: "coolwarm"
-      cyclic: "twilight"
-    figure: { dpi: 300 }
-    style: { grid: "y", legend_loc: "best", spine_top_right_off: true }
+    style: { grid: "y", legend_loc: "best" }
 ```
 
-**Load and use:**
+**2. Load and use:**
 
 ```python
+import huez as hz
+
 hz.load_config("my_config.yaml")
 hz.use("my_custom_scheme")
 ```
 
-### Available Built-in Palettes
-
-- **Journals**: `npg`, `aaas`, `nejm`, `lancet`, `jama`, `bmj`
-- **Colorblind-safe**: `okabe-ito`, `paul-tol-bright`, `paul-tol-vibrant`
-- **Scientific**: `viridis`, `plasma`, `inferno`, `cividis`
-
 </details>
 
 <details>
-<summary>📖 <b>Complete Examples (Click to expand)</b></summary>
+<summary>🆚 <b>Comparison with Other Tools</b></summary>
 
-### Example 1: Basic Multi-Library Workflow
+| Feature | Huez | palettable | seaborn | plotly | colorcet |
+| :--- | :---: | :---: | :---: | :---: | :---: |
+| **Cross-Library Unification** | ✅ 5 Libraries | ❌ | ❌ | ❌ | ❌ |
+| **Intelligent Color Expansion** | ✅ LAB Space | ❌ | ❌ | ❌ | ❌ |
+| **Smart Colormap Detection** | ✅ Automatic | ❌ | ❌ | ❌ | ❌ |
+| **CVD Safety Checks** | ✅ Built-in | ❌ | ❌ | ❌ | ❌ |
+| **One-Line Global Setup** | ✅ `hz.use()` | ❌ | 🟡 | 🟡 | ❌ |
+| **Academic Journal Styles** | ✅ 6+ | 🟡 | ❌ | ❌ | ❌ |
 
-```python
-import matplotlib.pyplot as plt
-import seaborn as sns
-import huez as hz
-
-# One line setup
-hz.use("lancet")
-
-# All libraries automatically use consistent colors
-fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-
-# Matplotlib
-axes[0].plot(x, y1, label='Series 1')
-axes[0].plot(x, y2, label='Series 2')
-axes[0].legend()
-
-# Seaborn
-sns.scatterplot(data=df, x='x', y='y', hue='category', ax=axes[1])
-
-plt.show()
-```
-
-### Example 2: Automatic Intelligence Features
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import huez as hz
-
-# One line setup - auto_expand and smart_cmap are enabled by default
-hz.use("scheme-1", ensure_accessible=True)
-
-# ✅ Auto-expand: Plot 15 categories, Huez auto-generates 15 distinct colors
-x = np.linspace(0, 10, 100)
-for i in range(15):
-    plt.plot(x, np.sin(x + i * 0.5), label=f'Series {i+1}')
-plt.legend()
-plt.show()
-
-# ✅ Smart colormap: Correlation matrix auto-detects diverging colormap
-correlation_data = np.corrcoef(np.random.randn(10, 100))
-sns.heatmap(correlation_data)  # Automatically uses diverging colormap
-plt.show()
-```
-
-### Example 3: Context Manager
-
-```python
-import huez as hz
-
-# Temporarily use a different scheme
-with hz.using("lancet"):
-    plt.plot(x, y1)  # Uses lancet colors
-    plt.show()
-
-# Back to previous scheme automatically
-```
-
-</details>
-
----
-
-<details>
-<summary>🆚 <b>Comparison with Other Tools (Click to expand)</b></summary>
-
-| Feature                               | Huez            | palettable  | seaborn         | plotly          | colorcet    |
-| ------------------------------------- | --------------- | ----------- | --------------- | --------------- | ----------- |
-| **Cross-library unification**   | ✅ 5 libraries  | ❌ None     | ❌ None         | ❌ None         | ❌ None     |
-| **Intelligent color expansion** | ✅ LAB space    | ❌ None     | ❌ Simple cycle | ❌ Simple cycle | ❌ None     |
-| **Smart colormap detection**    | ✅ Auto-detect  | ❌ Manual   | ❌ Manual       | ❌ Manual       | ❌ Manual   |
-| **Colorblind safety check**     | ✅ 3 CVD types  | ❌ None     | ❌ None         | ❌ None         | ❌ None     |
-| **One-line setup**              | ✅`hz.use()`  | ❌ Per-plot | 🟡 Partial      | 🟡 Partial      | ❌ Per-plot |
-| **Academic journal styles**     | ✅ 6+ journals  | 🟡 Some     | ❌ None         | ❌ None         | ❌ None     |
-
-**Huez is the only tool with built-in intelligence for automatic adaptation.**
+**Huez's unique contribution is its built-in intelligence layer that automates adaptation to data and context.**
 
 </details>
 
@@ -363,18 +225,20 @@ with hz.using("lancet"):
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! If you have ideas, suggestions, or bug reports, please feel free to open an Issue or submit a Pull Request.
+
+This project is committed to fostering an open and welcoming environment.
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 <div align="center">
 
 ---
 
-### 🎯 Scientific Visualization Made Better
+**Making Scientific Visualization Simpler and More Robust.**
 
-**⭐ Star us on GitHub if Huez saves your time!**
+**⭐ Star us on GitHub if Huez saves you time!**
 
 </div>
