@@ -170,7 +170,7 @@ def use(scheme_name: str,
                 warnings.warn(
                     f"\n[Huez Accessibility Warning] Scheme '{scheme_name}' may not be "
                     f"colorblind-safe:\n" + "\n".join(f"  • {w}" for w in result['warnings']) +
-                    f"\n\nSuggestions:\n" + "\n".join(f"  • {s}" for s in result['suggestions']),
+                    "\n\nSuggestions:\n" + "\n".join(f"  • {s}" for s in result['suggestions']),
                     UserWarning
                 )
         except Exception as e:
@@ -819,7 +819,7 @@ def preview(scheme_name: Optional[str] = None, mode: str = "screen") -> None:
     ax3.set_title('Bar Chart Example', fontsize=10)
     categories = ['A', 'B', 'C', 'D', 'E']
     values = [3, 7, 2, 5, 8]
-    bars = ax3.bar(categories, values, color=colors[:len(categories)])
+    ax3.bar(categories, values, color=colors[:len(categories)])
     ax3.grid(True, alpha=0.3, axis='y')
     
     plt.tight_layout()

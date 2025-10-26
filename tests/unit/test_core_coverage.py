@@ -1,9 +1,6 @@
 """Comprehensive test coverage for huez.core module Goal: Improve core.py coverage to more than 80%"""
 import pytest
 import numpy as np
-import tempfile
-import os
-from pathlib import Path
 
 
 class TestHelperFunctions:
@@ -77,7 +74,7 @@ class TestUseFunctionModes:
         scheme_name = list_first_scheme()
         
         # Should not raise, but may warn
-        with warnings.catch_warnings(record=True) as w:
+        with warnings.catch_warnings(record=True):
             warnings.simplefilter("always")
             use(scheme_name, ensure_accessible=True)
     
@@ -146,7 +143,7 @@ class TestPaletteFunctions:
     
     def test_palette_no_active_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import palette, _current_scheme
+        from huez.core import palette
         from huez import core
         
         # Reset global state
@@ -525,7 +522,7 @@ class TestListAndPreview:
         # Should not throw an exception
         try:
             preview(scheme_name)
-        except Exception as e:
+        except Exception:
             # Preview will open the matplotlib window, which may fail in the test environment.
             # But the key is that the code path is executed
             pass

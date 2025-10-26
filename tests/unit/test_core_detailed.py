@@ -2,8 +2,6 @@
 import pytest
 import tempfile
 import os
-from unittest.mock import Mock, patch, MagicMock
-import numpy as np
 
 
 class TestLoadConfig:

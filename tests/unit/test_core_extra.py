@@ -169,7 +169,7 @@ class TestGGScales:
         
         # plotnine may not be installed
         try:
-            result = gg_scales()
+            gg_scales()
         except ImportError as e:
             assert "plotnine" in str(e)
 

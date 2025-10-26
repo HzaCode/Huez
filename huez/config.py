@@ -1,9 +1,4 @@
-"""
-Configuration Management for Huez
-
-This module handles all configuration-related functionality including
-scheme definitions, validation, and default settings.
-"""
+"""Configuration Management for Huez This module handles all configuration-related functionality including scheme definitions, validation, and default settings."""
 
 from dataclasses import dataclass, field
 from typing import Dict, Any, List
@@ -149,15 +144,7 @@ class Config:
 
 
 def validate_config(config: Config) -> None:
-    """
-    Validate configuration object.
-
-    Args:
-        config: Config object to validate
-
-    Raises:
-        ValueError: If configuration is invalid
-    """
+    """Validate configuration object. Args: config: Config object to validate Raises: ValueError: If configuration is invalid"""
     if not config.schemes:
         raise ValueError("Configuration must contain at least one scheme")
 
@@ -190,15 +177,7 @@ def validate_config(config: Config) -> None:
 
 
 def load_config_from_file(path: str) -> Config:
-    """
-    Load configuration from YAML file.
-
-    Args:
-        path: Path to YAML file
-
-    Returns:
-        Config object
-    """
+    """Load configuration from YAML file. Args: path: Path to YAML file Returns: Config object"""
     with open(path, 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f)
 
@@ -209,16 +188,9 @@ def load_config_from_file(path: str) -> Config:
 
 
 def save_config_to_file(config: Config, path: str) -> None:
-    """
-    Save configuration to YAML file.
-
-    Args:
-        config: Config object
-        path: Path to save file
-    """
+    """Save configuration to YAML file. Args: config: Config object path: Path to save file"""
     data = config.to_dict()
 
     with open(path, 'w', encoding='utf-8') as f:
         yaml.dump(data, f, default_flow_style=False, sort_keys=False)
-
 
