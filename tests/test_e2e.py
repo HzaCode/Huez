@@ -1,7 +1,4 @@
-"""
-End-to-End tests for Huez
-测试真实使用场景
-"""
+"""End-to-End tests for Huez test real usage scenarios"""
 import pytest
 import numpy as np
 import tempfile
@@ -13,28 +10,26 @@ class TestRealWorldScenarios:
     """Test real-world usage scenarios"""
     
     def test_genomics_multi_panel_figure(self):
-        """
-        场景：生物信息学论文的多面板图表
-        """
+        """Scenario: Multi-panel chart for a bioinformatics paper"""
         import matplotlib.pyplot as plt
         import numpy as np
         from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.accessibility import check_colorblind_safety
         from huez.intelligence.colormap_detection import detect_colormap_type
         
-        # 基础配色
+        # Basic color matching
         base = ['#E64B35', '#4DBBD5', '#00A087', '#3C5488']
         
-        # 扩展到 12 种细胞类型
+        # Expands to 12 cell types
         cell_colors = intelligent_color_expansion(base, 12)
         
-        # 检查色盲友好性
+        # Check color blindness friendliness
         check_colorblind_safety(cell_colors, verbose=False)
         
-        # 创建多面板图表
+        # Create multi-panel charts
         fig, axes = plt.subplots(2, 2, figsize=(12, 10))
         
-        # Panel A: 基因表达散点图
+        # Panel A: Gene expression scatter plot
         for i in range(12):
             x = np.random.randn(50)
             y = np.random.randn(50)
@@ -44,7 +39,7 @@ class TestRealWorldScenarios:
         axes[0, 0].set_ylabel('UMAP 2')
         axes[0, 0].legend(bbox_to_anchor=(1.05, 1), fontsize=8)
         
-        # Panel B: 基因表达热图
+        # Panel B: Gene expression heat map
         expr_data = np.random.randn(20, 12)  # 20 genes x 12 cell types
         cmap_type = detect_colormap_type(expr_data, verbose=False)
         im = axes[0, 1].imshow(expr_data, aspect='auto', 
@@ -54,14 +49,14 @@ class TestRealWorldScenarios:
         axes[0, 1].set_ylabel('Genes')
         plt.colorbar(im, ax=axes[0, 1])
         
-        # Panel C: 柱状图
+        # Panel C: Bar chart
         means = np.random.rand(12) * 10
         axes[1, 0].bar(range(12), means, color=cell_colors)
         axes[1, 0].set_title('C. Mean Expression per Cell Type')
         axes[1, 0].set_xlabel('Cell Type')
         axes[1, 0].set_ylabel('Expression Level')
         
-        # Panel D: 线图（时间序列）
+        # Panel D: Line chart (time series)
         time = np.linspace(0, 24, 100)  # 24 hours
         for i in range(8):
             axes[1, 1].plot(time, np.sin(time / 4 + i * 0.5) + i * 0.3, 
@@ -73,41 +68,39 @@ class TestRealWorldScenarios:
         
         plt.tight_layout()
         
-        # 保存到临时文件
+        # Save to temporary file
         with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as f:
             plt.savefig(f.name, dpi=300, bbox_inches='tight')
             temp_file = f.name
         
         plt.close()
         
-        # 验证文件存在
+        # Verify file exists
         assert os.path.exists(temp_file)
         assert os.path.getsize(temp_file) > 10000  # > 10KB
         
-        # 清理
+        # clean up
         os.unlink(temp_file)
     
     @pytest.mark.requires_matplotlib
     @pytest.mark.requires_seaborn
     def test_correlation_analysis_workflow(self):
-        """
-        场景：相关性分析（需要 diverging colormap）
-        """
+        """Scenario: correlation analysis (requires diverging colormap)"""
         import matplotlib.pyplot as plt
         import seaborn as sns
         import numpy as np
         from huez.intelligence.colormap_detection import detect_colormap_type
         
-        # 生成模拟数据
+        # Generate simulation data
         np.random.seed(42)
         data = np.random.randn(100, 10)
         corr_matrix = np.corrcoef(data, rowvar=False)
         
-        # 自动检测应该用 diverging colormap
+        # Automatic detection should use diverging colormap
         cmap_type = detect_colormap_type(corr_matrix, verbose=False)
         assert cmap_type == "diverging"
         
-        # 创建热图
+        # Create a heat map
         fig, ax = plt.subplots(figsize=(8, 6))
         sns.heatmap(corr_matrix, 
                    cmap='coolwarm',
@@ -130,31 +123,29 @@ class TestRealWorldScenarios:
         os.unlink(temp_file)
     
     def test_publication_workflow(self):
-        """
-        场景：完整的论文图表生成流程
-        """
+        """Scenario: Complete paper chart generation process"""
         import matplotlib.pyplot as plt
         from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.accessibility import check_colorblind_safety
         
-        # 1. 选择基础调色板
+        # 1. Choose a base color palette
         base_palette = ['#E64B35', '#4DBBD5', '#00A087']
         
-        # 2. 扩展到需要的数量
+        # 2. Expand to required quantity
         colors_15 = intelligent_color_expansion(base_palette, 15)
         
-        # 3. 验证色盲友好性
+        # 3. Verify color blindness friendliness
         safety = check_colorblind_safety(colors_15, verbose=False)
         
-        # 4. 如果不安全，使用色盲友好调色板
+        # 4. If unsafe, use a color-blind friendly palette
         if not safety['safe']:
-            # 在实际应用中，这里应该切换到 okabe-ito 等色盲友好调色板
+            # In practical applications, you should switch to a color-blind friendly palette such as okabe-ito
             pass
         
-        # 5. 创建多个图表
+        # 5. Create multiple charts
         fig, axes = plt.subplots(1, 3, figsize=(15, 4))
         
-        # 图 1: 线图
+        # Figure 1: Line graph
         x = np.linspace(0, 10, 100)
         for i in range(min(5, len(colors_15))):
             axes[0].plot(x, np.sin(x + i * 0.5), color=colors_15[i], 
@@ -163,7 +154,7 @@ class TestRealWorldScenarios:
         axes[0].legend()
         axes[0].grid(True, alpha=0.3)
         
-        # 图 2: 散点图
+        # Figure 2: Scatter plot
         for i in range(min(8, len(colors_15))):
             axes[1].scatter(np.random.randn(30), np.random.randn(30),
                           c=colors_15[i], label=f'Group {i+1}', s=50, alpha=0.6)
@@ -171,7 +162,7 @@ class TestRealWorldScenarios:
         axes[1].legend()
         axes[1].grid(True, alpha=0.3)
         
-        # 图 3: 柱状图
+        # Figure 3: Bar chart
         categories = np.arange(10)
         values = np.random.rand(10) * 100
         axes[2].bar(categories, values, color=colors_15[:10])
@@ -197,13 +188,11 @@ class TestDataScienceWorkflows:
     
     @pytest.mark.requires_matplotlib
     def test_machine_learning_evaluation(self):
-        """
-        场景：机器学习模型评估可视化
-        """
+        """Scenario: Machine learning model evaluation visualization"""
         import matplotlib.pyplot as plt
         from huez.intelligence.color_expansion import intelligent_color_expansion
         
-        # 模拟 5 个模型的性能
+        # Simulate the performance of 5 models
         models = ['Model A', 'Model B', 'Model C', 'Model D', 'Model E']
         colors = intelligent_color_expansion(['#E64B35', '#4DBBD5', '#00A087'], 5)
         
@@ -261,14 +250,12 @@ class TestDataScienceWorkflows:
         plt.close()
     
     def test_time_series_analysis(self):
-        """
-        场景：时间序列数据分析
-        """
+        """Scenario: Time Series Data Analysis"""
         import matplotlib.pyplot as plt
         from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.chart_adaptation import detect_chart_type, adapt_colors_for_chart
         
-        # 生成 10 个时间序列
+        # Generate 10 time series
         n_series = 10
         time = np.linspace(0, 100, 500)
         
@@ -286,13 +273,13 @@ class TestDataScienceWorkflows:
         ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
         ax.grid(True, alpha=0.3)
         
-        # 检测图表类型并获取建议
+        # Detect chart types and get suggestions
         info = detect_chart_type(ax)
         adapted, recs = adapt_colors_for_chart(colors, info)
         
-        # 如果建议添加 markers，可以在这里应用
+        # If it is recommended to add markers, you can apply them here
         if recs.get('add_markers'):
-            # 实际应用中会重新绘制带 markers 的图
+            # In actual applications, the diagram with markers will be redrawn.
             pass
         
         plt.tight_layout()
@@ -305,34 +292,34 @@ class TestEdgeCases:
     """Test edge cases and error handling"""
     
     def test_empty_data(self):
-        """测试空数据处理"""
+        """Test empty data handling"""
         from huez.intelligence.colormap_detection import detect_colormap_type
         
-        # 空数组
+        # empty array
         try:
             result = detect_colormap_type(np.array([]), verbose=False)
-            # 如果没有报错，应该返回默认值
+            # If no error is reported, the default value should be returned
             assert result in ["sequential", "diverging"]
         except (ValueError, IndexError):
-            # 报错也是可以接受的
+            # Reporting errors is also acceptable
             pass
     
     def test_extreme_values(self):
-        """测试极端值"""
+        """Test extreme values"""
         from huez.intelligence.colormap_detection import detect_colormap_type
         
-        # 非常大的值
+        # very large value
         data = np.array([[1e10, 1e11], [1e12, 1e13]])
         result = detect_colormap_type(data, verbose=False)
         assert result in ["sequential", "diverging"]
         
-        # 非常小的值
+        # very small value
         data = np.array([[1e-10, 1e-11], [1e-12, 1e-13]])
         result = detect_colormap_type(data, verbose=False)
         assert result in ["sequential", "diverging"]
     
     def test_mixed_data_types(self):
-        """测试混合数据类型"""
+        """Test mixed data types"""
         from huez.intelligence.colormap_detection import detect_colormap_type
         
         # Integer data
@@ -350,19 +337,17 @@ class TestUserScenarios:
     """Test real user scenarios"""
     
     def test_beginner_user_workflow(self):
-        """
-        场景：初学者用户的基本工作流程
-        """
+        """Scenario: Basic workflow for beginner users"""
         from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.accessibility import check_colorblind_safety
         
-        # 用户只知道自己需要 10 种颜色
+        # The user only knows they want 10 colors
         base = ['#E64B35', '#4DBBD5', '#00A087']
         
-        # 简单调用扩展
+        # Simple call extension
         colors = intelligent_color_expansion(base, 10)
         
-        # 检查是否色盲友好
+        # Check if color blind friendly
         safety = check_colorblind_safety(colors, verbose=False)
         
         assert len(colors) == 10
@@ -370,9 +355,7 @@ class TestUserScenarios:
     
     @pytest.mark.requires_matplotlib
     def test_advanced_user_workflow(self):
-        """
-        场景：高级用户的完整工作流程
-        """
+        """Scenario: Complete workflow for advanced users"""
         import matplotlib.pyplot as plt
         from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.accessibility import (
@@ -382,31 +365,31 @@ class TestUserScenarios:
         from huez.intelligence.colormap_detection import detect_colormap_type
         from huez.intelligence.chart_adaptation import detect_chart_type, adapt_colors_for_chart
         
-        # 1. 准备数据
+        # 1. Prepare data
         data_heatmap = np.random.randn(20, 20)
         data_line = np.linspace(0, 10, 100)
         
-        # 2. 检测 colormap 类型
+        # 2. Detect colormap type
         cmap_type = detect_colormap_type(data_heatmap, verbose=False)
         
-        # 3. 扩展颜色
+        # 3. Extended colors
         base = ['#E64B35', '#4DBBD5', '#00A087']
         colors = intelligent_color_expansion(base, 8)
         
-        # 4. 检查色盲友好性
+        # 4. Check color blindness friendliness
         safety = check_colorblind_safety(colors, verbose=False)
         
-        # 5. 如果不安全，查看模拟效果
+        # 5. If it is not safe, check the simulation effect
         if not safety['safe']:
             simulate_colorblind_vision(colors, "deuteranopia")
-            # 用户可以决定是否接受
+            # Users can decide whether to accept
         
-        # 6. 创建图表
+        # 6. Create charts
         fig, ax = plt.subplots()
         for i, color in enumerate(colors):
             ax.plot(data_line, np.sin(data_line + i * 0.5), color=color)
         
-        # 7. 获取图表优化建议
+        # 7. Get chart optimization suggestions
         info = detect_chart_type(ax)
         adapted, recs = adapt_colors_for_chart(colors, info)
         
@@ -417,4 +400,3 @@ class TestUserScenarios:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
-

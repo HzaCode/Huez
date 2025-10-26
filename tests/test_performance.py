@@ -1,7 +1,4 @@
-"""
-Performance tests (Benchmark) for Huez
-测试各个功能的性能指标
-"""
+"""Performance tests (Benchmark) for Huez test the performance indicators of each function"""
 import pytest
 import time
 import numpy as np
@@ -395,4 +392,3 @@ class TestPerformanceSummary:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "-m", "slow", "-s"])
-

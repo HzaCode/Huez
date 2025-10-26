@@ -1,7 +1,4 @@
-"""
-Integration tests for Huez
-测试多个模块协同工作的场景
-"""
+"""Integration tests for Huez test scenarios where multiple modules work together"""
 import pytest
 import numpy as np
 
@@ -303,4 +300,3 @@ class TestPerformanceIntegration:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "-m", "integration"])
-

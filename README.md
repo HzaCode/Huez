@@ -14,6 +14,9 @@
 
 <p align="center">
   <!-- PyOpenSci/JOSS-specific badges should be added after acceptance -->
+  <a href="https://github.com/HzaCode/Huez/actions/workflows/tests.yml">
+    <img src="https://github.com/HzaCode/Huez/actions/workflows/tests.yml/badge.svg" alt="CI Tests"/>
+  </a>
   <a href="https://pypi.org/project/huez/">
     <img src="https://img.shields.io/pypi/v/huez?color=blue" alt="PyPI Version"/>
   </a>
