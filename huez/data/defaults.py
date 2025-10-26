@@ -98,6 +98,7 @@ def get_default_config() -> Config:
         "scheme-1": scheme1,
         "scheme-2": scheme2,
         "scheme-3": scheme3,
+        "scheme-4": lancet,
         "scheme-5": jama,
         # Journal name aliases
         "npg": scheme1,
@@ -107,5 +108,7 @@ def get_default_config() -> Config:
         "jama": jama,
         "bmj": bmj,
     }
+    
+    config.default_scheme = "scheme-1"
 
     return config
