@@ -9,6 +9,11 @@ dist/
 # Coverage
 htmlcov/
 .coverage
+coverage.xml
+
+# Documentation build
+docs/build/
+docs/_build/
 
 # IDE
 .vscode/
