@@ -50,19 +50,18 @@ jobs:
       run: |
         echo "No integration tests configured yet"
 
-    # Coverage reporting disabled temporarily
-    # - name: Run tests with coverage
-    #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
-    #   run: |
-    #     python -m pytest tests/ --cov=huez --cov-report=xml --cov-report=html
-    #
-    # - name: Upload coverage to Codecov
-    #   if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
-    #   uses: codecov/codecov-action@v3
-    #   with:
-    #     file: ./coverage.xml
-    #     flags: unittests
-    #     name: codecov-umbrella
+    - name: Run tests with coverage
+      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
+      run: |
+        python -m pytest tests/ --cov=huez --cov-report=xml --cov-report=html
+
+    - name: Upload coverage to Codecov
+      if: matrix.os == 'ubuntu-latest' && matrix.python-version == '3.10'
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
 
   lint:
     runs-on: ubuntu-latest
