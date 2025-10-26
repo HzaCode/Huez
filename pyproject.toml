@@ -78,3 +78,8 @@ exclude = ["tests*", "*.tests*", "test_*"]
 
 [tool.setuptools.package-data]
 huez = ["*.yaml", "*.yml", "data/*.yaml"]
+
+[tool.isort]
+profile = "black"
+skip_gitignore = true
+line_length = 88
