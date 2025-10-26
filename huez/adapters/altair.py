@@ -17,6 +17,7 @@ class AltairAdapter(Adapter):
     def _check_availability(self) -> bool:
         """Check if altair is available."""
         import importlib.util
+
         return importlib.util.find_spec("altair") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
@@ -28,22 +29,30 @@ class AltairAdapter(Adapter):
             # Try with color correction first
             try:
                 from ..color_correction import get_corrected_palette
+
                 base_colors = get_palette(scheme.palettes.discrete, "discrete")
                 discrete_colors = get_corrected_palette(base_colors, "altair")
             except Exception:
                 # Fallback to basic palette
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
-            
+
             # Get colormap names with fallback
             try:
                 from ..color_correction import get_best_colormap_for_library
-                sequential_cmap = get_best_colormap_for_library(scheme.palettes.sequential, "altair")
-                diverging_cmap = get_best_colormap_for_library(scheme.palettes.diverging, "altair")
+
+                sequential_cmap = get_best_colormap_for_library(
+                    scheme.palettes.sequential, "altair"
+                )
+                diverging_cmap = get_best_colormap_for_library(
+                    scheme.palettes.diverging, "altair"
+                )
             except Exception:
                 # Fallback to simple colormap names
-                sequential_cmap = self._convert_colormap_name(scheme.palettes.sequential)
+                sequential_cmap = self._convert_colormap_name(
+                    scheme.palettes.sequential
+                )
                 diverging_cmap = self._convert_colormap_name(scheme.palettes.diverging)
-                
+
         except Exception as e:
             warnings.warn(f"Failed to get palettes for Altair: {e}")
             # Use default colors as last resort
@@ -60,47 +69,32 @@ class AltairAdapter(Adapter):
                     "ordinal": discrete_colors,
                     "heatmap": sequential_cmap,
                     "diverging": diverging_cmap,
-                    "ramp": sequential_cmap
+                    "ramp": sequential_cmap,
                 },
                 # Mark defaults for automatic color application
                 "mark": {
                     "color": discrete_colors[0],  # Default mark color
                     "fill": discrete_colors[0],
-                    "stroke": discrete_colors[0]
+                    "stroke": discrete_colors[0],
                 },
                 # Point/circle marks
-                "point": {
-                    "color": discrete_colors[0],
-                    "fill": discrete_colors[0]
-                },
-                "circle": {
-                    "color": discrete_colors[0],
-                    "fill": discrete_colors[0]
-                },
+                "point": {"color": discrete_colors[0], "fill": discrete_colors[0]},
+                "circle": {"color": discrete_colors[0], "fill": discrete_colors[0]},
                 # Line marks
-                "line": {
-                    "color": discrete_colors[0],
-                    "stroke": discrete_colors[0]
-                },
+                "line": {"color": discrete_colors[0], "stroke": discrete_colors[0]},
                 # Bar marks
-                "bar": {
-                    "color": discrete_colors[0],
-                    "fill": discrete_colors[0]
-                },
-                "rect": {
-                    "color": discrete_colors[0],
-                    "fill": discrete_colors[0]
-                },
+                "bar": {"color": discrete_colors[0], "fill": discrete_colors[0]},
+                "rect": {"color": discrete_colors[0], "fill": discrete_colors[0]},
                 # Text styling
                 "text": {
                     "font": scheme.fonts.family,
                     "fontSize": scheme.fonts.size,
-                    "color": "#333333"
+                    "color": "#333333",
                 },
                 "title": {
                     "font": scheme.fonts.family,
                     "fontSize": scheme.fonts.size + 4,
-                    "color": "#333333"
+                    "color": "#333333",
                 },
                 # Axis styling
                 "axis": {
@@ -111,43 +105,44 @@ class AltairAdapter(Adapter):
                     "grid": scheme.style.grid in ["both", "x", "y"],
                     "gridColor": "#e0e0e0",
                     "domain": not scheme.style.spine_top_right_off,
-                    "ticks": True
+                    "ticks": True,
                 },
                 "axisX": {
                     "grid": scheme.style.grid in ["both", "x"],
-                    "gridColor": "#e0e0e0"
+                    "gridColor": "#e0e0e0",
                 },
                 "axisY": {
                     "grid": scheme.style.grid in ["both", "y"],
-                    "gridColor": "#e0e0e0"
+                    "gridColor": "#e0e0e0",
                 },
                 # Legend styling
                 "legend": {
                     "labelFont": scheme.fonts.family,
                     "labelFontSize": scheme.fonts.size,
                     "titleFont": scheme.fonts.family,
-                    "titleFontSize": scheme.fonts.size + 2
+                    "titleFontSize": scheme.fonts.size + 2,
                 },
                 # Background
                 "background": "white",
                 "view": {
                     "continuousWidth": scheme.figure.size[0] * 72,  # Convert to points
-                    "continuousHeight": scheme.figure.size[1] * 72
-                }
+                    "continuousHeight": scheme.figure.size[1] * 72,
+                },
             }
         }
 
         # Register and enable the theme (using new API if available)
         try:
             # Try new theme API (Altair 5.5+)
-            @alt.theme.register('huez', enable=True)
+            @alt.theme.register("huez", enable=True)
             def huez_theme():
                 return alt.theme.ThemeConfig(theme_config)
+
         except AttributeError:
             # Fallback to old API
-            alt.themes.register('huez', lambda: theme_config)
-            alt.themes.enable('huez')
-        
+            alt.themes.register("huez", lambda: theme_config)
+            alt.themes.enable("huez")
+
         # Store colors globally for helper functions
         global _altair_colors
         _altair_colors = discrete_colors
@@ -169,7 +164,7 @@ class AltairAdapter(Adapter):
             "PuOr": "purpleorange",
             "RdGy": "redgrey",
             "RdYlGn": "redyellowgreen",
-            "Spectral": "spectral"
+            "Spectral": "spectral",
         }
         return altair_mapping.get(cmap_name, "redblue")  # Default to redblue
 
@@ -198,32 +193,26 @@ def export_altair_theme(scheme: Scheme, output_path: str) -> None:
                 "category": discrete_colors,
                 "ordinal": discrete_colors,
                 "heatmap": {"scheme": sequential_cmap},
-                "diverging": {"scheme": diverging_cmap}
+                "diverging": {"scheme": diverging_cmap},
             },
-            "text": {
-                "font": scheme.fonts.family,
-                "fontSize": scheme.fonts.size
-            },
-            "title": {
-                "font": scheme.fonts.family,
-                "fontSize": scheme.fonts.size + 4
-            },
+            "text": {"font": scheme.fonts.family, "fontSize": scheme.fonts.size},
+            "title": {"font": scheme.fonts.family, "fontSize": scheme.fonts.size + 4},
             "axis": {
                 "labelFont": scheme.fonts.family,
                 "labelFontSize": scheme.fonts.size,
                 "titleFont": scheme.fonts.family,
-                "titleFontSize": scheme.fonts.size + 2
+                "titleFontSize": scheme.fonts.size + 2,
             },
             "legend": {
                 "labelFont": scheme.fonts.family,
                 "labelFontSize": scheme.fonts.size,
                 "titleFont": scheme.fonts.family,
-                "titleFontSize": scheme.fonts.size + 2
-            }
+                "titleFontSize": scheme.fonts.size + 2,
+            },
         }
     }
 
-    with open(output_path, 'w') as f:
+    with open(output_path, "w") as f:
         json.dump(theme_config, f, indent=2)
 
 
@@ -234,13 +223,13 @@ _altair_colors = None
 def get_altair_colors(n: int = None):
     """
     Get current Altair colors for manual use.
-    
+
     Args:
         n: Number of colors to return. If None, returns all available colors.
-        
+
     Returns:
         List of hex color strings
-        
+
     Note:
         This is a convenience function for cases where you need explicit colors.
         In most cases, Altair should automatically use the theme colors.
@@ -248,6 +237,7 @@ def get_altair_colors(n: int = None):
     if _altair_colors is None:
         # Fallback to huez.palette if no theme is active
         from ..core import palette
+
         try:
             return palette(n=n, kind="discrete")
         except Exception:
@@ -260,8 +250,9 @@ def get_altair_colors(n: int = None):
             else:
                 # Cycle through colors if more needed
                 import itertools
+
                 return list(itertools.islice(itertools.cycle(colors), n))
-    
+
     if n is None:
         return _altair_colors
     elif n <= len(_altair_colors):
@@ -269,29 +260,30 @@ def get_altair_colors(n: int = None):
     else:
         # Cycle through colors if more needed
         import itertools
+
         return list(itertools.islice(itertools.cycle(_altair_colors), n))
 
 
 def altair_color_scale(field: str, scale_type: str = "nominal"):
     """
     Create an Altair color scale that automatically uses huez colors.
-    
+
     Args:
         field: Field name for the color encoding
         scale_type: Type of scale ("nominal", "ordinal", "quantitative")
-        
+
     Returns:
         Altair Color encoding
-        
+
     Example:
         chart = alt.Chart(data).mark_circle().encode(
             x='x:Q',
-            y='y:Q', 
+            y='y:Q',
             color=altair_color_scale('category:N')
         )
     """
     import altair as alt
-    
+
     if scale_type in ["nominal", "ordinal"]:
         # For categorical data, the theme should handle this automatically
         return alt.Color(field)
@@ -303,14 +295,14 @@ def altair_color_scale(field: str, scale_type: str = "nominal"):
 def altair_auto_color(chart, color_field: str = None):
     """
     Automatically apply huez colors to an Altair chart.
-    
+
     Args:
         chart: Altair chart object
         color_field: Optional field name for color encoding
-        
+
     Returns:
         Chart with color encoding applied
-        
+
     Example:
         chart = alt.Chart(data).mark_circle().encode(x='x:Q', y='y:Q')
         chart = altair_auto_color(chart, 'category:N')
@@ -320,5 +312,3 @@ def altair_auto_color(chart, color_field: str = None):
     else:
         # If no field specified, just return the chart (theme will handle default colors)
         return chart
-
-

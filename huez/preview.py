@@ -147,7 +147,7 @@ def _generate_html_gallery(scheme: Scheme, output_dir: str) -> None:
         ("discrete", "Discrete Colors", True),
         ("sequential", "Sequential Colormap", False),
         ("diverging", "Diverging Colormap", False),
-        ("cyclic", "Cyclic Colormap", False)
+        ("cyclic", "Cyclic Colormap", False),
     ]
 
     for palette_type, title, is_discrete in palette_configs:
@@ -165,14 +165,14 @@ def _generate_html_gallery(scheme: Scheme, output_dir: str) -> None:
                 html_content += '<div class="color-swatches">'
                 for color in colors:
                     html_content += f'<div class="color-swatch" style="background-color: {color};"></div>'
-                html_content += '</div>'
-                html_content += f'<p>{len(colors)} colors</p>'
+                html_content += "</div>"
+                html_content += f"<p>{len(colors)} colors</p>"
             except Exception as e:
-                html_content += f'<p>Error loading palette: {e}</p>'
+                html_content += f"<p>Error loading palette: {e}</p>"
         else:
             # For colormaps, we'll show the name and let the plots demonstrate
             html_content += '<div class="gradient-bar" style="background: linear-gradient(to right, blue, red);"></div>'
-            html_content += '<p>Colormap preview in plots below</p>'
+            html_content += "<p>Colormap preview in plots below</p>"
 
         html_content += "</div>"
 
@@ -228,7 +228,7 @@ def _generate_html_gallery(scheme: Scheme, output_dir: str) -> None:
 </html>"""
 
     html_path = os.path.join(output_dir, "gallery.html")
-    with open(html_path, 'w', encoding='utf-8') as f:
+    with open(html_path, "w", encoding="utf-8") as f:
         f.write(html_content)
 
 
@@ -240,6 +240,7 @@ def _generate_sample_plots(scheme: Scheme, output_dir: str) -> None:
 
         # Apply the scheme
         from .adapters.mpl import MatplotlibAdapter
+
         adapter = MatplotlibAdapter()
         adapter.apply_scheme(scheme)
 
@@ -251,32 +252,44 @@ def _generate_sample_plots(scheme: Scheme, output_dir: str) -> None:
         colors = np.random.randint(0, 8, 100)
 
         plt.scatter(x, y, c=colors, alpha=0.7)
-        plt.xlabel('X Variable')
-        plt.ylabel('Y Variable')
-        plt.title('Scatter Plot Example')
-        plt.savefig(os.path.join(output_dir, 'scatter_plot.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+        plt.xlabel("X Variable")
+        plt.ylabel("Y Variable")
+        plt.title("Scatter Plot Example")
+        plt.savefig(
+            os.path.join(output_dir, "scatter_plot.png"),
+            dpi=scheme.figure.dpi,
+            bbox_inches="tight",
+        )
         plt.close()
 
         # Generate bar chart
         plt.figure(figsize=scheme.figure.size)
-        categories = ['A', 'B', 'C', 'D', 'E']
+        categories = ["A", "B", "C", "D", "E"]
         values = np.random.randint(10, 50, 5)
 
         plt.bar(categories, values)
-        plt.xlabel('Categories')
-        plt.ylabel('Values')
-        plt.title('Bar Chart Example')
-        plt.savefig(os.path.join(output_dir, 'bar_chart.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+        plt.xlabel("Categories")
+        plt.ylabel("Values")
+        plt.title("Bar Chart Example")
+        plt.savefig(
+            os.path.join(output_dir, "bar_chart.png"),
+            dpi=scheme.figure.dpi,
+            bbox_inches="tight",
+        )
         plt.close()
 
         # Generate heatmap
         plt.figure(figsize=scheme.figure.size)
         data = np.random.randn(10, 10)
 
-        plt.imshow(data, cmap=getattr(scheme.palettes, 'sequential'))
+        plt.imshow(data, cmap=getattr(scheme.palettes, "sequential"))
         plt.colorbar()
-        plt.title('Heatmap Example')
-        plt.savefig(os.path.join(output_dir, 'heatmap.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+        plt.title("Heatmap Example")
+        plt.savefig(
+            os.path.join(output_dir, "heatmap.png"),
+            dpi=scheme.figure.dpi,
+            bbox_inches="tight",
+        )
         plt.close()
 
         # Generate line plot
@@ -284,16 +297,20 @@ def _generate_sample_plots(scheme: Scheme, output_dir: str) -> None:
         x = np.linspace(0, 10, 100)
         y1 = np.sin(x)
         y2 = np.cos(x)
-        y3 = np.sin(x + np.pi/4)
+        y3 = np.sin(x + np.pi / 4)
 
-        plt.plot(x, y1, label='sin(x)')
-        plt.plot(x, y2, label='cos(x)')
-        plt.plot(x, y3, label='sin(x+π/4)')
-        plt.xlabel('X')
-        plt.ylabel('Y')
-        plt.title('Line Plot Example')
+        plt.plot(x, y1, label="sin(x)")
+        plt.plot(x, y2, label="cos(x)")
+        plt.plot(x, y3, label="sin(x+π/4)")
+        plt.xlabel("X")
+        plt.ylabel("Y")
+        plt.title("Line Plot Example")
         plt.legend()
-        plt.savefig(os.path.join(output_dir, 'line_plot.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+        plt.savefig(
+            os.path.join(output_dir, "line_plot.png"),
+            dpi=scheme.figure.dpi,
+            bbox_inches="tight",
+        )
         plt.close()
 
     except ImportError:
@@ -306,10 +323,16 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
     """Generate colorblind simulation previews."""
     try:
         import matplotlib.pyplot as plt
-        from .quality.checks import _simulate_colorblindness, _convert_to_grayscale, _hex_to_rgb, _rgb_to_hex
+        from .quality.checks import (
+            _simulate_colorblindness,
+            _convert_to_grayscale,
+            _hex_to_rgb,
+            _rgb_to_hex,
+        )
 
         # Apply the scheme
         from .adapters.mpl import MatplotlibAdapter
+
         adapter = MatplotlibAdapter()
         adapter.apply_scheme(scheme)
 
@@ -322,44 +345,70 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
         axes = axes.flatten()
 
         # Normal vision
-        axes[0].bar(range(len(colors)), [1]*len(colors), color=colors)
-        axes[0].set_title('Normal Vision')
+        axes[0].bar(range(len(colors)), [1] * len(colors), color=colors)
+        axes[0].set_title("Normal Vision")
         axes[0].set_ylim(0, 1.2)
 
         # Colorblind simulations
-        cb_types = ['deuteranopia', 'protanopia', 'tritanopia']
-        titles = ['Deuteranopia', 'Protanopia', 'Tritanopia']
+        cb_types = ["deuteranopia", "protanopia", "tritanopia"]
+        titles = ["Deuteranopia", "Protanopia", "Tritanopia"]
 
         for i, (cb_type, title) in enumerate(zip(cb_types, titles)):
             try:
                 cb_colors_rgb = _simulate_colorblindness(rgb_colors, cb_type)
                 cb_colors_hex = [_rgb_to_hex(rgb) for rgb in cb_colors_rgb]
 
-                axes[i+1].bar(range(len(cb_colors_hex)), [1]*len(cb_colors_hex), color=cb_colors_hex)
-                axes[i+1].set_title(title)
-                axes[i+1].set_ylim(0, 1.2)
+                axes[i + 1].bar(
+                    range(len(cb_colors_hex)),
+                    [1] * len(cb_colors_hex),
+                    color=cb_colors_hex,
+                )
+                axes[i + 1].set_title(title)
+                axes[i + 1].set_ylim(0, 1.2)
             except Exception as e:
-                axes[i+1].text(0.5, 0.5, f'Error:\n{str(e)}', ha='center', va='center', transform=axes[i+1].transAxes)
-                axes[i+1].set_title(title)
+                axes[i + 1].text(
+                    0.5,
+                    0.5,
+                    f"Error:\n{str(e)}",
+                    ha="center",
+                    va="center",
+                    transform=axes[i + 1].transAxes,
+                )
+                axes[i + 1].set_title(title)
 
         # Grayscale
         try:
             gray_colors_rgb = _convert_to_grayscale(rgb_colors)
             gray_colors_hex = [_rgb_to_hex(rgb) for rgb in gray_colors_rgb]
 
-            axes[4].bar(range(len(gray_colors_hex)), [1]*len(gray_colors_hex), color=gray_colors_hex)
-            axes[4].set_title('Grayscale')
+            axes[4].bar(
+                range(len(gray_colors_hex)),
+                [1] * len(gray_colors_hex),
+                color=gray_colors_hex,
+            )
+            axes[4].set_title("Grayscale")
             axes[4].set_ylim(0, 1.2)
         except Exception as e:
-            axes[4].text(0.5, 0.5, f'Error:\n{str(e)}', ha='center', va='center', transform=axes[4].transAxes)
-            axes[4].set_title('Grayscale')
+            axes[4].text(
+                0.5,
+                0.5,
+                f"Error:\n{str(e)}",
+                ha="center",
+                va="center",
+                transform=axes[4].transAxes,
+            )
+            axes[4].set_title("Grayscale")
 
         # Hide unused subplots
         for i in range(5, 8):
-            axes[i].axis('off')
+            axes[i].axis("off")
 
         plt.tight_layout()
-        plt.savefig(os.path.join(output_dir, 'colorblind_normal.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+        plt.savefig(
+            os.path.join(output_dir, "colorblind_normal.png"),
+            dpi=scheme.figure.dpi,
+            bbox_inches="tight",
+        )
         plt.close()
 
         # Generate individual colorblind images (simplified)
@@ -369,20 +418,28 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
                 cb_colors_rgb = _simulate_colorblindness(rgb_colors, cb_type)
                 cb_colors_hex = [_rgb_to_hex(rgb) for rgb in cb_colors_rgb]
 
-                ax.bar(range(len(cb_colors_hex)), [1]*len(cb_colors_hex), color=cb_colors_hex)
-                ax.set_title(f'{title} Simulation')
+                ax.bar(
+                    range(len(cb_colors_hex)),
+                    [1] * len(cb_colors_hex),
+                    color=cb_colors_hex,
+                )
+                ax.set_title(f"{title} Simulation")
                 ax.set_ylim(0, 1.2)
-                ax.axis('off')
+                ax.axis("off")
 
-                plt.savefig(os.path.join(output_dir, f'colorblind_{cb_type}.png'), dpi=scheme.figure.dpi, bbox_inches='tight')
+                plt.savefig(
+                    os.path.join(output_dir, f"colorblind_{cb_type}.png"),
+                    dpi=scheme.figure.dpi,
+                    bbox_inches="tight",
+                )
                 plt.close()
             except Exception:
                 # Skip if simulation fails
                 pass
 
     except ImportError:
-        print("Warning: Required libraries not available for colorblind preview generation")
+        print(
+            "Warning: Required libraries not available for colorblind preview generation"
+        )
     except Exception as e:
         print(f"Warning: Failed to generate colorblind previews: {e}")
-
-

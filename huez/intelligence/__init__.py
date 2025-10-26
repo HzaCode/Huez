@@ -12,9 +12,9 @@ from .colormap_detection import detect_colormap_type, suggest_colormap
 from .accessibility import check_colorblind_safety, get_colorblind_safe_palettes
 
 __all__ = [
-    'intelligent_color_expansion',
-    'detect_colormap_type',
-    'suggest_colormap',
-    'check_colorblind_safety',
-    'get_colorblind_safe_palettes'
+    "intelligent_color_expansion",
+    "detect_colormap_type",
+    "suggest_colormap",
+    "check_colorblind_safety",
+    "get_colorblind_safe_palettes",
 ]

@@ -14,7 +14,9 @@ from .config import Scheme
 from .registry.palettes import get_palette
 
 
-def export_all_styles(scheme: Scheme, output_dir: str, formats: Optional[List[str]] = None) -> None:
+def export_all_styles(
+    scheme: Scheme, output_dir: str, formats: Optional[List[str]] = None
+) -> None:
     """
     Export style files for external use.
 
@@ -46,9 +48,11 @@ def export_all_styles(scheme: Scheme, output_dir: str, formats: Optional[List[st
 def export_to_json(scheme: Scheme, output_dir: str) -> None:
     """Export scheme to JSON format."""
     data = _scheme_to_dict(scheme)
-    output_path = os.path.join(output_dir, f"{scheme.title.lower().replace(' ', '_')}.json")
+    output_path = os.path.join(
+        output_dir, f"{scheme.title.lower().replace(' ', '_')}.json"
+    )
 
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
 
@@ -57,20 +61,26 @@ def export_to_yaml(scheme: Scheme, output_dir: str) -> None:
     try:
         import yaml
     except ImportError:
-        raise ImportError("PyYAML is required for YAML export. Install with: pip install PyYAML")
+        raise ImportError(
+            "PyYAML is required for YAML export. Install with: pip install PyYAML"
+        )
 
     data = _scheme_to_dict(scheme)
-    output_path = os.path.join(output_dir, f"{scheme.title.lower().replace(' ', '_')}.yaml")
+    output_path = os.path.join(
+        output_dir, f"{scheme.title.lower().replace(' ', '_')}.yaml"
+    )
 
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         yaml.dump(data, f, default_flow_style=False, allow_unicode=True)
 
 
 def export_to_css(scheme: Scheme, output_dir: str) -> None:
     """Export scheme to CSS variables format."""
-    output_path = os.path.join(output_dir, f"{scheme.title.lower().replace(' ', '_')}.css")
+    output_path = os.path.join(
+        output_dir, f"{scheme.title.lower().replace(' ', '_')}.css"
+    )
 
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(f"/* {scheme.title} - Huez Color Scheme */\n")
         f.write(":root {\n")
 
@@ -83,7 +93,9 @@ def export_to_css(scheme: Scheme, output_dir: str) -> None:
             pass  # Skip if palette not available
 
         try:
-            sequential_colors = get_palette(scheme.palettes.sequential, "sequential", 10)
+            sequential_colors = get_palette(
+                scheme.palettes.sequential, "sequential", 10
+            )
             for i, color in enumerate(sequential_colors):
                 f.write(f"  --huez-sequential-{i}: {color};\n")
         except Exception:
@@ -94,9 +106,11 @@ def export_to_css(scheme: Scheme, output_dir: str) -> None:
 
 def export_matplotlib_style(scheme: Scheme, output_dir: str) -> None:
     """Export scheme to matplotlib style file."""
-    output_path = os.path.join(output_dir, f"{scheme.title.lower().replace(' ', '_')}.mplstyle")
+    output_path = os.path.join(
+        output_dir, f"{scheme.title.lower().replace(' ', '_')}.mplstyle"
+    )
 
-    with open(output_path, 'w', encoding='utf-8') as f:
+    with open(output_path, "w", encoding="utf-8") as f:
         f.write(f"# {scheme.title} - Huez Color Scheme for Matplotlib\n\n")
 
         # Figure settings
@@ -140,23 +154,17 @@ def _scheme_to_dict(scheme: Scheme) -> Dict[str, Any]:
     """Convert scheme to dictionary for serialization."""
     return {
         "title": scheme.title,
-        "fonts": {
-            "family": scheme.fonts.family,
-            "size": scheme.fonts.size
-        },
+        "fonts": {"family": scheme.fonts.family, "size": scheme.fonts.size},
         "palettes": {
             "discrete": scheme.palettes.discrete,
             "sequential": scheme.palettes.sequential,
             "diverging": scheme.palettes.diverging,
-            "cyclic": scheme.palettes.cyclic
+            "cyclic": scheme.palettes.cyclic,
         },
-        "figure": {
-            "size": scheme.figure.size,
-            "dpi": scheme.figure.dpi
-        },
+        "figure": {"size": scheme.figure.size, "dpi": scheme.figure.dpi},
         "style": {
             "grid": scheme.style.grid,
             "legend_loc": scheme.style.legend_loc,
-            "spine_top_right_off": scheme.style.spine_top_right_off
-        }
+            "spine_top_right_off": scheme.style.spine_top_right_off,
+        },
     }

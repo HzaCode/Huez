@@ -7,13 +7,13 @@ from .palettes import (
     get_colormap,
     list_available_palettes,
     get_palette_info,
-    validate_palette_name
+    validate_palette_name,
 )
 from .journals import (
     get_journal_palette,
     list_journal_palettes,
     get_journal_palette_info,
-    is_journal_palette
+    is_journal_palette,
 )
 
 __all__ = [
@@ -25,7 +25,5 @@ __all__ = [
     "get_journal_palette",
     "list_journal_palettes",
     "get_journal_palette_info",
-    "is_journal_palette"
+    "is_journal_palette",
 ]
-
-

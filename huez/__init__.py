@@ -32,7 +32,7 @@ from .core import (
     status,
     help_usage,
     get_colors,  # Alias
-    setup,       # Alias
+    setup,  # Alias
     # Intelligence features
     check_accessibility,
     expand_colors,
@@ -63,7 +63,7 @@ __all__ = [
     "status",
     "help_usage",
     "get_colors",  # Alias
-    "setup",       # Alias
+    "setup",  # Alias
     # Intelligence features
     "check_accessibility",
     "expand_colors",
@@ -73,5 +73,3 @@ __all__ = [
     "preview",
     "list_schemes",
 ]
-
-

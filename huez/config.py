@@ -8,6 +8,7 @@ import yaml
 @dataclass
 class FontConfig:
     """Font configuration."""
+
     family: str = "DejaVu Sans"
     size: int = 11
 
@@ -15,6 +16,7 @@ class FontConfig:
 @dataclass
 class PalettesConfig:
     """Palette configuration."""
+
     discrete: str = "okabe-ito"
     sequential: str = "viridis"
     diverging: str = "vik"
@@ -24,6 +26,7 @@ class PalettesConfig:
 @dataclass
 class FigureConfig:
     """Figure configuration."""
+
     size: List[float] = field(default_factory=lambda: [6.0, 4.0])
     dpi: int = 300
 
@@ -31,6 +34,7 @@ class FigureConfig:
 @dataclass
 class StyleConfig:
     """Style configuration."""
+
     grid: str = "y"  # "x", "y", "both", "none"
     legend_loc: str = "best"
     spine_top_right_off: bool = True
@@ -39,6 +43,7 @@ class StyleConfig:
 @dataclass
 class Scheme:
     """Color scheme configuration."""
+
     title: str = ""
     fonts: FontConfig = field(default_factory=FontConfig)
     palettes: PalettesConfig = field(default_factory=PalettesConfig)
@@ -49,6 +54,7 @@ class Scheme:
 @dataclass
 class Config:
     """Main configuration."""
+
     version: int = 1
     default_scheme: str = "scheme-1"
     schemes: Dict[str, Scheme] = field(default_factory=dict)
@@ -75,7 +81,7 @@ class Config:
                     fonts_data = scheme_data["fonts"]
                     scheme.fonts = FontConfig(
                         family=fonts_data.get("family", "DejaVu Sans"),
-                        size=fonts_data.get("size", 11)
+                        size=fonts_data.get("size", 11),
                     )
 
                 # Parse palettes
@@ -85,7 +91,7 @@ class Config:
                         discrete=palettes_data.get("discrete", "okabe-ito"),
                         sequential=palettes_data.get("sequential", "viridis"),
                         diverging=palettes_data.get("diverging", "vik"),
-                        cyclic=palettes_data.get("cyclic", "twilight")
+                        cyclic=palettes_data.get("cyclic", "twilight"),
                     )
 
                 # Parse figure
@@ -93,7 +99,7 @@ class Config:
                     figure_data = scheme_data["figure"]
                     scheme.figure = FigureConfig(
                         size=figure_data.get("size", [6.0, 4.0]),
-                        dpi=figure_data.get("dpi", 300)
+                        dpi=figure_data.get("dpi", 300),
                     )
 
                 # Parse style
@@ -102,7 +108,7 @@ class Config:
                     scheme.style = StyleConfig(
                         grid=style_data.get("grid", "y"),
                         legend_loc=style_data.get("legend_loc", "best"),
-                        spine_top_right_off=style_data.get("spine_top_right_off", True)
+                        spine_top_right_off=style_data.get("spine_top_right_off", True),
                     )
 
                 config.schemes[scheme_name] = scheme
@@ -115,31 +121,25 @@ class Config:
         for name, scheme in self.schemes.items():
             schemes_dict[name] = {
                 "title": scheme.title,
-                "fonts": {
-                    "family": scheme.fonts.family,
-                    "size": scheme.fonts.size
-                },
+                "fonts": {"family": scheme.fonts.family, "size": scheme.fonts.size},
                 "palettes": {
                     "discrete": scheme.palettes.discrete,
                     "sequential": scheme.palettes.sequential,
                     "diverging": scheme.palettes.diverging,
-                    "cyclic": scheme.palettes.cyclic
+                    "cyclic": scheme.palettes.cyclic,
                 },
-                "figure": {
-                    "size": scheme.figure.size,
-                    "dpi": scheme.figure.dpi
-                },
+                "figure": {"size": scheme.figure.size, "dpi": scheme.figure.dpi},
                 "style": {
                     "grid": scheme.style.grid,
                     "legend_loc": scheme.style.legend_loc,
-                    "spine_top_right_off": scheme.style.spine_top_right_off
-                }
+                    "spine_top_right_off": scheme.style.spine_top_right_off,
+                },
             }
 
         return {
             "version": self.version,
             "default_scheme": self.default_scheme,
-            "schemes": schemes_dict
+            "schemes": schemes_dict,
         }
 
 
@@ -149,7 +149,9 @@ def validate_config(config: Config) -> None:
         raise ValueError("Configuration must contain at least one scheme")
 
     if config.default_scheme not in config.schemes:
-        raise ValueError(f"Default scheme '{config.default_scheme}' not found in schemes")
+        raise ValueError(
+            f"Default scheme '{config.default_scheme}' not found in schemes"
+        )
 
     # Validate each scheme
     for scheme_name, scheme in config.schemes.items():
@@ -159,26 +161,45 @@ def validate_config(config: Config) -> None:
         for palette_type in ["discrete", "sequential", "diverging", "cyclic"]:
             palette_name = getattr(scheme.palettes, palette_type)
             if not validate_palette_name(palette_name, palette_type):
-                print(f"Warning: Palette '{palette_name}' ({palette_type}) not found in registry. Will use fallback.")
+                print(
+                    f"Warning: Palette '{palette_name}' ({palette_type}) not found in registry. Will use fallback."
+                )
 
         # Validate figure size
         if len(scheme.figure.size) != 2:
-            raise ValueError(f"Scheme '{scheme_name}': figure.size must be [width, height]")
+            raise ValueError(
+                f"Scheme '{scheme_name}': figure.size must be [width, height]"
+            )
 
         # Validate grid option
         if scheme.style.grid not in ["x", "y", "both", "none"]:
-            raise ValueError(f"Scheme '{scheme_name}': style.grid must be one of: x, y, both, none")
+            raise ValueError(
+                f"Scheme '{scheme_name}': style.grid must be one of: x, y, both, none"
+            )
 
         # Validate legend location
-        valid_legend_locs = ["best", "upper right", "upper left", "lower left", "lower right",
-                           "right", "center left", "center right", "lower center", "upper center", "center"]
+        valid_legend_locs = [
+            "best",
+            "upper right",
+            "upper left",
+            "lower left",
+            "lower right",
+            "right",
+            "center left",
+            "center right",
+            "lower center",
+            "upper center",
+            "center",
+        ]
         if scheme.style.legend_loc not in valid_legend_locs:
-            raise ValueError(f"Scheme '{scheme_name}': style.legend_loc must be one of: {valid_legend_locs}")
+            raise ValueError(
+                f"Scheme '{scheme_name}': style.legend_loc must be one of: {valid_legend_locs}"
+            )
 
 
 def load_config_from_file(path: str) -> Config:
     """Load configuration from YAML file. Args: path: Path to YAML file Returns: Config object"""
-    with open(path, 'r', encoding='utf-8') as f:
+    with open(path, "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     if data is None:
@@ -191,6 +212,5 @@ def save_config_to_file(config: Config, path: str) -> None:
     """Save configuration to YAML file. Args: config: Config object path: Path to save file"""
     data = config.to_dict()
 
-    with open(path, 'w', encoding='utf-8') as f:
+    with open(path, "w", encoding="utf-8") as f:
         yaml.dump(data, f, default_flow_style=False, sort_keys=False)
-

@@ -13,7 +13,7 @@ from .core import (
     preview_gallery,
     check_palette,
     lint_figure,
-    _current_config
+    _current_config,
 )
 from .config import save_config_to_file
 from .data.defaults import get_default_config
@@ -31,13 +31,13 @@ def cli():
     "--preset",
     type=click.Choice(["minimal", "full"]),
     default="minimal",
-    help="Configuration preset to use."
+    help="Configuration preset to use.",
 )
 @click.option(
     "--out",
     type=click.Path(),
     default="huez.yaml",
-    help="Output configuration file path."
+    help="Output configuration file path.",
 )
 def init(preset: str, out: str):
     """
@@ -67,7 +67,7 @@ def init(preset: str, out: str):
 @click.option(
     "--config",
     type=click.Path(exists=True),
-    help="Path to configuration file. Uses built-in defaults if not specified."
+    help="Path to configuration file. Uses built-in defaults if not specified.",
 )
 def use_cmd(scheme_name: str, config: Optional[str]):
     """
@@ -86,6 +86,7 @@ def use_cmd(scheme_name: str, config: Optional[str]):
 
         # Show which libraries were affected
         from .adapters.base import get_adapter_status
+
         status = get_adapter_status()
         available = [lib for lib, avail in status.items() if avail]
         if available:
@@ -116,9 +117,7 @@ def current():
 @cli.command()
 @click.argument("kind", type=click.Choice(["schemes", "palettes"]))
 @click.option(
-    "--config",
-    type=click.Path(exists=True),
-    help="Path to configuration file."
+    "--config", type=click.Path(exists=True), help="Path to configuration file."
 )
 def list(kind: str, config: Optional[str]):
     """
@@ -145,6 +144,7 @@ def list(kind: str, config: Optional[str]):
 
         elif kind == "palettes":
             from .registry import list_available_palettes
+
             palettes = list_available_palettes()
 
             click.echo("Available palettes:")
@@ -160,44 +160,40 @@ def list(kind: str, config: Optional[str]):
 
 @cli.command()
 @click.option(
-    "--scheme",
-    help="Scheme name to export. Uses current scheme if not specified."
+    "--scheme", help="Scheme name to export. Uses current scheme if not specified."
 )
 @click.option(
     "--out",
     type=click.Path(),
     default="tokens",
-    help="Output directory for token files."
+    help="Output directory for token files.",
 )
 @click.option(
     "--formats",
-    help="Comma-separated list of formats to export (css,json,js). Exports all if not specified."
+    help="Comma-separated list of formats to export (css,json,js). Exports all if not specified.",
 )
 @click.option(
-    "--config",
-    type=click.Path(exists=True),
-    help="Path to configuration file."
+    "--config", type=click.Path(exists=True), help="Path to configuration file."
 )
 @click.option(
-    "--scheme",
-    help="Scheme name to export. Uses current scheme if not specified."
+    "--scheme", help="Scheme name to export. Uses current scheme if not specified."
 )
 @click.option(
     "--out",
     type=click.Path(),
     default="tokens",
-    help="Output directory for token files."
+    help="Output directory for token files.",
 )
 @click.option(
     "--formats",
-    help="Comma-separated list of formats to export (css,json,js). Exports all if not specified."
+    help="Comma-separated list of formats to export (css,json,js). Exports all if not specified.",
 )
 @click.option(
-    "--config",
-    type=click.Path(exists=True),
-    help="Path to configuration file."
+    "--config", type=click.Path(exists=True), help="Path to configuration file."
 )
-def tokens(scheme: Optional[str], out: str, formats: Optional[str], config: Optional[str]):
+def tokens(
+    scheme: Optional[str], out: str, formats: Optional[str], config: Optional[str]
+):
     """
     Export color tokens for web/JavaScript integration.
 
@@ -212,7 +208,10 @@ def tokens(scheme: Optional[str], out: str, formats: Optional[str], config: Opti
         if not scheme:
             scheme = current_scheme()
             if not scheme:
-                click.echo("❌ No scheme is currently active. Specify --scheme or run 'huez use' first.", err=True)
+                click.echo(
+                    "❌ No scheme is currently active. Specify --scheme or run 'huez use' first.",
+                    err=True,
+                )
                 sys.exit(1)
 
         # Parse formats
@@ -221,6 +220,7 @@ def tokens(scheme: Optional[str], out: str, formats: Optional[str], config: Opti
             format_list = [f.strip() for f in formats.split(",")]
 
         from .export.tokens import export_tokens
+
         export_tokens(_current_config.schemes[scheme], out, format_list)
         click.echo(f"✅ Exported tokens for scheme '{scheme}' to {out}")
 
@@ -231,19 +231,16 @@ def tokens(scheme: Optional[str], out: str, formats: Optional[str], config: Opti
 
 @cli.command()
 @click.option(
-    "--scheme",
-    help="Scheme name to preview. Uses current scheme if not specified."
+    "--scheme", help="Scheme name to preview. Uses current scheme if not specified."
 )
 @click.option(
     "--out",
     type=click.Path(),
     default="gallery",
-    help="Output directory for preview files."
+    help="Output directory for preview files.",
 )
 @click.option(
-    "--config",
-    type=click.Path(exists=True),
-    help="Path to configuration file."
+    "--config", type=click.Path(exists=True), help="Path to configuration file."
 )
 def preview(scheme: Optional[str], out: str, config: Optional[str]):
     """
@@ -260,7 +257,10 @@ def preview(scheme: Optional[str], out: str, config: Optional[str]):
         if not scheme:
             scheme = current_scheme()
             if not scheme:
-                click.echo("❌ No scheme is currently active. Specify --scheme or run 'huez use' first.", err=True)
+                click.echo(
+                    "❌ No scheme is currently active. Specify --scheme or run 'huez use' first.",
+                    err=True,
+                )
                 sys.exit(1)
 
         preview_gallery(out, scheme)
@@ -273,17 +273,14 @@ def preview(scheme: Optional[str], out: str, config: Optional[str]):
 
 @cli.command()
 @click.option(
-    "--scheme",
-    help="Scheme name to check. Uses current scheme if not specified."
+    "--scheme", help="Scheme name to check. Uses current scheme if not specified."
 )
 @click.option(
     "--kinds",
-    help="Comma-separated list of palette kinds to check (discrete,sequential,diverging,cyclic). Checks all if not specified."
+    help="Comma-separated list of palette kinds to check (discrete,sequential,diverging,cyclic). Checks all if not specified.",
 )
 @click.option(
-    "--config",
-    type=click.Path(exists=True),
-    help="Path to configuration file."
+    "--config", type=click.Path(exists=True), help="Path to configuration file."
 )
 def check(scheme: Optional[str], kinds: Optional[str], config: Optional[str]):
     """
@@ -300,7 +297,10 @@ def check(scheme: Optional[str], kinds: Optional[str], config: Optional[str]):
         if not scheme:
             scheme = current_scheme()
             if not scheme:
-                click.echo("❌ No scheme is currently active. Specify --scheme or run 'huez use' first.", err=True)
+                click.echo(
+                    "❌ No scheme is currently active. Specify --scheme or run 'huez use' first.",
+                    err=True,
+                )
                 sys.exit(1)
 
         # Parse kinds
@@ -331,9 +331,7 @@ def check(scheme: Optional[str], kinds: Optional[str], config: Optional[str]):
 @cli.command()
 @click.argument("file_path", type=click.Path(exists=True))
 @click.option(
-    "--report",
-    type=click.Path(),
-    help="Optional path to save detailed report as JSON."
+    "--report", type=click.Path(), help="Optional path to save detailed report as JSON."
 )
 def lint(file_path: str, report: Optional[str]):
     """

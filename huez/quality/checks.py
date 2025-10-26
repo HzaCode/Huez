@@ -7,8 +7,9 @@ from ..config import Scheme
 from ..registry.palettes import get_palette
 
 
-def check_palette_quality(scheme: Scheme,
-                         kinds: Optional[List[str]] = None) -> Dict[str, Any]:
+def check_palette_quality(
+    scheme: Scheme, kinds: Optional[List[str]] = None
+) -> Dict[str, Any]:
     """
     Check the quality of palettes in a scheme.
 
@@ -33,7 +34,7 @@ def check_palette_quality(scheme: Scheme,
                 "palette_name": palette_name,
                 "n_colors": len(colors),
                 "colors": colors,
-                "checks": _check_single_palette(colors, kind)
+                "checks": _check_single_palette(colors, kind),
             }
         except Exception as e:
             results[kind] = {"error": str(e)}
@@ -47,23 +48,29 @@ def check_palette_quality(scheme: Scheme,
 def _generate_quality_summary(results: Dict[str, Any]) -> Dict[str, Any]:
     """
     Generate a summary of quality check results.
-    
+
     Args:
         results: Quality check results
-        
+
     Returns:
         Summary dictionary
     """
     summary = {
         "total_palettes": len([k for k in results.keys() if k != "summary"]),
-        "successful_checks": len([k for k, v in results.items() if k != "summary" and "error" not in v]),
-        "failed_checks": len([k for k, v in results.items() if k != "summary" and "error" in v]),
-        "overall_score": 0.0
+        "successful_checks": len(
+            [k for k, v in results.items() if k != "summary" and "error" not in v]
+        ),
+        "failed_checks": len(
+            [k for k, v in results.items() if k != "summary" and "error" in v]
+        ),
+        "overall_score": 0.0,
     }
-    
+
     if summary["total_palettes"] > 0:
-        summary["overall_score"] = summary["successful_checks"] / summary["total_palettes"]
-    
+        summary["overall_score"] = (
+            summary["successful_checks"] / summary["total_palettes"]
+        )
+
     return summary
 
 
@@ -107,8 +114,11 @@ def _check_single_palette(colors: List[str], kind: str) -> Dict[str, Any]:
 def _has_colorblind_simulation() -> bool:
     """Check if colorblind simulation libraries are available."""
     import importlib.util
-    return (importlib.util.find_spec("colorspacious") is not None or 
-            importlib.util.find_spec("cv2") is not None)
+
+    return (
+        importlib.util.find_spec("colorspacious") is not None
+        or importlib.util.find_spec("cv2") is not None
+    )
 
 
 def _check_colorblind_safety(colors: List[str]) -> Dict[str, Any]:
@@ -148,13 +158,13 @@ def _check_colorblind_safety(colors: List[str]) -> Dict[str, Any]:
 
 def _hex_to_rgb(hex_color: str) -> tuple:
     """Convert hex color to RGB tuple."""
-    hex_color = hex_color.lstrip('#')
-    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+    hex_color = hex_color.lstrip("#")
+    return tuple(int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
 
 
 def _rgb_to_hex(rgb: tuple) -> str:
     """Convert RGB tuple to hex color."""
-    return f'#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}'
+    return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
 
 
 def _simulate_colorblindness(colors: List[tuple], cb_type: str) -> List[tuple]:
@@ -169,24 +179,13 @@ def _simulate_colorblindness(colors: List[tuple], cb_type: str) -> List[tuple]:
         List of transformed RGB tuples
     """
     import importlib.util
+
     if importlib.util.find_spec("colorspacious") is not None:
         # Colorblind transformation matrices
         matrices = {
-            "protanopia": [
-                [0.567, 0.433, 0],
-                [0.558, 0.442, 0],
-                [0, 0.242, 0.758]
-            ],
-            "deuteranopia": [
-                [0.625, 0.375, 0],
-                [0.7, 0.3, 0],
-                [0, 0.3, 0.7]
-            ],
-            "tritanopia": [
-                [0.95, 0.05, 0],
-                [0, 0.433, 0.567],
-                [0, 0.475, 0.525]
-            ]
+            "protanopia": [[0.567, 0.433, 0], [0.558, 0.442, 0], [0, 0.242, 0.758]],
+            "deuteranopia": [[0.625, 0.375, 0], [0.7, 0.3, 0], [0, 0.3, 0.7]],
+            "tritanopia": [[0.95, 0.05, 0], [0, 0.433, 0.567], [0, 0.475, 0.525]],
         }
 
         if cb_type not in matrices:
@@ -208,7 +207,7 @@ def _simulate_colorblindness(colors: List[tuple], cb_type: str) -> List[tuple]:
             transformed_rgb = (
                 max(0, min(255, int(new_r * 255))),
                 max(0, min(255, int(new_g * 255))),
-                max(0, min(255, int(new_b * 255)))
+                max(0, min(255, int(new_b * 255))),
             )
             transformed.append(transformed_rgb)
 
@@ -271,7 +270,7 @@ def _check_distinguishable(colors: List[tuple]) -> bool:
     if len(colors) < 2:
         return True
 
-    min_distance = float('inf')
+    min_distance = float("inf")
 
     for i, color1 in enumerate(colors):
         for j, color2 in enumerate(colors):
@@ -285,9 +284,11 @@ def _check_distinguishable(colors: List[tuple]) -> bool:
 
 def _color_distance(color1: tuple, color2: tuple) -> float:
     """Calculate Euclidean distance between two colors in RGB space."""
-    return ((color1[0] - color2[0]) ** 2 +
-            (color1[1] - color2[1]) ** 2 +
-            (color1[2] - color2[2]) ** 2) ** 0.5
+    return (
+        (color1[0] - color2[0]) ** 2
+        + (color1[1] - color2[1]) ** 2
+        + (color1[2] - color2[2]) ** 2
+    ) ** 0.5
 
 
 def _calculate_contrast_ratios(colors: List[str]) -> List[float]:
@@ -367,15 +368,17 @@ def _check_monotonicity(colors: List[str], kind: str) -> bool:
 
     if kind == "sequential":
         # Should be monotonically increasing
-        return all(luminances[i] <= luminances[i+1] for i in range(len(luminances)-1))
+        return all(
+            luminances[i] <= luminances[i + 1] for i in range(len(luminances) - 1)
+        )
     elif kind == "diverging":
         # Should increase then decrease, or vice versa
         mid = len(luminances) // 2
-        left = luminances[:mid+1]
+        left = luminances[: mid + 1]
         right = luminances[mid:]
 
-        left_mono = all(left[i] <= left[i+1] for i in range(len(left)-1))
-        right_mono = all(right[i] >= right[i+1] for i in range(len(right)-1))
+        left_mono = all(left[i] <= left[i + 1] for i in range(len(left) - 1))
+        right_mono = all(right[i] >= right[i + 1] for i in range(len(right) - 1))
 
         return left_mono and right_mono
 
@@ -393,5 +396,3 @@ def _check_cyclic_property(colors: List[str]) -> bool:
 
     distance = _color_distance(rgb_first, rgb_last)
     return distance < 50  # Allow some tolerance
-
-

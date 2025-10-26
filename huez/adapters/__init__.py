@@ -2,7 +2,12 @@
 Library adapters for huez - Support for 5 major mainstream visualization libraries
 """
 
-from .base import Adapter, get_available_adapters, apply_scheme_to_adapters, ALL_ADAPTERS
+from .base import (
+    Adapter,
+    get_available_adapters,
+    apply_scheme_to_adapters,
+    ALL_ADAPTERS,
+)
 from .mpl import MatplotlibAdapter
 from .seaborn import SeabornAdapter
 from .plotnine import PlotnineAdapter

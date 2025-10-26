@@ -8,8 +8,8 @@ from typing import List, Dict, Tuple
 
 def hex_to_rgb(hex_color: str) -> Tuple[int, int, int]:
     """Convert hexadecimal color to RGB"""
-    hex_color = hex_color.lstrip('#')
-    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+    hex_color = hex_color.lstrip("#")
+    return tuple(int(hex_color[i : i + 2], 16) for i in (0, 2, 4))
 
 
 def rgb_to_hex(rgb: Tuple[int, int, int]) -> str:
@@ -20,54 +20,46 @@ def rgb_to_hex(rgb: Tuple[int, int, int]) -> str:
 def adjust_brightness(hex_color: str, factor: float) -> str:
     """Adjust color brightness"""
     r, g, b = hex_to_rgb(hex_color)
-    h, lightness, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
+    h, lightness, s = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
 
     # Adjust brightness
     lightness = max(0, min(1, lightness * factor))
 
     r, g, b = colorsys.hls_to_rgb(h, lightness, s)
-    return rgb_to_hex((int(r*255), int(g*255), int(b*255)))
+    return rgb_to_hex((int(r * 255), int(g * 255), int(b * 255)))
 
 
 def adjust_saturation(hex_color: str, factor: float) -> str:
     """Adjust color saturation"""
     r, g, b = hex_to_rgb(hex_color)
-    h, lightness, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
+    h, lightness, s = colorsys.rgb_to_hls(r / 255.0, g / 255.0, b / 255.0)
 
     # Adjust saturation
     s = max(0, min(1, s * factor))
-    
+
     r, g, b = colorsys.hls_to_rgb(h, lightness, s)
-    return rgb_to_hex((int(r*255), int(g*255), int(b*255)))
+    return rgb_to_hex((int(r * 255), int(g * 255), int(b * 255)))
 
 
 # Minimal intervention color correction (only for the most obvious issues)
 LIBRARY_CORRECTIONS = {
     "plotly": {
         "brightness": 0.97,  # Slightly darken to match other libraries
-        "saturation": 1.0,   # No saturation adjustment
-        "gamma": 1.0
+        "saturation": 1.0,  # No saturation adjustment
+        "gamma": 1.0,
     },
     "altair": {
-        "brightness": 1.0,   # No adjustment
-        "saturation": 1.0,   # No adjustment
-        "gamma": 1.0
+        "brightness": 1.0,  # No adjustment
+        "saturation": 1.0,  # No adjustment
+        "gamma": 1.0,
     },
-    "seaborn": {
-        "brightness": 1.0,   # Keep consistent
-        "saturation": 1.0,
-        "gamma": 1.0
-    },
-    "matplotlib": {
-        "brightness": 1.0,   # Baseline
-        "saturation": 1.0,
-        "gamma": 1.0
-    },
+    "seaborn": {"brightness": 1.0, "saturation": 1.0, "gamma": 1.0},  # Keep consistent
+    "matplotlib": {"brightness": 1.0, "saturation": 1.0, "gamma": 1.0},  # Baseline
     "plotnine": {
-        "brightness": 1.0,   # No adjustment
-        "saturation": 1.0,   # No adjustment
-        "gamma": 1.0
-    }
+        "brightness": 1.0,  # No adjustment
+        "saturation": 1.0,  # No adjustment
+        "gamma": 1.0,
+    },
 }
 
 
@@ -84,10 +76,10 @@ def correct_colors_for_library(colors: List[str], library: str) -> List[str]:
     """
     if library not in LIBRARY_CORRECTIONS:
         return colors
-    
+
     correction = LIBRARY_CORRECTIONS[library]
     corrected_colors = []
-    
+
     for color in colors:
         # Apply brightness correction
         if correction["brightness"] != 1.0:
@@ -96,9 +88,9 @@ def correct_colors_for_library(colors: List[str], library: str) -> List[str]:
         # Apply saturation correction
         if correction["saturation"] != 1.0:
             color = adjust_saturation(color, correction["saturation"])
-        
+
         corrected_colors.append(color)
-    
+
     return corrected_colors
 
 
@@ -131,7 +123,7 @@ def analyze_color_difference(color1: str, color2: str) -> Dict[str, float]:
     r2, g2, b2 = hex_to_rgb(color2)
 
     # Euclidean distance
-    euclidean = ((r1-r2)**2 + (g1-g2)**2 + (b1-b2)**2)**0.5
+    euclidean = ((r1 - r2) ** 2 + (g1 - g2) ** 2 + (b1 - b2) ** 2) ** 0.5
 
     # Perceptual difference (simplified version)
     dr = r1 - r2
@@ -139,14 +131,14 @@ def analyze_color_difference(color1: str, color2: str) -> Dict[str, float]:
     db = b1 - b2
 
     # Weighted perceptual difference (human eye most sensitive to green)
-    perceptual = (2*dr**2 + 4*dg**2 + 3*db**2)**0.5
+    perceptual = (2 * dr**2 + 4 * dg**2 + 3 * db**2) ** 0.5
 
     return {
         "euclidean": euclidean,
         "perceptual": perceptual,
         "red_diff": abs(dr),
         "green_diff": abs(dg),
-        "blue_diff": abs(db)
+        "blue_diff": abs(db),
     }
 
 
@@ -164,21 +156,51 @@ def get_best_colormap_for_library(cmap_name: str, library: str) -> str:
     # Colormap mappings supported by each library
     library_colormaps = {
         "matplotlib": {
-            "viridis", "plasma", "inferno", "magma", "cividis",
-            "coolwarm", "bwr", "seismic", "RdBu", "RdYlBu", "PiYG"
+            "viridis",
+            "plasma",
+            "inferno",
+            "magma",
+            "cividis",
+            "coolwarm",
+            "bwr",
+            "seismic",
+            "RdBu",
+            "RdYlBu",
+            "PiYG",
         },
         "plotly": {
-            "viridis", "plasma", "inferno", "magma", "cividis",
-            "rdbu", "rdylbu", "spectral", "bluered"
+            "viridis",
+            "plasma",
+            "inferno",
+            "magma",
+            "cividis",
+            "rdbu",
+            "rdylbu",
+            "spectral",
+            "bluered",
         },
         "altair": {
-            "viridis", "plasma", "inferno", "magma", "cividis",
-            "redblue", "redyellowblue", "brownbluegreen", "purpleorange"
+            "viridis",
+            "plasma",
+            "inferno",
+            "magma",
+            "cividis",
+            "redblue",
+            "redyellowblue",
+            "brownbluegreen",
+            "purpleorange",
         },
         "plotnine": {
-            "viridis", "plasma", "inferno", "magma", "cividis",
-            "coolwarm", "seismic", "RdBu", "RdYlBu"
-        }
+            "viridis",
+            "plasma",
+            "inferno",
+            "magma",
+            "cividis",
+            "coolwarm",
+            "seismic",
+            "RdBu",
+            "RdYlBu",
+        },
     }
 
     supported = library_colormaps.get(library, set())
@@ -192,7 +214,7 @@ def get_best_colormap_for_library(cmap_name: str, library: str) -> str:
         "coolwarm": ["rdbu", "redblue", "RdBu"],
         "seismic": ["rdbu", "redblue", "RdBu"],
         "RdBu": ["rdbu", "redblue", "coolwarm"],
-        "RdYlBu": ["rdylbu", "redyellowblue", "coolwarm"]
+        "RdYlBu": ["rdylbu", "redyellowblue", "coolwarm"],
     }
 
     if cmap_name in alternatives:
@@ -205,7 +227,7 @@ def get_best_colormap_for_library(cmap_name: str, library: str) -> str:
         "matplotlib": "viridis",
         "plotly": "viridis",
         "altair": "viridis",
-        "plotnine": "viridis"
+        "plotnine": "viridis",
     }
 
     return defaults.get(library, "viridis")

@@ -18,6 +18,7 @@ class PlotnineAdapter(Adapter):
     def _check_availability(self) -> bool:
         """Check if plotnine is available."""
         import importlib.util
+
         return importlib.util.find_spec("plotnine") is not None
 
     def apply_scheme(self, scheme: Scheme) -> None:
@@ -27,7 +28,7 @@ class PlotnineAdapter(Adapter):
 
         # Get palettes for consistent theming (check for display mode override)
         try:
-            if hasattr(scheme, '_display_mode_colors'):
+            if hasattr(scheme, "_display_mode_colors"):
                 discrete_colors = scheme._display_mode_colors
             else:
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
@@ -43,9 +44,15 @@ class PlotnineAdapter(Adapter):
         # Apply font settings
         theme = theme + p9.theme(
             text=p9.element_text(family=scheme.fonts.family, size=scheme.fonts.size),
-            title=p9.element_text(family=scheme.fonts.family, size=scheme.fonts.size + 4),
-            axis_title=p9.element_text(family=scheme.fonts.family, size=scheme.fonts.size + 2),
-            legend_title=p9.element_text(family=scheme.fonts.family, size=scheme.fonts.size + 2)
+            title=p9.element_text(
+                family=scheme.fonts.family, size=scheme.fonts.size + 4
+            ),
+            axis_title=p9.element_text(
+                family=scheme.fonts.family, size=scheme.fonts.size + 2
+            ),
+            legend_title=p9.element_text(
+                family=scheme.fonts.family, size=scheme.fonts.size + 2
+            ),
         )
 
         # Apply figure size and DPI
@@ -58,12 +65,12 @@ class PlotnineAdapter(Adapter):
         if scheme.style.grid == "x":
             theme = theme + p9.theme(
                 panel_grid_major_x=p9.element_line(color=grid_color, alpha=0.8),
-                panel_grid_major_y=p9.element_blank()
+                panel_grid_major_y=p9.element_blank(),
             )
         elif scheme.style.grid == "y":
             theme = theme + p9.theme(
                 panel_grid_major_y=p9.element_line(color=grid_color, alpha=0.8),
-                panel_grid_major_x=p9.element_blank()
+                panel_grid_major_x=p9.element_blank(),
             )
         elif scheme.style.grid == "both":
             theme = theme + p9.theme(
@@ -77,13 +84,13 @@ class PlotnineAdapter(Adapter):
             theme = theme + p9.theme(
                 axis_line_x=p9.element_line(),
                 axis_line_y=p9.element_line(),
-                panel_border=p9.element_blank()
+                panel_border=p9.element_blank(),
             )
 
         # Set background colors
         theme = theme + p9.theme(
             panel_background=p9.element_rect(fill="white"),
-            plot_background=p9.element_rect(fill="white")
+            plot_background=p9.element_rect(fill="white"),
         )
 
         # Set as default theme
@@ -95,8 +102,9 @@ class PlotnineAdapter(Adapter):
             try:
                 # Try to set plotnine's default color cycle
                 import matplotlib.pyplot as plt
+
                 # Since plotnine is based on matplotlib, this may affect default colors
-                plt.rcParams['axes.prop_cycle'] = plt.cycler(color=discrete_colors)
+                plt.rcParams["axes.prop_cycle"] = plt.cycler(color=discrete_colors)
 
                 # Store colors for auxiliary functions
                 global _plotnine_colors
@@ -134,6 +142,7 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
         if scheme_name:
             # Get current config
             from ..core import _current_config
+
             if _current_config:
                 scheme = _current_config.schemes[scheme_name]
 
@@ -168,6 +177,7 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
     # Fallback - return basic scales based on type
     try:
         import plotnine as p9
+
         scales = []
 
         if scale_type in ["discrete", "auto"]:
@@ -180,7 +190,9 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
         #     except:
         #         pass
 
-        return scales if scales else [p9.scale_color_discrete(), p9.scale_fill_discrete()]
+        return (
+            scales if scales else [p9.scale_color_discrete(), p9.scale_fill_discrete()]
+        )
     except ImportError:
         raise ImportError("plotnine is not installed")
 
@@ -193,13 +205,13 @@ _current_plotnine_scheme = None
 def get_plotnine_colors(n: int = None):
     """
     Get current plotnine colors for manual use.
-    
+
     Args:
         n: Number of colors to return. If None, returns all available colors.
-        
+
     Returns:
         List of hex color strings
-        
+
     Note:
         This is a convenience function for cases where you need explicit colors.
         Prefer using hz.gg_scales() for automatic color application.
@@ -207,6 +219,7 @@ def get_plotnine_colors(n: int = None):
     if _plotnine_colors is None:
         # Fallback to huez.palette if no scheme is active
         from ..core import palette
+
         try:
             return palette(n=n, kind="discrete")
         except Exception:
@@ -219,8 +232,9 @@ def get_plotnine_colors(n: int = None):
             else:
                 # Cycle through colors if more needed
                 import itertools
+
                 return list(itertools.islice(itertools.cycle(colors), n))
-    
+
     if n is None:
         return _plotnine_colors
     elif n <= len(_plotnine_colors):
@@ -228,62 +242,63 @@ def get_plotnine_colors(n: int = None):
     else:
         # Cycle through colors if more needed
         import itertools
+
         return list(itertools.islice(itertools.cycle(_plotnine_colors), n))
 
 
 def plotnine_manual_colors(categories: list = None, colors: list = None):
     """
     Create manual color scales for plotnine.
-    
+
     Args:
         categories: List of category names. If None, uses colors in order.
         colors: List of colors. If None, uses current huez colors.
-        
+
     Returns:
         Tuple of (scale_color_manual, scale_fill_manual)
-        
+
     Example:
         color_scale, fill_scale = plotnine_manual_colors(['A', 'B', 'C'])
-        (ggplot(df, aes('x', 'y', color='category')) + 
-         geom_point() + 
-         color_scale + 
+        (ggplot(df, aes('x', 'y', color='category')) +
+         geom_point() +
+         color_scale +
          fill_scale)
     """
     import plotnine as p9
-    
+
     if colors is None:
         colors = get_plotnine_colors()
-    
+
     if categories is not None:
         # Create mapping from categories to colors
         color_map = {}
         for i, category in enumerate(categories):
             color_idx = i % len(colors)
             color_map[category] = colors[color_idx]
-        
+
         return (
             p9.scale_color_manual(values=color_map),
-            p9.scale_fill_manual(values=color_map)
+            p9.scale_fill_manual(values=color_map),
         )
     else:
         # Use colors in order
         return (
             p9.scale_color_manual(values=colors),
-            p9.scale_fill_manual(values=colors)
+            p9.scale_fill_manual(values=colors),
         )
 
 
 def plotnine_auto_scales():
     """
     Get automatic scales based on current huez scheme.
-    
+
     Returns:
         List of plotnine scale objects
-        
+
     Example:
         scales = plotnine_auto_scales()
-        (ggplot(df, aes('x', 'y', color='category')) + 
-         geom_point() + 
+        (ggplot(df, aes('x', 'y', color='category')) +
+         geom_point() +
          scales[0] + scales[1])  # color and fill scales
     """
     return get_plotnine_scales("discrete")
@@ -292,46 +307,46 @@ def plotnine_auto_scales():
 def gg_color_manual(values: list = None):
     """
     Simplified function to create manual color scale.
-    
+
     Args:
         values: List of colors. If None, uses current huez colors.
-        
+
     Returns:
         plotnine scale_color_manual object
-        
+
     Example:
-        (ggplot(df, aes('x', 'y', color='category')) + 
-         geom_point() + 
+        (ggplot(df, aes('x', 'y', color='category')) +
+         geom_point() +
          gg_color_manual())
     """
     import plotnine as p9
-    
+
     if values is None:
         values = get_plotnine_colors()
-    
+
     return p9.scale_color_manual(values=values)
 
 
 def gg_fill_manual(values: list = None):
     """
     Simplified function to create manual fill scale.
-    
+
     Args:
         values: List of colors. If None, uses current huez colors.
-        
+
     Returns:
         plotnine scale_fill_manual object
-        
+
     Example:
-        (ggplot(df, aes('x', 'y', fill='category')) + 
-         geom_bar() + 
+        (ggplot(df, aes('x', 'y', fill='category')) +
+         geom_bar() +
          gg_fill_manual())
     """
     import plotnine as p9
-    
+
     if values is None:
         values = get_plotnine_colors()
-    
+
     return p9.scale_fill_manual(values=values)
 
 
@@ -375,7 +390,9 @@ def _enable_auto_coloring():
         p9.ggplot.draw = auto_draw
 
         _auto_coloring_enabled = True
-        print("🎨 plotnine auto-coloring enabled! Now you can use native syntax directly")
+        print(
+            "🎨 plotnine auto-coloring enabled! Now you can use native syntax directly"
+        )
 
     except Exception as e:
         warnings.warn(f"Failed to enable plotnine auto-coloring: {e}")
@@ -384,22 +401,22 @@ def _enable_auto_coloring():
 def _disable_auto_coloring():
     """Disable plotnine auto-coloring functionality"""
     global _auto_coloring_enabled
-    
+
     if not _auto_coloring_enabled:
         return
-    
+
     try:
         import plotnine as p9
-        
+
         # Restore original methods
         if _original_ggplot_save:
             p9.ggplot.save = _original_ggplot_save
         if _original_ggplot_draw:
             p9.ggplot.draw = _original_ggplot_draw
-        
+
         _auto_coloring_enabled = False
         print("🔧 plotnine auto-coloring disabled")
-        
+
     except Exception as e:
         warnings.warn(f"Failed to disable plotnine auto-coloring: {e}")
 
@@ -412,48 +429,48 @@ def _auto_add_huez_scales(plot):
         # Check if manual color scales already exist
         has_color_scale = False
         has_fill_scale = False
-        
+
         for layer in plot.layers + plot.scales:
-            if hasattr(layer, 'aesthetics'):
-                if 'colour' in layer.aesthetics or 'color' in layer.aesthetics:
+            if hasattr(layer, "aesthetics"):
+                if "colour" in layer.aesthetics or "color" in layer.aesthetics:
                     has_color_scale = True
-                if 'fill' in layer.aesthetics:
+                if "fill" in layer.aesthetics:
                     has_fill_scale = True
-        
+
         # Check if color mapping is needed
         needs_color = False
         needs_fill = False
 
         # Check aes mapping
-        if hasattr(plot, 'mapping') and plot.mapping:
-            if 'colour' in plot.mapping or 'color' in plot.mapping:
+        if hasattr(plot, "mapping") and plot.mapping:
+            if "colour" in plot.mapping or "color" in plot.mapping:
                 needs_color = True
-            if 'fill' in plot.mapping:
+            if "fill" in plot.mapping:
                 needs_fill = True
 
         # Check aes mapping for each layer
         for layer in plot.layers:
-            if hasattr(layer, 'mapping') and layer.mapping:
-                if 'colour' in layer.mapping or 'color' in layer.mapping:
+            if hasattr(layer, "mapping") and layer.mapping:
+                if "colour" in layer.mapping or "color" in layer.mapping:
                     needs_color = True
-                if 'fill' in layer.mapping:
+                if "fill" in layer.mapping:
                     needs_fill = True
 
         # If color is needed but not manually set, automatically add it
         enhanced_plot = plot
-        
+
         if needs_color and not has_color_scale:
             colors = get_plotnine_colors()
             if colors:
                 enhanced_plot = enhanced_plot + p9.scale_color_manual(values=colors)
-        
+
         if needs_fill and not has_fill_scale:
             colors = get_plotnine_colors()
             if colors:
                 enhanced_plot = enhanced_plot + p9.scale_fill_manual(values=colors)
-        
+
         return enhanced_plot
-        
+
     except Exception as e:
         warnings.warn(f"Failed to auto-add huez scales: {e}")
         return plot
@@ -493,5 +510,3 @@ def is_auto_coloring_enabled():
         bool: True if auto-coloring is enabled
     """
     return _auto_coloring_enabled
-
-

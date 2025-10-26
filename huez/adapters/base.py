@@ -68,7 +68,9 @@ def get_available_adapters() -> List[Adapter]:
             warnings.warn(f"Failed to initialize {adapter_class.__name__}: {e}")
 
     if not available_adapters:
-        warnings.warn("No visualization libraries found. Install matplotlib, seaborn, plotnine, altair, or plotly.")
+        warnings.warn(
+            "No visualization libraries found. Install matplotlib, seaborn, plotnine, altair, or plotly."
+        )
 
     return available_adapters
 
@@ -97,9 +99,7 @@ def get_adapter_status() -> Dict[str, bool]:
     """
     adapters = get_available_adapters()
     # Only focus on 5 major mainstream libraries
-    all_adapter_names = [
-        "matplotlib", "seaborn", "plotnine", "altair", "plotly"
-    ]
+    all_adapter_names = ["matplotlib", "seaborn", "plotnine", "altair", "plotly"]
 
     status = {}
     available_names = [adapter.get_name() for adapter in adapters]
@@ -113,7 +113,7 @@ def get_adapter_status() -> Dict[str, bool]:
 def get_all_adapter_classes() -> List[type]:
     """
     Get all adapter classes (for testing and registry purposes).
-    
+
     Returns:
         List of all adapter classes
     """

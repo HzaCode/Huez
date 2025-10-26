@@ -16,22 +16,16 @@ JOURNAL_PALETTES = {
     "discrete": {
         # Nature Publishing Group
         "npg": None,  # Will be fetched from ggsci at runtime
-
         # American Association for the Advancement of Science
         "aaas": None,
-
         # New England Journal of Medicine
         "nejm": None,
-
         # The Lancet
         "lancet": None,
-
         # Journal of the American Medical Association
         "jama": None,
-
         # British Medical Journal
         "bmj": None,
-
         # Journal of Clinical Oncology
         "jco": None,
     }
@@ -54,7 +48,9 @@ def is_journal_palette(name: str) -> bool:
     return False
 
 
-def get_journal_palette(name: str, kind: str = "discrete", n: Optional[int] = None) -> List[str]:
+def get_journal_palette(
+    name: str, kind: str = "discrete", n: Optional[int] = None
+) -> List[str]:
     """
     Get a journal palette.
 
@@ -77,6 +73,7 @@ def get_journal_palette(name: str, kind: str = "discrete", n: Optional[int] = No
     # Try huez-ggsci plugin first
     try:
         from huez_ggsci import get_palette
+
         return get_palette(name, n=n)
     except ImportError:
         pass
@@ -90,8 +87,11 @@ def get_journal_palette(name: str, kind: str = "discrete", n: Optional[int] = No
     # Use fallback
     fallback = _get_journal_fallback(name)
     if fallback:
-        warnings.warn(f"Journal palette '{name}' not available, using fallback '{fallback}'")
+        warnings.warn(
+            f"Journal palette '{name}' not available, using fallback '{fallback}'"
+        )
         from .palettes import get_palette
+
         return get_palette(fallback, kind, n)
 
     raise ValueError(f"Journal palette '{name}' not found and no fallback available")
@@ -114,13 +114,14 @@ def _fetch_from_r_ggsci(name: str, n: Optional[int] = None) -> List[str]:
     try:
         import rpy2.robjects as ro
         from rpy2.robjects import pandas2ri
+
         pandas2ri.activate()
 
         # Import ggsci
-        ro.r('library(ggsci)')
+        ro.r("library(ggsci)")
 
         # Get palette function
-        palette_func = ro.r(f'ggsci::pal_{name}')
+        palette_func = ro.r(f"ggsci::pal_{name}")
 
         # Call the palette function
         if n is not None:
@@ -190,7 +191,7 @@ def get_journal_palette_info(name: str) -> Dict[str, Any]:
             "colors": colors,
             "n_colors": len(colors),
             "source": "journal",
-            "available": True
+            "available": True,
         }
     except ValueError as e:
         return {
@@ -198,7 +199,5 @@ def get_journal_palette_info(name: str) -> Dict[str, Any]:
             "kind": "discrete",
             "error": str(e),
             "source": "journal",
-            "available": False
+            "available": False,
         }
-
-
