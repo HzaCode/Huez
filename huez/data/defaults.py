@@ -108,7 +108,7 @@ def get_default_config() -> Config:
         "jama": jama,
         "bmj": bmj,
     }
-    
+
     config.default_scheme = "scheme-1"
 
     return config
