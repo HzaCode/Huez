@@ -2,7 +2,8 @@
 Quality checks for color palettes - colorblind simulation and contrast analysis.
 """
 
-from typing import List, Dict, Any, Optional
+from typing import Any, Dict, List, Optional
+
 from ..config import Scheme
 from ..registry.palettes import get_palette
 

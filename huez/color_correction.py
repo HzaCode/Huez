@@ -3,7 +3,7 @@ Color correction module - Compensate for rendering differences across different 
 """
 
 import colorsys
-from typing import List, Dict, Tuple
+from typing import Dict, List, Tuple
 
 
 def hex_to_rgb(hex_color: str) -> Tuple[int, int, int]:

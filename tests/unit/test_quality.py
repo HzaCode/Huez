@@ -2,9 +2,9 @@
 Test quality check module
 """
 
-from unittest.mock import patch, mock_open, Mock
+from unittest.mock import Mock, mock_open, patch
 
-from huez.config import Scheme, PalettesConfig
+from huez.config import PalettesConfig, Scheme
 from huez.quality.checks import check_palette_quality
 from huez.quality.lint import lint_figure_file
 

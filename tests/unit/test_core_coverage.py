@@ -1,7 +1,7 @@
 """Comprehensive test coverage for huez.core module Goal: Improve core.py coverage to more than 80%"""
 
-import pytest
 import numpy as np
+import pytest
 
 
 class TestHelperFunctions:
@@ -48,7 +48,7 @@ class TestUseFunctionModes:
 
     def test_use_with_print_mode(self):
         """Test print mode"""
-        from huez.core import use, current_scheme, load_config
+        from huez.core import current_scheme, load_config, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -58,7 +58,7 @@ class TestUseFunctionModes:
 
     def test_use_with_presentation_mode(self):
         """Test presentation mode"""
-        from huez.core import use, current_scheme, load_config
+        from huez.core import current_scheme, load_config, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -68,8 +68,9 @@ class TestUseFunctionModes:
 
     def test_use_with_ensure_accessible_safe(self):
         """Test accessibility checks (safe color matching)"""
-        from huez.core import use, load_config
         import warnings
+
+        from huez.core import load_config, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -81,7 +82,7 @@ class TestUseFunctionModes:
 
     def test_use_with_config_param(self):
         """Test using custom config"""
-        from huez.core import use, load_config, current_scheme
+        from huez.core import current_scheme, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -96,7 +97,7 @@ class TestPaletteFunctions:
 
     def test_palette_with_scheme_name(self):
         """Test the specified scheme name"""
-        from huez.core import palette, load_config
+        from huez.core import load_config, palette
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -108,7 +109,7 @@ class TestPaletteFunctions:
 
     def test_palette_with_n(self):
         """Test specified color quantity"""
-        from huez.core import palette, load_config, use
+        from huez.core import load_config, palette, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -120,7 +121,7 @@ class TestPaletteFunctions:
 
     def test_palette_sequential(self):
         """Test sequential palette"""
-        from huez.core import palette, load_config, use
+        from huez.core import load_config, palette, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -132,7 +133,7 @@ class TestPaletteFunctions:
 
     def test_palette_diverging(self):
         """Test diverging palette"""
-        from huez.core import palette, load_config, use
+        from huez.core import load_config, palette, use
 
         load_config()
         scheme_name = list_first_scheme()
@@ -144,8 +145,8 @@ class TestPaletteFunctions:
 
     def test_palette_no_active_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import palette
         from huez import core
+        from huez.core import palette
 
         # Reset global state
         core._current_scheme = None
@@ -155,8 +156,8 @@ class TestPaletteFunctions:
 
     def test_cmap_no_active_scheme_raises(self):
         """Test cmap does not have active scheme"""
-        from huez.core import cmap
         from huez import core
+        from huez.core import cmap
 
         core._current_scheme = None
 
@@ -180,7 +181,7 @@ class TestContextManager:
 
     def test_using_context_manager(self):
         """Test using context manager"""
-        from huez.core import using, use, current_scheme, load_config
+        from huez.core import current_scheme, load_config, use, using
 
         config = load_config()
         schemes = list(config.schemes.keys())
@@ -201,8 +202,8 @@ class TestContextManager:
 
     def test_using_with_no_previous_scheme(self):
         """Test the situation without previous scheme"""
-        from huez.core import using, current_scheme, load_config
         from huez import core
+        from huez.core import current_scheme, load_config, using
 
         load_config()
         core._current_scheme = None
@@ -241,8 +242,8 @@ class TestIntelligenceFunctions:
 
     def test_check_accessibility_no_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import check_accessibility
         from huez import core
+        from huez.core import check_accessibility
 
         core._current_scheme = None
         core._current_config = None
@@ -279,7 +280,7 @@ class TestIntelligenceFunctions:
 
     def test_smart_cmap_with_diverging_data(self):
         """Test smart_cmap with diverging data"""
-        from huez.core import smart_cmap, use, load_config
+        from huez.core import load_config, smart_cmap, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -293,7 +294,7 @@ class TestIntelligenceFunctions:
 
     def test_smart_cmap_with_sequential_data(self):
         """Test smart_cmap with sequential data"""
-        from huez.core import smart_cmap, use, load_config
+        from huez.core import load_config, smart_cmap, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -307,8 +308,8 @@ class TestIntelligenceFunctions:
 
     def test_smart_cmap_no_scheme_raises(self):
         """Test smart_cmap does not have active scheme"""
-        from huez.core import smart_cmap
         from huez import core
+        from huez.core import smart_cmap
 
         core._current_scheme = None
 
@@ -323,7 +324,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_default(self):
         """Test auto_colors default parameters"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -336,7 +337,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_with_n(self):
         """Test the specified number of auto_colors"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -348,7 +349,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_matplotlib(self):
         """Test auto_colors for matplotlib"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -360,7 +361,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_seaborn(self):
         """Test auto_colors for seaborn"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -372,7 +373,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_plotly(self):
         """Test auto_colors for plotly"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -384,7 +385,7 @@ class TestConvenienceFunctions:
 
     def test_auto_colors_altair(self):
         """Test auto_colors for altair"""
-        from huez.core import auto_colors, use, load_config
+        from huez.core import auto_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -396,7 +397,7 @@ class TestConvenienceFunctions:
 
     def test_colors_wrapper(self):
         """Testing the colors convenience function"""
-        from huez.core import colors, use, load_config
+        from huez.core import colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -408,7 +409,7 @@ class TestConvenienceFunctions:
 
     def test_get_colors_alias(self):
         """Test get_colors alias"""
-        from huez.core import get_colors, use, load_config
+        from huez.core import get_colors, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -420,7 +421,7 @@ class TestConvenienceFunctions:
 
     def test_quick_setup(self, capsys):
         """Test quick_setup"""
-        from huez.core import quick_setup, current_scheme, load_config
+        from huez.core import current_scheme, load_config, quick_setup
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -435,7 +436,7 @@ class TestConvenienceFunctions:
 
     def test_setup_alias(self):
         """Test setup alias"""
-        from huez.core import setup, current_scheme, load_config
+        from huez.core import current_scheme, load_config, setup
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -446,7 +447,7 @@ class TestConvenienceFunctions:
 
     def test_status(self):
         """Test status function"""
-        from huez.core import status, use, load_config
+        from huez.core import load_config, status, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -471,7 +472,7 @@ class TestConvenienceFunctions:
 
     def test_apply_to_figure_matplotlib(self):
         """Test apply_to_figure matplotlib mode"""
-        from huez.core import apply_to_figure, use, load_config
+        from huez.core import apply_to_figure, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -503,8 +504,8 @@ class TestListAndPreview:
 
     def test_list_schemes_no_config(self):
         """Automatically load when testing without config"""
-        from huez.core import list_schemes
         from huez import core
+        from huez.core import list_schemes
 
         core._current_config = None
         schemes = list_schemes()
@@ -513,8 +514,9 @@ class TestListAndPreview:
 
     def test_preview_with_scheme_name(self):
         """Test the preview specified scheme"""
-        from huez.core import preview, load_config
         import matplotlib
+
+        from huez.core import load_config, preview
 
         matplotlib.use("Agg")  # 使用非交互式backend
 
@@ -531,8 +533,9 @@ class TestListAndPreview:
 
     def test_preview_current_scheme(self):
         """Test preview the current scheme"""
-        from huez.core import preview, use, load_config
         import matplotlib
+
+        from huez.core import load_config, preview, use
 
         matplotlib.use("Agg")
 
@@ -547,8 +550,8 @@ class TestListAndPreview:
 
     def test_preview_no_scheme_raises(self):
         """Throws an error when testing preview without scheme"""
-        from huez.core import preview
         from huez import core
+        from huez.core import preview
 
         core._current_scheme = None
 
@@ -557,7 +560,7 @@ class TestListAndPreview:
 
     def test_preview_invalid_scheme_raises(self):
         """Test preview invalid scheme"""
-        from huez.core import preview, load_config
+        from huez.core import load_config, preview
 
         load_config()
 
@@ -566,8 +569,9 @@ class TestListAndPreview:
 
     def test_preview_print_mode(self):
         """Test preview print mode"""
-        from huez.core import preview, load_config
         import matplotlib
+
+        from huez.core import load_config, preview
 
         matplotlib.use("Agg")
 
@@ -581,8 +585,9 @@ class TestListAndPreview:
 
     def test_preview_presentation_mode(self):
         """Test preview presentation mode"""
-        from huez.core import preview, load_config
         import matplotlib
+
+        from huez.core import load_config, preview
 
         matplotlib.use("Agg")
 

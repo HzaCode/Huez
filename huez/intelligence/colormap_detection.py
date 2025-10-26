@@ -5,8 +5,9 @@ This module provides functions for automatically detecting the most appropriate
 colormap type (sequential, diverging, or cyclic) based on data characteristics.
 """
 
+from typing import Optional, Union
+
 import numpy as np
-from typing import Union, Optional
 
 
 def detect_colormap_type(

@@ -12,36 +12,13 @@ __author__ = "Ang"
 __email__ = "ang@hezhiang.com"
 __license__ = "MIT"
 
-from .core import (
-    load_config,
-    use,
-    current_scheme,
-    palette,
-    cmap,
-    gg_scales,
-    using,
-    export_styles,
-    preview_gallery,
-    check_palette,
-    lint_figure,
-    # New convenience functions
-    auto_colors,
-    quick_setup,
-    colors,
-    apply_to_figure,
-    status,
-    help_usage,
-    get_colors,  # Alias
-    setup,  # Alias
-    # Intelligence features
-    check_accessibility,
-    expand_colors,
-    detect_colormap,
-    smart_cmap,
-    # Preview and utility
-    preview,
-    list_schemes,
-)
+from .core import get_colors  # Alias
+from .core import setup  # Alias
+from .core import (  # New convenience functions; Intelligence features; Preview and utility
+    apply_to_figure, auto_colors, check_accessibility, check_palette, cmap,
+    colors, current_scheme, detect_colormap, expand_colors, export_styles,
+    gg_scales, help_usage, lint_figure, list_schemes, load_config, palette,
+    preview, preview_gallery, quick_setup, smart_cmap, status, use, using)
 
 __all__ = [
     "load_config",

@@ -1,8 +1,9 @@
 """Performance tests (Benchmark) for Huez test the performance indicators of each function"""
 
-import pytest
 import time
+
 import numpy as np
+import pytest
 
 
 class TestColorExpansionPerformance:
@@ -11,7 +12,8 @@ class TestColorExpansionPerformance:
     @pytest.mark.slow
     def test_expansion_small_scale(self):
         """Benchmark: Expand 5 colors to 15"""
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F"]
 
@@ -29,7 +31,8 @@ class TestColorExpansionPerformance:
     @pytest.mark.slow
     def test_expansion_large_scale(self):
         """Benchmark: Expand 5 colors to 100"""
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F"]
 
@@ -47,7 +50,7 @@ class TestColorExpansionPerformance:
     @pytest.mark.slow
     def test_color_conversion_performance(self):
         """Benchmark: RGB <-> LAB conversion"""
-        from huez.intelligence.color_expansion import rgb_to_lab, lab_to_rgb
+        from huez.intelligence.color_expansion import lab_to_rgb, rgb_to_lab
 
         rgb = (128, 64, 200)
 
@@ -169,7 +172,8 @@ class TestAccessibilityPerformance:
     def test_safety_check_scaling(self):
         """Benchmark: Safety check with increasing colors"""
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
 
@@ -201,6 +205,7 @@ class TestChartAdaptationPerformance:
         """Benchmark: Chart type detection"""
         import matplotlib.pyplot as plt
         import numpy as np
+
         from huez.intelligence.chart_adaptation import detect_chart_type
 
         # Create a plot
@@ -258,13 +263,13 @@ class TestEndToEndPerformance:
         """Benchmark: Complete workflow from palette to plot"""
         import matplotlib.pyplot as plt
         import numpy as np
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
         from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.chart_adaptation import (adapt_colors_for_chart,
+                                                        detect_chart_type)
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
-        from huez.intelligence.chart_adaptation import (
-            detect_chart_type,
-            adapt_colors_for_chart,
-        )
 
         start_total = time.time()
 
@@ -318,8 +323,10 @@ class TestEndToEndPerformance:
     def test_memory_usage(self):
         """Test memory usage doesn't explode"""
         import sys
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
         from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
 
@@ -349,10 +356,12 @@ class TestPerformanceSummary:
     @pytest.mark.slow
     def test_generate_performance_report(self):
         """Generate comprehensive performance report"""
-        from huez.intelligence.color_expansion import intelligent_color_expansion
-        from huez.intelligence.colormap_detection import detect_colormap_type
-        from huez.intelligence.accessibility import check_colorblind_safety
         import numpy as np
+
+        from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
+        from huez.intelligence.colormap_detection import detect_colormap_type
 
         report = {"Color Expansion": {}, "Colormap Detection": {}, "Accessibility": {}}
 

@@ -4,7 +4,8 @@ Base adapter classes for huez.
 
 import warnings
 from abc import ABC, abstractmethod
-from typing import List, Dict
+from typing import Dict, List
+
 from ..config import Scheme
 
 # ALL_ADAPTERS will be defined in get_available_adapters function to avoid circular imports
@@ -43,11 +44,11 @@ def get_available_adapters() -> List[Adapter]:
     Returns:
         List of available adapter instances
     """
-    from .mpl import MatplotlibAdapter
-    from .seaborn import SeabornAdapter
-    from .plotnine import PlotnineAdapter
     from .altair import AltairAdapter
+    from .mpl import MatplotlibAdapter
     from .plotly import PlotlyAdapter
+    from .plotnine import PlotnineAdapter
+    from .seaborn import SeabornAdapter
 
     # Only support 5 major mainstream libraries
     adapter_classes = [
@@ -117,11 +118,11 @@ def get_all_adapter_classes() -> List[type]:
     Returns:
         List of all adapter classes
     """
-    from .mpl import MatplotlibAdapter
-    from .seaborn import SeabornAdapter
-    from .plotnine import PlotnineAdapter
     from .altair import AltairAdapter
+    from .mpl import MatplotlibAdapter
     from .plotly import PlotlyAdapter
+    from .plotnine import PlotnineAdapter
+    from .seaborn import SeabornAdapter
 
     return [
         MatplotlibAdapter,

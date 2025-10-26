@@ -1,9 +1,10 @@
 """End-to-End tests for Huez test real usage scenarios"""
 
-import pytest
-import numpy as np
-import tempfile
 import os
+import tempfile
+
+import numpy as np
+import pytest
 
 
 @pytest.mark.requires_matplotlib
@@ -14,8 +15,10 @@ class TestRealWorldScenarios:
         """Scenario: Multi-panel chart for a bioinformatics paper"""
         import matplotlib.pyplot as plt
         import numpy as np
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
         from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
 
         # Basic color matching
@@ -98,8 +101,9 @@ class TestRealWorldScenarios:
     def test_correlation_analysis_workflow(self):
         """Scenario: correlation analysis (requires diverging colormap)"""
         import matplotlib.pyplot as plt
-        import seaborn as sns
         import numpy as np
+        import seaborn as sns
+
         from huez.intelligence.colormap_detection import detect_colormap_type
 
         # Generate simulation data
@@ -139,8 +143,10 @@ class TestRealWorldScenarios:
     def test_publication_workflow(self):
         """Scenario: Complete paper chart generation process"""
         import matplotlib.pyplot as plt
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
         from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         # 1. Choose a base color palette
         base_palette = ["#E64B35", "#4DBBD5", "#00A087"]
@@ -215,7 +221,9 @@ class TestDataScienceWorkflows:
     def test_machine_learning_evaluation(self):
         """Scenario: Machine learning model evaluation visualization"""
         import matplotlib.pyplot as plt
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         # Simulate the performance of 5 models
         models = ["Model A", "Model B", "Model C", "Model D", "Model E"]
@@ -277,11 +285,11 @@ class TestDataScienceWorkflows:
     def test_time_series_analysis(self):
         """Scenario: Time Series Data Analysis"""
         import matplotlib.pyplot as plt
-        from huez.intelligence.color_expansion import intelligent_color_expansion
-        from huez.intelligence.chart_adaptation import (
-            detect_chart_type,
-            adapt_colors_for_chart,
-        )
+
+        from huez.intelligence.chart_adaptation import (adapt_colors_for_chart,
+                                                        detect_chart_type)
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         # Generate 10 time series
         n_series = 10
@@ -375,8 +383,9 @@ class TestUserScenarios:
 
     def test_beginner_user_workflow(self):
         """Scenario: Basic workflow for beginner users"""
-        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.accessibility import check_colorblind_safety
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
 
         # The user only knows they want 10 colors
         base = ["#E64B35", "#4DBBD5", "#00A087"]
@@ -394,16 +403,14 @@ class TestUserScenarios:
     def test_advanced_user_workflow(self):
         """Scenario: Complete workflow for advanced users"""
         import matplotlib.pyplot as plt
-        from huez.intelligence.color_expansion import intelligent_color_expansion
+
         from huez.intelligence.accessibility import (
-            check_colorblind_safety,
-            simulate_colorblind_vision,
-        )
+            check_colorblind_safety, simulate_colorblind_vision)
+        from huez.intelligence.chart_adaptation import (adapt_colors_for_chart,
+                                                        detect_chart_type)
+        from huez.intelligence.color_expansion import \
+            intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
-        from huez.intelligence.chart_adaptation import (
-            detect_chart_type,
-            adapt_colors_for_chart,
-        )
 
         # 1. Prepare data
         data_heatmap = np.random.randn(20, 20)

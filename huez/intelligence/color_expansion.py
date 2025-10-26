@@ -8,6 +8,7 @@ that the generated colors are evenly distributed in terms of human perception.
 
 import warnings
 from typing import List
+
 import numpy as np
 
 

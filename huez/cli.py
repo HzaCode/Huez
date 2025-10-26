@@ -4,18 +4,12 @@ Command-line interface for huez.
 
 import sys
 from typing import Optional
+
 import click
 
-from .core import (
-    load_config,
-    use,
-    current_scheme,
-    preview_gallery,
-    check_palette,
-    lint_figure,
-    _current_config,
-)
 from .config import save_config_to_file
+from .core import (_current_config, check_palette, current_scheme, lint_figure,
+                   load_config, preview_gallery, use)
 from .data.defaults import get_default_config
 
 

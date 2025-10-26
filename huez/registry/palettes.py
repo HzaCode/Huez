@@ -6,9 +6,8 @@ and fallback mechanisms for missing palettes.
 """
 
 import warnings
-from typing import List, Dict, Any, Optional
 from functools import lru_cache
-
+from typing import Any, Dict, List, Optional
 
 # Built-in color palettes
 # Okabe-Ito colorblind-friendly palette

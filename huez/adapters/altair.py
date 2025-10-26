@@ -3,9 +3,10 @@ Altair adapter for huez.
 """
 
 import warnings
-from .base import Adapter
+
 from ..config import Scheme
-from ..registry.palettes import get_palette, get_colormap
+from ..registry.palettes import get_colormap, get_palette
+from .base import Adapter
 
 
 class AltairAdapter(Adapter):

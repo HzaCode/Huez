@@ -3,6 +3,7 @@ Preview gallery generation for huez schemes.
 """
 
 import os
+
 from .config import Scheme
 from .registry.palettes import get_palette
 
@@ -323,15 +324,11 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
     """Generate colorblind simulation previews."""
     try:
         import matplotlib.pyplot as plt
-        from .quality.checks import (
-            _simulate_colorblindness,
-            _convert_to_grayscale,
-            _hex_to_rgb,
-            _rgb_to_hex,
-        )
 
         # Apply the scheme
         from .adapters.mpl import MatplotlibAdapter
+        from .quality.checks import (_convert_to_grayscale, _hex_to_rgb,
+                                     _rgb_to_hex, _simulate_colorblindness)
 
         adapter = MatplotlibAdapter()
         adapter.apply_scheme(scheme)

@@ -4,9 +4,10 @@ Plotnine adapter for huez.
 
 import warnings
 from typing import Any
-from .base import Adapter
+
 from ..config import Scheme
 from ..registry.palettes import get_palette
+from .base import Adapter
 
 
 class PlotnineAdapter(Adapter):
@@ -136,6 +137,7 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
     """
     try:
         import plotnine as p9
+
         from ..core import current_scheme
 
         scheme_name = current_scheme()

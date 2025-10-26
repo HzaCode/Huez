@@ -1,9 +1,10 @@
 """Additional tests for core.py to reach 80%+ coverage Add tests for the remaining uncovered functionality"""
 
-import pytest
-import tempfile
 import os
 import sys
+import tempfile
+
+import pytest
 
 
 class TestExportFunctions:
@@ -11,7 +12,7 @@ class TestExportFunctions:
 
     def test_export_styles(self):
         """Test export style"""
-        from huez.core import export_styles, use, load_config
+        from huez.core import export_styles, load_config, use
 
         with tempfile.TemporaryDirectory() as tmpdir:
             config = load_config()
@@ -26,8 +27,8 @@ class TestExportFunctions:
 
     def test_export_styles_no_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import export_styles
         from huez import core
+        from huez.core import export_styles
 
         core._current_scheme = None
 
@@ -37,7 +38,7 @@ class TestExportFunctions:
 
     def test_preview_gallery(self):
         """test preview gallery"""
-        from huez.core import preview_gallery, use, load_config
+        from huez.core import load_config, preview_gallery, use
 
         with tempfile.TemporaryDirectory() as tmpdir:
             config = load_config()
@@ -52,8 +53,8 @@ class TestExportFunctions:
 
     def test_preview_gallery_no_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import preview_gallery
         from huez import core
+        from huez.core import preview_gallery
 
         core._current_scheme = None
 
@@ -67,7 +68,7 @@ class TestQualityFunctions:
 
     def test_check_palette(self):
         """Test palette quality check"""
-        from huez.core import check_palette, use, load_config
+        from huez.core import check_palette, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -82,8 +83,8 @@ class TestQualityFunctions:
 
     def test_check_palette_no_scheme_raises(self):
         """Throws an error when testing without active scheme"""
-        from huez.core import check_palette
         from huez import core
+        from huez.core import check_palette
 
         core._current_scheme = None
 
@@ -219,8 +220,8 @@ schemes:
 
     def test_load_config_default(self):
         """测试加载默认配置"""
-        from huez.core import load_config
         from huez import core
+        from huez.core import load_config
 
         core._current_config = None
         config = load_config()
@@ -234,8 +235,9 @@ class TestAccessibilityEdgeCases:
 
     def test_use_accessibility_check_failure(self):
         """Test accessibility check failure conditions"""
-        from huez.core import use, load_config
         import warnings
+
+        from huez.core import load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -251,7 +253,7 @@ class TestPaletteValidation:
 
     def test_palette_direct_name(self):
         """Test directly using the palette name"""
-        from huez.core import palette, load_config
+        from huez.core import load_config, palette
 
         load_config()
 
@@ -265,8 +267,8 @@ class TestPaletteValidation:
 
     def test_palette_invalid_scheme(self):
         """Test for invalid scheme name"""
-        from huez.core import palette, load_config
         from huez import core
+        from huez.core import load_config, palette
 
         load_config()
         core._current_scheme = None
@@ -280,8 +282,8 @@ class TestIntelligenceEdgeCases:
 
     def test_check_accessibility_with_scheme_loads_config(self):
         """Test check_accessibility automatic loading configuration"""
-        from huez.core import check_accessibility, use, load_config
         from huez import core
+        from huez.core import check_accessibility, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -300,8 +302,8 @@ class TestAdditionalCoverage:
 
     def test_palette_no_config_loads(self):
         """Test palette automatically loads when there is no config"""
-        from huez.core import palette, use, load_config
         from huez import core
+        from huez.core import load_config, palette, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -316,8 +318,8 @@ class TestAdditionalCoverage:
 
     def test_cmap_no_config_loads(self):
         """Test cmap automatically loads when there is no config"""
-        from huez.core import cmap, use, load_config
         from huez import core
+        from huez.core import cmap, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]
@@ -332,8 +334,8 @@ class TestAdditionalCoverage:
 
     def test_export_styles_loads_config(self):
         """Test export_styles automatic loading configuration"""
-        from huez.core import export_styles, use, load_config
         from huez import core
+        from huez.core import export_styles, load_config, use
 
         with tempfile.TemporaryDirectory() as tmpdir:
             config = load_config()
@@ -350,8 +352,8 @@ class TestAdditionalCoverage:
 
     def test_preview_gallery_loads_config(self):
         """Test preview_gallery automatic loading configuration"""
-        from huez.core import preview_gallery, use, load_config
         from huez import core
+        from huez.core import load_config, preview_gallery, use
 
         with tempfile.TemporaryDirectory() as tmpdir:
             config = load_config()
@@ -368,8 +370,8 @@ class TestAdditionalCoverage:
 
     def test_check_palette_loads_config(self):
         """Test check_palette automatically loads configuration"""
-        from huez.core import check_palette, use, load_config
         from huez import core
+        from huez.core import check_palette, load_config, use
 
         config = load_config()
         scheme_name = list(config.schemes.keys())[0]

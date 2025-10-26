@@ -3,9 +3,10 @@ Matplotlib adapter for huez.
 """
 
 import warnings
-from .base import Adapter
+
 from ..config import Scheme
-from ..registry.palettes import get_palette, get_colormap
+from ..registry.palettes import get_colormap, get_palette
+from .base import Adapter
 
 
 class MatplotlibAdapter(Adapter):
@@ -22,8 +23,8 @@ class MatplotlibAdapter(Adapter):
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to matplotlib."""
-        import matplotlib.pyplot as plt
         import matplotlib as mpl
+        import matplotlib.pyplot as plt
 
         # Get the discrete palette (check for display mode override)
         try:

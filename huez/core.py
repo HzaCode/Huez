@@ -7,12 +7,12 @@ scheme switching, and adapter management.
 """
 
 import contextlib
+from typing import Any, ContextManager, Dict, List, Optional
+
 import yaml
-from typing import Optional, Dict, Any, List, ContextManager
 
+from .adapters import apply_scheme_to_adapters, get_available_adapters
 from .config import Config, validate_config
-from .adapters import get_available_adapters, apply_scheme_to_adapters
-
 
 # Global state
 _current_scheme: Optional[str] = None
@@ -49,6 +49,7 @@ def _apply_display_mode(scheme, mode: str):
         Modified scheme with mode-appropriate colors
     """
     import copy
+
     from .registry.palettes import get_palette
 
     # Create a copy to avoid modifying original
@@ -253,10 +254,8 @@ def palette(
     Returns:
         List of hex color strings
     """
-    from .registry.palettes import get_palette
-
     # Check if scheme_name is actually a palette name (not a scheme name)
-    from .registry.palettes import validate_palette_name
+    from .registry.palettes import get_palette, validate_palette_name
 
     if scheme_name and validate_palette_name(scheme_name, kind):
         # It's a direct palette name
@@ -781,6 +780,7 @@ def preview(scheme_name: Optional[str] = None, mode: str = "screen") -> None:
     """
     import matplotlib.pyplot as plt
     import numpy as np
+
     from .registry.palettes import get_palette
 
     # Determine which scheme to preview

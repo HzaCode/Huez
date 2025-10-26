@@ -2,11 +2,12 @@
 Tests for Huez intelligence features
 """
 
-import pytest
 import numpy as np
+import pytest
+
+from huez.intelligence.accessibility import check_colorblind_safety
 from huez.intelligence.color_expansion import intelligent_color_expansion
 from huez.intelligence.colormap_detection import detect_colormap_type
-from huez.intelligence.accessibility import check_colorblind_safety
 
 
 class TestColorExpansion:

@@ -1,7 +1,8 @@
 """Configuration Management for Huez This module handles all configuration-related functionality including scheme definitions, validation, and default settings."""
 
 from dataclasses import dataclass, field
-from typing import Dict, Any, List
+from typing import Any, Dict, List
+
 import yaml
 
 

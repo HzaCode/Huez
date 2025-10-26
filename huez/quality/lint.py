@@ -2,11 +2,11 @@
 Figure linting tools for visualization best practices.
 """
 
-import os
 import json
-from pathlib import Path
-from typing import Dict, Any, Optional, List
+import os
 import warnings
+from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 
 def lint_figure_file(
@@ -43,8 +43,8 @@ def _lint_raster_image(file_path: Path, report_path: Optional[str]) -> Dict[str,
     issues = []
 
     try:
-        from PIL import Image
         import numpy as np
+        from PIL import Image
 
         img = Image.open(file_path)
         img_array = np.array(img)

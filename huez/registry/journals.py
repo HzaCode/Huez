@@ -7,8 +7,7 @@ Instead, we provide mechanisms to fetch them at runtime or through optional plug
 """
 
 import warnings
-from typing import List, Dict, Optional, Any
-
+from typing import Any, Dict, List, Optional
 
 # Journal palette entry points
 # These are just names - actual colors are fetched at runtime

@@ -7,8 +7,8 @@ for use in external applications or for sharing.
 
 import json
 import os
-from typing import List, Optional, Dict, Any
 from pathlib import Path
+from typing import Any, Dict, List, Optional
 
 from .config import Scheme
 from .registry.palettes import get_palette

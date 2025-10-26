@@ -3,9 +3,10 @@ Seaborn adapter for huez.
 """
 
 import warnings
-from .base import Adapter
+
 from ..config import Scheme
 from ..registry.palettes import get_palette
+from .base import Adapter
 
 
 class SeabornAdapter(Adapter):
@@ -22,8 +23,8 @@ class SeabornAdapter(Adapter):
 
     def apply_scheme(self, scheme: Scheme) -> None:
         """Apply scheme to seaborn."""
-        import seaborn as sns
         import matplotlib.pyplot as plt
+        import seaborn as sns
 
         # Set the color palette (check for display mode override)
         try:
@@ -81,9 +82,8 @@ class SeabornAdapter(Adapter):
 
                         # Import intelligence functions
                         from ..core import smart_cmap
-                        from ..intelligence.colormap_detection import (
-                            detect_colormap_type,
-                        )
+                        from ..intelligence.colormap_detection import \
+                            detect_colormap_type
 
                         # Auto-detect colormap type
                         cmap_type = detect_colormap_type(data, verbose=False)

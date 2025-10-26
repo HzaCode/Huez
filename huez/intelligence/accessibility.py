@@ -6,8 +6,9 @@ and simulating how colors appear to people with different types of color
 vision deficiencies.
 """
 
+from typing import Any, Dict, List, Tuple
+
 import numpy as np
-from typing import List, Dict, Any, Tuple
 
 
 def hex_to_rgb(hex_color: str) -> Tuple[float, float, float]:

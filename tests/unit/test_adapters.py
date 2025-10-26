@@ -2,16 +2,14 @@
 Test adapter module
 """
 
-import pytest
-from unittest.mock import patch, Mock
+from unittest.mock import Mock, patch
 
-from huez.adapters.base import (
-    Adapter,
-    get_adapter_status,
-    get_available_adapters,
-    apply_scheme_to_adapters,
-)
-from huez.config import Scheme, FontConfig, PalettesConfig, FigureConfig, StyleConfig
+import pytest
+
+from huez.adapters.base import (Adapter, apply_scheme_to_adapters,
+                                get_adapter_status, get_available_adapters)
+from huez.config import (FigureConfig, FontConfig, PalettesConfig, Scheme,
+                         StyleConfig)
 
 
 class TestBaseAdapter:

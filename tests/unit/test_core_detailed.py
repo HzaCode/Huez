@@ -1,8 +1,9 @@
 """Detailed tests for huez.core module - focus on high coverage"""
 
-import pytest
-import tempfile
 import os
+import tempfile
+
+import pytest
 
 
 class TestLoadConfig:
@@ -60,7 +61,7 @@ class TestUseFunction:
 
     def test_use_basic(self):
         """Test basic use"""
-        from huez.core import use, current_scheme
+        from huez.core import current_scheme, use
 
         use("scheme-1")
         assert current_scheme() == "scheme-1"
@@ -99,7 +100,7 @@ class TestUseFunction:
 
     def test_use_with_custom_config(self):
         """Test use with custom config"""
-        from huez.core import use, load_config
+        from huez.core import load_config, use
 
         config = load_config()
         use("scheme-1", config=config)
@@ -113,7 +114,7 @@ class TestUseFunction:
 
     def test_use_switches_scheme(self):
         """Test switching between schemes"""
-        from huez.core import use, current_scheme
+        from huez.core import current_scheme, use
 
         use("scheme-1")
         assert current_scheme() == "scheme-1"
@@ -127,7 +128,7 @@ class TestCurrentScheme:
 
     def test_current_scheme_returns_active(self):
         """Test current_scheme returns active scheme"""
-        from huez.core import use, current_scheme
+        from huez.core import current_scheme, use
 
         use("scheme-1")
         assert current_scheme() == "scheme-1"
@@ -146,7 +147,7 @@ class TestUsingContextManager:
 
     def test_using_basic(self):
         """Test basic context manager usage"""
-        from huez.core import use, using, current_scheme
+        from huez.core import current_scheme, use, using
 
         use("scheme-1")
         original = current_scheme()
@@ -158,7 +159,7 @@ class TestUsingContextManager:
 
     def test_using_nested(self):
         """Test nested context managers"""
-        from huez.core import use, using, current_scheme
+        from huez.core import current_scheme, use, using
 
         use("scheme-1")
 
@@ -174,7 +175,7 @@ class TestUsingContextManager:
 
     def test_using_restores_on_exception(self):
         """Test context manager restores on exception"""
-        from huez.core import use, using, current_scheme
+        from huez.core import current_scheme, use, using
 
         use("scheme-1")
         original = current_scheme()
@@ -194,7 +195,7 @@ class TestPaletteFunction:
 
     def test_palette_from_current_scheme(self):
         """Test getting palette from current scheme"""
-        from huez.core import use, palette
+        from huez.core import palette, use
 
         use("scheme-1")
         colors = palette()
@@ -258,7 +259,7 @@ class TestCmapFunction:
 
     def test_cmap_from_current_scheme(self):
         """Test getting colormap from current scheme"""
-        from huez.core import use, cmap
+        from huez.core import cmap, use
 
         use("scheme-1")
         cm = cmap()
@@ -310,14 +311,14 @@ class TestQuickSetup:
 
     def test_quick_setup(self):
         """Test quick setup"""
-        from huez.core import quick_setup, current_scheme
+        from huez.core import current_scheme, quick_setup
 
         quick_setup("npg")
         assert current_scheme() is not None
 
     def test_quick_setup_with_scheme(self):
         """Test quick setup with specific scheme"""
-        from huez.core import quick_setup, current_scheme
+        from huez.core import current_scheme, quick_setup
 
         quick_setup("scheme-1")
         assert current_scheme() == "scheme-1"
@@ -328,7 +329,7 @@ class TestColorsFunction:
 
     def test_colors_basic(self):
         """Test getting colors"""
-        from huez.core import use, colors
+        from huez.core import colors, use
 
         use("scheme-1")
         cols = colors()
@@ -337,7 +338,7 @@ class TestColorsFunction:
 
     def test_colors_with_n(self):
         """Test getting n colors"""
-        from huez.core import use, colors
+        from huez.core import colors, use
 
         use("scheme-1")
         cols = colors(n=5)
@@ -345,7 +346,7 @@ class TestColorsFunction:
 
     def test_colors_with_library(self):
         """Test getting colors for specific library"""
-        from huez.core import use, colors
+        from huez.core import colors, use
 
         use("scheme-1")
         cols = colors(library="matplotlib")
@@ -353,7 +354,7 @@ class TestColorsFunction:
 
     def test_colors_auto_library(self):
         """Test getting colors with auto library detection"""
-        from huez.core import use, colors
+        from huez.core import colors, use
 
         use("scheme-1")
         cols = colors(library="auto")
@@ -367,6 +368,7 @@ class TestApplyToFigure:
     def test_apply_to_figure_matplotlib(self):
         """Test applying to matplotlib figure"""
         import matplotlib.pyplot as plt
+
         from huez.core import apply_to_figure
 
         fig, ax = plt.subplots()
@@ -380,6 +382,7 @@ class TestApplyToFigure:
     def test_apply_to_figure_auto(self):
         """Test applying with auto detection"""
         import matplotlib.pyplot as plt
+
         from huez.core import apply_to_figure
 
         fig, ax = plt.subplots()
@@ -395,7 +398,7 @@ class TestStatusFunction:
 
     def test_status(self):
         """Test getting status"""
-        from huez.core import use, status
+        from huez.core import status, use
 
         use("scheme-1")
         st = status()
@@ -405,7 +408,7 @@ class TestStatusFunction:
 
     def test_status_contains_adapters(self):
         """Test status contains adapter info"""
-        from huez.core import use, status
+        from huez.core import status, use
 
         use("scheme-1")
         st = status()
@@ -513,7 +516,7 @@ class TestEdgeCases:
 
     def test_colors_with_zero_n(self):
         """Test colors with n=0"""
-        from huez.core import use, colors
+        from huez.core import colors, use
 
         use("scheme-1")
         cols = colors(n=0)
@@ -521,7 +524,7 @@ class TestEdgeCases:
 
     def test_multiple_use_calls(self):
         """Test multiple use calls"""
-        from huez.core import use, current_scheme
+        from huez.core import current_scheme, use
 
         for scheme in ["scheme-1", "scheme-2", "scheme-3"]:
             use(scheme)

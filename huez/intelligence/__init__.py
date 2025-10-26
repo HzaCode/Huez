@@ -7,9 +7,10 @@ Provides intelligent features for color management:
 - Color accessibility checks for CVD
 """
 
+from .accessibility import (check_colorblind_safety,
+                            get_colorblind_safe_palettes)
 from .color_expansion import intelligent_color_expansion
 from .colormap_detection import detect_colormap_type, suggest_colormap
-from .accessibility import check_colorblind_safety, get_colorblind_safe_palettes
 
 __all__ = [
     "intelligent_color_expansion",
