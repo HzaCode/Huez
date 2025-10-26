@@ -2,8 +2,14 @@
 Built-in default configurations for huez.
 """
 
-from ..config import (Config, FigureConfig, FontConfig, PalettesConfig, Scheme,
-                      StyleConfig)
+from ..config import (
+    Config,
+    FigureConfig,
+    FontConfig,
+    PalettesConfig,
+    Scheme,
+    StyleConfig,
+)
 
 
 def get_default_config() -> Config:

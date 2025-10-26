@@ -6,10 +6,13 @@ from unittest.mock import Mock, patch
 
 import pytest
 
-from huez.adapters.base import (Adapter, apply_scheme_to_adapters,
-                                get_adapter_status, get_available_adapters)
-from huez.config import (FigureConfig, FontConfig, PalettesConfig, Scheme,
-                         StyleConfig)
+from huez.adapters.base import (
+    Adapter,
+    apply_scheme_to_adapters,
+    get_adapter_status,
+    get_available_adapters,
+)
+from huez.config import FigureConfig, FontConfig, PalettesConfig, Scheme, StyleConfig
 
 
 class TestBaseAdapter:

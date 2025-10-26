@@ -12,8 +12,7 @@ class TestColorExpansionPerformance:
     @pytest.mark.slow
     def test_expansion_small_scale(self):
         """Benchmark: Expand 5 colors to 15"""
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F"]
 
@@ -31,8 +30,7 @@ class TestColorExpansionPerformance:
     @pytest.mark.slow
     def test_expansion_large_scale(self):
         """Benchmark: Expand 5 colors to 100"""
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F"]
 
@@ -172,8 +170,7 @@ class TestAccessibilityPerformance:
     def test_safety_check_scaling(self):
         """Benchmark: Safety check with increasing colors"""
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
 
@@ -265,10 +262,11 @@ class TestEndToEndPerformance:
         import numpy as np
 
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.chart_adaptation import (adapt_colors_for_chart,
-                                                        detect_chart_type)
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.chart_adaptation import (
+            adapt_colors_for_chart,
+            detect_chart_type,
+        )
+        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
 
         start_total = time.time()
@@ -325,8 +323,7 @@ class TestEndToEndPerformance:
         import sys
 
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
 
@@ -359,8 +356,7 @@ class TestPerformanceSummary:
         import numpy as np
 
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
 
         report = {"Color Expansion": {}, "Colormap Detection": {}, "Accessibility": {}}

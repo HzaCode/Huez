@@ -327,8 +327,12 @@ def _generate_colorblind_preview(scheme: Scheme, output_dir: str) -> None:
 
         # Apply the scheme
         from .adapters.mpl import MatplotlibAdapter
-        from .quality.checks import (_convert_to_grayscale, _hex_to_rgb,
-                                     _rgb_to_hex, _simulate_colorblindness)
+        from .quality.checks import (
+            _convert_to_grayscale,
+            _hex_to_rgb,
+            _rgb_to_hex,
+            _simulate_colorblindness,
+        )
 
         adapter = MatplotlibAdapter()
         adapter.apply_scheme(scheme)

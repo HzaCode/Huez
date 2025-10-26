@@ -15,10 +15,30 @@ __license__ = "MIT"
 from .core import get_colors  # Alias
 from .core import setup  # Alias
 from .core import (  # New convenience functions; Intelligence features; Preview and utility
-    apply_to_figure, auto_colors, check_accessibility, check_palette, cmap,
-    colors, current_scheme, detect_colormap, expand_colors, export_styles,
-    gg_scales, help_usage, lint_figure, list_schemes, load_config, palette,
-    preview, preview_gallery, quick_setup, smart_cmap, status, use, using)
+    apply_to_figure,
+    auto_colors,
+    check_accessibility,
+    check_palette,
+    cmap,
+    colors,
+    current_scheme,
+    detect_colormap,
+    expand_colors,
+    export_styles,
+    gg_scales,
+    help_usage,
+    lint_figure,
+    list_schemes,
+    load_config,
+    palette,
+    preview,
+    preview_gallery,
+    quick_setup,
+    smart_cmap,
+    status,
+    use,
+    using,
+)
 
 __all__ = [
     "load_config",

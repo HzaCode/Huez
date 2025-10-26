@@ -133,5 +133,13 @@ def get_all_adapter_classes() -> List[type]:
     ]
 
 
-# Define ALL_ADAPTERS for backward compatibility
-ALL_ADAPTERS = get_all_adapter_classes()
+# Define ALL_ADAPTERS as None initially, will be populated when first accessed
+ALL_ADAPTERS = None
+
+
+def _get_all_adapters_lazy():
+    """Lazy initialization of ALL_ADAPTERS to avoid circular imports."""
+    global ALL_ADAPTERS
+    if ALL_ADAPTERS is None:
+        ALL_ADAPTERS = get_all_adapter_classes()
+    return ALL_ADAPTERS

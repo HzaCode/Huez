@@ -8,8 +8,15 @@ from typing import Optional
 import click
 
 from .config import save_config_to_file
-from .core import (_current_config, check_palette, current_scheme, lint_figure,
-                   load_config, preview_gallery, use)
+from .core import (
+    _current_config,
+    check_palette,
+    current_scheme,
+    lint_figure,
+    load_config,
+    preview_gallery,
+    use,
+)
 from .data.defaults import get_default_config
 
 

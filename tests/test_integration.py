@@ -10,8 +10,7 @@ class TestCoreWithIntelligence:
     @pytest.mark.integration
     def test_palette_expansion(self):
         """Test palette loading and expanding colors"""
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.registry.palettes import get_palette
 
         try:
@@ -55,8 +54,7 @@ class TestAdaptersWithIntelligence:
         """Test matplotlib adapter with color expansion"""
         import matplotlib.pyplot as plt
 
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         # Create base palette
         base = ["#E64B35", "#4DBBD5", "#00A087"]
@@ -101,10 +99,11 @@ class TestAdaptersWithIntelligence:
         """Test complete chart adaptation workflow"""
         import matplotlib.pyplot as plt
 
-        from huez.intelligence.chart_adaptation import (adapt_colors_for_chart,
-                                                        detect_chart_type)
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.chart_adaptation import (
+            adapt_colors_for_chart,
+            detect_chart_type,
+        )
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         # Create complex plot
         fig, ax = plt.subplots()
@@ -169,8 +168,7 @@ class TestFullPipeline:
         """Test complete workflow: config -> palette -> expansion -> accessibility"""
         from huez.config import load_default_config
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
         from huez.registry.palettes import get_palette
 
@@ -202,8 +200,7 @@ class TestFullPipeline:
         """Test consistent colors across multiple libraries"""
         import matplotlib.pyplot as plt
 
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
         expanded = intelligent_color_expansion(base, 8)
@@ -241,8 +238,7 @@ class TestErrorHandling:
     @pytest.mark.integration
     def test_invalid_data_handling(self):
         """Test handling of invalid data"""
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
         from huez.intelligence.colormap_detection import detect_colormap_type
 
         # Test with all NaN data
@@ -263,8 +259,7 @@ class TestErrorHandling:
     def test_edge_case_handling(self):
         """Test edge cases in integration"""
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         # Test with single color
         single = ["#FF0000"]
@@ -286,8 +281,7 @@ class TestPerformanceIntegration:
         """Test large scale color expansion"""
         import time
 
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087", "#3C5488", "#F39B7F"]
 
@@ -306,8 +300,7 @@ class TestPerformanceIntegration:
         import time
 
         from huez.intelligence.accessibility import check_colorblind_safety
-        from huez.intelligence.color_expansion import \
-            intelligent_color_expansion
+        from huez.intelligence.color_expansion import intelligent_color_expansion
 
         base = ["#E64B35", "#4DBBD5", "#00A087"]
         expanded = intelligent_color_expansion(base, 20)

@@ -82,8 +82,9 @@ class SeabornAdapter(Adapter):
 
                         # Import intelligence functions
                         from ..core import smart_cmap
-                        from ..intelligence.colormap_detection import \
-                            detect_colormap_type
+                        from ..intelligence.colormap_detection import (
+                            detect_colormap_type,
+                        )
 
                         # Auto-detect colormap type
                         cmap_type = detect_colormap_type(data, verbose=False)
