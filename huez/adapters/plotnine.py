@@ -204,8 +204,6 @@ def get_plotnine_colors(n: int = None):
         This is a convenience function for cases where you need explicit colors.
         Prefer using hz.gg_scales() for automatic color application.
     """
-    global _plotnine_colors
-    
     if _plotnine_colors is None:
         # Fallback to huez.palette if no scheme is active
         from ..core import palette
@@ -348,7 +346,7 @@ _original_ggplot_draw = None
 
 def _enable_auto_coloring():
     """Enable plotnine auto-coloring functionality"""
-    global _auto_coloring_enabled, _original_ggplot_save, _original_ggplot_draw
+    global _auto_coloring_enabled
 
     if _auto_coloring_enabled:
         return
@@ -385,7 +383,7 @@ def _enable_auto_coloring():
 
 def _disable_auto_coloring():
     """Disable plotnine auto-coloring functionality"""
-    global _auto_coloring_enabled, _original_ggplot_save, _original_ggplot_draw
+    global _auto_coloring_enabled
     
     if not _auto_coloring_enabled:
         return

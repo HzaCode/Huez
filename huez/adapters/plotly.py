@@ -283,8 +283,6 @@ def get_plotly_colors(n: int = None):
         This is a convenience function for cases where you need explicit colors.
         In most cases, Plotly should automatically use the template colors.
     """
-    global _plotly_colors
-    
     if _plotly_colors is None:
         # Fallback to huez.palette if no template is active
         from ..core import palette

@@ -245,8 +245,6 @@ def get_altair_colors(n: int = None):
         This is a convenience function for cases where you need explicit colors.
         In most cases, Altair should automatically use the theme colors.
     """
-    global _altair_colors
-    
     if _altair_colors is None:
         # Fallback to huez.palette if no theme is active
         from ..core import palette

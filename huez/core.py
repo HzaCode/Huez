@@ -212,7 +212,7 @@ def using(scheme_name: str) -> ContextManager[None]:
     Args:
         scheme_name: Name of the scheme to use temporarily
     """
-    global _current_scheme, _scheme_stack
+    global _current_scheme
 
     # Save current scheme
     previous_scheme = _current_scheme
