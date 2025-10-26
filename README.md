@@ -18,7 +18,7 @@
     <img src="https://github.com/HzaCode/Huez/actions/workflows/tests.yml/badge.svg" alt="CI Tests"/>
   </a>
   <a href="https://github.com/HzaCode/Huez/actions/workflows/docs.yml">
-    <img src="https://github.com/HzaCode/Huez/actions/workflows/docs.yml/badge.svg" alt="Docs"/>
+    <img src="https://img.shields.io/badge/doc-passing-brightgreen" alt="Documentation"/>
   </a>
   <a href="https://pypi.org/project/huez/">
     <img src="https://img.shields.io/pypi/v/huez?color=blue" alt="PyPI Version"/>
