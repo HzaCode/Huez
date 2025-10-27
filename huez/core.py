@@ -539,21 +539,31 @@ def apply_to_figure(fig, library: str = "auto"):
         fig = hz.apply_to_figure(fig, "matplotlib")
     """
     if library == "auto":
-        library = _detect_active_library()
+        # Detect library from figure object type
+        fig_type = type(fig).__module__
+        if "plotly" in fig_type:
+            library = "plotly"
+        elif "altair" in fig_type:
+            library = "altair"
+        elif "matplotlib" in fig_type:
+            library = "matplotlib"
+        else:
+            # Fallback to detecting active library
+            library = _detect_active_library()
 
     if library == "plotly":
         try:
             from .adapters.plotly import plotly_auto_colors
 
             return plotly_auto_colors(fig)
-        except ImportError:
+        except (ImportError, AttributeError):
             pass
     elif library == "altair":
         try:
             from .adapters.altair import altair_auto_color
 
             return altair_auto_color(fig)
-        except ImportError:
+        except (ImportError, AttributeError):
             pass
 
     # For matplotlib/seaborn, colors are already applied via rcParams
@@ -572,9 +582,11 @@ def status() -> Dict[str, Any]:
     """
     from .adapters.base import get_adapter_status
 
+    adapter_status = get_adapter_status()
     return {
         "current_scheme": current_scheme(),
-        "available_libraries": get_adapter_status(),
+        "available_libraries": adapter_status,
+        "available_adapters": adapter_status,  # Alias for backward compatibility
         "config_loaded": _current_config is not None,
         "total_schemes": len(_current_config.schemes) if _current_config else 0,
     }
