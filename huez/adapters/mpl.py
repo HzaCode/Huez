@@ -34,7 +34,7 @@ class MatplotlibAdapter(Adapter):
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             mpl.rcParams["axes.prop_cycle"] = plt.cycler(color=discrete_colors)
         except Exception as e:
-            warnings.warn(f"Failed to set discrete palette: {e}")
+            warnings.warn(f"Failed to set discrete palette: {e}", stacklevel=2)
 
         # Set font properties
         mpl.rcParams["font.family"] = scheme.fonts.family
@@ -79,7 +79,7 @@ class MatplotlibAdapter(Adapter):
             if sequential_cmap:
                 plt.rcParams["image.cmap"] = sequential_cmap
         except Exception as e:
-            warnings.warn(f"Failed to set colormap: {e}")
+            warnings.warn(f"Failed to set colormap: {e}", stacklevel=2)
 
 
 def export_mplstyle(scheme: Scheme, output_path: str) -> None:

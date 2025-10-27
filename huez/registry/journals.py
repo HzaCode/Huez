@@ -81,13 +81,14 @@ def get_journal_palette(
     try:
         return _fetch_from_r_ggsci(name, n)
     except Exception as e:
-        warnings.warn(f"Failed to fetch '{name}' from R ggsci: {e}")
+        warnings.warn(f"Failed to fetch '{name}' from R ggsci: {e}", stacklevel=2)
 
     # Use fallback
     fallback = _get_journal_fallback(name)
     if fallback:
         warnings.warn(
-            f"Journal palette '{name}' not available, using fallback '{fallback}'"
+            f"Journal palette '{name}' not available, using fallback '{fallback}'",
+            stacklevel=2,
         )
         from .palettes import get_palette
 

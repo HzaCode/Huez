@@ -133,7 +133,7 @@ def _lint_vector_image(file_path: Path, report_path: Optional[str]) -> Dict[str,
 
     try:
         # Read file content
-        with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+        with open(file_path, encoding="utf-8", errors="ignore") as f:
             content = f.read()
 
         # Check file size
@@ -336,7 +336,7 @@ def _save_report(result: Dict[str, Any], report_path: str) -> None:
         with open(report_path, "w", encoding="utf-8") as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
     except Exception as e:
-        warnings.warn(f"Failed to save report to {report_path}: {e}")
+        warnings.warn(f"Failed to save report to {report_path}: {e}", stacklevel=2)
 
 
 def lint_batch(file_paths: List[str], output_dir: str) -> Dict[str, Any]:

@@ -19,11 +19,7 @@ def hex_to_rgb(hex_color: str) -> Tuple[float, float, float]:
 
 def rgb_to_hex(rgb: Tuple[float, float, float]) -> str:
     """Convert RGB tuple (0-1 range) to hex color."""
-    return "#{:02x}{:02x}{:02x}".format(
-        int(np.clip(rgb[0] * 255, 0, 255)),
-        int(np.clip(rgb[1] * 255, 0, 255)),
-        int(np.clip(rgb[2] * 255, 0, 255)),
-    )
+    return f"#{int(np.clip(rgb[0] * 255, 0, 255)):02x}{int(np.clip(rgb[1] * 255, 0, 255)):02x}{int(np.clip(rgb[2] * 255, 0, 255)):02x}"
 
 
 def simulate_cvd(

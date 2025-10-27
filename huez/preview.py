@@ -136,7 +136,7 @@ def _generate_html_gallery(scheme: Scheme, output_dir: str) -> None:
         <p><strong>DPI:</strong> {scheme.figure.dpi}</p>
         <p><strong>Grid:</strong> {scheme.style.grid}</p>
         <p><strong>Legend:</strong> {scheme.style.legend_loc}</p>
-        <p><strong>Top/right spines:</strong> {'Hidden' if scheme.style.spine_top_right_off else 'Shown'}</p>
+        <p><strong>Top/right spines:</strong> {"Hidden" if scheme.style.spine_top_right_off else "Shown"}</p>
     </div>
 
     <h2>Color Palettes</h2>
@@ -283,7 +283,7 @@ def _generate_sample_plots(scheme: Scheme, output_dir: str) -> None:
         plt.figure(figsize=scheme.figure.size)
         data = np.random.randn(10, 10)
 
-        plt.imshow(data, cmap=getattr(scheme.palettes, "sequential"))
+        plt.imshow(data, cmap=scheme.palettes.sequential)
         plt.colorbar()
         plt.title("Heatmap Example")
         plt.savefig(

@@ -179,11 +179,14 @@ def use(
                     + "\n\nSuggestions:\n"
                     + "\n".join(f"  • {s}" for s in result["suggestions"]),
                     UserWarning,
+                    stacklevel=2,
                 )
         except Exception as e:
             import warnings
 
-            warnings.warn(f"Failed to check accessibility: {e}", UserWarning)
+            warnings.warn(
+                f"Failed to check accessibility: {e}", UserWarning, stacklevel=2
+            )
 
     # Store intelligence settings for adapters
     if hasattr(scheme, "_intelligence_settings"):

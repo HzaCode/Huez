@@ -210,7 +210,6 @@ class TestFigureLinting:
         with patch("pathlib.Path.exists", return_value=True), patch(
             "pathlib.Path.is_file", return_value=True
         ):
-
             result = lint_figure_file("test.txt")
 
             assert isinstance(result, dict)

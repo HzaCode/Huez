@@ -55,7 +55,7 @@ class AltairAdapter(Adapter):
                 diverging_cmap = self._convert_colormap_name(scheme.palettes.diverging)
 
         except Exception as e:
-            warnings.warn(f"Failed to get palettes for Altair: {e}")
+            warnings.warn(f"Failed to get palettes for Altair: {e}", stacklevel=2)
             # Use default colors as last resort
             discrete_colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
             sequential_cmap = "viridis"
@@ -185,7 +185,9 @@ def export_altair_theme(scheme: Scheme, output_path: str) -> None:
         sequential_cmap = get_colormap(scheme.palettes.sequential, "sequential")
         diverging_cmap = get_colormap(scheme.palettes.diverging, "diverging")
     except Exception as e:
-        warnings.warn(f"Failed to get palettes for Altair theme export: {e}")
+        warnings.warn(
+            f"Failed to get palettes for Altair theme export: {e}", stacklevel=2
+        )
         return
 
     theme_config = {

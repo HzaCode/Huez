@@ -37,7 +37,7 @@ class TestRealWorldScenarios:
             x = np.random.randn(50)
             y = np.random.randn(50)
             axes[0, 0].scatter(
-                x, y, c=cell_colors[i], label=f"Cell {i+1}", s=30, alpha=0.7
+                x, y, c=cell_colors[i], label=f"Cell {i + 1}", s=30, alpha=0.7
             )
         axes[0, 0].set_title("A. Single-cell UMAP")
         axes[0, 0].set_xlabel("UMAP 1")
@@ -71,7 +71,7 @@ class TestRealWorldScenarios:
                 time,
                 np.sin(time / 4 + i * 0.5) + i * 0.3,
                 color=cell_colors[i],
-                label=f"Gene {i+1}",
+                label=f"Gene {i + 1}",
                 linewidth=2,
             )
         axes[1, 1].set_title("D. Time Series Expression")
@@ -170,7 +170,7 @@ class TestRealWorldScenarios:
                 x,
                 np.sin(x + i * 0.5),
                 color=colors_15[i],
-                label=f"Series {i+1}",
+                label=f"Series {i + 1}",
                 linewidth=2,
             )
         axes[0].set_title("(A) Line Plot")
@@ -183,7 +183,7 @@ class TestRealWorldScenarios:
                 np.random.randn(30),
                 np.random.randn(30),
                 c=colors_15[i],
-                label=f"Group {i+1}",
+                label=f"Group {i + 1}",
                 s=50,
                 alpha=0.6,
             )
@@ -305,7 +305,7 @@ class TestDataScienceWorkflows:
                 time,
                 series,
                 color=color,
-                label=f"Series {i+1}",
+                label=f"Series {i + 1}",
                 linewidth=1.5,
                 alpha=0.8,
             )
@@ -447,4 +447,3 @@ class TestUserScenarios:
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v"])
-

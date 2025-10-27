@@ -12,8 +12,6 @@ __author__ = "Ang"
 __email__ = "ang@hezhiang.com"
 __license__ = "MIT"
 
-from .core import get_colors  # Alias
-from .core import setup  # Alias
 from .core import (  # New convenience functions; Intelligence features; Preview and utility
     apply_to_figure,
     auto_colors,
@@ -25,6 +23,7 @@ from .core import (  # New convenience functions; Intelligence features; Preview
     detect_colormap,
     expand_colors,
     export_styles,
+    get_colors,  # Alias
     gg_scales,
     help_usage,
     lint_figure,
@@ -34,6 +33,7 @@ from .core import (  # New convenience functions; Intelligence features; Preview
     preview,
     preview_gallery,
     quick_setup,
+    setup,  # Alias
     smart_cmap,
     status,
     use,

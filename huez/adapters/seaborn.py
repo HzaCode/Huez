@@ -34,7 +34,7 @@ class SeabornAdapter(Adapter):
                 discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
             sns.set_palette(discrete_colors)
         except Exception as e:
-            warnings.warn(f"Failed to set seaborn palette: {e}")
+            warnings.warn(f"Failed to set seaborn palette: {e}", stacklevel=2)
 
         # Enable smart colormap auto-injection if requested
         if hasattr(scheme, "_intelligence_settings"):

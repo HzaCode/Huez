@@ -200,7 +200,7 @@ def validate_config(config: Config) -> None:
 
 def load_config_from_file(path: str) -> Config:
     """Load configuration from YAML file. Args: path: Path to YAML file Returns: Config object"""
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         data = yaml.safe_load(f)
 
     if data is None:

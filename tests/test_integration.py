@@ -65,7 +65,7 @@ class TestAdaptersWithIntelligence:
         x = np.linspace(0, 10, 100)
 
         for i, color in enumerate(expanded):
-            ax.plot(x, np.sin(x + i * 0.5), color=color, label=f"Line {i+1}")
+            ax.plot(x, np.sin(x + i * 0.5), color=color, label=f"Line {i + 1}")
 
         # Should not raise any errors
         ax.legend()
@@ -211,7 +211,7 @@ class TestFullPipeline:
 
         # Line plot
         for i, color in enumerate(expanded[:5]):
-            axes[0].plot(x, np.sin(x + i * 0.5), color=color, label=f"Series {i+1}")
+            axes[0].plot(x, np.sin(x + i * 0.5), color=color, label=f"Series {i + 1}")
         axes[0].set_title("Line Plot")
         axes[0].legend()
 
@@ -221,7 +221,7 @@ class TestFullPipeline:
                 np.random.rand(20),
                 np.random.rand(20),
                 color=color,
-                label=f"Group {i+1}",
+                label=f"Group {i + 1}",
                 s=50,
             )
         axes[1].set_title("Scatter Plot")

@@ -36,7 +36,7 @@ class PlotnineAdapter(Adapter):
             # Get colormap for heatmaps, using intelligent selection
             pass
         except Exception as e:
-            warnings.warn(f"Failed to get palettes for plotnine: {e}")
+            warnings.warn(f"Failed to get palettes for plotnine: {e}", stacklevel=2)
             discrete_colors = None
 
         # Set default theme
@@ -112,7 +112,9 @@ class PlotnineAdapter(Adapter):
                 _plotnine_colors = discrete_colors
 
             except Exception as e:
-                warnings.warn(f"Failed to set plotnine default colors: {e}")
+                warnings.warn(
+                    f"Failed to set plotnine default colors: {e}", stacklevel=2
+                )
 
         # Store current color scheme for auxiliary functions
         global _current_plotnine_scheme
@@ -174,7 +176,7 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
                 return scales
 
     except Exception as e:
-        warnings.warn(f"Failed to create plotnine scales: {e}")
+        warnings.warn(f"Failed to create plotnine scales: {e}", stacklevel=2)
 
     # Fallback - return basic scales based on type
     try:
@@ -397,7 +399,7 @@ def _enable_auto_coloring():
         )
 
     except Exception as e:
-        warnings.warn(f"Failed to enable plotnine auto-coloring: {e}")
+        warnings.warn(f"Failed to enable plotnine auto-coloring: {e}", stacklevel=2)
 
 
 def _disable_auto_coloring():
@@ -420,7 +422,7 @@ def _disable_auto_coloring():
         print("🔧 plotnine auto-coloring disabled")
 
     except Exception as e:
-        warnings.warn(f"Failed to disable plotnine auto-coloring: {e}")
+        warnings.warn(f"Failed to disable plotnine auto-coloring: {e}", stacklevel=2)
 
 
 def _auto_add_huez_scales(plot):
@@ -474,7 +476,7 @@ def _auto_add_huez_scales(plot):
         return enhanced_plot
 
     except Exception as e:
-        warnings.warn(f"Failed to auto-add huez scales: {e}")
+        warnings.warn(f"Failed to auto-add huez scales: {e}", stacklevel=2)
         return plot
 
 

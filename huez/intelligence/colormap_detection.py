@@ -132,7 +132,7 @@ def detect_colormap_type(
         if verbose:
             print("🔴🔵 Detected data with meaningful center:")
             print(f"   Range: {data_min:.2f} to {data_max:.2f}")
-            print(f"   Mean at {center_ratio*100:.1f}% of range")
+            print(f"   Mean at {center_ratio * 100:.1f}% of range")
             print("   → Recommended: diverging colormap")
         return "diverging"
 

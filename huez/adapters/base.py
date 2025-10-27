@@ -66,11 +66,14 @@ def get_available_adapters() -> List[Adapter]:
             if adapter.is_available():
                 available_adapters.append(adapter)
         except Exception as e:
-            warnings.warn(f"Failed to initialize {adapter_class.__name__}: {e}")
+            warnings.warn(
+                f"Failed to initialize {adapter_class.__name__}: {e}", stacklevel=2
+            )
 
     if not available_adapters:
         warnings.warn(
-            "No visualization libraries found. Install matplotlib, seaborn, plotnine, altair, or plotly."
+            "No visualization libraries found. Install matplotlib, seaborn, plotnine, altair, or plotly.",
+            stacklevel=2,
         )
 
     return available_adapters
@@ -88,7 +91,9 @@ def apply_scheme_to_adapters(scheme: Scheme, adapters: List[Adapter]) -> None:
         try:
             adapter.apply_scheme(scheme)
         except Exception as e:
-            warnings.warn(f"Failed to apply scheme to {adapter.get_name()}: {e}")
+            warnings.warn(
+                f"Failed to apply scheme to {adapter.get_name()}: {e}", stacklevel=2
+            )
 
 
 def get_adapter_status() -> Dict[str, bool]:

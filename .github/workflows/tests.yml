@@ -70,9 +70,9 @@ jobs:
 
     - name: Lint and format with ruff
       run: |
-        # Check and auto-fix with ruff
-        ruff check --fix huez tests
-        ruff format huez tests
+        # Check only (no auto-fix in CI)
+        ruff check huez tests
+        ruff format --check huez tests
 
     - name: Type check with mypy
       run: |

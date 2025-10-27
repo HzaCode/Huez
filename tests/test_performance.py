@@ -22,7 +22,9 @@ class TestColorExpansionPerformance:
         elapsed = time.time() - start
 
         avg_time = elapsed / 100
-        print(f"\n[BENCHMARK] Color expansion (5→15): {avg_time*1000:.2f} ms per call")
+        print(
+            f"\n[BENCHMARK] Color expansion (5→15): {avg_time * 1000:.2f} ms per call"
+        )
 
         # Should be < 10ms per call
         assert avg_time < 0.01
@@ -40,7 +42,9 @@ class TestColorExpansionPerformance:
         elapsed = time.time() - start
 
         avg_time = elapsed / 10
-        print(f"\n[BENCHMARK] Color expansion (5→100): {avg_time*1000:.2f} ms per call")
+        print(
+            f"\n[BENCHMARK] Color expansion (5→100): {avg_time * 1000:.2f} ms per call"
+        )
 
         # Should be < 50ms per call
         assert avg_time < 0.05

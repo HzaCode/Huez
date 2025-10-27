@@ -53,7 +53,7 @@ class TestGetAdapterStatus:
         assert "plotly" in status
 
         # All values should be boolean
-        for name, available in status.items():
+        for _name, available in status.items():
             assert isinstance(available, bool)
 
 

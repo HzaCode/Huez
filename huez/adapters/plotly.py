@@ -50,7 +50,7 @@ class PlotlyAdapter(Adapter):
                 pass
 
         except Exception as e:
-            warnings.warn(f"Failed to get palettes for Plotly: {e}")
+            warnings.warn(f"Failed to get palettes for Plotly: {e}", stacklevel=2)
             # Use default colors as last resort
             discrete_colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd"]
 
@@ -101,16 +101,20 @@ class PlotlyAdapter(Adapter):
             ]
 
         # Set comprehensive font styling
-        template.layout.font = dict(
-            family=scheme.fonts.family, size=scheme.fonts.size, color="#333333"
-        )
+        template.layout.font = {
+            "family": scheme.fonts.family,
+            "size": scheme.fonts.size,
+            "color": "#333333",
+        }
 
         # Set title styling
-        template.layout.title = dict(
-            font=dict(
-                family=scheme.fonts.family, size=scheme.fonts.size + 4, color="#333333"
-            )
-        )
+        template.layout.title = {
+            "font": {
+                "family": scheme.fonts.family,
+                "size": scheme.fonts.size + 4,
+                "color": "#333333",
+            }
+        }
 
         # Set background colors
         template.layout.paper_bgcolor = "white"
@@ -120,61 +124,67 @@ class PlotlyAdapter(Adapter):
         grid_color = "rgba(128,128,128,0.2)"
 
         # X-axis configuration
-        template.layout.xaxis = dict(
-            gridcolor=grid_color,
-            showgrid=scheme.style.grid in ["x", "both"],
-            zeroline=False,
-            showline=not scheme.style.spine_top_right_off,
-            linecolor="#333333",
-            tickfont=dict(
-                family=scheme.fonts.family, size=scheme.fonts.size, color="#333333"
-            ),
-            title=dict(
-                font=dict(
-                    family=scheme.fonts.family,
-                    size=scheme.fonts.size + 2,
-                    color="#333333",
-                )
-            ),
-        )
+        template.layout.xaxis = {
+            "gridcolor": grid_color,
+            "showgrid": scheme.style.grid in ["x", "both"],
+            "zeroline": False,
+            "showline": not scheme.style.spine_top_right_off,
+            "linecolor": "#333333",
+            "tickfont": {
+                "family": scheme.fonts.family,
+                "size": scheme.fonts.size,
+                "color": "#333333",
+            },
+            "title": {
+                "font": {
+                    "family": scheme.fonts.family,
+                    "size": scheme.fonts.size + 2,
+                    "color": "#333333",
+                }
+            },
+        }
 
         # Y-axis configuration
-        template.layout.yaxis = dict(
-            gridcolor=grid_color,
-            showgrid=scheme.style.grid in ["y", "both"],
-            zeroline=False,
-            showline=not scheme.style.spine_top_right_off,
-            linecolor="#333333",
-            tickfont=dict(
-                family=scheme.fonts.family, size=scheme.fonts.size, color="#333333"
-            ),
-            title=dict(
-                font=dict(
-                    family=scheme.fonts.family,
-                    size=scheme.fonts.size + 2,
-                    color="#333333",
-                )
-            ),
-        )
+        template.layout.yaxis = {
+            "gridcolor": grid_color,
+            "showgrid": scheme.style.grid in ["y", "both"],
+            "zeroline": False,
+            "showline": not scheme.style.spine_top_right_off,
+            "linecolor": "#333333",
+            "tickfont": {
+                "family": scheme.fonts.family,
+                "size": scheme.fonts.size,
+                "color": "#333333",
+            },
+            "title": {
+                "font": {
+                    "family": scheme.fonts.family,
+                    "size": scheme.fonts.size + 2,
+                    "color": "#333333",
+                }
+            },
+        }
 
         # Legend styling
-        template.layout.legend = dict(
-            font=dict(
-                family=scheme.fonts.family, size=scheme.fonts.size, color="#333333"
-            )
-        )
+        template.layout.legend = {
+            "font": {
+                "family": scheme.fonts.family,
+                "size": scheme.fonts.size,
+                "color": "#333333",
+            }
+        }
 
         # Set default trace colors for different plot types
         template.data.scatter = [
             go.Scatter(
-                marker=dict(color=discrete_colors[0]),
-                line=dict(color=discrete_colors[0]),
+                marker={"color": discrete_colors[0]},
+                line={"color": discrete_colors[0]},
             )
         ]
 
-        template.data.bar = [go.Bar(marker=dict(color=discrete_colors[0]))]
+        template.data.bar = [go.Bar(marker={"color": discrete_colors[0]})]
 
-        template.data.histogram = [go.Histogram(marker=dict(color=discrete_colors[0]))]
+        template.data.histogram = [go.Histogram(marker={"color": discrete_colors[0]})]
 
         # Register and set as default
         pio.templates["huez"] = template
@@ -209,12 +219,13 @@ def export_plotly_template(scheme: Scheme, output_path: str) -> None:
     import json
 
     try:
-
         discrete_colors = get_palette(scheme.palettes.discrete, "discrete")
         sequential_cmap = get_colormap(scheme.palettes.sequential, "sequential")
         diverging_cmap = get_colormap(scheme.palettes.diverging, "diverging")
     except Exception as e:
-        warnings.warn(f"Failed to get palettes for Plotly template export: {e}")
+        warnings.warn(
+            f"Failed to get palettes for Plotly template export: {e}", stacklevel=2
+        )
         return
 
     # Create template data

@@ -335,13 +335,18 @@ def get_palette(
     # Try fallback
     if name in FALLBACKS[kind]:
         fallback_name = FALLBACKS[kind][name]
-        warnings.warn(f"Palette '{name}' not found, using fallback '{fallback_name}'")
+        warnings.warn(
+            f"Palette '{name}' not found, using fallback '{fallback_name}'",
+            stacklevel=2,
+        )
         return get_palette(fallback_name, kind, n)
 
     # Use default fallback
     if "default" in FALLBACKS[kind]:
         default_name = FALLBACKS[kind]["default"]
-        warnings.warn(f"Palette '{name}' not found, using default '{default_name}'")
+        warnings.warn(
+            f"Palette '{name}' not found, using default '{default_name}'", stacklevel=2
+        )
         return get_palette(default_name, kind, n)
 
     raise ValueError(f"Palette '{name}' not found and no fallback available")
@@ -375,13 +380,18 @@ def get_colormap(name: str, kind: str = "sequential") -> str:
     # Try fallback
     if name in FALLBACKS[kind]:
         fallback_name = FALLBACKS[kind][name]
-        warnings.warn(f"Colormap '{name}' not found, using fallback '{fallback_name}'")
+        warnings.warn(
+            f"Colormap '{name}' not found, using fallback '{fallback_name}'",
+            stacklevel=2,
+        )
         return get_colormap(fallback_name, kind)
 
     # Use default fallback
     if "default" in FALLBACKS[kind]:
         default_name = FALLBACKS[kind]["default"]
-        warnings.warn(f"Colormap '{name}' not found, using default '{default_name}'")
+        warnings.warn(
+            f"Colormap '{name}' not found, using default '{default_name}'", stacklevel=2
+        )
         return get_colormap(default_name, kind)
 
     raise ValueError(f"Colormap '{name}' not found and no fallback available")
@@ -405,7 +415,7 @@ def _get_colormap_colors(cmap_name: str, n: int = 256) -> List[str]:
         cmap = plt.get_cmap(cmap_name)
         colors = cmap(np.linspace(0, 1, n))
         return [
-            f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}"
+            f"#{int(r * 255):02x}{int(g * 255):02x}{int(b * 255):02x}"
             for r, g, b, _ in colors
         ]
 

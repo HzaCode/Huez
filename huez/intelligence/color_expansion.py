@@ -36,11 +36,7 @@ def rgb_to_hex(rgb: tuple) -> str:
     Returns:
         Hex color string (e.g., '#E64B35')
     """
-    return "#{:02x}{:02x}{:02x}".format(
-        int(np.clip(rgb[0] * 255, 0, 255)),
-        int(np.clip(rgb[1] * 255, 0, 255)),
-        int(np.clip(rgb[2] * 255, 0, 255)),
-    )
+    return f"#{int(np.clip(rgb[0] * 255, 0, 255)):02x}{int(np.clip(rgb[1] * 255, 0, 255)):02x}{int(np.clip(rgb[2] * 255, 0, 255)):02x}"
 
 
 def rgb_to_lab(rgb: tuple) -> np.ndarray:
@@ -177,6 +173,7 @@ def intelligent_color_expansion(base_colors: List[str], n_needed: int) -> List[s
     warnings.warn(
         f"Expanding palette from {len(base_colors)} to {n_needed} colors using LAB interpolation",
         UserWarning,
+        stacklevel=2,
     )
 
     # Convert base colors to LAB
