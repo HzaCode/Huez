@@ -211,7 +211,7 @@ If you use Huez in your research, please cite:
 .. code-block:: bibtex
 
    @software{huez2025,
-     author = {Ang},
+     author = {Zhiang He},
      title = {Huez: An Intelligent Color Management System for Python Visualization},
      year = {2025},
      url = {https://github.com/hzacode/huez},
