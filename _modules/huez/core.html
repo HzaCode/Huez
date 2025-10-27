@@ -1,0 +1,1832 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>huez.core &mdash; Huez 0.0.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=29bda73a" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=282f96c0"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Huez
+              <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../why_huez.html">Why Huez?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#the-problem-color-management-is-broken">The Problem: Color Management is Broken</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#problem-1-fragmentation">Problem 1: Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#problem-2-no-intelligence">Problem 2: No Intelligence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#problem-3-print-disasters">Problem 3: Print Disasters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#the-solution-huez">The Solution: Huez</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#one-line-five-libraries-infinite-intelligence">One Line. Five Libraries. Infinite Intelligence.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#what-makes-huez-unique">What Makes Huez Unique?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#huez-vs-traditional-approach">Huez vs Traditional Approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#traditional-workflow">Traditional Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#huez-workflow">Huez Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#quantified-benefits">Quantified Benefits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#time-savings">Time Savings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#code-reduction">Code Reduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#quality-improvements">Quality Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#real-world-impact">Real-World Impact</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#publication-success">Publication Success</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#accessibility-matters">Accessibility Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#teaching-learning">Teaching &amp; Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#time-efficiency">Time Efficiency</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#key-features-explained">Key Features Explained</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#cross-library-unification">1. Cross-Library Unification 🚀</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#intelligent-color-expansion">2. Intelligent Color Expansion 🧠</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#smart-colormap-detection">3. Smart Colormap Detection 🎯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#colorblind-safety-verification">4. Colorblind Safety Verification ♿</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#multi-mode-support">5. Multi-Mode Support 🖨️</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#professional-palettes">6. Professional Palettes 🎨</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#who-should-use-huez">Who Should Use Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#perfect-for">Perfect For:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#maybe-not-for">Maybe Not For:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#for-publications">For Publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#for-presentations">For Presentations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#is-huez-free">Is Huez free?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#does-huez-replace-matplotlib-seaborn">Does Huez replace matplotlib/seaborn?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#will-huez-slow-down-my-code">Will Huez slow down my code?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#can-i-use-my-own-custom-colors">Can I use my own custom colors?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../why_huez.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#the-bottom-line">The Bottom Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#ready-to-get-started">Ready to Get Started?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../why_huez.html#join-the-community">Join the Community</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#basic-installation">Basic Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#installation-with-specific-libraries">Installation with Specific Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#development-installation">Development Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#verify-installation">Verify Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#updating-huez">Updating Huez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../installation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#different-modes">Different Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#preview-before-applying">Preview Before Applying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#using-journal-styles">Using Journal Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#intelligent-features">Intelligent Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#temporary-scheme-changes">Temporary Scheme Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#getting-colors-directly">Getting Colors Directly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#common-workflows">Common Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../quickstart.html#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../user_guide/index.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#the-one-line-setup">The One-Line Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#applying-schemes">Applying Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#listing-available-schemes">Listing Available Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#previewing-schemes">Previewing Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#using-with-different-libraries">Using with Different Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/basic_usage.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/basic_usage.html#seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/basic_usage.html#plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/basic_usage.html#altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/basic_usage.html#plotnine-ggplot2-for-python">plotnine (ggplot2 for Python)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#getting-colors-manually">Getting Colors Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#context-manager">Context Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#checking-current-scheme">Checking Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#applying-to-existing-figures">Applying to Existing Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#common-patterns">Common Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/basic_usage.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/color_modes.html">Color Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#switching-modes">Switching Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#screen-mode">Screen Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#print-mode">Print Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#presentation-mode">Presentation Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#mode-comparison">Mode Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#previewing-modes">Previewing Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#switching-between-modes">Switching Between Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#mode-specific-recommendations">Mode-Specific Recommendations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#complete-workflow-example">Complete Workflow Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/color_modes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/custom_schemes.html">Custom Schemes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#creating-a-custom-configuration">Creating a Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#loading-custom-configuration">Loading Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#custom-color-palette">Custom Color Palette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#complete-custom-colormaps">Complete Custom Colormaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#multi-mode-configuration">Multi-Mode Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#configuration-options-reference">Configuration Options Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#built-in-palettes">Built-in Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#example-corporate-branding">Example: Corporate Branding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#example-academic-publication">Example: Academic Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#combining-schemes">Combining Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#programmatic-scheme-creation">Programmatic Scheme Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#exporting-current-scheme">Exporting Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#validation">Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/custom_schemes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/best_practices.html">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#general-principles">General Principles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#let-huez-handle-colors-automatically">Let Huez Handle Colors Automatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#apply-schemes-early">Apply Schemes Early</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#choose-appropriate-modes">Choose Appropriate Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#publication-workflow">Publication Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#journal-article">Journal Article</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#conference-poster">Conference Poster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#accessibility">Accessibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#ensure-colorblind-safety">Ensure Colorblind Safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#use-colorblind-safe-palettes">Use Colorblind-Safe Palettes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../user_guide/best_practices.html#add-redundant-encoding">Add Redundant Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#multi-category-plots">Multi-Category Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#consistent-multi-panel-figures">Consistent Multi-Panel Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#file-formats">File Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#combining-with-other-styles">Combining with Other Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#common-pitfalls">Common Pitfalls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#testing-your-figures">Testing Your Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../user_guide/best_practices.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user_guide/index.html#quick-navigation">Quick Navigation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Intelligence Features</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../intelligence/index.html">Intelligence Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/color_expansion.html">Intelligent Color Expansion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#the-solution-lab-interpolation">The Solution: LAB Interpolation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#what-is-lab-color-space">What is LAB Color Space?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#automatic-expansion">Automatic Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#manual-expansion">Manual Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#get-current-palette-colors">Get Current Palette Colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#visual-comparison">Visual Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#color-space-conversion">Color Space Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#interpolation-formula">Interpolation Formula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#perceptual-uniformity">Perceptual Uniformity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#fallback-mechanism">Fallback Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#warnings">Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#for-many-categories">For Many Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#recommended-limits">Recommended Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#verify-expansion">Verify Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#comparison-with-alternatives">Comparison with Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#raises">Raises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/color_expansion.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/color_expansion.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/colormap_detection.html">Smart Colormap Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#colormap-types">Colormap Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#sequential-colormaps">Sequential Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#diverging-colormaps">Diverging Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#cyclic-colormaps">Cyclic Colormaps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#rule-1-crosses-zero">Rule 1: Crosses Zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#rule-2-symmetric-range">Rule 2: Symmetric Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#rule-3-mean-median-position">Rule 3: Mean/Median Position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#rule-4-known-range-patterns">Rule 4: Known Range Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#rule-5-default">Rule 5: Default</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#automatic-detection">Automatic Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#manual-detection">Manual Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#override-detection">Override Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#example-1-correlation-matrix">Example 1: Correlation Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#example-2-gene-expression">Example 2: Gene Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#example-3-temperature-anomaly">Example 3: Temperature Anomaly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#data-preprocessing">Data Preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#detection-rules-complete">Detection Rules (Complete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#verbose-mode">Verbose Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#when-to-override">When to Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#always-specify-center">Always Specify Center</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#add-colorbar-label">Add Colorbar Label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#comparison-with-manual-selection">Comparison with Manual Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/colormap_detection.html#id1">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/colormap_detection.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/accessibility.html">Colorblind Accessibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#types-of-color-vision-deficiency">Types of Color Vision Deficiency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#protanopia-red-blind">Protanopia (Red-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#deuteranopia-green-blind">Deuteranopia (Green-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#tritanopia-blue-blind">Tritanopia (Blue-Blind)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#step-1-simulate-cvd">Step 1: Simulate CVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#step-2-calculate-contrast">Step 2: Calculate Contrast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#step-3-calculate-perceptual-distance">Step 3: Calculate Perceptual Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#automatic-checking">Automatic Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#manual-checking">Manual Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#simulation">Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#okabe-ito-8-colors">Okabe-Ito (8 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#paul-tol-bright-7-colors">Paul Tol Bright (7 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#paul-tol-vibrant-7-colors">Paul Tol Vibrant (7 colors)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#use-redundant-encoding">Use Redundant Encoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#choose-high-contrast-colors">Choose High-Contrast Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#for-heatmaps">For Heatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#avoid-red-green">Avoid Red-Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#test-your-figures">Test Your Figures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/accessibility.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/accessibility.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/chart_adaptation.html">Chart Type Adaptation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#what-it-does">What It Does</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#chart-type-detection">Chart Type Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#line-charts">Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#mixed-charts">Mixed Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#complexity-levels">Complexity Levels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#simple-4-elements">Simple (≤ 4 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#medium-5-7-elements">Medium (5-7 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#complex-8-elements">Complex (8+ elements)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#recommendations-by-type">Recommendations by Type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#for-line-charts">For Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#for-scatter-plots">For Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#for-bar-charts">For Bar Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#example-1-apply-recommendations">Example 1: Apply Recommendations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#example-2-faceting-alternative">Example 2: Faceting Alternative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#example-3-bar-chart-with-hatches">Example 3: Bar Chart with Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#detection-algorithm">Detection Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#adaptation-logic">Adaptation Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#when-to-use-markers">When to Use Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#when-to-use-facets">When to Use Facets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../intelligence/chart_adaptation.html#when-to-use-hatches">When to Use Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../intelligence/chart_adaptation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#feature-cards">Feature Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#automatic-enablement">Automatic Enablement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#manual-control">Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#research-background">Research Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../intelligence/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Library Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../library_support/index.html">Library Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/matplotlib.html">Matplotlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#what-huez-configures">What Huez Configures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#plot-types">Plot Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#line-plots">Line Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#bar-plots">Bar Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#heatmaps-imshow">Heatmaps (imshow)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#custom-color-cycles">Custom Color Cycles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#colormaps">Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#apply-to-existing-figure">Apply to Existing Figure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#context-manager">Context Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#for-publications">For Publications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#for-presentations">For Presentations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#combining-with-styles">Combining with Styles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#colors-not-changing">Colors Not Changing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#explicit-colors-override">Explicit Colors Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../library_support/matplotlib.html#colormap-not-applied">Colormap Not Applied</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/matplotlib.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/seaborn.html">Seaborn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/seaborn.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/seaborn.html#supported-plot-types">Supported Plot Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/seaborn.html#smart-heatmaps">Smart Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/seaborn.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/plotly.html">Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotly.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotly.html#interactive-features">Interactive Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotly.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/altair.html">Altair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/altair.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/altair.html#grammar-of-graphics">Grammar of Graphics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/altair.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/plotnine.html">plotnine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotnine.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotnine.html#ggplot2-syntax">ggplot2 Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotnine.html#getting-scales">Getting Scales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/plotnine.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#supported-libraries">Supported Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#quick-examples">Quick Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/index.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/index.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/index.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../library_support/index.html#plotnine">plotnine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../library_support/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../gallery/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/palettes.html">Color Palettes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/palettes.html#journal-styles">Journal Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/palettes.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/palettes.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/palettes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/comparisons.html">Before/After Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#plotnine">plotnine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#code-simplification">Code Simplification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#clean-visuals">Clean Visuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../gallery/comparisons.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/index.html#browse">Browse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../gallery/index.html#quick-preview">Quick Preview</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../comparison.html">Comparison with Other Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#detailed-comparisons">Detailed Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#huez-vs-seaborn">Huez vs Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#huez-vs-matplotlib-styles">Huez vs Matplotlib Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#huez-vs-palettable-colorbrewer">Huez vs palettable / colorbrewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#huez-vs-plotly-altair-defaults">Huez vs plotly / altair defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#huez-vs-colorcet">Huez vs colorcet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#migration-guides">Migration Guides</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#from-seaborn-to-huez">From Seaborn to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#from-matplotlib-styles-to-huez">From Matplotlib Styles to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#from-manual-color-configuration-to-huez">From Manual Color Configuration to Huez</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#why-choose-huez">Why Choose Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#choose-huez-if-you">Choose Huez if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#continue-using-other-tools-if-you">Continue using other tools if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../comparison.html#the-best-approach-combine-tools">The Best Approach: Combine Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../comparison.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-is-huez">What is Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#why-do-i-need-huez">Why do I need Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#is-huez-free">Is Huez free?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#installation-setup">Installation &amp; Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-install-huez">How do I install Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#which-python-versions-are-supported">Which Python versions are supported?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#do-i-need-to-install-all-visualization-libraries">Do I need to install all visualization libraries?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#usage-questions">Usage Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-apply-a-color-scheme">How do I apply a color scheme?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#must-i-call-hz-use-before-every-plot">Must I call hz.use() before every plot?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-use-explicit-colors-like-color-red">Can I use explicit colors like color=’red’?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-preview-a-scheme-before-using-it">How do I preview a scheme before using it?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#features-capabilities">Features &amp; Capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#does-huez-work-with-all-plot-types">Does Huez work with all plot types?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-huez-handle-more-than-10-categories">Can Huez handle more than 10 categories?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-does-automatic-colormap-detection-work">How does automatic colormap detection work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-is-colorblind-accessibility-checking">What is colorblind accessibility checking?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#publication-printing">Publication &amp; Printing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#which-mode-should-i-use-for-journal-submission">Which mode should I use for journal submission?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#will-my-figures-print-well-in-black-white">Will my figures print well in black &amp; white?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-dpi-should-i-use-for-publications">What DPI should I use for publications?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-use-huez-with-nature-science-cell-journals">Can I use Huez with Nature/Science/Cell journals?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-create-custom-color-schemes">Can I create custom color schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-temporarily-switch-schemes">Can I temporarily switch schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-get-colors-for-manual-use">How do I get colors for manual use?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-disable-intelligent-features">Can I disable intelligent features?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#performance-compatibility">Performance &amp; Compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#does-huez-slow-down-my-plotting">Does Huez slow down my plotting?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#can-i-use-huez-with-plt-style-use">Can I use Huez with plt.style.use()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#does-huez-work-with-pandas-plotting">Does Huez work with pandas plotting?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#huez-doesn-t-seem-to-work-what-s-wrong">Huez doesn’t seem to work. What’s wrong?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#my-colors-still-look-wrong-after-applying-huez">My colors still look wrong after applying Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-report-a-bug-or-request-a-feature">How do I report a bug or request a feature?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#where-can-i-get-help">Where can I get help?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#comparison-with-other-tools">Comparison with Other Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-is-huez-different-from-seaborn-set-palette">How is Huez different from seaborn.set_palette()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#why-not-just-use-matplotlib-styles">Why not just use matplotlib styles?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-about-palettable-or-colorbrewer">What about palettable or colorbrewer?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#citations-credits">Citations &amp; Credits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#how-do-i-cite-huez-in-my-paper">How do I cite Huez in my paper?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../faq.html#what-algorithms-does-huez-use">What algorithms does Huez use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/core.html">Core API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core.html#primary-functions">Primary Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.use"><code class="docutils literal notranslate"><span class="pre">use()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.current_scheme"><code class="docutils literal notranslate"><span class="pre">current_scheme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.palette"><code class="docutils literal notranslate"><span class="pre">palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.cmap"><code class="docutils literal notranslate"><span class="pre">cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.list_schemes"><code class="docutils literal notranslate"><span class="pre">list_schemes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.preview"><code class="docutils literal notranslate"><span class="pre">preview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.using"><code class="docutils literal notranslate"><span class="pre">using()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.export_styles"><code class="docutils literal notranslate"><span class="pre">export_styles()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core.html#convenience-functions">Convenience Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.quick_setup"><code class="docutils literal notranslate"><span class="pre">quick_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.colors"><code class="docutils literal notranslate"><span class="pre">colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.get_colors"><code class="docutils literal notranslate"><span class="pre">get_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.status"><code class="docutils literal notranslate"><span class="pre">status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core.html#intelligence-functions">Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core.html#library-specific">Library-Specific</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.gg_scales"><code class="docutils literal notranslate"><span class="pre">gg_scales()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/core.html#huez.apply_to_figure"><code class="docutils literal notranslate"><span class="pre">apply_to_figure()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/intelligence.html">Intelligence API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/intelligence.html#core-intelligence-functions">Core Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/intelligence.html#advanced-intelligence-module">Advanced Intelligence Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/intelligence.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/adapters.html">Adapters API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/adapters.html#base-adapter">Base Adapter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#huez.adapters.base.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/adapters.html#library-adapters">Library Adapters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#module-huez.adapters.mpl">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#module-huez.adapters.seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#module-huez.adapters.plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#module-huez.adapters.altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/adapters.html#module-huez.adapters.plotnine">plotnine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/utils.html">Utilities API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#color-utilities">Color Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#module-huez.export">Export Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.export.export_all_styles"><code class="docutils literal notranslate"><span class="pre">export_all_styles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.export.export_to_json"><code class="docutils literal notranslate"><span class="pre">export_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.export.export_to_yaml"><code class="docutils literal notranslate"><span class="pre">export_to_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.export.export_to_css"><code class="docutils literal notranslate"><span class="pre">export_to_css()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.export.export_matplotlib_style"><code class="docutils literal notranslate"><span class="pre">export_matplotlib_style()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#module-huez.config">Configuration Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.FontConfig"><code class="docutils literal notranslate"><span class="pre">FontConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.PalettesConfig"><code class="docutils literal notranslate"><span class="pre">PalettesConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.FigureConfig"><code class="docutils literal notranslate"><span class="pre">FigureConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.StyleConfig"><code class="docutils literal notranslate"><span class="pre">StyleConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.Scheme"><code class="docutils literal notranslate"><span class="pre">Scheme</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.validate_config"><code class="docutils literal notranslate"><span class="pre">validate_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.load_config_from_file"><code class="docutils literal notranslate"><span class="pre">load_config_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.config.save_config_to_file"><code class="docutils literal notranslate"><span class="pre">save_config_to_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utils.html#module-huez.quality.checks">Quality Checks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.quality.checks.check_palette_quality"><code class="docutils literal notranslate"><span class="pre">check_palette_quality()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.quality.lint.lint_figure_file"><code class="docutils literal notranslate"><span class="pre">lint_figure_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/utils.html#huez.quality.lint.lint_batch"><code class="docutils literal notranslate"><span class="pre">lint_batch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/aliases.html">API Aliases and Naming Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#function-alias-mapping">Function Alias Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#recommended-usage-patterns">Recommended Usage Patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#for-most-users">For Most Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#for-advanced-users">For Advanced Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#both-are-equivalent">Both Are Equivalent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#complete-api-comparison">Complete API Comparison</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#intelligence-features">Intelligence Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#utility-functions">Utility Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#design-philosophy">Design Philosophy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#why-simplified-names">Why Simplified Names?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../api/aliases.html#why-keep-full-names">Why Keep Full Names?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#migration-guide">Migration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#faqs">FAQs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/aliases.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html#browse-by-module">Browse by Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/custom_adapters.html">Custom Adapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#creating-an-adapter">Creating an Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#register-the-adapter">Register the Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#example-bokeh-adapter">Example: Bokeh Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#testing-your-adapter">Testing Your Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#best-practices">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#contributing">Contributing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../advanced/custom_adapters.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../advanced/index.html#for-developers">For Developers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#ways-to-contribute">Ways to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#development-setup">Development Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#adding-color-schemes">Adding Color Schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#adding-adapters">Adding Adapters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#pull-request-process">Pull Request Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#community-guidelines">Community Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contributing.html#thank-you">Thank You!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-5-current">Version 0.0.5 (Current)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-4">Version 0.0.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-3">Version 0.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-2">Version 0.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#version-0-0-1">Version 0.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#future-plans">Future Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../changelog.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Huez</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">huez.core</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for huez.core</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Core API for Huez - Color Scheme Management and Library Adapters</span>
+
+<span class="sd">This module provides the main API for managing color schemes and applying them</span>
+<span class="sd">across different Python visualization libraries. It handles configuration loading,</span>
+<span class="sd">scheme switching, and adapter management.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">ContextManager</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">apply_scheme_to_adapters</span><span class="p">,</span> <span class="n">get_available_adapters</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span><span class="p">,</span> <span class="n">validate_config</span>
+
+<span class="c1"># Global state</span>
+<span class="n">_current_scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_current_config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Config</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">_scheme_stack</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_enhance_for_presentation</span><span class="p">(</span><span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Enhance colors for presentation (higher contrast, brightness).&quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mcolors</span>
+
+    <span class="n">enhanced</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">colors</span><span class="p">:</span>
+        <span class="n">rgb</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">to_rgb</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="c1"># Increase saturation and brightness</span>
+        <span class="n">hsv</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">rgb_to_hsv</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
+        <span class="n">hsv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hsv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">)</span>  <span class="c1"># Increase saturation</span>
+        <span class="n">hsv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hsv</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.1</span><span class="p">)</span>  <span class="c1"># Increase brightness</span>
+        <span class="n">rgb_enhanced</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">hsv_to_rgb</span><span class="p">(</span><span class="n">hsv</span><span class="p">)</span>
+        <span class="n">enhanced</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mcolors</span><span class="o">.</span><span class="n">to_hex</span><span class="p">(</span><span class="n">rgb_enhanced</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">enhanced</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_apply_display_mode</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply display mode transformations to a scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme: Original scheme</span>
+<span class="sd">        mode: &quot;print&quot; or &quot;presentation&quot;</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Modified scheme with mode-appropriate colors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">copy</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_palette</span>
+
+    <span class="c1"># Create a copy to avoid modifying original</span>
+    <span class="n">modified_scheme</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">scheme</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;print&quot;</span><span class="p">:</span>
+        <span class="c1"># Print mode: Use colors with varying lightness that remain distinguishable in B&amp;W</span>
+        <span class="c1"># These colors are carefully chosen to have different grayscale values</span>
+        <span class="n">print_safe_colors</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>  <span class="c1"># Black (Lightness: 0%)</span>
+            <span class="s2">&quot;#E64B35&quot;</span><span class="p">,</span>  <span class="c1"># Red (Lightness: 40%)</span>
+            <span class="s2">&quot;#4DBBD5&quot;</span><span class="p">,</span>  <span class="c1"># Cyan (Lightness: 70%)</span>
+            <span class="s2">&quot;#00A087&quot;</span><span class="p">,</span>  <span class="c1"># Green (Lightness: 60%)</span>
+            <span class="s2">&quot;#3C5488&quot;</span><span class="p">,</span>  <span class="c1"># Blue (Lightness: 35%)</span>
+            <span class="s2">&quot;#F39B7F&quot;</span><span class="p">,</span>  <span class="c1"># Orange (Lightness: 75%)</span>
+            <span class="s2">&quot;#8491B4&quot;</span><span class="p">,</span>  <span class="c1"># Light blue (Lightness: 65%)</span>
+            <span class="s2">&quot;#91D1C2&quot;</span><span class="p">,</span>  <span class="c1"># Mint (Lightness: 80%)</span>
+        <span class="p">]</span>
+        <span class="c1"># Store for adapter use</span>
+        <span class="n">modified_scheme</span><span class="o">.</span><span class="n">_display_mode_colors</span> <span class="o">=</span> <span class="n">print_safe_colors</span>
+        <span class="n">modified_scheme</span><span class="o">.</span><span class="n">_display_mode_note</span> <span class="o">=</span> <span class="s2">&quot;Colors optimized for B&amp;W printing&quot;</span>
+
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;presentation&quot;</span><span class="p">:</span>
+        <span class="c1"># Presentation mode: Enhance contrast and brightness</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">original_colors</span> <span class="o">=</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">discrete</span><span class="p">,</span> <span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+            <span class="n">enhanced_colors</span> <span class="o">=</span> <span class="n">_enhance_for_presentation</span><span class="p">(</span><span class="n">original_colors</span><span class="p">)</span>
+            <span class="n">modified_scheme</span><span class="o">.</span><span class="n">_display_mode_colors</span> <span class="o">=</span> <span class="n">enhanced_colors</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="c1"># Store mode info</span>
+    <span class="n">modified_scheme</span><span class="o">.</span><span class="n">_display_mode</span> <span class="o">=</span> <span class="n">mode</span>
+
+    <span class="k">return</span> <span class="n">modified_scheme</span>
+
+
+<div class="viewcode-block" id="load_config">
+<a class="viewcode-back" href="../../api/core.html#huez.load_config">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_config</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Config</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load configuration from YAML file or use defaults.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path: Path to YAML config file. If None, uses built-in defaults.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Config object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_current_config</span>
+
+    <span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Load built-in defaults</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.data.defaults</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_default_config</span>
+
+        <span class="n">_current_config</span> <span class="o">=</span> <span class="n">get_default_config</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="n">_current_config</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Validate configuration</span>
+    <span class="n">validate_config</span><span class="p">(</span><span class="n">_current_config</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_current_config</span></div>
+
+
+
+<div class="viewcode-block" id="use">
+<a class="viewcode-back" href="../../api/core.html#huez.use">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">use</span><span class="p">(</span>
+    <span class="n">scheme_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Config</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">auto_expand</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">smart_cmap</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">ensure_accessible</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;screen&quot;</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply a color scheme to all available visualization libraries.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme_name: Name of the scheme to use</span>
+<span class="sd">        config: Config object. If None, uses current loaded config.</span>
+<span class="sd">        auto_expand: Enable intelligent color expansion for unlimited categories</span>
+<span class="sd">        smart_cmap: Enable automatic colormap detection for heatmaps</span>
+<span class="sd">        ensure_accessible: Check and warn about colorblind accessibility</span>
+<span class="sd">        mode: Display mode - &quot;screen&quot; (default), &quot;print&quot; (grayscale-friendly), or &quot;presentation&quot; (high contrast)</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; hz.use(&quot;nature&quot;)  # Screen mode</span>
+<span class="sd">        &gt;&gt;&gt; hz.use(&quot;nature&quot;, mode=&quot;print&quot;)  # Print-friendly colors</span>
+<span class="sd">        &gt;&gt;&gt; hz.use(&quot;nature&quot;, mode=&quot;presentation&quot;)  # High contrast for projectors</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_current_scheme</span><span class="p">,</span> <span class="n">_current_config</span>
+
+    <span class="k">if</span> <span class="n">config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_current_config</span> <span class="o">=</span> <span class="n">config</span>
+        <span class="n">validate_config</span><span class="p">(</span><span class="n">_current_config</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">:</span>
+        <span class="n">available</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scheme &#39;</span><span class="si">{</span><span class="n">scheme_name</span><span class="si">}</span><span class="s2">&#39; not found. Available: </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">_current_scheme</span> <span class="o">=</span> <span class="n">scheme_name</span>
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+
+    <span class="c1"># Apply display mode transformations</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;screen&quot;</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_apply_display_mode</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+    <span class="c1"># Intelligence features</span>
+    <span class="k">if</span> <span class="n">ensure_accessible</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.intelligence.accessibility</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_colorblind_safety</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_palette</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">discrete</span><span class="p">,</span> <span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">check_colorblind_safety</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;safe&quot;</span><span class="p">]:</span>
+                <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">[Huez Accessibility Warning] Scheme &#39;</span><span class="si">{</span><span class="n">scheme_name</span><span class="si">}</span><span class="s2">&#39; may not be &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;colorblind-safe:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  • </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;warnings&quot;</span><span class="p">])</span>
+                    <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">Suggestions:</span><span class="se">\n</span><span class="s2">&quot;</span>
+                    <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  • </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;suggestions&quot;</span><span class="p">]),</span>
+                    <span class="ne">UserWarning</span><span class="p">,</span>
+                    <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Failed to check accessibility: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span>
+            <span class="p">)</span>
+
+    <span class="c1"># Store intelligence settings for adapters</span>
+    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="s2">&quot;_intelligence_settings&quot;</span><span class="p">):</span>
+        <span class="n">scheme</span><span class="o">.</span><span class="n">_intelligence_settings</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;auto_expand&quot;</span><span class="p">:</span> <span class="n">auto_expand</span><span class="p">,</span>
+                <span class="s2">&quot;smart_cmap&quot;</span><span class="p">:</span> <span class="n">smart_cmap</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scheme</span><span class="o">.</span><span class="n">_intelligence_settings</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;auto_expand&quot;</span><span class="p">:</span> <span class="n">auto_expand</span><span class="p">,</span>
+            <span class="s2">&quot;smart_cmap&quot;</span><span class="p">:</span> <span class="n">smart_cmap</span><span class="p">,</span>
+        <span class="p">}</span>
+
+    <span class="c1"># Apply to all available adapters</span>
+    <span class="n">adapters</span> <span class="o">=</span> <span class="n">get_available_adapters</span><span class="p">()</span>
+    <span class="n">apply_scheme_to_adapters</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">adapters</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="current_scheme">
+<a class="viewcode-back" href="../../api/core.html#huez.current_scheme">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">current_scheme</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the name of the currently active scheme.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Name of current scheme, or None if no scheme is active</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_current_scheme</span></div>
+
+
+
+<div class="viewcode-block" id="using">
+<a class="viewcode-back" href="../../api/core.html#huez.using">[docs]</a>
+<span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">using</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="kc">None</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Context manager for temporarily using a different scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme_name: Name of the scheme to use temporarily</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">global</span> <span class="n">_current_scheme</span>
+
+    <span class="c1"># Save current scheme</span>
+    <span class="n">previous_scheme</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+    <span class="n">_scheme_stack</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">previous_scheme</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">use</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">)</span>
+        <span class="k">yield</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="c1"># Restore previous scheme</span>
+        <span class="n">restored_scheme</span> <span class="o">=</span> <span class="n">_scheme_stack</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">restored_scheme</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">use</span><span class="p">(</span><span class="n">restored_scheme</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_current_scheme</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="palette">
+<a class="viewcode-back" href="../../api/core.html#huez.palette">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">palette</span><span class="p">(</span>
+    <span class="n">scheme_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;discrete&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a color palette from the current or specified scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme_name: Name of scheme. If None, uses current scheme.</span>
+<span class="sd">        kind: Type of palette (&quot;discrete&quot;, &quot;sequential&quot;, &quot;diverging&quot;, &quot;cyclic&quot;)</span>
+<span class="sd">        n: Number of colors for discrete palettes. If None, uses default.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of hex color strings</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check if scheme_name is actually a palette name (not a scheme name)</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_palette</span><span class="p">,</span> <span class="n">validate_palette_name</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">and</span> <span class="n">validate_palette_name</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">,</span> <span class="n">kind</span><span class="p">):</span>
+        <span class="c1"># It&#39;s a direct palette name</span>
+        <span class="k">return</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># It&#39;s a scheme name</span>
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme_name</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is currently active. Call huez.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Scheme &#39;</span><span class="si">{</span><span class="n">scheme_name</span><span class="si">}</span><span class="s2">&#39; not found. Available schemes: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
+
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+    <span class="n">palette_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">palette_name</span><span class="p">,</span> <span class="n">kind</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="cmap">
+<a class="viewcode-back" href="../../api/core.html#huez.cmap">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">cmap</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;sequential&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a colormap name from the current or specified scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme_name: Name of scheme. If None, uses current scheme.</span>
+<span class="sd">        kind: Type of colormap (&quot;sequential&quot;, &quot;diverging&quot;, &quot;cyclic&quot;)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Colormap name string</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_colormap</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme_name</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is currently active. Call huez.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+    <span class="n">cmap_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">get_colormap</span><span class="p">(</span><span class="n">cmap_name</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="gg_scales">
+<a class="viewcode-back" href="../../api/core.html#huez.gg_scales">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">gg_scales</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get plotnine scales for consistent coloring.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        plotnine scale objects that can be added to plots</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.plotnine</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_plotnine_scales</span>
+
+        <span class="k">return</span> <span class="n">get_plotnine_scales</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+            <span class="s2">&quot;plotnine is not installed. Install with: pip install plotnine&quot;</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="export_styles">
+<a class="viewcode-back" href="../../api/core.html#huez.export_styles">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">export_styles</span><span class="p">(</span>
+    <span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">formats</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Export style files for external use.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        output_dir: Directory to save style files</span>
+<span class="sd">        scheme: Scheme name. If None, uses current scheme.</span>
+<span class="sd">        formats: List of formats to export. If None, exports all available.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.export</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_all_styles</span>
+
+    <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is currently active. Call huez.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="n">scheme_config</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme</span><span class="p">]</span>
+    <span class="n">export_all_styles</span><span class="p">(</span><span class="n">scheme_config</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">,</span> <span class="n">formats</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">preview_gallery</span><span class="p">(</span><span class="n">output_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generate a preview gallery showing the scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        output_dir: Directory to save preview files</span>
+<span class="sd">        scheme: Scheme name. If None, uses current scheme.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.preview</span><span class="w"> </span><span class="kn">import</span> <span class="n">generate_gallery</span>
+
+    <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is currently active. Call huez.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="n">scheme_config</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme</span><span class="p">]</span>
+    <span class="n">generate_gallery</span><span class="p">(</span><span class="n">scheme_config</span><span class="p">,</span> <span class="n">output_dir</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">check_palette</span><span class="p">(</span>
+    <span class="n">scheme</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">kinds</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check palette quality (colorblind safety, contrast, etc.).</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme: Scheme name. If None, uses current scheme.</span>
+<span class="sd">        kinds: Types of palettes to check. If None, checks all.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with quality check results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.quality.checks</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_palette_quality</span>
+
+    <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is currently active. Call huez.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="n">scheme_config</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">check_palette_quality</span><span class="p">(</span><span class="n">scheme_config</span><span class="p">,</span> <span class="n">kinds</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">lint_figure</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">report_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Lint a figure file for visualization best practices.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_path: Path to the figure file</span>
+<span class="sd">        report_path: Optional path to save detailed report</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with linting results</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.quality.lint</span><span class="w"> </span><span class="kn">import</span> <span class="n">lint_figure_file</span>
+
+    <span class="k">return</span> <span class="n">lint_figure_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">report_path</span><span class="p">)</span>
+
+
+<span class="c1"># ============================================================================</span>
+<span class="c1"># Convenience Functions for Automatic Color Adaptation</span>
+<span class="c1"># ============================================================================</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">auto_colors</span><span class="p">(</span><span class="n">library</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get colors automatically adapted for a specific library.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        library: Target library (&quot;auto&quot;, &quot;matplotlib&quot;, &quot;seaborn&quot;, &quot;plotly&quot;, &quot;altair&quot;, &quot;plotnine&quot;)</span>
+<span class="sd">        n: Number of colors to return</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of hex color strings</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        colors = hz.auto_colors(&quot;plotly&quot;, n=5)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+        <span class="c1"># Try to detect which library is being used</span>
+        <span class="n">library</span> <span class="o">=</span> <span class="n">_detect_active_library</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">library</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;matplotlib&quot;</span><span class="p">,</span> <span class="s2">&quot;seaborn&quot;</span><span class="p">]:</span>
+        <span class="c1"># These libraries handle colors automatically through rcParams</span>
+        <span class="k">return</span> <span class="n">palette</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;plotly&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.plotly</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_plotly_colors</span>
+
+            <span class="k">return</span> <span class="n">get_plotly_colors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">palette</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;altair&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.altair</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_altair_colors</span>
+
+            <span class="k">return</span> <span class="n">get_altair_colors</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">palette</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">palette</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_detect_active_library</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Try to detect which visualization library is currently being used.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Library name or &quot;matplotlib&quot; as default</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+    <span class="c1"># Check if libraries are imported in the current session</span>
+    <span class="k">if</span> <span class="s2">&quot;plotly&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;plotly&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;altair&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;altair&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;seaborn&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;seaborn&quot;</span>
+    <span class="k">elif</span> <span class="s2">&quot;plotnine&quot;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;plotnine&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;matplotlib&quot;</span>  <span class="c1"># Default fallback</span>
+
+
+<div class="viewcode-block" id="quick_setup">
+<a class="viewcode-back" href="../../api/core.html#huez.quick_setup">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">quick_setup</span><span class="p">(</span><span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Quick setup for immediate use - loads config and applies scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme: Scheme name to apply</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        import huez as hz</span>
+<span class="sd">        hz.quick_setup(&quot;scheme-1&quot;)  # Ready to use!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">load_config</span><span class="p">()</span>
+    <span class="n">use</span><span class="p">(</span><span class="n">scheme</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;✅ Huez activated color scheme: </span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;📊 Supported libraries: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_get_available_library_names</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_get_available_library_names</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get names of available visualization libraries.&quot;&quot;&quot;</span>
+    <span class="n">adapters</span> <span class="o">=</span> <span class="n">get_available_adapters</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">adapter</span><span class="o">.</span><span class="n">get_name</span><span class="p">()</span> <span class="k">for</span> <span class="n">adapter</span> <span class="ow">in</span> <span class="n">adapters</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="colors">
+<a class="viewcode-back" href="../../api/core.html#huez.colors">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">colors</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">library</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simplified function to get colors - no need to specify &#39;kind&#39; or &#39;scheme_name&#39;.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        n: Number of colors</span>
+<span class="sd">        library: Target library for optimization</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of hex color strings</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        # Instead of: colors = hz.palette(n=3, kind=&quot;discrete&quot;)</span>
+<span class="sd">        colors = hz.colors(3)  # Much simpler!</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">auto_colors</span><span class="p">(</span><span class="n">library</span><span class="o">=</span><span class="n">library</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="apply_to_figure">
+<a class="viewcode-back" href="../../api/core.html#huez.apply_to_figure">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">apply_to_figure</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">library</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply huez colors to an existing figure object.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        fig: Figure object (matplotlib, plotly, etc.)</span>
+<span class="sd">        library: Library type (&quot;auto&quot;, &quot;matplotlib&quot;, &quot;plotly&quot;, &quot;altair&quot;)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Figure with colors applied</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        fig = plt.figure()</span>
+<span class="sd">        # ... create plot ...</span>
+<span class="sd">        fig = hz.apply_to_figure(fig, &quot;matplotlib&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+        <span class="c1"># Detect library from figure object type</span>
+        <span class="n">fig_type</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span><span class="o">.</span><span class="vm">__module__</span>
+        <span class="k">if</span> <span class="s2">&quot;plotly&quot;</span> <span class="ow">in</span> <span class="n">fig_type</span><span class="p">:</span>
+            <span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;plotly&quot;</span>
+        <span class="k">elif</span> <span class="s2">&quot;altair&quot;</span> <span class="ow">in</span> <span class="n">fig_type</span><span class="p">:</span>
+            <span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;altair&quot;</span>
+        <span class="k">elif</span> <span class="s2">&quot;matplotlib&quot;</span> <span class="ow">in</span> <span class="n">fig_type</span><span class="p">:</span>
+            <span class="n">library</span> <span class="o">=</span> <span class="s2">&quot;matplotlib&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Fallback to detecting active library</span>
+            <span class="n">library</span> <span class="o">=</span> <span class="n">_detect_active_library</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;plotly&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.plotly</span><span class="w"> </span><span class="kn">import</span> <span class="n">plotly_auto_colors</span>
+
+            <span class="k">return</span> <span class="n">plotly_auto_colors</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">library</span> <span class="o">==</span> <span class="s2">&quot;altair&quot;</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.altair</span><span class="w"> </span><span class="kn">import</span> <span class="n">altair_auto_color</span>
+
+            <span class="k">return</span> <span class="n">altair_auto_color</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ImportError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>
+            <span class="k">pass</span>
+
+    <span class="c1"># For matplotlib/seaborn, colors are already applied via rcParams</span>
+    <span class="k">return</span> <span class="n">fig</span></div>
+
+
+
+<div class="viewcode-block" id="status">
+<a class="viewcode-back" href="../../api/core.html#huez.status">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">status</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get current huez status and available libraries.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with status information</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        print(hz.status())</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.adapters.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_adapter_status</span>
+
+    <span class="n">adapter_status</span> <span class="o">=</span> <span class="n">get_adapter_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;current_scheme&quot;</span><span class="p">:</span> <span class="n">current_scheme</span><span class="p">(),</span>
+        <span class="s2">&quot;available_libraries&quot;</span><span class="p">:</span> <span class="n">adapter_status</span><span class="p">,</span>
+        <span class="s2">&quot;available_adapters&quot;</span><span class="p">:</span> <span class="n">adapter_status</span><span class="p">,</span>  <span class="c1"># Alias for backward compatibility</span>
+        <span class="s2">&quot;config_loaded&quot;</span><span class="p">:</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="s2">&quot;total_schemes&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">)</span> <span class="k">if</span> <span class="n">_current_config</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">help_usage</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Print helpful usage information.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">🎨 Huez - Unified Python visualization color scheme</span>
+
+<span class="sd">🚀 Quick start:</span>
+<span class="sd">    import huez as hz</span>
+<span class="sd">    hz.quick_setup(&quot;scheme-1&quot;)  # One-click setup</span>
+
+<span class="sd">📊 Basic usage:</span>
+<span class="sd">    # Traditional way (still supported)</span>
+<span class="sd">    colors = hz.palette(n=3, kind=&quot;discrete&quot;)</span>
+
+<span class="sd">    # New simplified way (recommended)</span>
+<span class="sd">    colors = hz.colors(3)  # Much simpler!</span>
+
+<span class="sd">🎯 Auto-adaptation:</span>
+<span class="sd">    # Matplotlib/Seaborn - Fully automatic</span>
+<span class="sd">    plt.plot(x, y)  # Automatically uses huez colors</span>
+
+<span class="sd">    # Plotly/Altair - Also automatic!</span>
+<span class="sd">    fig = go.Figure()</span>
+<span class="sd">    fig.add_trace(go.Scatter(x=x, y=y))  # Automatic coloring</span>
+
+<span class="sd">📈 Check status:</span>
+<span class="sd">    hz.status()  # View current status</span>
+
+<span class="sd">💡 More info: https://github.com/huez/huez</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="p">)</span>
+
+
+<span class="c1"># Aliases for backward compatibility and convenience</span>
+<span class="n">get_colors</span> <span class="o">=</span> <span class="n">colors</span>  <span class="c1"># Alias</span>
+<span class="n">setup</span> <span class="o">=</span> <span class="n">quick_setup</span>  <span class="c1"># Alias</span>
+
+
+<span class="c1"># ============================================================================</span>
+<span class="c1"># Intelligence Features</span>
+<span class="c1"># ============================================================================</span>
+
+
+<div class="viewcode-block" id="check_accessibility">
+<a class="viewcode-back" href="../../api/intelligence.html#huez.check_accessibility">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">check_accessibility</span><span class="p">(</span>
+    <span class="n">colors</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scheme_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check colorblind accessibility of a color palette.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        colors: List of hex colors to check. If None, uses current scheme.</span>
+<span class="sd">        scheme_name: Name of scheme to check. If None, uses current scheme.</span>
+<span class="sd">        verbose: Print detailed report</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with safety analysis</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; hz.use(&quot;npg&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; result = hz.check_accessibility()</span>
+<span class="sd">        &gt;&gt;&gt; if not result[&#39;safe&#39;]:</span>
+<span class="sd">        ...     print(&quot;Warning: Not colorblind-safe!&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.intelligence.accessibility</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_colorblind_safety</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_palette</span>
+
+    <span class="c1"># Determine which colors to check</span>
+    <span class="k">if</span> <span class="n">colors</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">scheme_name</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+            <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;No scheme is active. Call hz.use() first or provide colors/scheme_name.&quot;</span>
+                <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">load_config</span><span class="p">()</span>
+
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">discrete</span><span class="p">,</span> <span class="s2">&quot;discrete&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">check_colorblind_safety</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="expand_colors">
+<a class="viewcode-back" href="../../api/intelligence.html#huez.expand_colors">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">expand_colors</span><span class="p">(</span><span class="n">colors</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">n_needed</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Intelligently expand a color palette using LAB space interpolation.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        colors: Base color palette (hex format)</span>
+<span class="sd">        n_needed: Number of colors needed</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Expanded color list</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; base = [&#39;#E64B35&#39;, &#39;#4DBBD5&#39;, &#39;#00A087&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; expanded = hz.expand_colors(base, 10)</span>
+<span class="sd">        &gt;&gt;&gt; len(expanded)</span>
+<span class="sd">        10</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.intelligence.color_expansion</span><span class="w"> </span><span class="kn">import</span> <span class="n">intelligent_color_expansion</span>
+
+    <span class="k">return</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">n_needed</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="detect_colormap">
+<a class="viewcode-back" href="../../api/intelligence.html#huez.detect_colormap">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">detect_colormap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Automatically detect appropriate colormap type for data.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: Numeric data (numpy array or list)</span>
+<span class="sd">        verbose: Print detection reasoning</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        &quot;sequential&quot; or &quot;diverging&quot;</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; corr_data = np.random.randn(10, 10)</span>
+<span class="sd">        &gt;&gt;&gt; cmap_type = hz.detect_colormap(corr_data)</span>
+<span class="sd">        &gt;&gt;&gt; print(cmap_type)  # &quot;diverging&quot; for symmetric data</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.intelligence.colormap_detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_colormap_type</span>
+
+    <span class="k">return</span> <span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="smart_cmap">
+<a class="viewcode-back" href="../../api/intelligence.html#huez.smart_cmap">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">smart_cmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">scheme_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get appropriate colormap name based on data analysis.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        data: Numeric data to analyze</span>
+<span class="sd">        scheme_name: Scheme to use. If None, uses current scheme.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Colormap name</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import seaborn as sns</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt;</span>
+<span class="sd">        &gt;&gt;&gt; hz.use(&quot;nature&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; data = np.random.randn(10, 10)  # Symmetric data</span>
+<span class="sd">        &gt;&gt;&gt; cmap_name = hz.smart_cmap(data)</span>
+<span class="sd">        &gt;&gt;&gt; sns.heatmap(data, cmap=cmap_name)  # Automatically uses diverging</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.intelligence.colormap_detection</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_colormap_type</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme_name</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No scheme is active. Call hz.use() first.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="c1"># Detect data type</span>
+    <span class="n">cmap_type</span> <span class="o">=</span> <span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Get appropriate colormap from scheme</span>
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_colormap</span>
+
+    <span class="k">if</span> <span class="n">cmap_type</span> <span class="o">==</span> <span class="s2">&quot;diverging&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_colormap</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">diverging</span><span class="p">,</span> <span class="s2">&quot;diverging&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_colormap</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">sequential</span><span class="p">,</span> <span class="s2">&quot;sequential&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ============================================================================</span>
+<span class="c1"># Preview and Utility Functions</span>
+<span class="c1"># ============================================================================</span>
+
+
+<div class="viewcode-block" id="preview">
+<a class="viewcode-back" href="../../api/core.html#huez.preview">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">preview</span><span class="p">(</span><span class="n">scheme_name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;screen&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Display a quick preview of a color scheme.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        scheme_name: Name of scheme to preview. If None, shows current scheme.</span>
+<span class="sd">        mode: Display mode - &quot;screen&quot;, &quot;print&quot;, or &quot;presentation&quot;</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; hz.preview(&quot;nature&quot;)  # Preview Nature scheme</span>
+<span class="sd">        &gt;&gt;&gt; hz.preview(&quot;nature&quot;, mode=&quot;print&quot;)  # Preview in print mode</span>
+<span class="sd">        &gt;&gt;&gt; hz.preview()  # Preview current scheme</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+    <span class="kn">from</span><span class="w"> </span><span class="nn">.registry.palettes</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_palette</span>
+
+    <span class="c1"># Determine which scheme to preview</span>
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scheme_name</span> <span class="o">=</span> <span class="n">_current_scheme</span>
+        <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;No scheme is active. Provide scheme_name or call hz.use() first.&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">scheme_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">:</span>
+        <span class="n">available</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scheme &#39;</span><span class="si">{</span><span class="n">scheme_name</span><span class="si">}</span><span class="s2">&#39; not found. Available: </span><span class="si">{</span><span class="n">available</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">scheme</span> <span class="o">=</span> <span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="p">[</span><span class="n">scheme_name</span><span class="p">]</span>
+
+    <span class="c1"># Apply mode transformation if needed</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;screen&quot;</span><span class="p">:</span>
+        <span class="n">scheme</span> <span class="o">=</span> <span class="n">_apply_display_mode</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+
+    <span class="c1"># Get colors</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">scheme</span><span class="p">,</span> <span class="s2">&quot;_display_mode_colors&quot;</span><span class="p">):</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">scheme</span><span class="o">.</span><span class="n">_display_mode_colors</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">colors</span> <span class="o">=</span> <span class="n">get_palette</span><span class="p">(</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">discrete</span><span class="p">,</span> <span class="s2">&quot;discrete&quot;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error loading palette: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+
+    <span class="c1"># Create preview figure</span>
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1"># Title</span>
+    <span class="n">mode_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot; (</span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2"> mode)&quot;</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">!=</span> <span class="s2">&quot;screen&quot;</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scheme</span><span class="o">.</span><span class="n">title</span><span class="si">}{</span><span class="n">mode_text</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Color swatches</span>
+    <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Discrete Colors&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">colors</span><span class="p">):</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span>
+        <span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
+
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Sample line plot</span>
+    <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Line Plot Example&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">))):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Series </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s2">&quot;best&quot;</span><span class="p">)</span>
+    <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+    <span class="c1"># Sample bar chart</span>
+    <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Bar Chart Example&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;B&quot;</span><span class="p">,</span> <span class="s2">&quot;C&quot;</span><span class="p">,</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span> <span class="s2">&quot;E&quot;</span><span class="p">]</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">)])</span>
+    <span class="n">ax3</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Scheme: </span><span class="si">{</span><span class="n">scheme</span><span class="o">.</span><span class="n">title</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mode: </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Discrete palette: </span><span class="si">{</span><span class="n">scheme</span><span class="o">.</span><span class="n">palettes</span><span class="o">.</span><span class="n">discrete</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Colors: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;print&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Note: Print mode uses grayscale-friendly colors&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;presentation&quot;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Note: Presentation mode uses enhanced contrast&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="list_schemes">
+<a class="viewcode-back" href="../../api/core.html#huez.list_schemes">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">list_schemes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    List all available color schemes.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        List of scheme names</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        &gt;&gt;&gt; import huez as hz</span>
+<span class="sd">        &gt;&gt;&gt; schemes = hz.list_schemes()</span>
+<span class="sd">        &gt;&gt;&gt; print(schemes)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_current_config</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">load_config</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">_current_config</span><span class="o">.</span><span class="n">schemes</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intelligent Color Expansion &mdash; Huez 0.0.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=29bda73a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=282f96c0"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Smart Colormap Detection" href="colormap_detection.html" />
+    <link rel="prev" title="Intelligence Features" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Huez
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../why_huez.html">Why Huez?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-problem-color-management-is-broken">The Problem: Color Management is Broken</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-1-fragmentation">Problem 1: Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-2-no-intelligence">Problem 2: No Intelligence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-3-print-disasters">Problem 3: Print Disasters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-solution-huez">The Solution: Huez</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#one-line-five-libraries-infinite-intelligence">One Line. Five Libraries. Infinite Intelligence.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#what-makes-huez-unique">What Makes Huez Unique?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#huez-vs-traditional-approach">Huez vs Traditional Approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#traditional-workflow">Traditional Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#huez-workflow">Huez Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#quantified-benefits">Quantified Benefits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#time-savings">Time Savings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#code-reduction">Code Reduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#quality-improvements">Quality Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#real-world-impact">Real-World Impact</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#publication-success">Publication Success</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#accessibility-matters">Accessibility Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#teaching-learning">Teaching &amp; Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#time-efficiency">Time Efficiency</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#key-features-explained">Key Features Explained</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#cross-library-unification">1. Cross-Library Unification 🚀</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#intelligent-color-expansion">2. Intelligent Color Expansion 🧠</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#smart-colormap-detection">3. Smart Colormap Detection 🎯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#colorblind-safety-verification">4. Colorblind Safety Verification ♿</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#multi-mode-support">5. Multi-Mode Support 🖨️</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#professional-palettes">6. Professional Palettes 🎨</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#who-should-use-huez">Who Should Use Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#perfect-for">Perfect For:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#maybe-not-for">Maybe Not For:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#for-publications">For Publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#for-presentations">For Presentations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#is-huez-free">Is Huez free?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#does-huez-replace-matplotlib-seaborn">Does Huez replace matplotlib/seaborn?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#will-huez-slow-down-my-code">Will Huez slow down my code?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#can-i-use-my-own-custom-colors">Can I use my own custom colors?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-bottom-line">The Bottom Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#ready-to-get-started">Ready to Get Started?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#join-the-community">Join the Community</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#basic-installation">Basic Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-with-specific-libraries">Installation with Specific Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#development-installation">Development Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#verify-installation">Verify Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#updating-huez">Updating Huez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#different-modes">Different Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#preview-before-applying">Preview Before Applying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#using-journal-styles">Using Journal Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#intelligent-features">Intelligent Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#temporary-scheme-changes">Temporary Scheme Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#getting-colors-directly">Getting Colors Directly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#common-workflows">Common Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#the-one-line-setup">The One-Line Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#applying-schemes">Applying Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#listing-available-schemes">Listing Available Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#previewing-schemes">Previewing Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#using-with-different-libraries">Using with Different Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#plotnine-ggplot2-for-python">plotnine (ggplot2 for Python)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#getting-colors-manually">Getting Colors Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#context-manager">Context Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#checking-current-scheme">Checking Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#applying-to-existing-figures">Applying to Existing Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#common-patterns">Common Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/color_modes.html">Color Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#switching-modes">Switching Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#screen-mode">Screen Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#print-mode">Print Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#presentation-mode">Presentation Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#mode-comparison">Mode Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#previewing-modes">Previewing Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#switching-between-modes">Switching Between Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#mode-specific-recommendations">Mode-Specific Recommendations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#complete-workflow-example">Complete Workflow Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/custom_schemes.html">Custom Schemes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#creating-a-custom-configuration">Creating a Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#loading-custom-configuration">Loading Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#custom-color-palette">Custom Color Palette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#complete-custom-colormaps">Complete Custom Colormaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#multi-mode-configuration">Multi-Mode Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#configuration-options-reference">Configuration Options Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#built-in-palettes">Built-in Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#example-corporate-branding">Example: Corporate Branding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#example-academic-publication">Example: Academic Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#combining-schemes">Combining Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#programmatic-scheme-creation">Programmatic Scheme Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#exporting-current-scheme">Exporting Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#validation">Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#general-principles">General Principles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#let-huez-handle-colors-automatically">Let Huez Handle Colors Automatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#apply-schemes-early">Apply Schemes Early</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#choose-appropriate-modes">Choose Appropriate Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#publication-workflow">Publication Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#journal-article">Journal Article</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#conference-poster">Conference Poster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#accessibility">Accessibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#ensure-colorblind-safety">Ensure Colorblind Safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#use-colorblind-safe-palettes">Use Colorblind-Safe Palettes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#add-redundant-encoding">Add Redundant Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#multi-category-plots">Multi-Category Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#consistent-multi-panel-figures">Consistent Multi-Panel Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#file-formats">File Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#combining-with-other-styles">Combining with Other Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#common-pitfalls">Common Pitfalls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#testing-your-figures">Testing Your Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/index.html#quick-navigation">Quick Navigation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Intelligence Features</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Intelligence Features</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Intelligent Color Expansion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-solution-lab-interpolation">The Solution: LAB Interpolation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-lab-color-space">What is LAB Color Space?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-expansion">Automatic Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-expansion">Manual Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#get-current-palette-colors">Get Current Palette Colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#visual-comparison">Visual Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#color-space-conversion">Color Space Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interpolation-formula">Interpolation Formula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#perceptual-uniformity">Perceptual Uniformity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fallback-mechanism">Fallback Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#warnings">Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#for-many-categories">For Many Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recommended-limits">Recommended Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verify-expansion">Verify Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-alternatives">Comparison with Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raises">Raises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="colormap_detection.html">Smart Colormap Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#colormap-types">Colormap Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#sequential-colormaps">Sequential Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#diverging-colormaps">Diverging Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#cyclic-colormaps">Cyclic Colormaps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#rule-1-crosses-zero">Rule 1: Crosses Zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#rule-2-symmetric-range">Rule 2: Symmetric Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#rule-3-mean-median-position">Rule 3: Mean/Median Position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#rule-4-known-range-patterns">Rule 4: Known Range Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#rule-5-default">Rule 5: Default</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#automatic-detection">Automatic Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#manual-detection">Manual Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#override-detection">Override Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#example-1-correlation-matrix">Example 1: Correlation Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#example-2-gene-expression">Example 2: Gene Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#example-3-temperature-anomaly">Example 3: Temperature Anomaly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#data-preprocessing">Data Preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#detection-rules-complete">Detection Rules (Complete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#verbose-mode">Verbose Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#when-to-override">When to Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#always-specify-center">Always Specify Center</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#add-colorbar-label">Add Colorbar Label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#comparison-with-manual-selection">Comparison with Manual Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colormap_detection.html#id1">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="colormap_detection.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accessibility.html">Colorblind Accessibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#types-of-color-vision-deficiency">Types of Color Vision Deficiency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#protanopia-red-blind">Protanopia (Red-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#deuteranopia-green-blind">Deuteranopia (Green-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#tritanopia-blue-blind">Tritanopia (Blue-Blind)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-1-simulate-cvd">Step 1: Simulate CVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-2-calculate-contrast">Step 2: Calculate Contrast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-3-calculate-perceptual-distance">Step 3: Calculate Perceptual Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#automatic-checking">Automatic Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#manual-checking">Manual Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#simulation">Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#okabe-ito-8-colors">Okabe-Ito (8 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#paul-tol-bright-7-colors">Paul Tol Bright (7 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#paul-tol-vibrant-7-colors">Paul Tol Vibrant (7 colors)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#use-redundant-encoding">Use Redundant Encoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#choose-high-contrast-colors">Choose High-Contrast Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#for-heatmaps">For Heatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#avoid-red-green">Avoid Red-Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#test-your-figures">Test Your Figures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chart_adaptation.html">Chart Type Adaptation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#what-it-does">What It Does</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#chart-type-detection">Chart Type Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#line-charts">Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#mixed-charts">Mixed Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#complexity-levels">Complexity Levels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#simple-4-elements">Simple (≤ 4 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#medium-5-7-elements">Medium (5-7 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#complex-8-elements">Complex (8+ elements)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#recommendations-by-type">Recommendations by Type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-line-charts">For Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-scatter-plots">For Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-bar-charts">For Bar Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-1-apply-recommendations">Example 1: Apply Recommendations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-2-faceting-alternative">Example 2: Faceting Alternative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-3-bar-chart-with-hatches">Example 3: Bar Chart with Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#detection-algorithm">Detection Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#adaptation-logic">Adaptation Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-markers">When to Use Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-facets">When to Use Facets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-hatches">When to Use Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#feature-cards">Feature Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#automatic-enablement">Automatic Enablement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#manual-control">Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#research-background">Research Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Library Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../library_support/index.html">Library Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/matplotlib.html">Matplotlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#what-huez-configures">What Huez Configures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#plot-types">Plot Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#line-plots">Line Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#bar-plots">Bar Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#heatmaps-imshow">Heatmaps (imshow)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#custom-color-cycles">Custom Color Cycles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colormaps">Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#apply-to-existing-figure">Apply to Existing Figure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#context-manager">Context Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#for-publications">For Publications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#for-presentations">For Presentations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#combining-with-styles">Combining with Styles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colors-not-changing">Colors Not Changing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#explicit-colors-override">Explicit Colors Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colormap-not-applied">Colormap Not Applied</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/seaborn.html">Seaborn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#supported-plot-types">Supported Plot Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#smart-heatmaps">Smart Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/plotly.html">Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#interactive-features">Interactive Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/altair.html">Altair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#grammar-of-graphics">Grammar of Graphics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/plotnine.html">plotnine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#ggplot2-syntax">ggplot2 Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#getting-scales">Getting Scales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#supported-libraries">Supported Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#quick-examples">Quick Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#plotnine">plotnine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/palettes.html">Color Palettes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#journal-styles">Journal Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/comparisons.html">Before/After Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#plotnine">plotnine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#code-simplification">Code Simplification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#clean-visuals">Clean Visuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/index.html#browse">Browse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/index.html#quick-preview">Quick Preview</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../comparison.html">Comparison with Other Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#detailed-comparisons">Detailed Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-seaborn">Huez vs Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-matplotlib-styles">Huez vs Matplotlib Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-palettable-colorbrewer">Huez vs palettable / colorbrewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-plotly-altair-defaults">Huez vs plotly / altair defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-colorcet">Huez vs colorcet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#migration-guides">Migration Guides</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-seaborn-to-huez">From Seaborn to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-matplotlib-styles-to-huez">From Matplotlib Styles to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-manual-color-configuration-to-huez">From Manual Color Configuration to Huez</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#why-choose-huez">Why Choose Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#choose-huez-if-you">Choose Huez if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#continue-using-other-tools-if-you">Continue using other tools if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#the-best-approach-combine-tools">The Best Approach: Combine Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-huez">What is Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-do-i-need-huez">Why do I need Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#is-huez-free">Is Huez free?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#installation-setup">Installation &amp; Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-install-huez">How do I install Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#which-python-versions-are-supported">Which Python versions are supported?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#do-i-need-to-install-all-visualization-libraries">Do I need to install all visualization libraries?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#usage-questions">Usage Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-apply-a-color-scheme">How do I apply a color scheme?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#must-i-call-hz-use-before-every-plot">Must I call hz.use() before every plot?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-explicit-colors-like-color-red">Can I use explicit colors like color=’red’?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-preview-a-scheme-before-using-it">How do I preview a scheme before using it?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#features-capabilities">Features &amp; Capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-work-with-all-plot-types">Does Huez work with all plot types?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-huez-handle-more-than-10-categories">Can Huez handle more than 10 categories?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-does-automatic-colormap-detection-work">How does automatic colormap detection work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-colorblind-accessibility-checking">What is colorblind accessibility checking?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#publication-printing">Publication &amp; Printing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#which-mode-should-i-use-for-journal-submission">Which mode should I use for journal submission?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#will-my-figures-print-well-in-black-white">Will my figures print well in black &amp; white?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-dpi-should-i-use-for-publications">What DPI should I use for publications?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-huez-with-nature-science-cell-journals">Can I use Huez with Nature/Science/Cell journals?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-create-custom-color-schemes">Can I create custom color schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-temporarily-switch-schemes">Can I temporarily switch schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-get-colors-for-manual-use">How do I get colors for manual use?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-disable-intelligent-features">Can I disable intelligent features?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#performance-compatibility">Performance &amp; Compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-slow-down-my-plotting">Does Huez slow down my plotting?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-huez-with-plt-style-use">Can I use Huez with plt.style.use()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-work-with-pandas-plotting">Does Huez work with pandas plotting?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#huez-doesn-t-seem-to-work-what-s-wrong">Huez doesn’t seem to work. What’s wrong?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#my-colors-still-look-wrong-after-applying-huez">My colors still look wrong after applying Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-report-a-bug-or-request-a-feature">How do I report a bug or request a feature?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#where-can-i-get-help">Where can I get help?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#comparison-with-other-tools">Comparison with Other Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-is-huez-different-from-seaborn-set-palette">How is Huez different from seaborn.set_palette()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-not-just-use-matplotlib-styles">Why not just use matplotlib styles?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-about-palettable-or-colorbrewer">What about palettable or colorbrewer?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#citations-credits">Citations &amp; Credits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-cite-huez-in-my-paper">How do I cite Huez in my paper?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-algorithms-does-huez-use">What algorithms does Huez use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/core.html">Core API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#primary-functions">Primary Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.use"><code class="docutils literal notranslate"><span class="pre">use()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.current_scheme"><code class="docutils literal notranslate"><span class="pre">current_scheme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.palette"><code class="docutils literal notranslate"><span class="pre">palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.cmap"><code class="docutils literal notranslate"><span class="pre">cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.list_schemes"><code class="docutils literal notranslate"><span class="pre">list_schemes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.preview"><code class="docutils literal notranslate"><span class="pre">preview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.using"><code class="docutils literal notranslate"><span class="pre">using()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.export_styles"><code class="docutils literal notranslate"><span class="pre">export_styles()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#convenience-functions">Convenience Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.quick_setup"><code class="docutils literal notranslate"><span class="pre">quick_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.colors"><code class="docutils literal notranslate"><span class="pre">colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.get_colors"><code class="docutils literal notranslate"><span class="pre">get_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.status"><code class="docutils literal notranslate"><span class="pre">status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#intelligence-functions">Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#library-specific">Library-Specific</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.gg_scales"><code class="docutils literal notranslate"><span class="pre">gg_scales()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.apply_to_figure"><code class="docutils literal notranslate"><span class="pre">apply_to_figure()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/intelligence.html">Intelligence API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/intelligence.html#core-intelligence-functions">Core Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/intelligence.html#advanced-intelligence-module">Advanced Intelligence Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/adapters.html">Adapters API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/adapters.html#base-adapter">Base Adapter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#huez.adapters.base.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/adapters.html#library-adapters">Library Adapters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.mpl">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.plotnine">plotnine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html">Utilities API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#color-utilities">Color Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.export">Export Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_all_styles"><code class="docutils literal notranslate"><span class="pre">export_all_styles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_json"><code class="docutils literal notranslate"><span class="pre">export_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_yaml"><code class="docutils literal notranslate"><span class="pre">export_to_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_css"><code class="docutils literal notranslate"><span class="pre">export_to_css()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_matplotlib_style"><code class="docutils literal notranslate"><span class="pre">export_matplotlib_style()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.config">Configuration Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.FontConfig"><code class="docutils literal notranslate"><span class="pre">FontConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.PalettesConfig"><code class="docutils literal notranslate"><span class="pre">PalettesConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.FigureConfig"><code class="docutils literal notranslate"><span class="pre">FigureConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.StyleConfig"><code class="docutils literal notranslate"><span class="pre">StyleConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.Scheme"><code class="docutils literal notranslate"><span class="pre">Scheme</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.validate_config"><code class="docutils literal notranslate"><span class="pre">validate_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.load_config_from_file"><code class="docutils literal notranslate"><span class="pre">load_config_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.save_config_to_file"><code class="docutils literal notranslate"><span class="pre">save_config_to_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.quality.checks">Quality Checks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.checks.check_palette_quality"><code class="docutils literal notranslate"><span class="pre">check_palette_quality()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.lint.lint_figure_file"><code class="docutils literal notranslate"><span class="pre">lint_figure_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.lint.lint_batch"><code class="docutils literal notranslate"><span class="pre">lint_batch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/aliases.html">API Aliases and Naming Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#function-alias-mapping">Function Alias Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#recommended-usage-patterns">Recommended Usage Patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#for-most-users">For Most Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#for-advanced-users">For Advanced Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#both-are-equivalent">Both Are Equivalent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#complete-api-comparison">Complete API Comparison</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#intelligence-features">Intelligence Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#utility-functions">Utility Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#design-philosophy">Design Philosophy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#why-simplified-names">Why Simplified Names?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#why-keep-full-names">Why Keep Full Names?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#migration-guide">Migration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#faqs">FAQs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#browse-by-module">Browse by Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/custom_adapters.html">Custom Adapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#creating-an-adapter">Creating an Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#register-the-adapter">Register the Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#example-bokeh-adapter">Example: Bokeh Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#testing-your-adapter">Testing Your Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#best-practices">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#contributing">Contributing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html#for-developers">For Developers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#ways-to-contribute">Ways to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#development-setup">Development Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#adding-color-schemes">Adding Color Schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#adding-adapters">Adding Adapters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-process">Pull Request Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#community-guidelines">Community Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#thank-you">Thank You!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-5-current">Version 0.0.5 (Current)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-4">Version 0.0.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-3">Version 0.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-2">Version 0.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1">Version 0.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#future-plans">Future Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Huez</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Intelligence Features</a></li>
+      <li class="breadcrumb-item active">Intelligent Color Expansion</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/hzacode/huez/blob/main/docs/source/intelligence/color_expansion.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intelligent-color-expansion">
+<h1>Intelligent Color Expansion<a class="headerlink" href="#intelligent-color-expansion" title="Link to this heading"></a></h1>
+<p>Automatically generate unlimited perceptually distinct colors using LAB space interpolation.</p>
+<section id="the-problem">
+<h2>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading"></a></h2>
+<p>Default color palettes typically have 5-10 colors. When plotting many categories (15+), colors must repeat:</p>
+<a class="reference internal image-reference" href="../_images/comparison_color_expansion.png"><img alt="Color expansion comparison" class="align-center" src="../_images/comparison_color_expansion.png" style="width: 85%;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Left (Without Expansion)</strong>: Simple cycling → colors 1-5 repeat → Series 1, 6, 11 have identical colors</p>
+<p><strong>Right (With Intelligent Expansion)</strong>: LAB interpolation → 15 unique, gradually varying colors → all series distinguishable</p>
+</section>
+<section id="why-this-matters">
+<h2>Why This Matters<a class="headerlink" href="#why-this-matters" title="Link to this heading"></a></h2>
+<p>Color repetition leads to:</p>
+<ul class="simple">
+<li><p><strong>Confusion</strong>: Which line is which?</p></li>
+<li><p><strong>Errors</strong>: Misinterpretation of data relationships</p></li>
+<li><p><strong>Poor Communication</strong>: Reduced chart readability</p></li>
+</ul>
+<p>Traditional solutions:</p>
+<ul class="simple">
+<li><p>❌ <strong>Simple Cycling</strong>: <code class="docutils literal notranslate"><span class="pre">colors[i</span> <span class="pre">%</span> <span class="pre">len(colors)]</span></code> → obvious repetition</p></li>
+<li><p>❌ <strong>Random Colors</strong>: No perceptual uniformity → some pairs too similar</p></li>
+<li><p>❌ <strong>Manual Selection</strong>: Time-consuming and requires color expertise</p></li>
+</ul>
+</section>
+<section id="the-solution-lab-interpolation">
+<h2>The Solution: LAB Interpolation<a class="headerlink" href="#the-solution-lab-interpolation" title="Link to this heading"></a></h2>
+<p>Huez uses <strong>perceptually uniform LAB color space</strong> for interpolation.</p>
+<section id="what-is-lab-color-space">
+<h3>What is LAB Color Space?<a class="headerlink" href="#what-is-lab-color-space" title="Link to this heading"></a></h3>
+<p>LAB (CIE L*a*b*) is a color space designed to be perceptually uniform:</p>
+<ul class="simple">
+<li><p><strong>L</strong>: Lightness (0 = black, 100 = white)</p></li>
+<li><p><strong>a</strong>: Green-red axis</p></li>
+<li><p><strong>b</strong>: Blue-yellow axis</p></li>
+</ul>
+<p><strong>Key Property</strong>: Equal distances in LAB space = equal <em>perceived</em> color differences</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>RGB Space:  ΔR² + ΔG² + ΔB² ≠ Perceived difference
+LAB Space:  ΔL² + Δa² + Δb² ≈ Perceived difference ✓
+</pre></div>
+</div>
+</section>
+<section id="algorithm">
+<h3>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Convert</strong> base colors from RGB → LAB</p></li>
+<li><p><strong>Interpolate</strong> linearly in LAB space</p></li>
+<li><p><strong>Convert</strong> back from LAB → RGB</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">intelligent_color_expansion</span><span class="p">(</span><span class="n">base_colors</span><span class="p">,</span> <span class="n">n_needed</span><span class="p">):</span>
+    <span class="c1"># Step 1: RGB → LAB</span>
+    <span class="n">lab_colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">rgb_to_lab</span><span class="p">(</span><span class="n">hex_to_rgb</span><span class="p">(</span><span class="n">c</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">base_colors</span><span class="p">]</span>
+
+    <span class="c1"># Step 2: Interpolate</span>
+    <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lab_colors</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_needed</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">expanded</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_needed</span><span class="p">):</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">step</span>
+        <span class="n">base_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">idx</span> <span class="o">-</span> <span class="n">base_idx</span>
+
+        <span class="c1"># Linear interpolation in LAB</span>
+        <span class="n">lab</span> <span class="o">=</span> <span class="n">interpolate</span><span class="p">(</span><span class="n">lab_colors</span><span class="p">[</span><span class="n">base_idx</span><span class="p">],</span>
+                          <span class="n">lab_colors</span><span class="p">[</span><span class="n">base_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span>
+                          <span class="n">weight</span><span class="p">)</span>
+
+        <span class="c1"># Step 3: LAB → RGB</span>
+        <span class="n">expanded</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lab_to_rgb_to_hex</span><span class="p">(</span><span class="n">lab</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">expanded</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="automatic-expansion">
+<h3>Automatic Expansion<a class="headerlink" href="#automatic-expansion" title="Link to this heading"></a></h3>
+<p>Color expansion happens automatically when needed:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">huez</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot 15 series - Huez automatically expands from 5 to 15 colors</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Series </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Automatic Color Expansion&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>Output</strong>: 15 distinct colors with smooth gradation</p>
+</section>
+<section id="manual-expansion">
+<h3>Manual Expansion<a class="headerlink" href="#manual-expansion" title="Link to this heading"></a></h3>
+<p>Expand colors programmatically:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">huez</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hz</span>
+
+<span class="c1"># Start with 3 colors</span>
+<span class="n">base_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#E64B35&quot;</span><span class="p">,</span> <span class="s2">&quot;#4DBBD5&quot;</span><span class="p">,</span> <span class="s2">&quot;#00A087&quot;</span><span class="p">]</span>
+
+<span class="c1"># Expand to 12 colors (using simplified API)</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">expand_colors</span><span class="p">(</span><span class="n">base_colors</span><span class="p">,</span> <span class="n">n_needed</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">base_colors</span><span class="p">)</span><span class="si">}</span><span class="s2"> colors&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Expanded: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span><span class="si">}</span><span class="s2"> colors&quot;</span><span class="p">)</span>
+
+<span class="c1"># Use expanded colors</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">expanded</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;S</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use the full function name:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">huez.intelligence</span><span class="w"> </span><span class="kn">import</span> <span class="n">intelligent_color_expansion</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base_colors</span><span class="p">,</span> <span class="n">n_needed</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Both approaches are equivalent.</p>
+</div>
+</section>
+<section id="get-current-palette-colors">
+<h3>Get Current Palette Colors<a class="headerlink" href="#get-current-palette-colors" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Get 10 colors (auto-expanded if needed)</span>
+<span class="n">colors</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">get_colors</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">colors</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="visual-comparison">
+<h2>Visual Comparison<a class="headerlink" href="#visual-comparison" title="Link to this heading"></a></h2>
+<p><strong>Simple Cycling (Bad):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Traditional approach</span>
+<span class="n">base_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;#E64B35&quot;</span><span class="p">,</span> <span class="s2">&quot;#4DBBD5&quot;</span><span class="p">,</span> <span class="s2">&quot;#00A087&quot;</span><span class="p">,</span> <span class="s2">&quot;#3C5488&quot;</span><span class="p">,</span> <span class="s2">&quot;#F39B7F&quot;</span><span class="p">]</span>
+<span class="n">cycled</span> <span class="o">=</span> <span class="p">[</span><span class="n">base_colors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">base_colors</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)]</span>
+
+<span class="c1"># Result: Colors repeat every 5</span>
+<span class="c1"># Series 0 == Series 5 == Series 10  (same color)</span>
+</pre></div>
+</div>
+<p><strong>LAB Interpolation (Good):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Huez approach</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base_colors</span><span class="p">,</span> <span class="n">n_needed</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="c1"># Result: Smooth gradient from color 0 → 1 → 2 → 3 → 4</span>
+<span class="c1"># All 15 colors are distinct</span>
+</pre></div>
+</div>
+</section>
+<section id="example-output">
+<h2>Example Output<a class="headerlink" href="#example-output" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">huez.intelligence</span><span class="w"> </span><span class="kn">import</span> <span class="n">intelligent_color_expansion</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#E64B35&#39;</span><span class="p">,</span> <span class="s1">&#39;#4DBBD5&#39;</span><span class="p">,</span> <span class="s1">&#39;#00A087&#39;</span><span class="p">,</span> <span class="s1">&#39;#3C5488&#39;</span><span class="p">,</span> <span class="s1">&#39;#F39B7F&#39;</span><span class="p">]</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">expanded</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Color </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">:</span><span class="s2">2d</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">color</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Color  1: #E64B35  (Original)
+Color  2: #C25146
+Color  3: #9E5857
+Color  4: #7A5F68
+Color  5: #4DBBD5  (Original)
+Color  6: #3EAFB1
+Color  7: #2FA38D
+Color  8: #209769
+Color  9: #00A087  (Original)
+Color 10: #209769
+Color 11: #3C6577
+Color 12: #F39B7F  (Original)
+</pre></div>
+</div>
+</section>
+<section id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Link to this heading"></a></h2>
+<section id="color-space-conversion">
+<h3>Color Space Conversion<a class="headerlink" href="#color-space-conversion" title="Link to this heading"></a></h3>
+<p><strong>RGB → XYZ → LAB</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rgb_to_lab</span><span class="p">(</span><span class="n">rgb</span><span class="p">):</span>
+    <span class="c1"># 1. Gamma correction (sRGB → linear RGB)</span>
+    <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">gamma_correct</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">255</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">rgb</span><span class="p">]</span>
+
+    <span class="c1"># 2. RGB → XYZ (D65 illuminant)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">0.4124564</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.3575761</span><span class="o">*</span><span class="n">g</span> <span class="o">+</span> <span class="mf">0.1804375</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.2126729</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.7151522</span><span class="o">*</span><span class="n">g</span> <span class="o">+</span> <span class="mf">0.0721750</span><span class="o">*</span><span class="n">b</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="mf">0.0193339</span><span class="o">*</span><span class="n">r</span> <span class="o">+</span> <span class="mf">0.1191920</span><span class="o">*</span><span class="n">g</span> <span class="o">+</span> <span class="mf">0.9503041</span><span class="o">*</span><span class="n">b</span>
+
+    <span class="c1"># 3. XYZ → LAB</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="mi">116</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">yn</span><span class="p">)</span> <span class="o">-</span> <span class="mi">16</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">xn</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">yn</span><span class="p">))</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">200</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">yn</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">z</span><span class="o">/</span><span class="n">zn</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>LAB → XYZ → RGB</strong> (reverse process)</p>
+</section>
+<section id="interpolation-formula">
+<h3>Interpolation Formula<a class="headerlink" href="#interpolation-formula" title="Link to this heading"></a></h3>
+<p>Linear interpolation in LAB space:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Between two colors</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">L1</span> <span class="o">+</span> <span class="p">(</span><span class="n">L2</span> <span class="o">-</span> <span class="n">L1</span><span class="p">)</span> <span class="o">*</span> <span class="n">weight</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="p">(</span><span class="n">a2</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span> <span class="o">*</span> <span class="n">weight</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b1</span> <span class="o">+</span> <span class="p">(</span><span class="n">b2</span> <span class="o">-</span> <span class="n">b1</span><span class="p">)</span> <span class="o">*</span> <span class="n">weight</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">weight</span> <span class="pre">∈</span> <span class="pre">[0,</span> <span class="pre">1]</span></code> is the interpolation position.</p>
+</section>
+<section id="perceptual-uniformity">
+<h3>Perceptual Uniformity<a class="headerlink" href="#perceptual-uniformity" title="Link to this heading"></a></h3>
+<p>LAB space ensures:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>ΔE = √(ΔL² + Δa² + Δb²)
+
+If ΔE = constant for all adjacent pairs
+→ Perceived color differences are equal
+</pre></div>
+</div>
+</section>
+<section id="fallback-mechanism">
+<h3>Fallback Mechanism<a class="headerlink" href="#fallback-mechanism" title="Link to this heading"></a></h3>
+<p>If LAB conversion fails (rare edge cases):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">expanded</span> <span class="o">=</span> <span class="n">lab_interpolation</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+    <span class="c1"># Fallback to simple cycling</span>
+    <span class="n">expanded</span> <span class="o">=</span> <span class="p">[</span><span class="n">colors</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>This ensures robustness even in exceptional cases.</p>
+</section>
+</section>
+<section id="warnings">
+<h2>Warnings<a class="headerlink" href="#warnings" title="Link to this heading"></a></h2>
+<p>When expanding beyond base palette size:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base_colors</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="go">UserWarning: Expanding color palette from 5 to 15 colors using LAB</span>
+<span class="go">space interpolation. For better distinction with many categories,</span>
+<span class="go">consider using different visual encodings (markers, line styles, etc.)</span>
+</pre></div>
+</div>
+<p><strong>Why?</strong> Even with perfect interpolation, 15+ colors can be hard to distinguish. Additional encodings recommended.</p>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="for-many-categories">
+<h3>For Many Categories<a class="headerlink" href="#for-many-categories" title="Link to this heading"></a></h3>
+<p>Combine color with other visual encodings:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;^&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span>
+<span class="n">linestyles</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">i</span><span class="o">*</span><span class="mf">0.5</span><span class="p">,</span>
+             <span class="n">marker</span><span class="o">=</span><span class="n">markers</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="p">)],</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyles</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">linestyles</span><span class="p">)],</span>
+             <span class="n">markevery</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Series </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Or use faceting:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+
+<span class="c1"># Instead of 20 colors in one plot</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="recommended-limits">
+<h3>Recommended Limits<a class="headerlink" href="#recommended-limits" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>≤ 6 colors: Perfect, all easily distinguishable</p></li>
+<li><p>7-10 colors: Good, with careful design</p></li>
+<li><p>11-15 colors: Acceptable, add markers/line styles</p></li>
+<li><p>16+ colors: Consider faceting or hierarchical grouping</p></li>
+</ul>
+</section>
+<section id="verify-expansion">
+<h3>Verify Expansion<a class="headerlink" href="#verify-expansion" title="Link to this heading"></a></h3>
+<p>Check expanded colors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">huez.intelligence</span><span class="w"> </span><span class="kn">import</span> <span class="n">intelligent_color_expansion</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
+
+<span class="n">base</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#E64B35&#39;</span><span class="p">,</span> <span class="s1">&#39;#4DBBD5&#39;</span><span class="p">,</span> <span class="s1">&#39;#00A087&#39;</span><span class="p">,</span> <span class="s1">&#39;#3C5488&#39;</span><span class="p">,</span> <span class="s1">&#39;#F39B7F&#39;</span><span class="p">]</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Visualize palette</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">expanded</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">mpatches</span><span class="o">.</span><span class="n">Rectangle</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
+                                     <span class="n">facecolor</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">expanded</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Expanded Color Palette&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="comparison-with-alternatives">
+<h2>Comparison with Alternatives<a class="headerlink" href="#comparison-with-alternatives" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Perceptual Uniformity</p></th>
+<th class="head"><p>Ease of Use</p></th>
+<th class="head"><p>Quality</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Simple Cycling</p></td>
+<td><p>❌ No</p></td>
+<td><p>✅ Easy</p></td>
+<td><p>❌ Poor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Random Colors</p></td>
+<td><p>❌ No</p></td>
+<td><p>✅ Easy</p></td>
+<td><p>❌ Inconsistent</p></td>
+</tr>
+<tr class="row-even"><td><p>Manual Selection</p></td>
+<td><p>🟡 Depends</p></td>
+<td><p>❌ Hard</p></td>
+<td><p>🟡 Varies</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>LAB Interpolation</strong></p></td>
+<td><p>✅ Yes</p></td>
+<td><p>✅ Automatic</p></td>
+<td><p>✅ Excellent</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="huez.intelligence.intelligent_color_expansion">
+<span class="sig-prename descclassname"><span class="pre">huez.intelligence.</span></span><span class="sig-name descname"><span class="pre">intelligent_color_expansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_colors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_needed</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/huez/intelligence/color_expansion.html#intelligent_color_expansion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#huez.intelligence.intelligent_color_expansion" title="Link to this definition"></a></dt>
+<dd><p>Expand a color palette to a larger number of colors using LAB interpolation.</p>
+<p>This function interpolates colors in the perceptually uniform LAB color space
+to generate a larger palette while maintaining visual distinctiveness.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>base_colors</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><em>List</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><em>str</em></a><em>]</em>) – List of hex color strings (e.g., [‘#E64B35’, ‘#4DBBD5’])</p></li>
+<li><p><strong>n_needed</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><em>int</em></a>) – Number of colors needed in the output</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>List of hex color strings with length n_needed</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.14)"><em>List</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)">str</a>]</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">base</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#E64B35&#39;</span><span class="p">,</span> <span class="s1">&#39;#4DBBD5&#39;</span><span class="p">,</span> <span class="s1">&#39;#00A087&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">expanded</span><span class="p">)</span>
+<span class="go">10</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">base_colors</span></code> (List[str]): Base palette in hex format (e.g., <code class="docutils literal notranslate"><span class="pre">['#E64B35',</span> <span class="pre">'#4DBBD5']</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_needed</span></code> (int): Number of colors needed</p></li>
+</ul>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">List[str]</span></code>: Expanded color list in hex format</p></li>
+</ul>
+</section>
+<section id="raises">
+<h3>Raises<a class="headerlink" href="#raises" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">UserWarning</span></code>: When expanding palette size (informational)</p></li>
+</ul>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h3>
+<p><strong>Example 1: Expand from 3 to 9 colors</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;#E64B35&#39;</span><span class="p">,</span> <span class="s1">&#39;#4DBBD5&#39;</span><span class="p">,</span> <span class="s1">&#39;#00A087&#39;</span><span class="p">]</span>
+<span class="n">expanded</span> <span class="o">=</span> <span class="n">intelligent_color_expansion</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Plot with expanded colors</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">expanded</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Integration with Huez</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Automatically uses expansion for 12 series</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;S</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/CIELAB_color_space">CIE L*a*b* Color Space</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Color_difference">Color Difference (Delta E)</a></p></li>
+<li><p>Cairo, A. (2016). <em>The Truthful Art</em>. Chapter on Color Selection</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Learn about <a class="reference internal" href="colormap_detection.html"><span class="doc">Smart Colormap Detection</span></a> for heatmaps</p></li>
+<li><p>Check <a class="reference internal" href="accessibility.html"><span class="doc">Colorblind Accessibility</span></a> for colorblind safety</p></li>
+<li><p>Read <a class="reference internal" href="../user_guide/best_practices.html"><span class="doc">Best Practices</span></a> for usage tips</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Intelligence Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="colormap_detection.html" class="btn btn-neutral float-right" title="Smart Colormap Detection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Colormap Detection &mdash; Huez 0.0.5 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=29bda73a" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=282f96c0"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Colorblind Accessibility" href="accessibility.html" />
+    <link rel="prev" title="Intelligent Color Expansion" href="color_expansion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #2980B9" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Huez
+              <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../why_huez.html">Why Huez?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-problem-color-management-is-broken">The Problem: Color Management is Broken</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-1-fragmentation">Problem 1: Fragmentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-2-no-intelligence">Problem 2: No Intelligence</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#problem-3-print-disasters">Problem 3: Print Disasters</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-solution-huez">The Solution: Huez</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#one-line-five-libraries-infinite-intelligence">One Line. Five Libraries. Infinite Intelligence.</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#what-makes-huez-unique">What Makes Huez Unique?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#huez-vs-traditional-approach">Huez vs Traditional Approach</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#traditional-workflow">Traditional Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#huez-workflow">Huez Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#quantified-benefits">Quantified Benefits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#time-savings">Time Savings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#code-reduction">Code Reduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#quality-improvements">Quality Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#real-world-impact">Real-World Impact</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#publication-success">Publication Success</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#accessibility-matters">Accessibility Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#teaching-learning">Teaching &amp; Learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#time-efficiency">Time Efficiency</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#key-features-explained">Key Features Explained</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#cross-library-unification">1. Cross-Library Unification 🚀</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#intelligent-color-expansion">2. Intelligent Color Expansion 🧠</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#smart-colormap-detection">3. Smart Colormap Detection 🎯</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#colorblind-safety-verification">4. Colorblind Safety Verification ♿</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#multi-mode-support">5. Multi-Mode Support 🖨️</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#professional-palettes">6. Professional Palettes 🎨</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#who-should-use-huez">Who Should Use Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#perfect-for">Perfect For:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#maybe-not-for">Maybe Not For:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#getting-started">Getting Started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#for-publications">For Publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#for-presentations">For Presentations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#frequently-asked-questions">Frequently Asked Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#is-huez-free">Is Huez free?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#does-huez-replace-matplotlib-seaborn">Does Huez replace matplotlib/seaborn?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#will-huez-slow-down-my-code">Will Huez slow down my code?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#can-i-use-my-own-custom-colors">Can I use my own custom colors?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../why_huez.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#the-bottom-line">The Bottom Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#ready-to-get-started">Ready to Get Started?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../why_huez.html#join-the-community">Join the Community</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#basic-installation">Basic Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#installation-with-specific-libraries">Installation with Specific Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#development-installation">Development Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#verify-installation">Verify Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#updating-huez">Updating Huez</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#different-modes">Different Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#preview-before-applying">Preview Before Applying</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#using-journal-styles">Using Journal Styles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#intelligent-features">Intelligent Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#temporary-scheme-changes">Temporary Scheme Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#getting-colors-directly">Getting Colors Directly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#best-practices">Best Practices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#common-workflows">Common Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../quickstart.html#need-help">Need Help?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../user_guide/index.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/basic_usage.html">Basic Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#the-one-line-setup">The One-Line Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#applying-schemes">Applying Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#listing-available-schemes">Listing Available Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#previewing-schemes">Previewing Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#using-with-different-libraries">Using with Different Libraries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/basic_usage.html#plotnine-ggplot2-for-python">plotnine (ggplot2 for Python)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#getting-colors-manually">Getting Colors Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#context-manager">Context Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#checking-current-scheme">Checking Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#applying-to-existing-figures">Applying to Existing Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#quick-setup">Quick Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#common-patterns">Common Patterns</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/basic_usage.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/color_modes.html">Color Modes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#switching-modes">Switching Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#screen-mode">Screen Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#print-mode">Print Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#presentation-mode">Presentation Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#mode-comparison">Mode Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#previewing-modes">Previewing Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#switching-between-modes">Switching Between Modes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#mode-specific-recommendations">Mode-Specific Recommendations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#complete-workflow-example">Complete Workflow Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/color_modes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/custom_schemes.html">Custom Schemes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#creating-a-custom-configuration">Creating a Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#loading-custom-configuration">Loading Custom Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#custom-color-palette">Custom Color Palette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#complete-custom-colormaps">Complete Custom Colormaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#multi-mode-configuration">Multi-Mode Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#configuration-options-reference">Configuration Options Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#built-in-palettes">Built-in Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#example-corporate-branding">Example: Corporate Branding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#example-academic-publication">Example: Academic Publication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#combining-schemes">Combining Schemes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#programmatic-scheme-creation">Programmatic Scheme Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#exporting-current-scheme">Exporting Current Scheme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#validation">Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#tips">Tips</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/custom_schemes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/best_practices.html">Best Practices</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#general-principles">General Principles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#let-huez-handle-colors-automatically">Let Huez Handle Colors Automatically</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#apply-schemes-early">Apply Schemes Early</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#choose-appropriate-modes">Choose Appropriate Modes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#publication-workflow">Publication Workflow</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#journal-article">Journal Article</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#conference-poster">Conference Poster</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#accessibility">Accessibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#ensure-colorblind-safety">Ensure Colorblind Safety</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#use-colorblind-safe-palettes">Use Colorblind-Safe Palettes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../user_guide/best_practices.html#add-redundant-encoding">Add Redundant Encoding</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#multi-category-plots">Multi-Category Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#consistent-multi-panel-figures">Consistent Multi-Panel Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#file-formats">File Formats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#performance">Performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#combining-with-other-styles">Combining with Other Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#common-pitfalls">Common Pitfalls</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#testing-your-figures">Testing Your Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#summary">Summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../user_guide/best_practices.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user_guide/index.html#quick-navigation">Quick Navigation</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Intelligence Features</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Intelligence Features</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="color_expansion.html">Intelligent Color Expansion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#the-solution-lab-interpolation">The Solution: LAB Interpolation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#what-is-lab-color-space">What is LAB Color Space?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#algorithm">Algorithm</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#automatic-expansion">Automatic Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#manual-expansion">Manual Expansion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#get-current-palette-colors">Get Current Palette Colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#visual-comparison">Visual Comparison</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#color-space-conversion">Color Space Conversion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#interpolation-formula">Interpolation Formula</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#perceptual-uniformity">Perceptual Uniformity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#fallback-mechanism">Fallback Mechanism</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#warnings">Warnings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#for-many-categories">For Many Categories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#recommended-limits">Recommended Limits</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#verify-expansion">Verify Expansion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#comparison-with-alternatives">Comparison with Alternatives</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#raises">Raises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="color_expansion.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color_expansion.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Smart Colormap Detection</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#colormap-types">Colormap Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sequential-colormaps">Sequential Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#diverging-colormaps">Diverging Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cyclic-colormaps">Cyclic Colormaps</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rule-1-crosses-zero">Rule 1: Crosses Zero</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rule-2-symmetric-range">Rule 2: Symmetric Range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rule-3-mean-median-position">Rule 3: Mean/Median Position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rule-4-known-range-patterns">Rule 4: Known Range Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rule-5-default">Rule 5: Default</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-detection">Automatic Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual-detection">Manual Detection</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#override-detection">Override Detection</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-correlation-matrix">Example 1: Correlation Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-gene-expression">Example 2: Gene Expression</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-3-temperature-anomaly">Example 3: Temperature Anomaly</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-preprocessing">Data Preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#detection-rules-complete">Detection Rules (Complete)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#verbose-mode">Verbose Mode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#when-to-override">When to Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#always-specify-center">Always Specify Center</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-colorbar-label">Add Colorbar Label</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-manual-selection">Comparison with Manual Selection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="accessibility.html">Colorblind Accessibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#why-this-matters">Why This Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#types-of-color-vision-deficiency">Types of Color Vision Deficiency</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#protanopia-red-blind">Protanopia (Red-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#deuteranopia-green-blind">Deuteranopia (Green-Blind)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#tritanopia-blue-blind">Tritanopia (Blue-Blind)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#detection-algorithm">Detection Algorithm</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-1-simulate-cvd">Step 1: Simulate CVD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-2-calculate-contrast">Step 2: Calculate Contrast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#step-3-calculate-perceptual-distance">Step 3: Calculate Perceptual Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#usage">Usage</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#automatic-checking">Automatic Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#manual-checking">Manual Checking</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#simulation">Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#example-output">Example Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#okabe-ito-8-colors">Okabe-Ito (8 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#paul-tol-bright-7-colors">Paul Tol Bright (7 colors)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#paul-tol-vibrant-7-colors">Paul Tol Vibrant (7 colors)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#use-redundant-encoding">Use Redundant Encoding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#choose-high-contrast-colors">Choose High-Contrast Colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#for-heatmaps">For Heatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#avoid-red-green">Avoid Red-Green</a></li>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#test-your-figures">Test Your Figures</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#api-reference">API Reference</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="accessibility.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accessibility.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="chart_adaptation.html">Chart Type Adaptation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#the-problem">The Problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#what-it-does">What It Does</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#example">Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#chart-type-detection">Chart Type Detection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#line-charts">Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#mixed-charts">Mixed Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#complexity-levels">Complexity Levels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#simple-4-elements">Simple (≤ 4 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#medium-5-7-elements">Medium (5-7 elements)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#complex-8-elements">Complex (8+ elements)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#recommendations-by-type">Recommendations by Type</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-line-charts">For Line Charts</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-scatter-plots">For Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#for-bar-charts">For Bar Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#usage-examples">Usage Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-1-apply-recommendations">Example 1: Apply Recommendations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-2-faceting-alternative">Example 2: Faceting Alternative</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#example-3-bar-chart-with-hatches">Example 3: Bar Chart with Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#technical-details">Technical Details</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#detection-algorithm">Detection Algorithm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#adaptation-logic">Adaptation Logic</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-markers">When to Use Markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-facets">When to Use Facets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chart_adaptation.html#when-to-use-hatches">When to Use Hatches</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#configuration">Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#further-reading">Further Reading</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chart_adaptation.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#feature-cards">Feature Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#automatic-enablement">Automatic Enablement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#manual-control">Manual Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#configuration">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#research-background">Research Background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Library Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../library_support/index.html">Library Support</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/matplotlib.html">Matplotlib</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#what-huez-configures">What Huez Configures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#plot-types">Plot Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#line-plots">Line Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#scatter-plots">Scatter Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#bar-plots">Bar Plots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#heatmaps-imshow">Heatmaps (imshow)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#advanced-features">Advanced Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#custom-color-cycles">Custom Color Cycles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colormaps">Colormaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#apply-to-existing-figure">Apply to Existing Figure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#context-manager">Context Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#best-practices">Best Practices</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#for-publications">For Publications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#for-presentations">For Presentations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#combining-with-styles">Combining with Styles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colors-not-changing">Colors Not Changing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#explicit-colors-override">Explicit Colors Override</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../library_support/matplotlib.html#colormap-not-applied">Colormap Not Applied</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#api-reference">API Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/matplotlib.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/seaborn.html">Seaborn</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#supported-plot-types">Supported Plot Types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#smart-heatmaps">Smart Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/seaborn.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/plotly.html">Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#interactive-features">Interactive Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotly.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/altair.html">Altair</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#grammar-of-graphics">Grammar of Graphics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/altair.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/plotnine.html">plotnine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#ggplot2-syntax">ggplot2 Syntax</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#getting-scales">Getting Scales</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/plotnine.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#supported-libraries">Supported Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#support-matrix">Support Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#quick-examples">Quick Examples</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../library_support/index.html#plotnine">plotnine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../library_support/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Gallery</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/index.html">Gallery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/palettes.html">Color Palettes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#journal-styles">Journal Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#colorblind-safe-palettes">Colorblind-Safe Palettes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#usage">Usage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/palettes.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/comparisons.html">Before/After Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#cross-library-consistency">Cross-Library Consistency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#matplotlib">Matplotlib</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#seaborn">Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#plotly">Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#altair">Altair</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#plotnine">plotnine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#code-simplification">Code Simplification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#clean-visuals">Clean Visuals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../gallery/comparisons.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/index.html#browse">Browse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gallery/index.html#quick-preview">Quick Preview</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../comparison.html">Comparison with Other Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#quick-comparison">Quick Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#detailed-comparisons">Detailed Comparisons</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-seaborn">Huez vs Seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-matplotlib-styles">Huez vs Matplotlib Styles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-palettable-colorbrewer">Huez vs palettable / colorbrewer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-plotly-altair-defaults">Huez vs plotly / altair defaults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#huez-vs-colorcet">Huez vs colorcet</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#migration-guides">Migration Guides</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-seaborn-to-huez">From Seaborn to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-matplotlib-styles-to-huez">From Matplotlib Styles to Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#from-manual-color-configuration-to-huez">From Manual Color Configuration to Huez</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#why-choose-huez">Why Choose Huez?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#choose-huez-if-you">Choose Huez if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#continue-using-other-tools-if-you">Continue using other tools if you:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../comparison.html#the-best-approach-combine-tools">The Best Approach: Combine Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../comparison.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently Asked Questions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#general-questions">General Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-huez">What is Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-do-i-need-huez">Why do I need Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#is-huez-free">Is Huez free?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#installation-setup">Installation &amp; Setup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-install-huez">How do I install Huez?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#which-python-versions-are-supported">Which Python versions are supported?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#do-i-need-to-install-all-visualization-libraries">Do I need to install all visualization libraries?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#usage-questions">Usage Questions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-apply-a-color-scheme">How do I apply a color scheme?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#must-i-call-hz-use-before-every-plot">Must I call hz.use() before every plot?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-explicit-colors-like-color-red">Can I use explicit colors like color=’red’?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-preview-a-scheme-before-using-it">How do I preview a scheme before using it?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#features-capabilities">Features &amp; Capabilities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-work-with-all-plot-types">Does Huez work with all plot types?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-huez-handle-more-than-10-categories">Can Huez handle more than 10 categories?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-does-automatic-colormap-detection-work">How does automatic colormap detection work?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-is-colorblind-accessibility-checking">What is colorblind accessibility checking?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#publication-printing">Publication &amp; Printing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#which-mode-should-i-use-for-journal-submission">Which mode should I use for journal submission?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#will-my-figures-print-well-in-black-white">Will my figures print well in black &amp; white?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-dpi-should-i-use-for-publications">What DPI should I use for publications?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-huez-with-nature-science-cell-journals">Can I use Huez with Nature/Science/Cell journals?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#advanced-usage">Advanced Usage</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-create-custom-color-schemes">Can I create custom color schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-temporarily-switch-schemes">Can I temporarily switch schemes?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-get-colors-for-manual-use">How do I get colors for manual use?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-disable-intelligent-features">Can I disable intelligent features?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#performance-compatibility">Performance &amp; Compatibility</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-slow-down-my-plotting">Does Huez slow down my plotting?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#is-huez-compatible-with-jupyter-notebooks">Is Huez compatible with Jupyter notebooks?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#can-i-use-huez-with-plt-style-use">Can I use Huez with plt.style.use()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#does-huez-work-with-pandas-plotting">Does Huez work with pandas plotting?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#huez-doesn-t-seem-to-work-what-s-wrong">Huez doesn’t seem to work. What’s wrong?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#my-colors-still-look-wrong-after-applying-huez">My colors still look wrong after applying Huez</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-report-a-bug-or-request-a-feature">How do I report a bug or request a feature?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#where-can-i-get-help">Where can I get help?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#comparison-with-other-tools">Comparison with Other Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-is-huez-different-from-seaborn-set-palette">How is Huez different from seaborn.set_palette()?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#why-not-just-use-matplotlib-styles">Why not just use matplotlib styles?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-about-palettable-or-colorbrewer">What about palettable or colorbrewer?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#citations-credits">Citations &amp; Credits</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#how-do-i-cite-huez-in-my-paper">How do I cite Huez in my paper?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html#what-algorithms-does-huez-use">What algorithms does Huez use?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../faq.html#still-have-questions">Still Have Questions?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../api/core.html">Core API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#primary-functions">Primary Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.use"><code class="docutils literal notranslate"><span class="pre">use()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.current_scheme"><code class="docutils literal notranslate"><span class="pre">current_scheme()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.palette"><code class="docutils literal notranslate"><span class="pre">palette()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.cmap"><code class="docutils literal notranslate"><span class="pre">cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.list_schemes"><code class="docutils literal notranslate"><span class="pre">list_schemes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.preview"><code class="docutils literal notranslate"><span class="pre">preview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.using"><code class="docutils literal notranslate"><span class="pre">using()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#configuration">Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.load_config"><code class="docutils literal notranslate"><span class="pre">load_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.export_styles"><code class="docutils literal notranslate"><span class="pre">export_styles()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#convenience-functions">Convenience Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.quick_setup"><code class="docutils literal notranslate"><span class="pre">quick_setup()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.colors"><code class="docutils literal notranslate"><span class="pre">colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.get_colors"><code class="docutils literal notranslate"><span class="pre">get_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.status"><code class="docutils literal notranslate"><span class="pre">status()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#intelligence-functions">Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core.html#library-specific">Library-Specific</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.gg_scales"><code class="docutils literal notranslate"><span class="pre">gg_scales()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/core.html#huez.apply_to_figure"><code class="docutils literal notranslate"><span class="pre">apply_to_figure()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/intelligence.html">Intelligence API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/intelligence.html#core-intelligence-functions">Core Intelligence Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.expand_colors"><code class="docutils literal notranslate"><span class="pre">expand_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.detect_colormap"><code class="docutils literal notranslate"><span class="pre">detect_colormap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.smart_cmap"><code class="docutils literal notranslate"><span class="pre">smart_cmap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.check_accessibility"><code class="docutils literal notranslate"><span class="pre">check_accessibility()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/intelligence.html#advanced-intelligence-module">Advanced Intelligence Module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.intelligent_color_expansion"><code class="docutils literal notranslate"><span class="pre">intelligent_color_expansion()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.detect_colormap_type"><code class="docutils literal notranslate"><span class="pre">detect_colormap_type()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/intelligence.html#huez.intelligence.check_colorblind_safety"><code class="docutils literal notranslate"><span class="pre">check_colorblind_safety()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/adapters.html">Adapters API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/adapters.html#base-adapter">Base Adapter</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#huez.adapters.base.Adapter"><code class="docutils literal notranslate"><span class="pre">Adapter</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/adapters.html#library-adapters">Library Adapters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.mpl">Matplotlib</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.seaborn">Seaborn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.plotly">Plotly</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.altair">Altair</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/adapters.html#module-huez.adapters.plotnine">plotnine</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/utils.html">Utilities API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#color-utilities">Color Utilities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.export">Export Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_all_styles"><code class="docutils literal notranslate"><span class="pre">export_all_styles()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_json"><code class="docutils literal notranslate"><span class="pre">export_to_json()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_yaml"><code class="docutils literal notranslate"><span class="pre">export_to_yaml()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_to_css"><code class="docutils literal notranslate"><span class="pre">export_to_css()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.export.export_matplotlib_style"><code class="docutils literal notranslate"><span class="pre">export_matplotlib_style()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.config">Configuration Utilities</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.FontConfig"><code class="docutils literal notranslate"><span class="pre">FontConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.PalettesConfig"><code class="docutils literal notranslate"><span class="pre">PalettesConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.FigureConfig"><code class="docutils literal notranslate"><span class="pre">FigureConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.StyleConfig"><code class="docutils literal notranslate"><span class="pre">StyleConfig</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.Scheme"><code class="docutils literal notranslate"><span class="pre">Scheme</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.validate_config"><code class="docutils literal notranslate"><span class="pre">validate_config()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.load_config_from_file"><code class="docutils literal notranslate"><span class="pre">load_config_from_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.config.save_config_to_file"><code class="docutils literal notranslate"><span class="pre">save_config_to_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utils.html#module-huez.quality.checks">Quality Checks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.checks.check_palette_quality"><code class="docutils literal notranslate"><span class="pre">check_palette_quality()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.lint.lint_figure_file"><code class="docutils literal notranslate"><span class="pre">lint_figure_file()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/utils.html#huez.quality.lint.lint_batch"><code class="docutils literal notranslate"><span class="pre">lint_batch()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/aliases.html">API Aliases and Naming Conventions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#function-alias-mapping">Function Alias Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#recommended-usage-patterns">Recommended Usage Patterns</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#for-most-users">For Most Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#for-advanced-users">For Advanced Users</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#both-are-equivalent">Both Are Equivalent</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#complete-api-comparison">Complete API Comparison</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#intelligence-features">Intelligence Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#utility-functions">Utility Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#design-philosophy">Design Philosophy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#why-simplified-names">Why Simplified Names?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/aliases.html#why-keep-full-names">Why Keep Full Names?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#migration-guide">Migration Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#faqs">FAQs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/aliases.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#quick-reference">Quick Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#browse-by-module">Browse by Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api/index.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Advanced Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../advanced/index.html">Advanced Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/custom_adapters.html">Custom Adapters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#creating-an-adapter">Creating an Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#register-the-adapter">Register the Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#example-bokeh-adapter">Example: Bokeh Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#testing-your-adapter">Testing Your Adapter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#best-practices">Best Practices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#contributing">Contributing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../advanced/custom_adapters.html#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../advanced/index.html#for-developers">For Developers</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#ways-to-contribute">Ways to Contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#development-setup">Development Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#running-tests">Running Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-style">Code Style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#adding-color-schemes">Adding Color Schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#adding-adapters">Adding Adapters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#pull-request-process">Pull Request Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#code-review">Code Review</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#community-guidelines">Community Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#getting-help">Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#license">License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#thank-you">Thank You!</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-5-current">Version 0.0.5 (Current)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-4">Version 0.0.4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-3">Version 0.0.3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-2">Version 0.0.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#version-0-0-1">Version 0.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#future-plans">Future Plans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #2980B9" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Huez</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Intelligence Features</a></li>
+      <li class="breadcrumb-item active">Smart Colormap Detection</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/hzacode/huez/blob/main/docs/source/intelligence/colormap_detection.rst" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="smart-colormap-detection">
+<h1>Smart Colormap Detection<a class="headerlink" href="#smart-colormap-detection" title="Link to this heading"></a></h1>
+<p>Automatically detect whether data needs sequential or diverging colormaps.</p>
+<section id="the-problem">
+<h2>The Problem<a class="headerlink" href="#the-problem" title="Link to this heading"></a></h2>
+<p>Choosing the wrong colormap can mislead interpretation:</p>
+<a class="reference internal image-reference" href="../_images/comparison_colormap_detection.png"><img alt="Colormap detection comparison" class="align-center" src="../_images/comparison_colormap_detection.png" style="width: 85%;" />
+</a>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p><strong>Top Left (Correlation Matrix)</strong>: Data ranges [-1, 1] → auto-detects <strong>diverging</strong> colormap (coolwarm)</p>
+<p><strong>Top Right (Temperature Data)</strong>: Data ranges [10, 40] → auto-detects <strong>sequential</strong> colormap (viridis)</p>
+<p><strong>Bottom</strong>: Symmetric vs. asymmetric distributions correctly identified</p>
+</section>
+<section id="why-this-matters">
+<h2>Why This Matters<a class="headerlink" href="#why-this-matters" title="Link to this heading"></a></h2>
+<p><strong>Wrong Colormap = Wrong Message:</strong></p>
+<ul class="simple">
+<li><p><strong>Correlation matrix</strong> with sequential colormap → center (zero) not highlighted → hard to see positive vs. negative</p></li>
+<li><p><strong>Temperature data</strong> with diverging colormap → artificial emphasis on midpoint → misleading</p></li>
+</ul>
+<p><strong>Traditional approach</strong>: Users must manually choose <code class="docutils literal notranslate"><span class="pre">cmap=</span></code></p>
+<p><strong>Huez approach</strong>: Automatic detection based on data distribution</p>
+</section>
+<section id="colormap-types">
+<h2>Colormap Types<a class="headerlink" href="#colormap-types" title="Link to this heading"></a></h2>
+<section id="sequential-colormaps">
+<h3>Sequential Colormaps<a class="headerlink" href="#sequential-colormaps" title="Link to this heading"></a></h3>
+<p><strong>When to use</strong>: Data with one-directional progression (0 to max)</p>
+<p><strong>Examples</strong>:</p>
+<ul class="simple">
+<li><p>Temperature: 0°C to 100°C</p></li>
+<li><p>Population density: 0 to 10,000/km²</p></li>
+<li><p>Gene expression levels: 0 to 100</p></li>
+</ul>
+<p><strong>Visual</strong>: Single hue gradient (light → dark)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples of sequential data</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">density</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+</pre></div>
+</div>
+</section>
+<section id="diverging-colormaps">
+<h3>Diverging Colormaps<a class="headerlink" href="#diverging-colormaps" title="Link to this heading"></a></h3>
+<p><strong>When to use</strong>: Data centered at meaningful midpoint</p>
+<p><strong>Examples</strong>:</p>
+<ul class="simple">
+<li><p>Correlation coefficients: -1 to +1 (centered at 0)</p></li>
+<li><p>Change from baseline: -50% to +50% (centered at 0)</p></li>
+<li><p>Temperature anomaly: -10°C to +10°C (centered at 0)</p></li>
+</ul>
+<p><strong>Visual</strong>: Two hues diverging from center (blue ← white → red)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Examples of diverging data</span>
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>  <span class="c1"># [-1, 1]</span>
+<span class="n">changes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>       <span class="c1"># Centered at 0</span>
+<span class="n">anomalies</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>         <span class="c1"># Centered at 0</span>
+</pre></div>
+</div>
+</section>
+<section id="cyclic-colormaps">
+<h3>Cyclic Colormaps<a class="headerlink" href="#cyclic-colormaps" title="Link to this heading"></a></h3>
+<p><strong>When to use</strong>: Periodic data (e.g., angles, time of day)</p>
+<p><strong>Examples</strong>:</p>
+<ul class="simple">
+<li><p>Wind direction: 0° to 360°</p></li>
+<li><p>Phase data: 0 to 2π</p></li>
+<li><p>Hour of day: 0 to 24 (wraps around)</p></li>
+</ul>
+<p><strong>Visual</strong>: Colors at endpoints match (seamless loop)</p>
+</section>
+</section>
+<section id="detection-algorithm">
+<h2>Detection Algorithm<a class="headerlink" href="#detection-algorithm" title="Link to this heading"></a></h2>
+<p>Huez uses multi-rule detection:</p>
+<section id="rule-1-crosses-zero">
+<h3>Rule 1: Crosses Zero<a class="headerlink" href="#rule-1-crosses-zero" title="Link to this heading"></a></h3>
+<p>If data contains both negative and positive values:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">data_min</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data_max</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="rule-2-symmetric-range">
+<h3>Rule 2: Symmetric Range<a class="headerlink" href="#rule-2-symmetric-range" title="Link to this heading"></a></h3>
+<p>If data is roughly symmetric around zero:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">data_min</span> <span class="o">+</span> <span class="n">data_max</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">data_max</span> <span class="o">-</span> <span class="n">data_min</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+</pre></div>
+</div>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">[-8,</span> <span class="pre">9]</span></code> → symmetry = <code class="docutils literal notranslate"><span class="pre">|(-8</span> <span class="pre">+</span> <span class="pre">9)|</span> <span class="pre">/</span> <span class="pre">(9</span> <span class="pre">-</span> <span class="pre">(-8))</span></code> = 0.06 &lt; 0.1 ✓</p>
+</section>
+<section id="rule-3-mean-median-position">
+<h3>Rule 3: Mean/Median Position<a class="headerlink" href="#rule-3-mean-median-position" title="Link to this heading"></a></h3>
+<p>If mean or median is in middle 30-70% of range:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">range_position</span> <span class="o">=</span> <span class="p">(</span><span class="n">mean</span> <span class="o">-</span> <span class="n">data_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">data_max</span> <span class="o">-</span> <span class="n">data_min</span><span class="p">)</span>
+<span class="k">if</span> <span class="mf">0.3</span> <span class="o">&lt;</span> <span class="n">range_position</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="rule-4-known-range-patterns">
+<h3>Rule 4: Known Range Patterns<a class="headerlink" href="#rule-4-known-range-patterns" title="Link to this heading"></a></h3>
+<p>If data matches known diverging patterns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Correlation coefficient pattern</span>
+<span class="k">if</span> <span class="o">-</span><span class="mf">1.1</span> <span class="o">&lt;</span> <span class="n">data_min</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.9</span> <span class="ow">and</span> <span class="mf">0.9</span> <span class="o">&lt;</span> <span class="n">data_max</span> <span class="o">&lt;</span> <span class="mf">1.1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="rule-5-default">
+<h3>Rule 5: Default<a class="headerlink" href="#rule-5-default" title="Link to this heading"></a></h3>
+<p>If none of above:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="s2">&quot;sequential&quot;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<section id="automatic-detection">
+<h3>Automatic Detection<a class="headerlink" href="#automatic-detection" title="Link to this heading"></a></h3>
+<p>Detection happens automatically with heatmaps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">huez</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hz</span>
+
+<span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Correlation matrix → auto-detects diverging</span>
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">correlation</span><span class="p">)</span>  <span class="c1"># Uses coolwarm automatically</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Temperature data → auto-detects sequential</span>
+<span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">temperature</span><span class="p">)</span>  <span class="c1"># Uses viridis automatically</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="manual-detection">
+<h3>Manual Detection<a class="headerlink" href="#manual-detection" title="Link to this heading"></a></h3>
+<p>Detect colormap type for any data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">huez</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hz</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Test different data types</span>
+<span class="n">correlation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">detect_colormap</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Correlation matrix: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &#39;diverging&#39;</span>
+
+<span class="n">temperature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">detect_colormap</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature data: </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># &#39;sequential&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The top-level function <code class="docutils literal notranslate"><span class="pre">hz.detect_colormap()</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">huez.intelligence.detect_colormap_type()</span></code>. Use whichever you prefer.</p>
+</div>
+</section>
+<section id="override-detection">
+<h3>Override Detection<a class="headerlink" href="#override-detection" title="Link to this heading"></a></h3>
+<p>Force a specific colormap type:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Force diverging colormap</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;diverging&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Force sequential colormap</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sequential&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="example-1-correlation-matrix">
+<h3>Example 1: Correlation Matrix<a class="headerlink" href="#example-1-correlation-matrix" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">huez</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hz</span>
+
+<span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create correlation matrix</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span>
+                    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Var</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">8</span><span class="p">)])</span>
+<span class="n">corr</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="c1"># Automatic diverging colormap</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.2f&#39;</span><span class="p">,</span>
+            <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Correlation Matrix (Auto-Diverging)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="example-2-gene-expression">
+<h3>Example 2: Gene Expression<a class="headerlink" href="#example-2-gene-expression" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gene expression levels (0-100)</span>
+<span class="n">expression</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">50</span><span class="p">))</span>
+
+<span class="c1"># Automatic sequential colormap</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">expression</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Gene Expression (Auto-Sequential)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Samples&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Genes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="example-3-temperature-anomaly">
+<h3>Example 3: Temperature Anomaly<a class="headerlink" href="#example-3-temperature-anomaly" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">hz</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;scheme-1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Temperature anomaly (change from baseline)</span>
+<span class="n">anomaly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+
+<span class="c1"># Automatic diverging colormap (centered at 0)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">anomaly</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Temperature Anomaly (Auto-Diverging)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Days&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Months&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="technical-details">
+<h2>Technical Details<a class="headerlink" href="#technical-details" title="Link to this heading"></a></h2>
+<section id="data-preprocessing">
+<h3>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading"></a></h3>
+<p>Before detection, data is cleaned:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="c1"># Remove NaN and inf</span>
+    <span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;sequential&quot;</span>  <span class="c1"># Fallback</span>
+
+    <span class="c1"># Extract statistics</span>
+    <span class="n">data_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+
+    <span class="c1"># Apply detection rules...</span>
+</pre></div>
+</div>
+</section>
+<section id="detection-rules-complete">
+<h3>Detection Rules (Complete)<a class="headerlink" href="#detection-rules-complete" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">clean_data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">data</span><span class="p">)]</span>
+
+    <span class="n">data_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">clean_data</span><span class="p">)</span>
+    <span class="n">data_range</span> <span class="o">=</span> <span class="n">data_max</span> <span class="o">-</span> <span class="n">data_min</span>
+
+    <span class="c1"># Rule 1: Crosses zero</span>
+    <span class="k">if</span> <span class="n">data_min</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">data_max</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+
+    <span class="c1"># Rule 2: Symmetric around zero</span>
+    <span class="k">if</span> <span class="n">data_range</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">symmetry</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">data_min</span> <span class="o">+</span> <span class="n">data_max</span><span class="p">)</span> <span class="o">/</span> <span class="n">data_range</span>
+        <span class="k">if</span> <span class="n">symmetry</span> <span class="o">&lt;</span> <span class="mf">0.1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+
+    <span class="c1"># Rule 3: Mean/median in middle</span>
+    <span class="n">mean_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">data_mean</span> <span class="o">-</span> <span class="n">data_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">data_range</span>
+    <span class="n">median_pos</span> <span class="o">=</span> <span class="p">(</span><span class="n">data_median</span> <span class="o">-</span> <span class="n">data_min</span><span class="p">)</span> <span class="o">/</span> <span class="n">data_range</span>
+
+    <span class="k">if</span> <span class="mf">0.3</span> <span class="o">&lt;</span> <span class="n">mean_pos</span> <span class="o">&lt;</span> <span class="mf">0.7</span> <span class="ow">or</span> <span class="mf">0.3</span> <span class="o">&lt;</span> <span class="n">median_pos</span> <span class="o">&lt;</span> <span class="mf">0.7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+
+    <span class="c1"># Rule 4: Correlation coefficient pattern</span>
+    <span class="k">if</span> <span class="o">-</span><span class="mf">1.1</span> <span class="o">&lt;</span> <span class="n">data_min</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.9</span> <span class="ow">and</span> <span class="mf">0.9</span> <span class="o">&lt;</span> <span class="n">data_max</span> <span class="o">&lt;</span> <span class="mf">1.1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;diverging&quot;</span>
+
+    <span class="c1"># Default: Sequential</span>
+    <span class="k">return</span> <span class="s2">&quot;sequential&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="verbose-mode">
+<h3>Verbose Mode<a class="headerlink" href="#verbose-mode" title="Link to this heading"></a></h3>
+<p>See detection reasoning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">huez.intelligence</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_colormap_type</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Colormap Detection:
+-------------------
+Data range: [-0.95, 0.98]
+Mean: 0.02
+Median: 0.01
+
+✓ Rule 1: Crosses zero (min &lt; 0, max &gt; 0)
+→ Detected: diverging
+</pre></div>
+</div>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="when-to-override">
+<h3>When to Override<a class="headerlink" href="#when-to-override" title="Link to this heading"></a></h3>
+<p>Override detection when:</p>
+<ol class="arabic">
+<li><p><strong>Conceptual meaning</strong>: Data has meaningful center even if not statistical</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Profit/loss: conceptually centered at 0</span>
+<span class="c1"># even if data is [100, 1000]</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;diverging&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">profit_data</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Visual emphasis</strong>: Want to highlight specific value</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Emphasize target value (e.g., 37°C body temp)</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;diverging&quot;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">body_temp</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">37</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Consistency</strong>: Matching other plots in publication</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Force same colormap type across figures</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">hz</span><span class="o">.</span><span class="n">cmap</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sequential&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="always-specify-center">
+<h3>Always Specify Center<a class="headerlink" href="#always-specify-center" title="Link to this heading"></a></h3>
+<p>For diverging data, explicitly set center:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ Good</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># ❌ Bad: center not specified</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># May auto-center incorrectly</span>
+</pre></div>
+</div>
+</section>
+<section id="add-colorbar-label">
+<h3>Add Colorbar Label<a class="headerlink" href="#add-colorbar-label" title="Link to this heading"></a></h3>
+<p>Always label colorbars:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">correlation</span><span class="p">,</span> <span class="n">cbar_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Correlation&#39;</span><span class="p">})</span>
+
+<span class="c1"># Or manually</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">collections</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">colorbar</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">270</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="comparison-with-manual-selection">
+<h2>Comparison with Manual Selection<a class="headerlink" href="#comparison-with-manual-selection" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30.0%" />
+<col style="width: 35.0%" />
+<col style="width: 35.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Scenario</p></th>
+<th class="head"><p>Manual Approach</p></th>
+<th class="head"><p>Huez Auto-Detection</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Correlation matrix</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cmap='coolwarm'</span></code></p></td>
+<td><p>Automatic diverging</p></td>
+</tr>
+<tr class="row-odd"><td><p>Temperature data</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">cmap='viridis'</span></code></p></td>
+<td><p>Automatic sequential</p></td>
+</tr>
+<tr class="row-even"><td><p>Mixed datasets</p></td>
+<td><p>Need to check each</p></td>
+<td><p>Always correct</p></td>
+</tr>
+<tr class="row-odd"><td><p>Code maintenance</p></td>
+<td><p>Fragile</p></td>
+<td><p>Robust</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api-reference">
+<h2>API Reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="huez.intelligence.detect_colormap_type">
+<span class="sig-prename descclassname"><span class="pre">huez.intelligence.</span></span><span class="sig-name descname"><span class="pre">detect_colormap_type</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vmax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/huez/intelligence/colormap_detection.html#detect_colormap_type"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#huez.intelligence.detect_colormap_type" title="Link to this definition"></a></dt>
+<dd><p>Automatically detect the most appropriate colormap type for data.</p>
+<p>This function analyzes data characteristics to recommend:
+- “sequential”: Data with a natural ordering from low to high (e.g., 0-100)
+- “diverging”: Data with a meaningful center point (e.g., correlation -1 to 1)
+- “cyclic”: Data that wraps around (e.g., angles 0-360)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.3)"><em>ndarray</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.14)"><em>list</em></a>) – Input data as numpy array or list</p></li>
+<li><p><strong>vmin</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em> | </em><em>None</em>) – Optional minimum value for range analysis</p></li>
+<li><p><strong>vmax</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.14)"><em>float</em></a><em> | </em><em>None</em>) – Optional maximum value for range analysis</p></li>
+<li><p><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)"><em>bool</em></a>) – If True, print detection reasoning</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>“sequential”, “diverging”, or “cyclic”</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>String indicating colormap type</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Correlation matrix (-1 to 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.6</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">&#39;diverging&#39;</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Positive-only data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="go">&#39;sequential&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code> (np.ndarray): 2D array of data values</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code> (bool): If True, print detection reasoning (default: False)</p></li>
+</ul>
+</section>
+<section id="returns">
+<h3>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">str</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;sequential&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;diverging&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;cyclic&quot;</span></code></p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>Examples<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p><strong>Basic usage:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">huez.intelligence</span><span class="w"> </span><span class="kn">import</span> <span class="n">detect_colormap_type</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">cmap_type</span> <span class="o">=</span> <span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cmap_type</span><span class="p">)</span>  <span class="c1"># &#39;diverging&#39;</span>
+</pre></div>
+</div>
+<p><strong>With verbose output:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">cmap_type</span> <span class="o">=</span> <span class="n">detect_colormap_type</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="further-reading">
+<h2>Further Reading<a class="headerlink" href="#further-reading" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://matplotlib.org/stable/tutorials/colors/colormaps.html">Choosing Colormaps in Matplotlib</a></p></li>
+<li><p>Moreland, K. (2009). “Diverging Color Maps for Scientific Visualization”</p></li>
+<li><p>Ware, C. (2012). <em>Information Visualization</em>. Chapter 4: Color</p></li>
+</ul>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Learn about <a class="reference internal" href="color_expansion.html"><span class="doc">Intelligent Color Expansion</span></a> for many categories</p></li>
+<li><p>Check <a class="reference internal" href="accessibility.html"><span class="doc">Colorblind Accessibility</span></a> for colorblind-safe colormaps</p></li>
+<li><p>Read <a class="reference internal" href="../user_guide/best_practices.html"><span class="doc">Best Practices</span></a> for heatmap tips</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="color_expansion.html" class="btn btn-neutral float-left" title="Intelligent Color Expansion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="accessibility.html" class="btn btn-neutral float-right" title="Colorblind Accessibility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Ang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
