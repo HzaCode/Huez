@@ -105,7 +105,7 @@ def load_config(path: Optional[str] = None) -> Config:
 
         _current_config = get_default_config()
     else:
-        with open(path, "r", encoding="utf-8") as f:
+        with open(path, encoding="utf-8") as f:
             data = yaml.safe_load(f)
         _current_config = Config.from_dict(data)
 
@@ -854,7 +854,7 @@ def preview(scheme_name: Optional[str] = None, mode: str = "screen") -> None:
     x = np.linspace(0, 10, 100)
     for i in range(min(5, len(colors))):
         y = np.sin(x + i * np.pi / 4) + i
-        ax2.plot(x, y, color=colors[i], linewidth=2, label=f"Series {i+1}")
+        ax2.plot(x, y, color=colors[i], linewidth=2, label=f"Series {i + 1}")
     ax2.legend(fontsize=8, loc="best")
     ax2.grid(True, alpha=0.3)
 

@@ -3,8 +3,8 @@ Pytest configuration and fixtures for huez tests.
 """
 
 import os
-import pytest
 
+import pytest
 
 # Module-level config to ensure persistence
 _test_config = None
@@ -29,12 +29,9 @@ def pytest_configure(config):
 @pytest.fixture(autouse=True)
 def ensure_test_config():
     """Ensure test configuration is loaded for each test."""
-    import huez.core as core
     import matplotlib.pyplot as plt
 
-    # Save original state
-    original_config = core._current_config
-    original_scheme = core._current_scheme
+    import huez.core as core
 
     # Ensure config is loaded
     if _test_config is not None:

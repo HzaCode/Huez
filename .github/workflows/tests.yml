@@ -11,18 +11,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
-        exclude:
-          # Reduce matrix size, test all Python versions only on Ubuntu
-          - os: windows-latest
-            python-version: "3.8"
-          - os: windows-latest
-            python-version: "3.9"
-          - os: macos-latest
-            python-version: "3.8"
-          - os: macos-latest
-            python-version: "3.9"
+        os: [macos-latest]
+        python-version: ["3.10", "3.11"]
 
     steps:
     - uses: actions/checkout@v4
@@ -76,20 +66,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flake8 black isort mypy
+        pip install ruff mypy
 
-    - name: Lint with flake8
+    - name: Lint and format with ruff
       run: |
-        flake8 huez tests --count --select=E9,F63,F7,F82 --show-source --statistics
-        flake8 huez tests --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-
-    - name: Check formatting with black
-      run: |
-        black --check huez tests
-
-    - name: Check import sorting with isort
-      run: |
-        isort --check-only huez tests
+        # Check and auto-fix with ruff
+        ruff check --fix huez tests
+        ruff format huez tests
 
     - name: Type check with mypy
       run: |

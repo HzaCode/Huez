@@ -54,3 +54,4 @@ All palettes available via ``hz.use("palette_name")``.
 
 
 
+
