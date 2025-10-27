@@ -63,7 +63,7 @@ def export_to_yaml(scheme: Scheme, output_dir: str) -> None:
     except ImportError:
         raise ImportError(
             "PyYAML is required for YAML export. Install with: pip install PyYAML"
-        )
+        ) from None
 
     data = _scheme_to_dict(scheme)
     output_path = os.path.join(

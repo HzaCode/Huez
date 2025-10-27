@@ -325,7 +325,7 @@ def gg_scales() -> Any:
     except ImportError:
         raise ImportError(
             "plotnine is not installed. Install with: pip install plotnine"
-        )
+        ) from None
 
 
 def export_styles(

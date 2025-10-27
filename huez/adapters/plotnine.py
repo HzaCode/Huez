@@ -198,7 +198,7 @@ def get_plotnine_scales(scale_type: str = "auto") -> Any:
             scales if scales else [p9.scale_color_discrete(), p9.scale_fill_discrete()]
         )
     except ImportError:
-        raise ImportError("plotnine is not installed")
+        raise ImportError("plotnine is not installed") from None
 
 
 # Global variables to store current colors and scheme

@@ -135,9 +135,9 @@ def _fetch_from_r_ggsci(name: str, n: Optional[int] = None) -> List[str]:
         return colors
 
     except ImportError:
-        raise Exception("rpy2 not installed. Install with: pip install rpy2")
+        raise Exception("rpy2 not installed. Install with: pip install rpy2") from None
     except Exception as e:
-        raise Exception(f"Failed to fetch from R ggsci: {e}")
+        raise Exception(f"Failed to fetch from R ggsci: {e}") from e
 
 
 def _get_journal_fallback(name: str) -> Optional[str]:
