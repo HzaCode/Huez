@@ -28,7 +28,7 @@
   </a>
   <img src="https://img.shields.io/badge/python-3.7+-blue.svg" alt="Python Version"/>
   <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License"/>
-  <img src="https://img.shields.io/badge/status-pre--alpha-red.svg" alt="Status"/>
+  <img src="https://img.shields.io/badge/status-active-brightgreen.svg" alt="Status"/>
   <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json" alt="Ruff"/>
 </p>
 
